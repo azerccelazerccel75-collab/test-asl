@@ -4,248 +4,145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aslan Lessons - Tədris Mərkəzi İdarəetmə Sistemi</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
-                    colors: {
-                        brand: { DEFAULT: '#FF7A00', hover: '#E06B00', light: '#FFF5EC', border: '#FFD1A8' }
-                    }
-                }
-            }
-        }
-    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; color: #1F2937; }
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #F1F1F1; }
         ::-webkit-scrollbar-thumb { background: #D1D5DB; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #FF7A00; }
         .animate-fade-in { animation: fadeIn 0.25s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-        .custom-checkbox { accent-color: #FF7A00; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between text-slate-800 bg-slate-50 selection:bg-orange-500 selection:text-white">
+<body class="min-h-screen flex flex-col text-slate-800 bg-slate-50">
 
     <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
-    <div id="tooltip-popover" class="hidden absolute z-50 max-w-xs p-2.5 bg-slate-900 text-white text-xs rounded-lg shadow-xl pointer-events-none transition-opacity duration-200"></div>
+    <div id="app" class="flex-grow flex flex-col w-full"></div>
 
-    <div id="app" class="flex-grow flex flex-col"></div>
-
-    <!-- Modal History -->
+    <!-- Общие модальные окна (Скрыты по умолчанию) -->
+    
+    <!-- История студента -->
     <div id="modal-student-history" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-100 animate-fade-in max-h-[90vh] overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl animate-fade-in max-h-[90vh] overflow-y-auto">
             <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
-                <div>
-                    <h3 id="hist-student-name" class="font-bold text-slate-900 text-lg"></h3>
-                    <p id="hist-student-sub" class="text-xs text-slate-500"></p>
-                </div>
+                <div><h3 id="hist-student-name" class="font-bold text-lg"></h3><p id="hist-student-sub" class="text-xs text-slate-500"></p></div>
                 <button class="btn-close-modal text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
-            
             <div class="space-y-4">
                 <div>
-                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Dərs İştirakı Tarixçəsi</h4>
-                    <div id="hist-attendance-list" class="max-h-40 overflow-y-auto space-y-1.5 p-2 bg-slate-50 rounded-2xl border border-slate-100 text-xs"></div>
+                    <h4 class="text-xs font-bold text-slate-700 uppercase mb-2">Dərs İştirakı</h4>
+                    <div id="hist-attendance-list" class="max-h-40 overflow-y-auto space-y-1 p-2 bg-slate-50 rounded-xl text-xs border"></div>
                 </div>
                 <div>
-                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Keçmiş Ödəniş Siklləri</h4>
-                    <div id="hist-cycles-list" class="max-h-40 overflow-y-auto space-y-1.5 p-2 bg-slate-50 rounded-2xl border border-slate-100 text-xs"></div>
+                    <h4 class="text-xs font-bold text-slate-700 uppercase mb-2">Ödəniş Tarixçəsi</h4>
+                    <div id="hist-cycles-list" class="max-h-40 overflow-y-auto space-y-1 p-2 bg-slate-50 rounded-xl text-xs border"></div>
                 </div>
             </div>
             <div class="mt-6 flex justify-end">
-                <button class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold">Bağla</button>
+                <button class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-xs font-semibold">Bağla</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal Edit Student -->
+    <!-- Редактирование студента -->
     <div id="modal-edit-student" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-fade-in">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl animate-fade-in">
             <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
-                <h3 class="font-bold text-slate-900 text-base flex items-center gap-2"><i class="fa-solid fa-pen-to-square text-orange-500"></i> Şagird Redaktəsi</h3>
-                <button class="btn-close-modal text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+                <h3 class="font-bold text-base"><i class="fa-solid fa-pen-to-square text-orange-500 mr-2"></i>Şagird Redaktəsi</h3>
+                <button class="btn-close-modal text-slate-400"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <form id="form-edit-student" class="space-y-3 text-xs">
                 <input type="hidden" id="edit-st-id">
-                <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Ad və Soyad</label>
-                    <input type="text" id="edit-st-name" required class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500">
+                <div><label class="block font-semibold mb-1">Ad və Soyad</label><input type="text" id="edit-st-name" required class="w-full p-2 border rounded-xl"></div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div><label class="block font-semibold mb-1">Tədris Tipi</label><select id="edit-st-type" class="w-full p-2 border rounded-xl"><option value="individual">Fərdi</option><option value="group">Qrup</option><option value="unassigned">Bölüşdürülməyib</option></select></div>
+                    <div><label class="block font-semibold mb-1">Paket Norması</label><select id="edit-st-pkg" class="w-full p-2 border rounded-xl"><option value="8">8 dərs</option><option value="12">12 dərs</option></select></div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Tədris Tipi</label>
-                        <select id="edit-st-type" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500">
-                            <option value="individual">Fərdi</option>
-                            <option value="group">Qrup</option>
-                            <option value="unassigned">Bölüşdürülməyib</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Paket Norması</label>
-                        <select id="edit-st-pkg" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500">
-                            <option value="8">8 dərs</option>
-                            <option value="12">12 dərs</option>
-                        </select>
-                    </div>
+                    <div><label class="block font-semibold mb-1">Müəllim</label><select id="edit-st-teacher" class="w-full p-2 border rounded-xl"></select></div>
+                    <div><label class="block font-semibold mb-1">Qrup ID</label><select id="edit-st-group" class="w-full p-2 border rounded-xl"></select></div>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Müəllim</label>
-                        <select id="edit-st-teacher" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500"></select>
-                    </div>
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Qrup ID</label>
-                        <select id="edit-st-group" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500"></select>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-2">
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Qiymət (AZN)</label>
-                        <input type="number" id="edit-st-price" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="100">
-                    </div>
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Ödəniş Statusu</label>
-                        <select id="edit-st-status" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500">
-                            <option value="paid">Ödənilib</option>
-                            <option value="debt">Borc var</option>
-                        </select>
-                    </div>
+                    <div><label class="block font-semibold mb-1">Qiymət (AZN)</label><input type="number" id="edit-st-price" class="w-full p-2 border rounded-xl"></div>
+                    <div><label class="block font-semibold mb-1">Status</label><select id="edit-st-status" class="w-full p-2 border rounded-xl"><option value="paid">Ödənilib</option><option value="debt">Borc var</option></select></div>
                 </div>
                 <div class="pt-3 flex justify-end gap-2">
-                    <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold">Ləğv et</button>
-                    <button type="submit" class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-semibold shadow-md shadow-orange-500/20">Yadda Saxla</button>
+                    <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 rounded-xl font-semibold">Ləğv et</button>
+                    <button type="submit" class="px-4 py-2 bg-orange-500 text-white rounded-xl font-semibold">Yadda Saxla</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal Add Group -->
-    <div id="modal-add-group" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-fade-in">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
-                <h3 class="font-bold text-slate-900 text-base flex items-center gap-2"><i class="fa-solid fa-layer-group text-orange-500"></i> Yeni Qrup</h3>
-                <button class="btn-close-modal text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <form id="form-add-group" class="space-y-3 text-xs">
-                <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Qrup Adı</label>
-                    <input type="text" id="add-grp-name" required class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="Məs: Kimya Qrup A">
-                </div>
-                <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Müəllim</label>
-                    <select id="add-grp-teacher" required class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500"></select>
-                </div>
-                <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Paket Norması</label>
-                    <select id="add-grp-pkg" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500">
-                        <option value="8">8 dərs</option>
-                        <option value="12">12 dərs</option>
-                    </select>
-                </div>
-                <div class="pt-3 flex justify-end gap-2">
-                    <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold">Ləğv et</button>
-                    <button type="submit" class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-semibold shadow-md shadow-orange-500/20">Yarat</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal Add User -->
+    <!-- Модальное окно: Добавить Пользователя / Студента -->
     <div id="modal-add-user" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-fade-in">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl animate-fade-in">
             <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
-                <h3 class="font-bold text-slate-900 text-base flex items-center gap-2"><i class="fa-solid fa-user-plus text-orange-500"></i> Yeni İstifadəçi Əlavə Et</h3>
-                <button class="btn-close-modal text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+                <h3 class="font-bold text-base"><i class="fa-solid fa-user-plus text-orange-500 mr-2"></i>Yeni Əlavə Et</h3>
+                <button class="btn-close-modal text-slate-400"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <form id="form-add-user" class="space-y-3 text-xs">
-                <div>
-                    <label class="block font-semibold text-slate-700 mb-1">İstifadəçi Tipi</label>
-                    <select id="add-u-role" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500">
-                        <option value="student">Tələbə (Şagird)</option>
-                        <option value="teacher">Müəllim</option>
-                    </select>
+                <div><label class="block font-semibold mb-1">Rol</label>
+                    <select id="add-role" class="w-full p-2 border rounded-xl"><option value="student">Tələbə</option><option value="teacher">Müəllim</option></select>
                 </div>
-                <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Ad və Soyad</label>
-                    <input type="text" id="add-u-name" required class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="Ad Soyad">
-                </div>
-
-                <!-- Teacher Fields -->
-                <div id="wrapper-teacher-fields" class="hidden space-y-3">
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">İstifadəçi adı (Login)</label>
-                        <input type="text" id="add-t-login" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="login">
-                    </div>
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Şifrə</label>
-                        <input type="password" id="add-t-pass" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="••••••••">
-                    </div>
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Fənn</label>
-                        <input type="text" id="add-t-subject" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="Kimya">
-                    </div>
+                <div><label class="block font-semibold mb-1">Ad və Soyad</label><input type="text" id="add-name" required class="w-full p-2 border rounded-xl"></div>
+                
+                <!-- Поля для учителя -->
+                <div id="fields-teacher" class="hidden space-y-3">
+                    <div><label class="block font-semibold mb-1">Login</label><input type="text" id="add-login" class="w-full p-2 border rounded-xl"></div>
+                    <div><label class="block font-semibold mb-1">Şifrə</label><input type="text" id="add-pass" class="w-full p-2 border rounded-xl"></div>
+                    <div><label class="block font-semibold mb-1">Fənn</label><input type="text" id="add-subject" class="w-full p-2 border rounded-xl"></div>
                 </div>
 
-                <!-- Student Fields -->
-                <div id="wrapper-student-fields" class="space-y-3">
+                <!-- Поля для студента -->
+                <div id="fields-student" class="space-y-3">
                     <div class="grid grid-cols-2 gap-2">
-                        <div>
-                            <label class="block font-semibold text-slate-700 mb-1">Tədris Tipi</label>
-                            <select id="add-s-type" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500">
-                                <option value="individual">Fərdi</option>
-                                <option value="group">Qrup</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block font-semibold text-slate-700 mb-1">Paket</label>
-                            <select id="add-s-pkg" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500">
-                                <option value="8">8 dərs</option>
-                                <option value="12">12 dərs</option>
-                            </select>
-                        </div>
+                        <div><label class="block font-semibold mb-1">Tədris Tipi</label><select id="add-st-type" class="w-full p-2 border rounded-xl"><option value="individual">Fərdi</option><option value="unassigned">Bölüşdürülməyib</option></select></div>
+                        <div><label class="block font-semibold mb-1">Müəllim</label><select id="add-st-teacher" class="w-full p-2 border rounded-xl"></select></div>
                     </div>
-                    <div id="wrapper-student-teacher">
-                        <label class="block font-semibold text-slate-700 mb-1">Müəllim</label>
-                        <select id="add-s-teacher" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500"></select>
-                    </div>
-                    <div id="wrapper-student-group" class="hidden">
-                        <label class="block font-semibold text-slate-700 mb-1">Qrup</label>
-                        <select id="add-s-group" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500"></select>
-                    </div>
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Paket Qiyməti (AZN)</label>
-                        <input type="number" id="add-s-price" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="100">
+                    <div class="grid grid-cols-2 gap-2">
+                        <div><label class="block font-semibold mb-1">Paket</label><select id="add-st-pkg" class="w-full p-2 border rounded-xl"><option value="8">8 dərs</option><option value="12">12 dərs</option></select></div>
+                        <div><label class="block font-semibold mb-1">Qiymət (AZN)</label><input type="number" id="add-st-price" class="w-full p-2 border rounded-xl" value="0"></div>
                     </div>
                 </div>
-
+                
                 <div class="pt-3 flex justify-end gap-2">
-                    <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold">Ləğv et</button>
-                    <button type="submit" class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-semibold shadow-md shadow-orange-500/20">Əlavə et</button>
+                    <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 rounded-xl font-semibold">Ləğv et</button>
+                    <button type="submit" class="px-4 py-2 bg-orange-500 text-white rounded-xl font-semibold">Əlavə Et</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Добавить Группу -->
+    <div id="modal-add-group" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl animate-fade-in">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                <h3 class="font-bold text-base"><i class="fa-solid fa-users text-orange-500 mr-2"></i>Yeni Qrup Əlavə Et</h3>
+                <button class="btn-close-modal text-slate-400"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="form-add-group" class="space-y-3 text-xs">
+                <div><label class="block font-semibold mb-1">Qrup Adı</label><input type="text" id="add-grp-name" required class="w-full p-2 border rounded-xl" placeholder="Məs: İngilis dili B1"></div>
+                <div><label class="block font-semibold mb-1">Müəllim</label><select id="add-grp-teacher" required class="w-full p-2 border rounded-xl"></select></div>
+                <div><label class="block font-semibold mb-1">Paket Norması</label><select id="add-grp-pkg" class="w-full p-2 border rounded-xl"><option value="8">8 dərs</option><option value="12">12 dərs</option></select></div>
+                <div class="pt-3 flex justify-end gap-2">
+                    <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 rounded-xl font-semibold">Ləğv et</button>
+                    <button type="submit" class="px-4 py-2 bg-orange-500 text-white rounded-xl font-semibold">Yarat</button>
                 </div>
             </form>
         </div>
     </div>
 
     <script>
-       const API_URL = "https://script.google.com/macros/s/AKfycbyEKOLj5BtJUdCm5OxI-kSm7tfKvbXIxgPoZT6PvG7J9bBsNY8MXADGxBcen89NVqqO/exec";
-        const EMPTY_DB = { users: [], groups: [], students: [], logs: [] };
-
-        function getDB() {
-            const data = localStorage.getItem('aslan_db');
-            return data ? JSON.parse(data) : EMPTY_DB;
-        }
-
-        function saveDB(db) {
-            localStorage.setItem('aslan_db', JSON.stringify(db));
-        }
+        const API_URL = "https://script.google.com/macros/s/AKfycbyXviqLb-jqJTJKv0ncfEIl3OPpv7TU5U0XS4Blt8jPq9wV4IG9WzTlw4-mSyUKaaZ7/exec";
+        
+        // ВНИМАНИЕ: LocalStorage удален. Храним данные в памяти для текущей сессии.
+        let globalAppState = { users: [], groups: [], students: [], logs: [] };
+        let currentUser = null;
+        let currentAdminTab = 'payments';
+        let currentTeacherTab = 'individual';
 
         async function postToAppsScript(payload) {
             try {
@@ -257,7 +154,6 @@
                 });
                 return await response.json();
             } catch (err) {
-                console.error("Apps Script POST Error:", err);
                 return { status: "error", message: err.toString() };
             }
         }
@@ -267,353 +163,21 @@
                 const response = await fetch(API_URL);
                 const data = await response.json();
                 if (data.status === 'success') {
-                    const db = {
-                        users: data.users || [],
-                        groups: data.groups || [],
-                        students: data.students || [],
-                        logs: data.logs || []
-                    };
-                    saveDB(db);
-                    return db;
+                    globalAppState = data.data; // Применяем напрямую из таблицы
+                    return true;
                 }
-            } catch (err) {
-                console.warn('API xətası, daxili keş istifadə olunur:', err);
-            }
-            return getDB();
+            } catch (err) { console.error('API Fetch Error:', err); }
+            return false;
         }
-
-        window.api = {
-            login: async (username, password) => {
-                const res = await postToAppsScript({
-                    action: "LOGIN",
-                    username: username,
-                    password: password
-                });
-
-                if (res && res.status === 'success') {
-                    await fetchRemoteData();
-                    return { success: true, user: res.user };
-                } else {
-                    return { success: false, message: res.message || 'İstifadəçi adı və ya şifrə yanlışdır.' };
-                }
-            },
-
-            markAttendance: async (params) => {
-                const db = getDB();
-                let logText = '';
-                let studentsToUpdate = [];
-                const nowStamp = new Date().toLocaleString('az-AZ');
-
-                if (params.type === 'individual') {
-                    const std = db.students.find(s => s.id === params.targetId);
-                    if (std) {
-                        const att = params.attendance[0];
-                        let completed = parseInt(std.lessons_completed || 0);
-                        let total = parseInt(std.package_type || 8);
-                        
-                        if (params.lessonIncrement && att.present) {
-                            std.lessons_completed = Math.min(total, completed + 1).toString();
-                        }
-
-                        let hist = [];
-                        try { hist = typeof std.history === 'string' ? JSON.parse(std.history) : (std.history || []); } catch(e){}
-                        const record = { date: nowStamp, status: att.present ? 'present' : 'absent' };
-                        if (!att.present && att.reason) record.reason = att.reason;
-                        hist.push(record);
-                        std.history = JSON.stringify(hist);
-                        
-                        if (!att.present) {
-                            logText = `${std.student_name} üçün dərs qeydi: Qayıb (NB). Səbəb: ${att.reason || 'Bilmədən'}`;
-                        } else {
-                            logText = `${std.student_name} üçün dərs iştirakı qeydə alındı (${std.lessons_completed}/${std.package_type}).`;
-                        }
-
-                        studentsToUpdate.push({ id: std.id, status: att.present ? 'present' : 'absent', reason: att.reason || '' });
-                    }
-                } else if (params.type === 'group') {
-                    const grp = db.groups.find(g => g.group_id === params.targetId);
-                    if (grp) {
-                        params.attendance.forEach(att => {
-                            const st = db.students.find(s => s.id === att.studentId);
-                            if (st) {
-                                if (params.lessonIncrement && att.present) {
-                                    let completed = parseInt(st.lessons_completed || 0);
-                                    let total = parseInt(st.package_type || 8);
-                                    st.lessons_completed = Math.min(total, completed + 1).toString();
-                                }
-                                let hist = [];
-                                try { hist = typeof st.history === 'string' ? JSON.parse(st.history) : (st.history || []); } catch(e){}
-                                const record = { date: nowStamp, status: att.present ? 'present' : 'absent' };
-                                if (!att.present && att.reason) record.reason = att.reason;
-                                hist.push(record);
-                                st.history = JSON.stringify(hist);
-
-                                studentsToUpdate.push({ id: att.studentId, status: att.present ? 'present' : 'absent', reason: att.reason || '' });
-                            }
-                        });
-                        logText = `${grp.group_name} qrupu üçün dərs qeydə alındı.`;
-                    }
-                }
-
-                saveDB(db);
-                api.addLog(params.teacherLogin, 'ATTENDANCE', logText);
-
-                postToAppsScript({
-                    action: "MARK_LESSON",
-                    actor: params.teacherLogin,
-                    students: studentsToUpdate,
-                    details: logText
-                });
-
-                return { success: true, message: 'Davamiyyət uğurla qeydə alındı.' };
-            },
-
-            undoLesson: async (studentId) => {
-                const actor = currentUser ? currentUser.login : 'system';
-                const res = await postToAppsScript({
-                    action: "UNDO_LESSON",
-                    actor: actor,
-                    student_id: studentId
-                });
-                if (res.status === 'success') {
-                    await fetchRemoteData();
-                    return { success: true, message: 'Sonuncu dərs qeydi ləğv edildi.' };
-                }
-                return { success: false, message: res.message || 'Xəta baş verdi.' };
-            },
-
-            bulkRenewPackage: async (studentIds, price = 0, status = "paid") => {
-                const db = getDB();
-                const actor = currentUser ? currentUser.login : 'admin';
-                let renewedNames = [];
-
-                studentIds.forEach(id => {
-                    const std = db.students.find(s => s.id === id);
-                    if (std) {
-                        std.lessons_completed = "0";
-                        std.package_price = price;
-                        std.payment_status = status;
-                        renewedNames.push(std.student_name);
-                    }
-                });
-
-                saveDB(db);
-                const logDetails = `Yeni paket aktivləşdirildi (${studentIds.length} tələbə). Tələbələr: ${renewedNames.join(', ')}`;
-                api.addLog(actor, 'PAYMENT', logDetails);
-
-                postToAppsScript({
-                    action: "UPDATE_PACKAGE",
-                    actor: actor,
-                    student_ids: studentIds,
-                    price: price,
-                    payment_status: status,
-                    details: logDetails
-                });
-
-                return { success: true, message: 'Seçilmiş tələbələr üçün yeni paket başladı!' };
-            },
-
-            addGroup: async (groupData) => {
-                const db = getDB();
-                const newGrp = {
-                    group_id: 'grp_' + Date.now(),
-                    group_name: groupData.name,
-                    teacher_login: groupData.teacherLogin,
-                    package_type: groupData.totalPackage.toString()
-                };
-                db.groups.push(newGrp);
-
-                if (groupData.studentIds && groupData.studentIds.length > 0) {
-                    groupData.studentIds.forEach(stId => {
-                        const st = db.students.find(s => s.id === stId);
-                        if (st) {
-                            st.type = 'group';
-                            st.group_id = newGrp.group_id;
-                            st.teacher_login = '';
-                            st.lessons_completed = "0";
-                        }
-                    });
-                }
-
-                saveDB(db);
-                const actor = currentUser ? currentUser.login : 'admin';
-                api.addLog(actor, 'GROUP', `Yeni qrup yaradıldı: ${newGrp.group_name}`);
-
-                postToAppsScript({
-                    action: "CREATE_GROUP",
-                    actor: actor,
-                    group_id: newGrp.group_id,
-                    group_name: newGrp.group_name,
-                    teacher_login: newGrp.teacher_login,
-                    package_type: newGrp.package_type,
-                    student_ids: groupData.studentIds || []
-                });
-
-                return { success: true, group: newGrp };
-            },
-
-            deleteGroup: async (groupId) => {
-                const db = getDB();
-                const grpIndex = db.groups.findIndex(g => g.group_id === groupId);
-                if (grpIndex !== -1) {
-                    const name = db.groups[grpIndex].group_name;
-                    db.students.forEach(st => {
-                        if (st.group_id === groupId) {
-                            st.type = 'unassigned';
-                            st.group_id = '';
-                            st.teacher_login = '';
-                            st.package_type = '8';
-                            st.lessons_completed = '0';
-                        }
-                    });
-                    db.groups.splice(grpIndex, 1);
-                    saveDB(db);
-                    const actor = currentUser ? currentUser.login : 'admin';
-                    api.addLog(actor, 'GROUP', `Qrup silindi: ${name}`);
-
-                    postToAppsScript({ action: "DELETE_GROUP", actor: actor, group_id: groupId });
-                    return { success: true };
-                }
-            },
-
-            addUser: async (userData) => {
-                const db = getDB();
-                const actor = currentUser ? currentUser.login : 'admin';
-
-                if (userData.role === 'teacher') {
-                    const exists = db.users.some(u => u.login.toLowerCase() === userData.username.toLowerCase());
-                    if (exists) {
-                        return { success: false, message: `İstifadəçi adı '${userData.username}' artıq mövcuddur!` };
-                    }
-                }
-
-                if (userData.role === 'student') {
-                    const newStudent = {
-                        id: 'st_' + Date.now(),
-                        student_name: userData.name,
-                        type: userData.type || 'individual',
-                        group_id: userData.groupId || '',
-                        teacher_login: userData.teacherLogin || '',
-                        package_type: (userData.totalPackage || 8).toString(),
-                        lessons_completed: "0",
-                        added_date: new Date().toISOString().split('T')[0],
-                        history: "[]",
-                        package_price: userData.price || 0,
-                        payment_status: "paid"
-                    };
-                    db.students.push(newStudent);
-                    saveDB(db);
-                    api.addLog(actor, 'USER', `Yeni tələbə əlavə edildi: ${newStudent.student_name}`);
-
-                    postToAppsScript({ action: "ADD_STUDENT", actor: actor, student_data: newStudent });
-                    return { success: true, data: newStudent };
-                } else {
-                    const newUser = {
-                        login: userData.username,
-                        name: userData.name,
-                        role: 'teacher',
-                        subject: userData.subject || 'Ümumi'
-                    };
-                    db.users.push(newUser);
-                    saveDB(db);
-                    api.addLog(actor, 'USER', `Yeni müəllim əlavə edildi: ${newUser.name}`);
-
-                    const res = await postToAppsScript({
-                        action: "ADD_TEACHER",
-                        actor: actor,
-                        teacher_data: { login: userData.username, password: userData.password || 'pass123', name: userData.name, subject: userData.subject }
-                    });
-
-                    if (res && res.status === 'error') return { success: false, message: res.message };
-                    return { success: true, data: newUser };
-                }
-            },
-
-            editStudent: async (studentData) => {
-                const db = getDB();
-                const idx = db.students.findIndex(s => s.id === studentData.id);
-                if (idx !== -1) {
-                    db.students[idx] = { ...db.students[idx], ...studentData };
-                    saveDB(db);
-                    const actor = currentUser ? currentUser.login : 'admin';
-                    api.addLog(actor, 'USER', `Şagird məlumatları redaktə edildi: ${studentData.student_name}`);
-
-                    postToAppsScript({
-                        action: "EDIT_STUDENT",
-                        actor: actor,
-                        student_data: studentData
-                    });
-                    return { success: true };
-                }
-                return { success: false, message: 'Şagird tapılmadı' };
-            },
-
-            deleteUser: async (idOrLogin, role) => {
-                const db = getDB();
-                const actor = currentUser ? currentUser.login : 'admin';
-
-                if (role === 'student') {
-                    const idx = db.students.findIndex(s => s.id === idOrLogin);
-                    if (idx !== -1) {
-                        const name = db.students[idx].student_name;
-                        db.students.splice(idx, 1);
-                        saveDB(db);
-                        api.addLog(actor, 'USER', `Tələbə silindi: ${name}`);
-                        postToAppsScript({ action: "DELETE_STUDENT", actor: actor, id: idOrLogin });
-                    }
-                } else {
-                    const idx = db.users.findIndex(u => u.login === idOrLogin);
-                    if (idx !== -1) {
-                        const name = db.users[idx].name;
-                        db.users.splice(idx, 1);
-                        saveDB(db);
-                        api.addLog(actor, 'USER', `Müəllim silindi: ${name}`);
-                        postToAppsScript({ action: "DELETE_TEACHER", actor: actor, login: idOrLogin });
-                    }
-                }
-                return { success: true };
-            },
-
-            addLog: (actor, action_type, details) => {
-                const db = getDB();
-                const now = new Date();
-                const dateStr = now.toLocaleDateString('az-AZ') + ' ' + now.toLocaleTimeString('az-AZ');
-                db.logs.unshift({ timestamp: dateStr, actor, action_type, details });
-                saveDB(db);
-            }
-        };
-
-        let currentUser = null;
-        let currentAdminTab = 'payments';
-        let currentTeacherTab = 'individual';
 
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
-            if (!container) return;
             const toast = document.createElement('div');
-            toast.className = `pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-xl shadow-lg border border-slate-100 text-sm font-medium transition-all duration-300 transform translate-x-full bg-white text-slate-800 border-l-4 ${type === 'success' ? 'border-l-orange-500' : type === 'error' ? 'border-l-red-500' : 'border-l-blue-500'}`;
-            const iconClass = type === 'success' ? 'fa-circle-check text-orange-500' : type === 'error' ? 'fa-circle-xmark text-red-500' : 'fa-circle-info text-blue-500';
-            toast.innerHTML = `<i class="fa-solid ${iconClass} text-base"></i><span>${message}</span>`;
+            const color = type === 'success' ? 'border-l-orange-500 text-slate-800' : 'border-l-red-500 text-red-700';
+            toast.className = `flex items-center gap-3 px-4 py-3 rounded-xl shadow-lg border bg-white border-l-4 ${color} animate-fade-in`;
+            toast.innerHTML = `<span class="text-sm font-medium">${message}</span>`;
             container.appendChild(toast);
-            requestAnimationFrame(() => toast.classList.remove('translate-x-full'));
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-x-full');
-                setTimeout(() => toast.remove(), 300);
-            }, 2500);
-        }
-
-        function setupTooltips() {
-            const tooltip = document.getElementById('tooltip-popover');
-            document.querySelectorAll('[data-tooltip]').forEach(el => {
-                el.addEventListener('mouseenter', (e) => {
-                    tooltip.innerHTML = el.getAttribute('data-tooltip');
-                    tooltip.classList.remove('hidden');
-                    const rect = el.getBoundingClientRect();
-                    tooltip.style.top = `${rect.bottom + window.scrollY + 6}px`;
-                    tooltip.style.left = `${Math.max(10, rect.left + window.scrollX - 40)}px`;
-                });
-                el.addEventListener('mouseleave', () => tooltip.classList.add('hidden'));
-            });
+            setTimeout(() => { toast.remove(); }, 2500);
         }
 
         function render() {
@@ -629,49 +193,17 @@
                 bindAdminEvents();
             }
             bindGlobalEvents();
-            setupTooltips();
-        }
-
-        function getBrandLogo(size = 'w-10 h-10') {
-            return `
-            <div class="${size} bg-orange-500 text-white rounded-2xl flex items-center justify-center shadow-md shadow-orange-500/20">
-                <svg class="w-3/5 h-3/5 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2zm0 8.74L4.25 7 12 3.5 19.75 7 12 10.74zM4.5 10.5v6.27L12 21l7.5-4.23V10.5L12 14.75 4.5 10.5z"/>
-                </svg>
-            </div>`;
         }
 
         function renderLoginScreen() {
             return `
-            <div class="min-h-screen flex items-center justify-center p-4 bg-slate-50">
-                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-slate-200/60 w-full max-w-md border border-slate-100 animate-fade-in">
-                    <div class="flex flex-col items-center mb-8 text-center">
-                        ${getBrandLogo('w-16 h-16 mb-3')}
-                        <h1 class="text-2xl font-bold text-slate-900 tracking-tight">Aslan Lessons</h1>
-                        <p class="text-xs text-slate-500 mt-1 font-medium">Tədris Mərkəzi İdarəetmə Sistemi</p>
-                    </div>
-                    <form id="login-form" class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">İstifadəçi adı</label>
-                            <div class="relative">
-                                <i class="fa-solid fa-user absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
-                                <input type="text" id="login-username" required class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-orange-500 focus:bg-white transition" placeholder="İstifadəçi adı">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Şifrə</label>
-                            <div class="relative">
-                                <i class="fa-solid fa-lock absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
-                                <input type="password" id="login-password" required class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-orange-500 focus:bg-white transition" placeholder="••••••••">
-                            </div>
-                        </div>
-                        <button type="submit" id="btn-login-submit" class="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-sm font-semibold shadow-md shadow-orange-500/25 transition duration-200 flex items-center justify-center gap-2 mt-2">
-                            <span>Daxil ol</span>
-                            <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </button>
-                    </form>
-                    <p class="text-center text-[11px] text-slate-400 mt-8">&copy; 2026 Aslan Lessons. Bütün hüquqlar qorunur.</p>
-                </div>
+            <div class="min-h-screen flex items-center justify-center">
+                <form id="login-form" class="bg-white p-8 rounded-3xl shadow-xl w-full max-w-md border space-y-4">
+                    <h1 class="text-2xl font-bold text-center text-orange-500">Aslan Lessons</h1>
+                    <div><label class="block text-xs font-semibold mb-1">Login</label><input type="text" id="login-username" class="w-full p-2.5 bg-slate-50 border rounded-xl text-sm" required></div>
+                    <div><label class="block text-xs font-semibold mb-1">Şifrə</label><input type="password" id="login-password" class="w-full p-2.5 bg-slate-50 border rounded-xl text-sm" required></div>
+                    <button type="submit" id="btn-login-submit" class="w-full py-3 bg-orange-500 text-white rounded-xl text-sm font-bold">Daxil ol</button>
+                </form>
             </div>`;
         }
 
@@ -679,859 +211,327 @@
             document.getElementById('login-form').addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const btn = document.getElementById('btn-login-submit');
-                btn.disabled = true;
-                btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Yoxlanılır...`;
+                btn.innerText = "Yoxlanılır...";
                 
-                const un = document.getElementById('login-username').value.trim();
-                const pw = document.getElementById('login-password').value.trim();
-                const res = await api.login(un, pw);
+                const res = await postToAppsScript({ action: "LOGIN", username: document.getElementById('login-username').value.trim(), password: document.getElementById('login-password').value.trim() });
                 
-                if (res.success) {
+                if (res.status === 'success') {
                     currentUser = res.user;
-                    showToast(`Xoş gəldiniz, ${currentUser.name}!`);
+                    await fetchRemoteData();
                     render();
                 } else {
                     showToast(res.message, 'error');
-                    btn.disabled = false;
-                    btn.innerHTML = `<span>Daxil ol</span><i class="fa-solid fa-arrow-right text-xs"></i>`;
+                    btn.innerText = "Daxil ol";
                 }
             });
         }
 
+        // Рендер टीचर-панели
         function renderTeacherPanel() {
-            const db = getDB();
-            const teacherStudents = db.students.filter(s => s.type === 'individual' && s.teacher_login === currentUser.login);
-            const teacherGroups = db.groups.filter(g => g.teacher_login === currentUser.login);
+            const teacherStudents = globalAppState.students.filter(s => s.type === 'individual' && s.teacher_login === currentUser.login);
+            const teacherGroups = globalAppState.groups.filter(g => g.teacher_login === currentUser.login);
 
             return `
-            <div class="min-h-screen flex flex-col bg-slate-50">
-                <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            ${getBrandLogo('w-9 h-9')}
-                            <div>
-                                <h2 class="text-base font-bold text-slate-900 leading-tight">Aslan Lessons</h2>
-                                <span class="text-xs text-slate-500 font-medium">Müəllim Paneli</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <button id="btn-sync" class="py-2 px-3 bg-orange-50 text-orange-600 hover:bg-orange-100 rounded-xl text-xs font-semibold transition flex items-center gap-1.5" title="Məlumatları yenilə">
-                                <i class="fa-solid fa-rotate"></i><span class="hidden sm:inline">Yenilə</span>
-                            </button>
-                            <div class="hidden sm:flex flex-col text-right">
-                                <span class="text-xs font-semibold text-slate-800">${currentUser.name}</span>
-                                <span class="text-[11px] text-orange-600 font-medium">${currentUser.subject || 'Müəllim'}</span>
-                            </div>
-                            <button id="btn-logout" class="py-2 px-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-medium transition flex items-center gap-1.5">
-                                <i class="fa-solid fa-right-from-bracket"></i><span>Çıxış</span>
-                            </button>
-                        </div>
-                    </div>
-                </header>
-
-                <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex-grow w-full">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="inline-flex p-1 bg-slate-200/70 rounded-2xl gap-1">
-                            <button id="tab-indiv" class="px-4 py-2 rounded-xl text-xs font-semibold transition ${currentTeacherTab === 'individual' ? 'bg-white text-orange-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'}">
-                                Fərdi Tələbələr (${teacherStudents.length})
-                            </button>
-                            <button id="tab-groups" class="px-4 py-2 rounded-xl text-xs font-semibold transition ${currentTeacherTab === 'groups' ? 'bg-white text-orange-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'}">
-                                Qruplar (${teacherGroups.length})
-                            </button>
-                        </div>
-                    </div>
-                    ${currentTeacherTab === 'individual' ? renderTeacherIndividualList(teacherStudents) : ''}
-                    ${currentTeacherTab === 'groups' ? renderTeacherGroupsList(teacherGroups, db) : ''}
-                </main>
-            </div>
-
-            <div id="nb-modal" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
-                <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-fade-in">
-                    <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-                        <div class="flex items-center gap-2 text-orange-600">
-                            <i class="fa-solid fa-triangle-exclamation text-lg"></i>
-                            <h3 class="font-bold text-slate-900 text-sm">Qayıb (NB) Səbəbi Qeydi</h3>
-                        </div>
-                        <button id="btn-close-nb" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
-                    </div>
-                    <p class="text-xs text-slate-600 mt-3 mb-4"><strong id="nb-student-name" class="text-slate-900"></strong> dərsdə iştirak etmir.</p>
-                    <div class="space-y-3">
-                        <select id="nb-reason-select" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:border-orange-500 focus:outline-none">
-                            <option value="Xəstə">Xəstəlik səbəbindən</option>
-                            <option value="Üzrlü səbəb">Üzrlü səbəb (Ailə və ya digər)</option>
-                            <option value="Gəlmədi">Səbəbsiz gəlmədi</option>
-                            <option value="Əvvəlcədən xəbərdar etdi">Əvvəlcədən xəbərdar etdi</option>
-                            <option value="custom">Digər səbəb qeyd et...</option>
-                        </select>
-                        <input type="text" id="nb-reason-custom" class="hidden w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:border-orange-500 focus:outline-none" placeholder="Səbəbi daxil edin...">
-                    </div>
-                    <div class="mt-6 flex gap-2 justify-end">
-                        <button id="btn-cancel-nb" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold">Ləğv et</button>
-                        <button id="btn-save-nb" class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-xs font-semibold shadow-md shadow-orange-500/20">Qayıb (NB) Təsdiqlə</button>
-                    </div>
+            <header class="bg-white border-b py-3 px-6 flex justify-between items-center sticky top-0 z-30">
+                <div class="font-bold text-lg text-slate-800">Aslan Lessons <span class="text-xs text-slate-500 font-normal">Müəllim</span></div>
+                <div class="flex gap-3">
+                    <button class="btn-sync text-orange-500 text-sm font-bold"><i class="fa-solid fa-rotate mr-1"></i>Yenilə</button>
+                    <button class="btn-logout text-slate-500 text-sm font-bold ml-4"><i class="fa-solid fa-right-from-bracket mr-1"></i>Çıxış</button>
                 </div>
-            </div>`;
-        }
-
-        function renderTeacherIndividualList(students) {
-            if (students.length === 0) {
-                return `
-                <div class="bg-white rounded-3xl p-12 text-center border border-slate-100 shadow-sm">
-                    <i class="fa-solid fa-user-slash text-4xl text-slate-300 mb-3"></i>
-                    <p class="text-sm font-semibold text-slate-600">Sizə təyin olunmuş fərdi tələbə tapılmadı.</p>
-                </div>`;
-            }
-
-            return `
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                ${students.map(s => {
-                    const completed = parseInt(s.lessons_completed || 0);
-                    const total = parseInt(s.package_type || 8);
-                    const isCompleted = completed >= total;
-
-                    return `
-                    <div class="bg-white rounded-3xl p-6 border ${isCompleted ? 'border-orange-400 ring-2 ring-orange-500/10' : 'border-slate-100'} shadow-sm flex flex-col justify-between relative transition hover:shadow-md">
-                        ${isCompleted ? `<div class="absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-xl shadow-sm">Paket Bitib</div>` : ''}
-                        <div>
-                            <div class="flex items-start justify-between mb-3">
-                                <div>
-                                    <h3 class="font-bold text-slate-900 text-base cursor-pointer hover:text-orange-600 transition flex items-center gap-1.5" data-action="view-student" data-id="${s.id}">
-                                        <span>${s.student_name}</span>
-                                        <i class="fa-solid fa-circle-info text-slate-300 text-xs"></i>
-                                    </h3>
-                                    <span class="text-xs text-slate-400 font-medium">Əlavə tarixi: ${s.added_date}</span>
-                                </div>
+            </header>
+            <main class="p-6 max-w-6xl mx-auto w-full">
+                <div class="mb-6 flex gap-2">
+                    <button id="tab-indiv" class="px-4 py-2 rounded-xl text-xs font-bold ${currentTeacherTab === 'individual' ? 'bg-orange-500 text-white' : 'bg-slate-200 text-slate-600'}">Fərdi (${teacherStudents.length})</button>
+                    <button id="tab-groups" class="px-4 py-2 rounded-xl text-xs font-bold ${currentTeacherTab === 'groups' ? 'bg-orange-500 text-white' : 'bg-slate-200 text-slate-600'}">Qruplar (${teacherGroups.length})</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    ${currentTeacherTab === 'individual' ? 
+                        teacherStudents.map(s => `
+                        <div class="bg-white p-5 rounded-2xl border shadow-sm">
+                            <h3 class="font-bold">${s.student_name}</h3>
+                            <div class="text-sm my-2">Keçilib: <b>${s.lessons_completed}/${s.package_type}</b></div>
+                            <div class="flex gap-2 mt-3">
+                                <button data-action="mark-att" data-id="${s.id}" data-status="absent" class="flex-1 bg-red-100 text-red-600 py-1.5 rounded-lg text-xs font-bold">NB</button>
+                                <button data-action="mark-att" data-id="${s.id}" data-status="present" class="flex-1 bg-orange-500 text-white py-1.5 rounded-lg text-xs font-bold">Qeyd Et</button>
                             </div>
-                            <div class="mt-4 mb-5">
-                                <div class="flex items-center justify-between text-xs font-medium mb-1.5">
-                                    <span class="text-slate-500">Paket gedişatı:</span>
-                                    <span class="font-bold ${isCompleted ? 'text-orange-600' : 'text-slate-800'}">${completed} / ${total} dərs</span>
+                        </div>`).join('') :
+                        teacherGroups.map(g => {
+                            const groupSts = globalAppState.students.filter(s => s.group_id === g.group_id);
+                            return `
+                            <div class="bg-white p-5 rounded-2xl border shadow-sm">
+                                <h3 class="font-bold text-orange-600 mb-3">${g.group_name}</h3>
+                                <div class="space-y-2 mb-4">
+                                    ${groupSts.map(st => `
+                                        <label class="flex justify-between items-center text-xs bg-slate-50 p-2 rounded border">
+                                            <span><input type="checkbox" checked class="grp-check-${g.group_id} mr-2" value="${st.id}"> ${st.student_name}</span>
+                                            <span class="text-slate-400">${st.lessons_completed}/${st.package_type}</span>
+                                        </label>
+                                    `).join('')}
                                 </div>
-                                <div class="grid grid-cols-8 gap-1.5">
-                                    ${Array.from({ length: total }).map((_, i) => `<div class="h-2.5 rounded-full ${i < completed ? 'bg-orange-500' : 'bg-slate-100'}"></div>`).join('')}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pt-4 border-t border-slate-100 space-y-2">
-                            <div class="flex items-center justify-between gap-2">
-                                <button data-action="mark-nb" data-id="${s.id}" data-name="${s.student_name}" class="flex-1 py-2 px-3 bg-red-50 hover:bg-red-100 text-red-600 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-1.5">
-                                    <i class="fa-solid fa-user-xmark"></i><span>NB</span>
-                                </button>
-                                <button data-action="mark-present" data-id="${s.id}" class="flex-1 py-2 px-3 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-xs font-semibold shadow-md shadow-orange-500/20 transition flex items-center justify-center gap-1.5 ${isCompleted ? 'opacity-50 cursor-not-allowed' : ''}" ${isCompleted ? 'disabled' : ''}>
-                                    <i class="fa-solid fa-check"></i><span>Dərsi Qeyd Et</span>
-                                </button>
-                            </div>
-                            <button data-action="undo-lesson" data-id="${s.id}" class="w-full py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl text-[11px] font-medium transition flex items-center justify-center gap-1">
-                                <i class="fa-solid fa-rotate-left"></i><span>Sonuncu dərsi ləğv et (Undo)</span>
-                            </button>
-                        </div>
-                    </div>`;
-                }).join('')}
-            </div>`;
-        }
-
-        function renderTeacherGroupsList(groups, db) {
-            if (groups.length === 0) {
-                return `
-                <div class="bg-white rounded-3xl p-12 text-center border border-slate-100 shadow-sm">
-                    <i class="fa-solid fa-users-slash text-4xl text-slate-300 mb-3"></i>
-                    <p class="text-sm font-semibold text-slate-600">Sizə təyin olunmuş qrup tapılmadı.</p>
-                </div>`;
-            }
-
-            return `
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                ${groups.map(g => {
-                    const groupStudents = db.students.filter(s => s.type === 'group' && s.group_id === g.group_id);
-                    const totalPkg = parseInt(g.package_type || 8);
-
-                    return `
-                    <div class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-start justify-between mb-4">
-                                <div>
-                                    <span class="text-[11px] font-bold text-orange-600 bg-orange-50 px-2.5 py-1 rounded-lg uppercase tracking-wider">Qrup</span>
-                                    <h3 class="font-bold text-slate-900 text-lg mt-1.5">${g.group_name}</h3>
-                                </div>
-                                <div class="text-right">
-                                    <span class="text-xs font-semibold text-slate-500">Paket norması:</span>
-                                    <div class="text-sm font-bold text-slate-800">${totalPkg} dərs</div>
-                                </div>
-                            </div>
-                            <div id="group-student-container-${g.group_id}" class="space-y-2 mb-6 max-h-48 overflow-y-auto pr-1">
-                                ${groupStudents.map(st => `
-                                    <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-                                        <div class="flex items-center gap-2.5">
-                                            <input type="checkbox" checked data-student-id="${st.id}" data-group-id="${g.group_id}" class="group-att-checkbox w-4 h-4 custom-checkbox rounded cursor-pointer">
-                                            <span class="text-xs font-semibold text-slate-800 cursor-pointer hover:text-orange-600" data-action="view-student" data-id="${st.id}">${st.student_name}</span>
-                                        </div>
-                                        <div class="flex items-center gap-2">
-                                            <span class="text-[10px] text-slate-400 font-mono">${st.lessons_completed || 0}/${st.package_type || 8}</span>
-                                            <span id="nb-reason-badge-${st.id}" class="text-[11px] font-medium text-orange-600 bg-orange-100 px-2 py-0.5 rounded-md hidden">İştirak edir</span>
-                                        </div>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                        <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-                            <span class="text-xs text-slate-400">Dərsi bitirdikdə:</span>
-                            <button data-action="submit-group-lesson" data-group-id="${g.group_id}" class="py-2.5 px-5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-xs font-bold shadow-md shadow-orange-500/20 transition flex items-center gap-2">
-                                <i class="fa-solid fa-calendar-check"></i><span>Qrup Dərsini Tamamla (+1)</span>
-                            </button>
-                        </div>
-                    </div>`;
-                }).join('')}
-            </div>`;
+                                <button data-action="mark-grp" data-id="${g.group_id}" class="w-full bg-orange-500 text-white py-2 rounded-lg text-xs font-bold">Dərsi Tamamla</button>
+                            </div>`
+                        }).join('')
+                    }
+                </div>
+            </main>`;
         }
 
         function bindTeacherEvents() {
-            document.getElementById('btn-logout')?.addEventListener('click', () => {
-                currentUser = null;
-                showToast('Sistemdən çıxış edildi');
-                render();
-            });
-
             document.getElementById('tab-indiv')?.addEventListener('click', () => { currentTeacherTab = 'individual'; render(); });
             document.getElementById('tab-groups')?.addEventListener('click', () => { currentTeacherTab = 'groups'; render(); });
 
-            let pendingNbStudent = null;
-
-            document.querySelectorAll('[data-action="mark-present"]').forEach(btn => {
+            document.querySelectorAll('[data-action="mark-att"]').forEach(btn => {
                 btn.addEventListener('click', async () => {
-                    const stId = btn.getAttribute('data-id');
-                    const res = await api.markAttendance({
-                        teacherLogin: currentUser.login,
-                        type: 'individual',
-                        targetId: stId,
-                        attendance: [{ studentId: stId, present: true }],
-                        lessonIncrement: true
+                    const status = btn.getAttribute('data-status');
+                    btn.innerText = "...";
+                    await postToAppsScript({
+                        action: "MARK_LESSON", actor: currentUser.login,
+                        students: [{ id: btn.getAttribute('data-id'), status: status, reason: status === 'absent' ? 'NB' : '' }]
                     });
-                    showToast(res.message);
-                    render();
+                    await fetchRemoteData(); render();
                 });
             });
 
-            document.querySelectorAll('[data-action="undo-lesson"]').forEach(btn => {
+            document.querySelectorAll('[data-action="mark-grp"]').forEach(btn => {
                 btn.addEventListener('click', async () => {
-                    const stId = btn.getAttribute('data-id');
-                    if (confirm('Sonuncu dərs qeydini ləğv etmək istədiyinizdən əminsiniz?')) {
-                        const res = await api.undoLesson(stId);
-                        showToast(res.message, res.success ? 'success' : 'error');
-                        render();
-                    }
-                });
-            });
-
-            document.querySelectorAll('[data-action="mark-nb"]').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    pendingNbStudent = { id: btn.getAttribute('data-id'), name: btn.getAttribute('data-name'), type: 'individual' };
-                    document.getElementById('nb-student-name').innerText = pendingNbStudent.name;
-                    document.getElementById('nb-modal').classList.remove('hidden');
-                });
-            });
-
-            const nbSelect = document.getElementById('nb-reason-select');
-            const nbCustom = document.getElementById('nb-reason-custom');
-            nbSelect?.addEventListener('change', () => {
-                nbCustom.classList.toggle('hidden', nbSelect.value !== 'custom');
-            });
-
-            document.getElementById('btn-close-nb')?.addEventListener('click', () => document.getElementById('nb-modal').classList.add('hidden'));
-            document.getElementById('btn-cancel-nb')?.addEventListener('click', () => document.getElementById('nb-modal').classList.add('hidden'));
-
-            document.getElementById('btn-save-nb')?.addEventListener('click', async () => {
-                let reason = nbSelect.value === 'custom' ? nbCustom.value.trim() : nbSelect.value;
-                if (!reason) { showToast('Qayıb səbəbini qeyd edin!', 'error'); return; }
-
-                if (pendingNbStudent.type === 'individual') {
-                    await api.markAttendance({
-                        teacherLogin: currentUser.login,
-                        type: 'individual',
-                        targetId: pendingNbStudent.id,
-                        attendance: [{ studentId: pendingNbStudent.id, present: false, reason }],
-                        lessonIncrement: false
-                    });
-                    showToast(`Qayıb qeydə alındı: ${pendingNbStudent.name}`);
-                } else if (pendingNbStudent.type === 'group_student') {
-                    const badge = document.getElementById(`nb-reason-badge-${pendingNbStudent.id}`);
-                    if (badge) {
-                        badge.innerText = `NB: ${reason}`;
-                        badge.setAttribute('data-nb-reason', reason);
-                        badge.classList.remove('hidden');
-                    }
-                }
-                document.getElementById('nb-modal').classList.add('hidden');
-                if (pendingNbStudent.type === 'individual') render();
-            });
-
-            document.querySelectorAll('.group-att-checkbox').forEach(chk => {
-                chk.addEventListener('change', () => {
-                    const stId = chk.getAttribute('data-student-id');
-                    const badge = document.getElementById(`nb-reason-badge-${stId}`);
-                    if (!chk.checked) {
-                        const db = getDB();
-                        const st = db.students.find(s => s.id === stId);
-                        pendingNbStudent = { id: stId, name: st ? st.student_name : 'Tələbə', type: 'group_student' };
-                        document.getElementById('nb-student-name').innerText = pendingNbStudent.name;
-                        document.getElementById('nb-modal').classList.remove('hidden');
-                    } else {
-                        if (badge) { badge.classList.add('hidden'); badge.removeAttribute('data-nb-reason'); }
-                    }
-                });
-            });
-
-            document.querySelectorAll('[data-action="submit-group-lesson"]').forEach(btn => {
-                btn.addEventListener('click', async () => {
-                    const groupId = btn.getAttribute('data-group-id');
-                    const checkboxes = document.querySelectorAll(`.group-att-checkbox[data-group-id="${groupId}"]`);
-                    let attendanceData = [];
-                    let hasMissingReason = false;
-
-                    checkboxes.forEach(chk => {
-                        const stId = chk.getAttribute('data-student-id');
-                        const isPresent = chk.checked;
-                        const badge = document.getElementById(`nb-reason-badge-${stId}`);
-                        const reason = badge ? badge.getAttribute('data-nb-reason') || '' : '';
-
-                        if (!isPresent && !reason) hasMissingReason = true;
-                        attendanceData.push({ studentId: stId, present: isPresent, reason: isPresent ? '' : reason });
-                    });
-
-                    if (hasMissingReason) {
-                        showToast('Qayıb tələbələr üçün səbəb göstərilməlidir!', 'error');
-                        return;
-                    }
-
-                    const res = await api.markAttendance({
-                        teacherLogin: currentUser.login,
-                        type: 'group',
-                        targetId: groupId,
-                        attendance: attendanceData,
-                        lessonIncrement: true
-                    });
-                    showToast(res.message);
-                    render();
+                    const gId = btn.getAttribute('data-id');
+                    const checkboxes = document.querySelectorAll(`.grp-check-${gId}`);
+                    const studentsData = Array.from(checkboxes).map(c => ({ id: c.value, status: c.checked ? 'present' : 'absent', reason: c.checked ? '' : 'NB' }));
+                    
+                    btn.innerText = "Yüklənir...";
+                    await postToAppsScript({ action: "MARK_LESSON", actor: currentUser.login, students: studentsData, details: `Группа ${gId} отметила урок` });
+                    await fetchRemoteData(); render();
                 });
             });
         }
 
+        // Рендер Админ-панели
         function renderAdminPanel() {
             return `
-            <div class="min-h-screen flex flex-col bg-slate-50">
-                <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            ${getBrandLogo('w-9 h-9')}
-                            <div>
-                                <h2 class="text-base font-bold text-slate-900 leading-tight">Aslan Lessons</h2>
-                                <span class="text-xs text-orange-600 font-semibold">Admin Panel</span>
-                            </div>
-                        </div>
+            <header class="bg-white border-b py-3 px-6 flex justify-between items-center sticky top-0 z-30">
+                <div class="font-bold text-lg text-slate-800">Aslan Lessons <span class="text-xs text-orange-600 font-bold">Admin</span></div>
+                <div class="hidden md:flex gap-2">
+                    ${['payments', 'groups', 'users', 'logs'].map(tab => 
+                        `<button id="tab-adm-${tab}" class="px-3 py-1.5 rounded-lg text-xs font-bold ${currentAdminTab === tab ? 'bg-orange-100 text-orange-600' : 'text-slate-600'}">${tab.toUpperCase()}</button>`
+                    ).join('')}
+                </div>
+                <div class="flex gap-3">
+                    <button class="btn-sync text-orange-500 text-sm font-bold"><i class="fa-solid fa-rotate mr-1"></i>Yenilə</button>
+                    <button class="btn-logout text-slate-500 text-sm font-bold ml-4"><i class="fa-solid fa-right-from-bracket mr-1"></i>Çıxış</button>
+                </div>
+            </header>
+            <main class="p-6 max-w-6xl mx-auto w-full">
+                ${currentAdminTab === 'payments' ? renderAdminPayments() : ''}
+                ${currentAdminTab === 'groups' ? renderAdminGroups() : ''}
+                ${currentAdminTab === 'users' ? renderAdminUsers() : ''}
+                ${currentAdminTab === 'logs' ? renderAdminLogs() : ''}
+            </main>`;
+        }
 
-                        <nav class="hidden md:flex items-center gap-1 bg-slate-100 p-1 rounded-2xl">
-                            <button id="admin-tab-payments" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition ${currentAdminTab === 'payments' ? 'bg-white text-orange-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'}">
-                                <i class="fa-solid fa-credit-card mr-1"></i> Ödənişlər & Kassa
-                            </button>
-                            <button id="admin-tab-groups" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition ${currentAdminTab === 'groups' ? 'bg-white text-orange-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'}">
-                                <i class="fa-solid fa-layer-group mr-1"></i> Qruplar
-                            </button>
-                            <button id="admin-tab-users" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition ${currentAdminTab === 'users' ? 'bg-white text-orange-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'}">
-                                <i class="fa-solid fa-users mr-1"></i> İstifadəçilər
-                            </button>
-                            <button id="admin-tab-logs" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition ${currentAdminTab === 'logs' ? 'bg-white text-orange-600 shadow-sm' : 'text-slate-600 hover:text-slate-900'}">
-                                <i class="fa-solid fa-clock-rotate-left mr-1"></i> Aktivlik Tarixçəsi
-                            </button>
-                        </nav>
-
-                        <div class="flex items-center gap-3">
-                            <button id="btn-sync" class="py-2 px-3 bg-orange-50 text-orange-600 hover:bg-orange-100 rounded-xl text-xs font-semibold transition flex items-center gap-1.5" title="Məlumatları yenilə">
-                                <i class="fa-solid fa-rotate"></i><span class="hidden sm:inline">Yenilə</span>
-                            </button>
-                            <span class="hidden sm:inline text-xs font-semibold text-slate-700">${currentUser.name}</span>
-                            <button id="btn-admin-logout" class="py-2 px-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-medium transition flex items-center gap-1.5">
-                                <i class="fa-solid fa-right-from-bracket"></i><span>Çıxış</span>
-                            </button>
-                        </div>
-                    </div>
-                </header>
-
-                <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex-grow w-full">
-                    ${renderAdminContent()}
-                </main>
+        function renderAdminPayments() {
+            const individualSts = globalAppState.students.filter(s => s.type === 'individual');
+            return `
+            <h2 class="text-xl font-bold mb-4">Fərdi Tələbələr - Paket Yeniləmə</h2>
+            <div class="bg-white rounded-2xl border overflow-hidden">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-50 border-b"><tr><th class="p-3">Ad</th><th class="p-3">Müəllim</th><th class="p-3">Status</th><th class="p-3 text-right">Aksiya</th></tr></thead>
+                    <tbody class="divide-y">
+                        ${individualSts.map(s => `
+                        <tr>
+                            <td class="p-3 font-bold cursor-pointer text-orange-600" data-action="view-st" data-id="${s.id}">${s.student_name}</td>
+                            <td class="p-3">${s.teacher_login}</td>
+                            <td class="p-3">${s.lessons_completed}/${s.package_type} (${s.package_price} AZN)</td>
+                            <td class="p-3 text-right"><button data-action="renew" data-id="${s.id}" class="bg-orange-50 text-orange-600 px-3 py-1 rounded font-bold">Yeni Paket</button></td>
+                        </tr>`).join('')}
+                    </tbody>
+                </table>
             </div>`;
         }
 
-        function renderAdminContent() {
-            const db = getDB();
-
-            if (currentAdminTab === 'payments') {
-                const individualStudents = db.students.filter(s => s.type === 'individual');
-                const totalRevenue = db.students.reduce((acc, s) => acc + (Number(s.package_price) || 0), 0);
-                const debtStudents = db.students.filter(s => s.payment_status === 'debt').length;
-
-                return `
-                <div class="space-y-8 animate-fade-in">
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm">
-                            <span class="text-xs text-slate-400 font-medium">Aylıq Təxmini Gəlir</span>
-                            <div class="text-2xl font-bold text-slate-900 mt-1">${totalRevenue} AZN</div>
-                        </div>
-                        <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm">
-                            <span class="text-xs text-slate-400 font-medium">Borcu Olan Tələbələr</span>
-                            <div class="text-2xl font-bold text-red-500 mt-1">${debtStudents} tələbə</div>
-                        </div>
-                        <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm">
-                            <span class="text-xs text-slate-400 font-medium">Aktiv Tələbə Sayı</span>
-                            <div class="text-2xl font-bold text-orange-500 mt-1">${db.students.length} şagird</div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="text-base font-bold text-slate-800 mb-4">Qruplar üzrə Paket Yenilənməsi</h3>
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                            ${db.groups.map(g => {
-                                const grpStudents = db.students.filter(s => s.type === 'group' && s.group_id === g.group_id);
-                                return `
-                                <div class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm">
-                                    <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
-                                        <h4 class="font-bold text-slate-900 text-base">${g.group_name}</h4>
-                                        <button data-action="select-all-group" data-group-id="${g.group_id}" class="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold">Hamısını seç</button>
-                                    </div>
-                                    <div class="space-y-2 mb-5">
-                                        ${grpStudents.map(st => `
-                                            <div class="flex items-center justify-between p-2.5 bg-slate-50 rounded-xl border border-slate-100">
-                                                <label class="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked value="${st.id}" data-group-id="${g.group_id}" class="pay-grp-student-check custom-checkbox w-4 h-4 rounded">
-                                                    <span class="text-xs font-semibold text-slate-800 hover:text-orange-600" data-action="view-student" data-id="${st.id}">${st.student_name}</span>
-                                                </label>
-                                                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-md">${st.lessons_completed || 0}/${st.package_type || 8}</span>
-                                            </div>
-                                        `).join('')}
-                                    </div>
-                                    <button data-action="renew-group-package" data-group-id="${g.group_id}" class="w-full py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-xs font-bold shadow-md shadow-orange-500/20 transition">
-                                        Seçilənlər üçün yeni paketə başla (0 dərs)
-                                    </button>
-                                </div>`;
-                            }).join('')}
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="text-base font-bold text-slate-800 mb-4">Fərdi Tələbələr</h3>
-                        <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
-                            <table class="w-full text-left text-xs text-slate-700">
-                                <thead class="bg-slate-50 border-b border-slate-100 font-bold uppercase text-slate-500">
-                                    <tr>
-                                        <th class="p-4">Tələbə</th>
-                                        <th class="p-4">Müəllim</th>
-                                        <th class="p-4">Status</th>
-                                        <th class="p-4">Qiymət</th>
-                                        <th class="p-4 text-right">Əməliyyat</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-100">
-                                    ${individualStudents.map(s => `
-                                        <tr class="hover:bg-slate-50/60 transition">
-                                            <td class="p-4 font-semibold text-slate-900 cursor-pointer hover:text-orange-600" data-action="view-student" data-id="${s.id}">${s.student_name}</td>
-                                            <td class="p-4">${s.teacher_login || '-'}</td>
-                                            <td class="p-4 font-bold text-slate-800">${s.lessons_completed || 0} / ${s.package_type || 8}</td>
-                                            <td class="p-4 font-semibold">${s.package_price || 0} AZN</td>
-                                            <td class="p-4 text-right">
-                                                <button data-action="renew-indiv-package" data-id="${s.id}" class="py-1.5 px-3 bg-orange-50 text-orange-600 hover:bg-orange-500 hover:text-white rounded-xl font-semibold transition">
-                                                    Yeni Paket
-                                                </button>
-                                            </td>
-                                        </tr>`).join('')}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>`;
-            }
-
-            if (currentAdminTab === 'groups') {
-                return `
-                <div class="space-y-6 animate-fade-in">
-                    <div class="flex justify-between items-center">
-                        <h2 class="text-xl font-bold text-slate-900">Qruplar</h2>
-                        <button id="btn-open-add-group" class="py-2.5 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-xs font-semibold shadow-md shadow-orange-500/20">+ Qrup əlavə et</button>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        ${db.groups.map(g => {
-                            const teacher = db.users.find(u => u.login === g.teacher_login);
-                            const members = db.students.filter(s => s.type === 'group' && s.group_id === g.group_id);
-                            return `
-                            <div class="bg-white rounded-3xl p-6 border border-slate-100 shadow-sm flex flex-col justify-between">
-                                <div>
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-[10px] font-bold text-orange-600 bg-orange-50 px-2.5 py-1 rounded-lg">ID: ${g.group_id}</span>
-                                        <button data-action="delete-group" data-id="${g.group_id}" class="text-slate-300 hover:text-red-500 p-1"><i class="fa-solid fa-trash-can"></i></button>
-                                    </div>
-                                    <h3 class="font-bold text-slate-900 text-base mb-1">${g.group_name}</h3>
-                                    <p class="text-xs text-slate-500 mb-4">Müəllim: <strong>${teacher ? teacher.name : g.teacher_login}</strong></p>
-                                    <div class="bg-slate-50 rounded-2xl p-3 border border-slate-100">
-                                        <div class="text-[11px] font-bold text-slate-600 mb-2">Qrup Üzvləri (${members.length}):</div>
-                                        <ul class="space-y-1 max-h-32 overflow-y-auto">
-                                            ${members.map(m => `<li class="text-xs text-slate-700 cursor-pointer hover:text-orange-600" data-action="view-student" data-id="${m.id}"><i class="fa-solid fa-user-circle text-slate-400 mr-1"></i>${m.student_name}</li>`).join('')}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>`;
-                        }).join('')}
-                    </div>
-                </div>`;
-            }
-
-            if (currentAdminTab === 'users') {
-                return `
-                <div class="space-y-6 animate-fade-in">
-                    <div class="flex justify-between items-center">
-                        <h2 class="text-xl font-bold text-slate-900">İstifadəçilər</h2>
-                        <button id="btn-open-add-user" class="py-2.5 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-xs font-semibold shadow-md shadow-orange-500/20">+ İstifadəçi Əlavə Et</button>
-                    </div>
-                    <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
-                        <table class="w-full text-left text-xs text-slate-700">
-                            <thead class="bg-slate-50 border-b border-slate-100 font-bold uppercase text-slate-500">
-                                <tr>
-                                    <th class="p-4">Ad / Login</th>
-                                    <th class="p-4">Rol</th>
-                                    <th class="p-4">Təyinat</th>
-                                    <th class="p-4 text-right">Əməliyyat</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100">
-                                ${renderUserRows(db)}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>`;
-            }
-
-            if (currentAdminTab === 'logs') {
-                return `
-                <div class="space-y-6 animate-fade-in">
-                    <h2 class="text-xl font-bold text-slate-900">Aktivlik Tarixçəsi</h2>
-                    <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
-                        <table class="w-full text-left text-xs text-slate-700">
-                            <thead class="bg-slate-50 border-b border-slate-100 font-bold uppercase text-slate-500">
-                                <tr>
-                                    <th class="p-4">Tarix</th>
-                                    <th class="p-4">İstifadəçi</th>
-                                    <th class="p-4">Təfərrüat</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100">
-                                ${db.logs.map(l => `
-                                    <tr>
-                                        <td class="p-4 text-slate-400 font-mono text-[11px]">${l.timestamp}</td>
-                                        <td class="p-4 font-semibold">${l.actor}</td>
-                                        <td class="p-4">${l.details}</td>
-                                    </tr>`).join('')}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>`;
-            }
-
-            return '';
+        function renderAdminGroups() {
+            return `
+            <div class="flex justify-between mb-4"><h2 class="text-xl font-bold">Qruplar</h2><button id="btn-open-group" class="bg-orange-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold">+ Yeni Qrup</button></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                ${globalAppState.groups.map(g => `
+                <div class="bg-white p-5 rounded-2xl border">
+                    <div class="flex justify-between font-bold text-orange-600 mb-2"><span>${g.group_name}</span><button data-action="del-grp" data-id="${g.group_id}" class="text-red-500"><i class="fa-solid fa-trash"></i></button></div>
+                    <div class="text-xs text-slate-500 mb-2">Müəllim: ${g.teacher_login} | Paket: ${g.package_type}</div>
+                    <button data-action="renew-grp" data-id="${g.group_id}" class="w-full bg-slate-100 text-slate-700 py-1.5 rounded-lg text-xs font-bold mt-2">Qrup Paketi Yenilə (0-la)</button>
+                </div>`).join('')}
+            </div>`;
         }
 
-        function renderUserRows(db) {
-            let list = [
-                ...db.users.map(u => ({ id: u.login, name: `${u.name} (@${u.login})`, role: u.role === 'admin' ? 'İnzibatçı' : 'Müəllim', subject: u.subject || '-', rawRole: u.role })),
-                ...db.students.map(s => ({ id: s.id, name: s.student_name, role: 'Tələbə', subject: s.type === 'unassigned' ? 'Bölüşdürülməyib' : (s.group_id ? `Qrup: ${s.group_id}` : `Müəllim: ${s.teacher_login}`), rawRole: 'student', rawStudent: s }))
-            ];
+        function renderAdminUsers() {
+            const list = [...globalAppState.users.map(u => ({ id: u.login, name: u.name, role: u.role, isUser: true })), ...globalAppState.students.map(s => ({ id: s.id, name: s.student_name, role: 'student', isUser: false }))];
+            return `
+            <div class="flex justify-between mb-4"><h2 class="text-xl font-bold">İstifadəçilər</h2><button id="btn-open-user" class="bg-orange-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold">+ Yeni Əlavə Et</button></div>
+            <div class="bg-white rounded-2xl border overflow-hidden">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-50 border-b"><tr><th class="p-3">Ad</th><th class="p-3">Rol</th><th class="p-3 text-right">Aksiya</th></tr></thead>
+                    <tbody class="divide-y">
+                        ${list.map(item => `
+                        <tr>
+                            <td class="p-3 font-bold">${item.name}</td>
+                            <td class="p-3">${item.role}</td>
+                            <td class="p-3 text-right">
+                                ${!item.isUser ? `<button data-action="edit-st" data-id="${item.id}" class="text-slate-500 mr-3"><i class="fa-solid fa-pen"></i></button>` : ''}
+                                ${item.role !== 'admin' ? `<button data-action="del-user" data-id="${item.id}" data-type="${item.isUser ? 'teacher' : 'student'}" class="text-red-500"><i class="fa-solid fa-trash"></i></button>` : ''}
+                            </td>
+                        </tr>`).join('')}
+                    </tbody>
+                </table>
+            </div>`;
+        }
 
-            return list.map(item => `
-                <tr class="hover:bg-slate-50/60 transition">
-                    <td class="p-4 font-semibold text-slate-900">${item.name}</td>
-                    <td class="p-4"><span class="px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase bg-slate-100">${item.role}</span></td>
-                    <td class="p-4">${item.subject}</td>
-                    <td class="p-4 text-right flex justify-end gap-2">
-                        ${item.rawRole === 'student' ? `
-                            <button data-action="edit-student" data-id="${item.id}" class="text-slate-400 hover:text-orange-500 p-1" title="Redaktə et"><i class="fa-solid fa-pen"></i></button>
-                        ` : ''}
-                        ${item.rawRole !== 'admin' ? `
-                            <button data-action="delete-user" data-id="${item.id}" data-role="${item.rawRole}" class="text-slate-300 hover:text-red-500 p-1" title="Sil"><i class="fa-solid fa-trash-can"></i></button>
-                        ` : ''}
-                    </td>
-                </tr>
-            `).join('');
+        function renderAdminLogs() {
+            return `
+            <h2 class="text-xl font-bold mb-4">Tarixçə (Son 50)</h2>
+            <div class="bg-white rounded-2xl border p-4 space-y-2 text-xs">
+                ${globalAppState.logs.map(l => `<div class="border-b pb-2"><span class="text-slate-400 font-mono">${l.timestamp}</span> | <b>${l.actor}</b> | ${l.details}</div>`).join('')}
+            </div>`;
         }
 
         function bindAdminEvents() {
-            document.getElementById('btn-admin-logout')?.addEventListener('click', () => {
-                currentUser = null;
-                showToast('Sistemdən çıxış edildi');
-                render();
-            });
-
             ['payments', 'groups', 'users', 'logs'].forEach(tab => {
-                document.getElementById(`admin-tab-${tab}`)?.addEventListener('click', () => {
-                    currentAdminTab = tab;
-                    render();
-                });
+                document.getElementById(`tab-adm-${tab}`)?.addEventListener('click', () => { currentAdminTab = tab; render(); });
             });
 
-            // Открытие окна создания группы
-            document.getElementById('btn-open-add-group')?.addEventListener('click', () => {
-                const db = getDB();
-                const tSelect = document.getElementById('add-grp-teacher');
-                if (tSelect) {
-                    tSelect.innerHTML = `<option value="">Müəllim seçin</option>` + 
-                        db.users.filter(u => u.role === 'teacher').map(t => `<option value="${t.login}">${t.name}</option>`).join('');
-                }
+            // Открыть модалки
+            document.getElementById('btn-open-group')?.addEventListener('click', () => {
+                document.getElementById('add-grp-teacher').innerHTML = globalAppState.users.filter(u=>u.role==='teacher').map(t=>`<option value="${t.login}">${t.name}</option>`).join('');
                 document.getElementById('modal-add-group').classList.remove('hidden');
             });
 
-            // Открытие окна создания пользователя
-            document.getElementById('btn-open-add-user')?.addEventListener('click', () => {
-                const db = getDB();
-                const tSelect = document.getElementById('add-s-teacher');
-                const gSelect = document.getElementById('add-s-group');
-                if (tSelect) {
-                    tSelect.innerHTML = `<option value="">Müəllim seçin</option>` + 
-                        db.users.filter(u => u.role === 'teacher').map(t => `<option value="${t.login}">${t.name}</option>`).join('');
-                }
-                if (gSelect) {
-                    gSelect.innerHTML = `<option value="">Qrup seçin</option>` + 
-                        db.groups.map(g => `<option value="${g.group_id}">${g.group_name}</option>`).join('');
-                }
+            document.getElementById('btn-open-user')?.addEventListener('click', () => {
+                document.getElementById('add-st-teacher').innerHTML = globalAppState.users.filter(u=>u.role==='teacher').map(t=>`<option value="${t.login}">${t.name}</option>`).join('');
                 document.getElementById('modal-add-user').classList.remove('hidden');
             });
 
-            document.querySelectorAll('[data-action="renew-group-package"]').forEach(btn => {
-                btn.addEventListener('click', async () => {
-                    const grpId = btn.getAttribute('data-group-id');
-                    const checkboxes = document.querySelectorAll(`.pay-grp-student-check[data-group-id="${grpId}"]:checked`);
-                    const selectedIds = Array.from(checkboxes).map(c => c.value);
-                    if (selectedIds.length === 0) return showToast('Tələbə seçin!', 'error');
-
-                    const res = await api.bulkRenewPackage(selectedIds);
-                    showToast(res.message);
-                    render();
-                });
+            // Смена роли в модалке юзера
+            document.getElementById('add-role')?.addEventListener('change', (e) => {
+                document.getElementById('fields-teacher').classList.toggle('hidden', e.target.value !== 'teacher');
+                document.getElementById('fields-student').classList.toggle('hidden', e.target.value !== 'student');
             });
 
-            document.querySelectorAll('[data-action="renew-indiv-package"]').forEach(btn => {
-                btn.addEventListener('click', async () => {
-                    const stId = btn.getAttribute('data-id');
-                    const res = await api.bulkRenewPackage([stId]);
-                    showToast(res.message);
-                    render();
+            // Сохранить новую группу
+            document.getElementById('form-add-group')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await postToAppsScript({
+                    action: "CREATE_GROUP", actor: currentUser.login,
+                    group_id: "grp_" + Date.now(), group_name: document.getElementById('add-grp-name').value,
+                    teacher_login: document.getElementById('add-grp-teacher').value, package_type: document.getElementById('add-grp-pkg').value
                 });
+                document.getElementById('modal-add-group').classList.add('hidden');
+                await fetchRemoteData(); render();
             });
 
-            document.querySelectorAll('[data-action="delete-group"]').forEach(btn => {
-                btn.addEventListener('click', async () => {
-                    if (confirm('Qrupu silmək istədiyinizdən əminsiniz? Tələbələr bölüşdürülməmiş statusuna keçəcək.')) {
-                        await api.deleteGroup(btn.getAttribute('data-id'));
-                        showToast('Qrup silindi.');
-                        render();
-                    }
-                });
+            // Сохранить нового пользователя/студента
+            document.getElementById('form-add-user')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const role = document.getElementById('add-role').value;
+                if(role === 'teacher') {
+                    await postToAppsScript({ action: "ADD_TEACHER", actor: currentUser.login, teacher_data: { login: document.getElementById('add-login').value, password: document.getElementById('add-pass').value, name: document.getElementById('add-name').value, subject: document.getElementById('add-subject').value } });
+                } else {
+                    await postToAppsScript({ action: "ADD_STUDENT", actor: currentUser.login, student_data: { id: "st_" + Date.now(), student_name: document.getElementById('add-name').value, type: document.getElementById('add-st-type').value, teacher_login: document.getElementById('add-st-teacher').value, package_type: document.getElementById('add-st-pkg').value, package_price: document.getElementById('add-st-price').value, payment_status: "paid", added_date: new Date().toISOString().split('T')[0] } });
+                }
+                document.getElementById('modal-add-user').classList.add('hidden');
+                await fetchRemoteData(); render();
             });
 
-            document.querySelectorAll('[data-action="delete-user"]').forEach(btn => {
-                btn.addEventListener('click', async () => {
-                    if (confirm('Silmək istədiyinizdən əminsiniz?')) {
-                        await api.deleteUser(btn.getAttribute('data-id'), btn.getAttribute('data-role'));
-                        showToast('İstifadəçi silindi.');
-                        render();
-                    }
-                });
+            // Удаления
+            document.querySelectorAll('[data-action="del-grp"]').forEach(b => b.addEventListener('click', async () => {
+                if(confirm('Qrupu silmək?')) { await postToAppsScript({action: "DELETE_GROUP", actor: currentUser.login, group_id: b.getAttribute('data-id')}); await fetchRemoteData(); render(); }
+            }));
+            document.querySelectorAll('[data-action="del-user"]').forEach(b => b.addEventListener('click', async () => {
+                if(confirm('Silmək?')) {
+                    const action = b.getAttribute('data-type') === 'teacher' ? 'DELETE_TEACHER' : 'DELETE_STUDENT';
+                    const idField = b.getAttribute('data-type') === 'teacher' ? 'login' : 'id';
+                    await postToAppsScript({action: action, actor: currentUser.login, [idField]: b.getAttribute('data-id')});
+                    await fetchRemoteData(); render();
+                }
+            }));
+
+            // Обновление пакета (Renew)
+            document.querySelectorAll('[data-action="renew"]').forEach(b => b.addEventListener('click', async () => {
+                await postToAppsScript({ action: "UPDATE_PACKAGE", actor: currentUser.login, student_ids: [b.getAttribute('data-id')], price: prompt("Yeni ödəniş məbləği (AZN):", "0"), details: "Fərdi paket yeniləndi" });
+                await fetchRemoteData(); render();
+            }));
+            
+            document.querySelectorAll('[data-action="renew-grp"]').forEach(b => b.addEventListener('click', async () => {
+                const gId = b.getAttribute('data-id');
+                const stIds = globalAppState.students.filter(s => s.group_id === gId).map(s => s.id);
+                if (stIds.length > 0) {
+                    await postToAppsScript({ action: "UPDATE_PACKAGE", actor: currentUser.login, student_ids: stIds, price: prompt("Qrup üçün hər tələbənin ödənişi (AZN):", "0"), details: "Qrup paketi yeniləndi" });
+                    await fetchRemoteData(); render();
+                }
+            }));
+            
+            // Редактирование студента
+            document.querySelectorAll('[data-action="edit-st"]').forEach(b => b.addEventListener('click', () => {
+                const st = globalAppState.students.find(s => s.id === b.getAttribute('data-id'));
+                if(st) {
+                    document.getElementById('edit-st-id').value = st.id;
+                    document.getElementById('edit-st-name').value = st.student_name;
+                    document.getElementById('edit-st-type').value = st.type;
+                    document.getElementById('edit-st-pkg').value = st.package_type;
+                    document.getElementById('edit-st-price').value = st.package_price;
+                    document.getElementById('edit-st-status').value = st.payment_status;
+                    
+                    document.getElementById('edit-st-teacher').innerHTML = `<option value="">-</option>` + globalAppState.users.filter(u=>u.role==='teacher').map(t=>`<option value="${t.login}" ${st.teacher_login===t.login?'selected':''}>${t.name}</option>`).join('');
+                    document.getElementById('edit-st-group').innerHTML = `<option value="">-</option>` + globalAppState.groups.map(g=>`<option value="${g.group_id}" ${st.group_id===g.group_id?'selected':''}>${g.group_name}</option>`).join('');
+                    document.getElementById('modal-edit-student').classList.remove('hidden');
+                }
+            }));
+            
+            document.getElementById('form-edit-student')?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await postToAppsScript({ action: "EDIT_STUDENT", actor: currentUser.login, student_data: { id: document.getElementById('edit-st-id').value, student_name: document.getElementById('edit-st-name').value, type: document.getElementById('edit-st-type').value, teacher_login: document.getElementById('edit-st-teacher').value, group_id: document.getElementById('edit-st-group').value, package_type: document.getElementById('edit-st-pkg').value, package_price: document.getElementById('edit-st-price').value, payment_status: document.getElementById('edit-st-status').value } });
+                document.getElementById('modal-edit-student').classList.add('hidden');
+                await fetchRemoteData(); render();
             });
         }
 
         function bindGlobalEvents() {
-            document.querySelectorAll('#btn-sync').forEach(btn => {
+            // Кнопка "Обновить" просто скачивает заново и перерисовывает экран (ничего не удаляя)
+            document.querySelectorAll('.btn-sync').forEach(btn => {
                 btn.addEventListener('click', async () => {
-                    btn.querySelector('i').classList.add('fa-spin');
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i>...';
                     await fetchRemoteData();
-                    showToast('Məlumatlar yeniləndi!');
                     render();
                 });
             });
 
-            document.querySelectorAll('[data-action="view-student"]').forEach(el => {
-                el.addEventListener('click', () => {
-                    const stId = el.getAttribute('data-id');
-                    const db = getDB();
-                    const st = db.students.find(s => s.id === stId);
-                    if (!st) return;
-
-                    document.getElementById('hist-student-name').innerText = st.student_name;
-                    document.getElementById('hist-student-sub').innerText = `Paket: ${st.package_type} dərs | Keçilib: ${st.lessons_completed}`;
-
-                    let hist = [];
-                    try { hist = typeof st.history === 'string' ? JSON.parse(st.history) : (st.history || []); } catch(e){}
-                    const histContainer = document.getElementById('hist-attendance-list');
-                    if (hist.length === 0) {
-                        histContainer.innerHTML = `<p class="text-slate-400 italic">Dərs iştirakı yoxdur.</p>`;
-                    } else {
-                        histContainer.innerHTML = hist.map(h => `
-                            <div class="flex justify-between items-center p-2 bg-white rounded-xl border border-slate-100">
-                                <span class="font-mono text-slate-500">${h.date}</span>
-                                <span class="font-bold ${h.status === 'present' ? 'text-green-600' : 'text-red-500'}">${h.status === 'present' ? 'İştirak etdi' : 'NB (' + (h.reason || 'Səbəbsiz') + ')'}</span>
-                            </div>
-                        `).join('');
-                    }
-
-                    let cycles = [];
-                    try { cycles = typeof st.payment_cycles === 'string' ? JSON.parse(st.payment_cycles) : (st.payment_cycles || []); } catch(e){}
-                    const cyclesContainer = document.getElementById('hist-cycles-list');
-                    if (cycles.length === 0) {
-                        cyclesContainer.innerHTML = `<p class="text-slate-400 italic">Ödəniş tarixi yoxdur.</p>`;
-                    } else {
-                        cyclesContainer.innerHTML = cycles.map(c => `
-                            <div class="flex justify-between items-center p-2 bg-white rounded-xl border border-slate-100">
-                                <div>
-                                    <div class="font-semibold text-slate-800">${c.package_type} dərslik paket (${c.price || 0} AZN)</div>
-                                    <div class="text-[10px] text-slate-400">${c.date}</div>
-                                </div>
-                                <span class="px-2 py-0.5 rounded text-[10px] uppercase font-bold ${c.status === 'paid' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}">${c.status}</span>
-                            </div>
-                        `).join('');
-                    }
-
-                    document.getElementById('modal-student-history').classList.remove('hidden');
-                });
+            document.querySelectorAll('.btn-logout').forEach(btn => {
+                btn.addEventListener('click', () => { currentUser = null; render(); });
             });
 
-            document.querySelectorAll('[data-action="edit-student"]').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const stId = btn.getAttribute('data-id');
-                    const db = getDB();
-                    const st = db.students.find(s => s.id === stId);
-                    if (!st) return;
-
-                    document.getElementById('edit-st-id').value = st.id;
-                    document.getElementById('edit-st-name').value = st.student_name;
-                    document.getElementById('edit-st-type').value = st.type || 'individual';
-                    document.getElementById('edit-st-pkg').value = st.package_type || 8;
-                    document.getElementById('edit-st-price').value = st.package_price || 0;
-                    document.getElementById('edit-st-status').value = st.payment_status || 'paid';
-
-                    const tSelect = document.getElementById('edit-st-teacher');
-                    tSelect.innerHTML = `<option value="">Seçilməyib</option>` + db.users.filter(u => u.role === 'teacher').map(t => `<option value="${t.login}" ${st.teacher_login === t.login ? 'selected' : ''}>${t.name}</option>`).join('');
-
-                    const gSelect = document.getElementById('edit-st-group');
-                    gSelect.innerHTML = `<option value="">Seçilməyib</option>` + db.groups.map(g => `<option value="${g.group_id}" ${st.group_id === g.group_id ? 'selected' : ''}>${g.group_name}</option>`).join('');
-
-                    document.getElementById('modal-edit-student').classList.remove('hidden');
-                });
-            });
-
-            document.getElementById('form-edit-student')?.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const stData = {
-                    id: document.getElementById('edit-st-id').value,
-                    student_name: document.getElementById('edit-st-name').value.trim(),
-                    type: document.getElementById('edit-st-type').value,
-                    package_type: document.getElementById('edit-st-pkg').value,
-                    teacher_login: document.getElementById('edit-st-teacher').value,
-                    group_id: document.getElementById('edit-st-group').value,
-                    package_price: document.getElementById('edit-st-price').value,
-                    payment_status: document.getElementById('edit-st-status').value
-                };
-                await api.editStudent(stData);
-                showToast('Şagird məlumatları yeniləndi!');
-                document.getElementById('modal-edit-student').classList.add('hidden');
-                render();
-            });
-
-            // Форма добавления группы
-            const formAddGroup = document.getElementById('form-add-group');
-            if (formAddGroup && !formAddGroup.dataset.bound) {
-                formAddGroup.dataset.bound = "true";
-                formAddGroup.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const name = document.getElementById('add-grp-name').value.trim();
-                    const teacherLogin = document.getElementById('add-grp-teacher').value;
-                    const totalPackage = document.getElementById('add-grp-pkg').value;
-
-                    const res = await api.addGroup({ name, teacherLogin, totalPackage });
-                    if (res && res.success) {
-                        showToast('Qrup uğurla yaradıldı!');
-                        document.getElementById('modal-add-group').classList.add('hidden');
-                        formAddGroup.reset();
-                        render();
-                    }
-                });
-            }
-
-            // Переключение полей в форме добавления пользователя
-            const roleSelect = document.getElementById('add-u-role');
-            if (roleSelect && !roleSelect.dataset.bound) {
-                roleSelect.dataset.bound = "true";
-                roleSelect.addEventListener('change', (e) => {
-                    const isTeacher = e.target.value === 'teacher';
-                    document.getElementById('wrapper-teacher-fields').classList.toggle('hidden', !isTeacher);
-                    document.getElementById('wrapper-student-fields').classList.toggle('hidden', isTeacher);
-                });
-            }
-
-            const sTypeSelect = document.getElementById('add-s-type');
-            if (sTypeSelect && !sTypeSelect.dataset.bound) {
-                sTypeSelect.dataset.bound = "true";
-                sTypeSelect.addEventListener('change', (e) => {
-                    const isGroup = e.target.value === 'group';
-                    document.getElementById('wrapper-student-group').classList.toggle('hidden', !isGroup);
-                    document.getElementById('wrapper-student-teacher').classList.toggle('hidden', isGroup);
-                });
-            }
-
-            // Форма добавления пользователя
-            const formAddUser = document.getElementById('form-add-user');
-            if (formAddUser && !formAddUser.dataset.bound) {
-                formAddUser.dataset.bound = "true";
-                formAddUser.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const role = document.getElementById('add-u-role').value;
-                    const name = document.getElementById('add-u-name').value.trim();
-
-                    let payload = { role, name };
-                    if (role === 'teacher') {
-                        payload.username = document.getElementById('add-t-login').value.trim();
-                        payload.password = document.getElementById('add-t-pass').value.trim() || 'pass123';
-                        payload.subject = document.getElementById('add-t-subject').value.trim();
-                    } else {
-                        payload.type = document.getElementById('add-s-type').value;
-                        payload.totalPackage = document.getElementById('add-s-pkg').value;
-                        payload.price = Number(document.getElementById('add-s-price').value) || 0;
-                        if (payload.type === 'individual') {
-                            payload.teacherLogin = document.getElementById('add-s-teacher').value;
-                        } else {
-                            payload.groupId = document.getElementById('add-s-group').value;
-                        }
-                    }
-
-                    const res = await api.addUser(payload);
-                    if (res && res.success) {
-                        showToast('Uğurla əlavə edildi!');
-                        document.getElementById('modal-add-user').classList.add('hidden');
-                        formAddUser.reset();
-                        render();
-                    } else {
-                        showToast(res ? res.message : 'Xəta baş verdi', 'error');
-                    }
-                });
-            }
-
-            // Закрытие любых модалок
             document.querySelectorAll('.btn-close-modal').forEach(btn => {
                 btn.addEventListener('click', () => {
-                    document.getElementById('modal-student-history')?.classList.add('hidden');
-                    document.getElementById('modal-edit-student')?.classList.add('hidden');
-                    document.getElementById('modal-add-group')?.classList.add('hidden');
-                    document.getElementById('modal-add-user')?.classList.add('hidden');
+                    document.querySelectorAll('[id^="modal-"]').forEach(m => m.classList.add('hidden'));
                 });
             });
+            
+            // Просмотр истории (History Modal)
+            document.querySelectorAll('[data-action="view-st"]').forEach(b => b.addEventListener('click', () => {
+                const st = globalAppState.students.find(s => s.id === b.getAttribute('data-id'));
+                if(st) {
+                    document.getElementById('hist-student-name').innerText = st.student_name;
+                    document.getElementById('hist-student-sub').innerText = `Paket: ${st.package_type} | Keçilib: ${st.lessons_completed}`;
+                    
+                    const hList = typeof st.history === 'string' ? JSON.parse(st.history) : st.history;
+                    document.getElementById('hist-attendance-list').innerHTML = hList && hList.length ? hList.map(h => `<div class="flex justify-between border-b py-1"><span>${h.date}</span> <span class="${h.status==='present'?'text-green-600':'text-red-500'} font-bold">${h.status==='present'?'İştirak':'NB'}</span></div>`).join('') : '<p class="text-slate-400">Boş</p>';
+                    
+                    const cList = typeof st.payment_cycles === 'string' ? JSON.parse(st.payment_cycles) : st.payment_cycles;
+                    document.getElementById('hist-cycles-list').innerHTML = cList && cList.length ? cList.map(c => `<div class="flex justify-between border-b py-1"><span>${c.date}</span> <b>${c.price} AZN</b></div>`).join('') : '<p class="text-slate-400">Boş</p>';
+                    
+                    document.getElementById('modal-student-history').classList.remove('hidden');
+                }
+            }));
         }
-
+        
+        // Авторизация при загрузке
         window.addEventListener('DOMContentLoaded', async () => {
-            await fetchRemoteData();
-            render();
+            render(); 
         });
     </script>
 </body>
