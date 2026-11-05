@@ -127,9 +127,116 @@
         </div>
     </div>
 
+    <!-- Modal Add Group -->
+    <div id="modal-add-group" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-fade-in">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                <h3 class="font-bold text-slate-900 text-base flex items-center gap-2"><i class="fa-solid fa-layer-group text-orange-500"></i> Yeni Qrup</h3>
+                <button class="btn-close-modal text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="form-add-group" class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Qrup Adı</label>
+                    <input type="text" id="add-grp-name" required class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="Məs: Kimya Qrup A">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Müəllim</label>
+                    <select id="add-grp-teacher" required class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500"></select>
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Paket Norması</label>
+                    <select id="add-grp-pkg" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500">
+                        <option value="8">8 dərs</option>
+                        <option value="12">12 dərs</option>
+                    </select>
+                </div>
+                <div class="pt-3 flex justify-end gap-2">
+                    <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold">Ləğv et</button>
+                    <button type="submit" class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-semibold shadow-md shadow-orange-500/20">Yarat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Add User -->
+    <div id="modal-add-user" class="hidden fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-100 animate-fade-in">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                <h3 class="font-bold text-slate-900 text-base flex items-center gap-2"><i class="fa-solid fa-user-plus text-orange-500"></i> Yeni İstifadəçi Əlavə Et</h3>
+                <button class="btn-close-modal text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="form-add-user" class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">İstifadəçi Tipi</label>
+                    <select id="add-u-role" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500">
+                        <option value="student">Tələbə (Şagird)</option>
+                        <option value="teacher">Müəllim</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Ad və Soyad</label>
+                    <input type="text" id="add-u-name" required class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="Ad Soyad">
+                </div>
+
+                <!-- Teacher Fields -->
+                <div id="wrapper-teacher-fields" class="hidden space-y-3">
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">İstifadəçi adı (Login)</label>
+                        <input type="text" id="add-t-login" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="login">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Şifrə</label>
+                        <input type="password" id="add-t-pass" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="••••••••">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Fənn</label>
+                        <input type="text" id="add-t-subject" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="Kimya">
+                    </div>
+                </div>
+
+                <!-- Student Fields -->
+                <div id="wrapper-student-fields" class="space-y-3">
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Tədris Tipi</label>
+                            <select id="add-s-type" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500">
+                                <option value="individual">Fərdi</option>
+                                <option value="group">Qrup</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-semibold text-slate-700 mb-1">Paket</label>
+                            <select id="add-s-pkg" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500">
+                                <option value="8">8 dərs</option>
+                                <option value="12">12 dərs</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="wrapper-student-teacher">
+                        <label class="block font-semibold text-slate-700 mb-1">Müəllim</label>
+                        <select id="add-s-teacher" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500"></select>
+                    </div>
+                    <div id="wrapper-student-group" class="hidden">
+                        <label class="block font-semibold text-slate-700 mb-1">Qrup</label>
+                        <select id="add-s-group" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl font-medium focus:border-orange-500"></select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 mb-1">Paket Qiyməti (AZN)</label>
+                        <input type="number" id="add-s-price" class="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:border-orange-500" placeholder="100">
+                    </div>
+                </div>
+
+                <div class="pt-3 flex justify-end gap-2">
+                    <button type="button" class="btn-close-modal px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold">Ləğv et</button>
+                    <button type="submit" class="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-semibold shadow-md shadow-orange-500/20">Əlavə et</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbyEKOLj5BtJUdCm5OxI-kSm7tfKvbXIxgPoZT6PvG7J9bBsNY8MXADGxBcen89NVqqO/exec";
-    const EMPTY_DB = { users: [], groups: [], students: [], logs: [] };
+       const API_URL = "[https://script.google.com/macros/s/AKfycbzeLz7h-n7Uht1cedsPt5lBz87vFf4_lwIQTKF4P38I_7-k7n2jRHyPJBlY32HSobHT/exec](https://script.google.com/macros/s/AKfycbzeLz7h-n7Uht1cedsPt5lBz87vFf4_lwIQTKF4P38I_7-k7n2jRHyPJBlY32HSobHT/exec)";
+        const EMPTY_DB = { users: [], groups: [], students: [], logs: [] };
 
         function getDB() {
             const data = localStorage.getItem('aslan_db');
@@ -417,7 +524,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbyEKOLj5BtJUdCm5OxI-kSm
                         teacher_data: { login: userData.username, password: userData.password || 'pass123', name: userData.name, subject: userData.subject }
                     });
 
-                    if (res.status === 'error') return { success: false, message: res.message };
+                    if (res && res.status === 'error') return { success: false, message: res.message };
                     return { success: true, data: newUser };
                 }
             },
@@ -959,7 +1066,6 @@ const API_URL = "https://script.google.com/macros/s/AKfycbyEKOLj5BtJUdCm5OxI-kSm
 
             if (currentAdminTab === 'payments') {
                 const individualStudents = db.students.filter(s => s.type === 'individual');
-                
                 const totalRevenue = db.students.reduce((acc, s) => acc + (Number(s.package_price) || 0), 0);
                 const debtStudents = db.students.filter(s => s.payment_status === 'debt').length;
 
@@ -1167,6 +1273,33 @@ const API_URL = "https://script.google.com/macros/s/AKfycbyEKOLj5BtJUdCm5OxI-kSm
                 });
             });
 
+            // Открытие окна создания группы
+            document.getElementById('btn-open-add-group')?.addEventListener('click', () => {
+                const db = getDB();
+                const tSelect = document.getElementById('add-grp-teacher');
+                if (tSelect) {
+                    tSelect.innerHTML = `<option value="">Müəllim seçin</option>` + 
+                        db.users.filter(u => u.role === 'teacher').map(t => `<option value="${t.login}">${t.name}</option>`).join('');
+                }
+                document.getElementById('modal-add-group').classList.remove('hidden');
+            });
+
+            // Открытие окна создания пользователя
+            document.getElementById('btn-open-add-user')?.addEventListener('click', () => {
+                const db = getDB();
+                const tSelect = document.getElementById('add-s-teacher');
+                const gSelect = document.getElementById('add-s-group');
+                if (tSelect) {
+                    tSelect.innerHTML = `<option value="">Müəllim seçin</option>` + 
+                        db.users.filter(u => u.role === 'teacher').map(t => `<option value="${t.login}">${t.name}</option>`).join('');
+                }
+                if (gSelect) {
+                    gSelect.innerHTML = `<option value="">Qrup seçin</option>` + 
+                        db.groups.map(g => `<option value="${g.group_id}">${g.group_name}</option>`).join('');
+                }
+                document.getElementById('modal-add-user').classList.remove('hidden');
+            });
+
             document.querySelectorAll('[data-action="renew-group-package"]').forEach(btn => {
                 btn.addEventListener('click', async () => {
                     const grpId = btn.getAttribute('data-group-id');
@@ -1307,10 +1440,91 @@ const API_URL = "https://script.google.com/macros/s/AKfycbyEKOLj5BtJUdCm5OxI-kSm
                 render();
             });
 
+            // Форма добавления группы
+            const formAddGroup = document.getElementById('form-add-group');
+            if (formAddGroup && !formAddGroup.dataset.bound) {
+                formAddGroup.dataset.bound = "true";
+                formAddGroup.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('add-grp-name').value.trim();
+                    const teacherLogin = document.getElementById('add-grp-teacher').value;
+                    const totalPackage = document.getElementById('add-grp-pkg').value;
+
+                    const res = await api.addGroup({ name, teacherLogin, totalPackage });
+                    if (res && res.success) {
+                        showToast('Qrup uğurla yaradıldı!');
+                        document.getElementById('modal-add-group').classList.add('hidden');
+                        formAddGroup.reset();
+                        render();
+                    }
+                });
+            }
+
+            // Переключение полей в форме добавления пользователя
+            const roleSelect = document.getElementById('add-u-role');
+            if (roleSelect && !roleSelect.dataset.bound) {
+                roleSelect.dataset.bound = "true";
+                roleSelect.addEventListener('change', (e) => {
+                    const isTeacher = e.target.value === 'teacher';
+                    document.getElementById('wrapper-teacher-fields').classList.toggle('hidden', !isTeacher);
+                    document.getElementById('wrapper-student-fields').classList.toggle('hidden', isTeacher);
+                });
+            }
+
+            const sTypeSelect = document.getElementById('add-s-type');
+            if (sTypeSelect && !sTypeSelect.dataset.bound) {
+                sTypeSelect.dataset.bound = "true";
+                sTypeSelect.addEventListener('change', (e) => {
+                    const isGroup = e.target.value === 'group';
+                    document.getElementById('wrapper-student-group').classList.toggle('hidden', !isGroup);
+                    document.getElementById('wrapper-student-teacher').classList.toggle('hidden', isGroup);
+                });
+            }
+
+            // Форма добавления пользователя
+            const formAddUser = document.getElementById('form-add-user');
+            if (formAddUser && !formAddUser.dataset.bound) {
+                formAddUser.dataset.bound = "true";
+                formAddUser.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const role = document.getElementById('add-u-role').value;
+                    const name = document.getElementById('add-u-name').value.trim();
+
+                    let payload = { role, name };
+                    if (role === 'teacher') {
+                        payload.username = document.getElementById('add-t-login').value.trim();
+                        payload.password = document.getElementById('add-t-pass').value.trim() || 'pass123';
+                        payload.subject = document.getElementById('add-t-subject').value.trim();
+                    } else {
+                        payload.type = document.getElementById('add-s-type').value;
+                        payload.totalPackage = document.getElementById('add-s-pkg').value;
+                        payload.price = Number(document.getElementById('add-s-price').value) || 0;
+                        if (payload.type === 'individual') {
+                            payload.teacherLogin = document.getElementById('add-s-teacher').value;
+                        } else {
+                            payload.groupId = document.getElementById('add-s-group').value;
+                        }
+                    }
+
+                    const res = await api.addUser(payload);
+                    if (res && res.success) {
+                        showToast('Uğurla əlavə edildi!');
+                        document.getElementById('modal-add-user').classList.add('hidden');
+                        formAddUser.reset();
+                        render();
+                    } else {
+                        showToast(res ? res.message : 'Xəta baş verdi', 'error');
+                    }
+                });
+            }
+
+            // Закрытие любых модалок
             document.querySelectorAll('.btn-close-modal').forEach(btn => {
                 btn.addEventListener('click', () => {
                     document.getElementById('modal-student-history')?.classList.add('hidden');
                     document.getElementById('modal-edit-student')?.classList.add('hidden');
+                    document.getElementById('modal-add-group')?.classList.add('hidden');
+                    document.getElementById('modal-add-user')?.classList.add('hidden');
                 });
             });
         }
@@ -1321,4 +1535,4 @@ const API_URL = "https://script.google.com/macros/s/AKfycbyEKOLj5BtJUdCm5OxI-kSm
         });
     </script>
 </body>
-</html>       
+</html>
