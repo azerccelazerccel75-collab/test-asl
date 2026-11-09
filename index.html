@@ -733,13 +733,13 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
 .loader .retry{animation:pageIn .3s var(--ease)}
 
 /* ===================== INSTALL HINT ===================== */
-.install-hint{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:85;width:calc(100% - 28px);max-width:460px;
+.install-hint{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:55;width:calc(100% - 28px);max-width:460px;
   display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;background:var(--surface);border:1.5px solid var(--or);box-shadow:var(--shadow-lg);animation:tIn .4s var(--ease)}
-.install-hint .ic{width:40px;height:40px;flex:none;border-radius:12px;background:var(--or);display:grid;place-items:center}
+.install-hint .ic{width:40px;height:40px;flex:none;border-radius:12px;background:var(--or);color:var(--on-or);display:grid;place-items:center}
 .install-hint .ic svg{width:24px;height:24px}
 .install-hint .tx{flex:1;min-width:0}
 .install-hint b{font-size:14px;font-weight:600;display:block}
-.install-hint small{font-size:12px;color:var(--soft)}
+.install-hint small{display:block;font-size:12px;line-height:1.35;color:var(--soft)}
 .install-hint.out{animation:tOut .3s ease forwards}
 .install-link{display:inline-flex;align-items:center;gap:8px;align-self:center;margin-top:2px;padding:8px 14px;border-radius:99px;border:1.5px dashed var(--line-strong);background:none;color:var(--or);font:600 13px/1 Poppins,sans-serif;cursor:pointer;transition:border-color .2s,background-color .2s,transform .15s var(--ease)}
 .install-link:hover{border-color:var(--or);background:var(--tint)}
@@ -853,6 +853,242 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
 @media (prefers-reduced-motion:reduce){
   .m-gears .i,.m-orbit i,.m-pulse span,.m-sweep i,.loader .pips .pip,.loader .cap{animation:none!important}
 }
+
+/* ===================== STATUS GLYPHS ===================== */
+/* Hamısı #FF7A00: vəziyyət forma ilə oxunur — qırıq dairə, yarım dolu, dolu+✓, dolu+! (nəbz) */
+.st{position:relative;display:inline-block;width:14px;height:14px;flex:none;border-radius:50%;border:2px solid var(--or);background:transparent;vertical-align:-2px}
+.st-stale{border-style:dashed}
+.st-wait{background:linear-gradient(90deg,var(--or) 50%,transparent 50%)}
+.st-ok::after,.st-done::after{content:"";position:absolute;left:3px;top:.5px;width:3px;height:6.5px;border:solid var(--or);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.st-done{background:var(--or)}
+.st-done::after{border-color:var(--on-or)}
+.st-debt{background:var(--or);animation:stPulse 2s var(--ease) infinite}
+.st-debt::after{content:"!";position:absolute;inset:0;display:grid;place-items:center;font:800 9px/1 Poppins,sans-serif;color:var(--on-or)}
+@keyframes stPulse{0%{box-shadow:0 0 0 0 rgba(255,122,0,.5)}70%{box-shadow:0 0 0 7px rgba(255,122,0,0)}100%{box-shadow:0 0 0 0 rgba(255,122,0,0)}}
+.sttag{display:inline-flex;align-items:center;gap:6px;min-height:24px;padding:2px 10px 2px 6px;border-radius:99px;font-size:12px;font-weight:600;white-space:nowrap;line-height:1.2}
+.sttag-ok{border:1.5px solid var(--line-strong)}
+.sttag-wait,.sttag-done{background:var(--tint-2)}
+.sttag-stale{border:1.5px dashed var(--line-strong)}
+.sttag-debt{background:var(--or);color:var(--on-or)}
+.sttag-debt .st{border-color:var(--on-or);background:var(--on-or);animation:none}
+.sttag-debt .st::after{color:var(--or)}
+.st-ic{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:var(--or);color:var(--on-or)}
+.st-ic .i{width:17px;height:17px}
+.st-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--soft)}
+.st-legend span{display:inline-flex;align-items:center;gap:6px}
+.seg span .st{margin-right:2px}
+.seg input:checked+span .st{border-color:var(--on-or)}
+.seg input:checked+span .st-wait{background:linear-gradient(90deg,var(--on-or) 50%,transparent 50%)}
+.seg input:checked+span .st-debt,.seg input:checked+span .st-done{background:var(--on-or);animation:none}
+.seg input:checked+span .st-debt::after{color:var(--or)}
+.seg input:checked+span .st-ok::after{border-color:var(--on-or)}
+
+/* ===================== HOME: quick actions, KPI, attention ===================== */
+.qa{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:14px}
+.qa-btn{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1.5px solid var(--line);border-radius:var(--r-lg);background:var(--surface);color:var(--or);text-align:left;cursor:pointer;
+  transition:border-color .2s,transform .22s var(--ease),box-shadow .22s var(--ease);-webkit-tap-highlight-color:transparent}
+.qa-btn:hover{border-color:var(--or);transform:translateY(-2px);box-shadow:var(--shadow)}
+.qa-btn:active{transform:scale(.97);transition-duration:.08s}
+.qa-ic{width:46px;height:46px;flex:none;border-radius:15px;display:grid;place-items:center;background:var(--tint);transition:background-color .2s,color .2s,transform .3s var(--ease)}
+.qa-ic .i{width:22px;height:22px}
+.qa-btn:hover .qa-ic{background:var(--or);color:var(--on-or);transform:rotate(-6deg)}
+.qa-tx{min-width:0}
+.qa-tx b{display:block;font-weight:600;font-size:15px}
+.qa-tx small{display:block;font-size:12.5px;color:var(--soft)}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.kpi-t{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:16px 18px 15px;border:1.5px solid var(--line);border-radius:var(--r-lg);background:var(--surface);color:var(--or);text-align:left;font:inherit;
+  transition:border-color .2s,transform .22s var(--ease),box-shadow .22s var(--ease)}
+button.kpi-t{cursor:pointer}
+button.kpi-t:hover{border-color:var(--or);transform:translateY(-2px);box-shadow:var(--shadow)}
+button.kpi-t:active{transform:scale(.97)}
+.kpi-t b{font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.kpi-t span{font-size:14px;font-weight:600}
+.kpi-t small{font-size:12.5px;color:var(--soft)}
+.kpi-t.hot{background:var(--or);border-color:var(--or);color:var(--on-or)}
+.kpi-t.hot small{color:var(--on-or);opacity:.88}
+.attn{border:1.5px solid var(--line);border-radius:var(--r-lg);background:var(--surface);overflow:hidden}
+.attn-row{display:grid;grid-template-columns:30px minmax(0,1fr) auto;align-items:center;gap:6px 14px;padding:13px 16px;border-bottom:1.5px solid var(--line);animation:pageIn .35s var(--ease) both}
+.attn-row:last-child{border-bottom:0}
+.attn-g{display:grid;place-items:center}
+.attn-t{font-size:14.5px;font-weight:600;line-height:1.4}
+.attn-t .linkish{font-weight:700}
+.attn-m{font-size:12.5px;color:var(--soft);margin-top:2px}
+.attn-a{display:flex;gap:6px}
+.attn-ok{display:flex;align-items:center;gap:14px;padding:18px 20px;border:1.5px dashed var(--line-strong);border-radius:var(--r-lg)}
+.attn-ok>.i{width:30px;height:30px}
+.attn-ok b{font-weight:600}
+.attn-ok p{font-size:13px;color:var(--soft)}
+.attn-more{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;margin-top:-1.5px;padding:11px;border:1.5px solid var(--line);border-top-style:dashed;border-radius:0 0 var(--r-lg) var(--r-lg);background:var(--tint);color:var(--or);font:600 13.5px Poppins,sans-serif;cursor:pointer;transition:background-color .2s}
+.attn-more:hover{background:var(--tint-2)}
+.attn-more .i{width:16px;height:16px;transform:rotate(90deg);transition:transform .25s var(--ease)}
+.attn-more.open .i{transform:rotate(-90deg)}
+.attn:has(+.attn-more){border-radius:var(--r-lg) var(--r-lg) 0 0}
+.paid-frac{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-variant-numeric:tabular-nums}
+.ccard-pay{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12.5px;color:var(--soft)}
+.ccard-pay b{color:var(--or)}
+.ccard-pay .btn{margin-left:auto}
+.ccard.stale{border-style:dashed;border-color:var(--line-strong)}
+.pay-cell{display:inline-flex;align-items:center;gap:6px}
+.debt-box{border:1.5px solid var(--or);border-radius:var(--r-lg);padding:14px 16px;margin-bottom:14px;background:var(--tint)}
+.debt-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.debt-head b{font-weight:700}
+.debt-head small{flex-basis:100%;font-size:12.5px;color:var(--soft);padding-left:24px}
+.debt-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:8px 0 8px 24px;border-top:1.5px dashed var(--line);font-size:14px}
+
+/* ===================== SEARCH / PALETTE ===================== */
+.search-btn{display:inline-flex;align-items:center;gap:10px;height:40px;min-width:230px;padding:0 7px 0 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--soft);
+  font:500 14px Poppins,sans-serif;cursor:pointer;transition:border-color .2s,box-shadow .2s,color .2s}
+.search-btn:hover{border-color:var(--or);color:var(--or);box-shadow:var(--shadow)}
+.search-btn span{flex:1;text-align:left}
+.search-btn .i{width:18px;height:18px}
+kbd{display:inline-grid;place-items:center;min-width:20px;height:21px;padding:0 6px;border:1.5px solid var(--line-strong);border-bottom-width:2.5px;border-radius:6px;font:600 11px/1 Poppins,sans-serif;color:var(--or);background:var(--bg);white-space:nowrap}
+.pal-foot kbd{margin-right:3px}
+.mback:has(.modal.palette){align-items:flex-start;padding-top:min(12vh,110px)}
+.modal.palette{max-width:640px;overflow:hidden}
+.modal.palette .mhead{display:none}
+.modal.palette .mbody{padding:0;display:flex;flex-direction:column;min-height:0}
+.pal{display:flex;flex-direction:column;min-height:0;flex:1}
+.pal-q{display:flex;align-items:center;gap:12px;padding:14px 16px 14px 20px;border-bottom:1.5px solid var(--line)}
+.pal-q>.i{width:21px;height:21px}
+.pal-q input{flex:1;min-width:0;height:38px;border:0;outline:0;background:transparent;color:var(--or);font:500 17px Poppins,sans-serif}
+.pal-q input::placeholder{color:var(--faint);font-weight:400}
+.pal-q input::-webkit-search-cancel-button{display:none}
+.pal-x{flex:none;border:1.5px solid var(--line);background:var(--tint);border-radius:8px;font:600 11px Poppins,sans-serif;color:var(--or);padding:4px 8px;cursor:pointer}
+.pal-list{max-height:min(58vh,480px);overflow-y:auto;padding:6px 8px 10px;overscroll-behavior:contain}
+.pal-gl{font-size:12px;font-weight:600;color:var(--faint);padding:12px 10px 6px}
+.pal-item{display:flex;align-items:center;gap:12px;width:100%;min-height:54px;padding:8px 10px;border:0;border-radius:13px;background:transparent;color:var(--or);text-align:left;font:inherit;cursor:pointer}
+.pal-item.on{background:var(--tint-2)}
+.pal-item[aria-disabled=true]{opacity:.5;cursor:not-allowed}
+.pal-lead{width:38px;height:38px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--tint);transition:background-color .15s,color .15s}
+.pal-lead .i{width:19px;height:19px}
+.pal-item.on .pal-lead{background:var(--or);color:var(--on-or)}
+.pal-tx{flex:1;min-width:0}
+.pal-tx b{display:block;font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pal-tx small{display:block;font-size:12.5px;color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pal-badge{flex:none}
+.pal-empty{display:flex;flex-direction:column;align-items:center;gap:6px;padding:40px 16px;text-align:center}
+.pal-empty .i{width:28px;height:28px;opacity:.6}
+.pal-empty span{font-size:13px;color:var(--soft)}
+.pal-foot{display:flex;gap:18px;padding:10px 20px;border-top:1.5px solid var(--line);font-size:12px;color:var(--soft)}
+.ava.sm{width:38px;height:38px;border-radius:12px;font-size:13px}
+.pal-frac{font-weight:700;font-size:14px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.pal-frac small{font-size:10.5px;font-weight:600;opacity:.75}
+
+/* ===================== YENİLİKLƏR ===================== */
+.news-fresh{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;margin-bottom:14px}
+.news-fresh .i{width:18px;height:18px}
+.news-item{transition:border-color .25s}
+.news-item.fresh{border-color:var(--or);box-shadow:inset 0 0 0 1px var(--or)}
+.news-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.news-top time{margin-left:auto}
+.news-top .lacts{margin-left:2px}
+.news-item .kind{margin-bottom:0}
+.news-dot{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700}
+.news-dot::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--or);animation:stPulse 2s var(--ease) infinite}
+.clamp3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.clamp-open .clamp3{display:block;-webkit-line-clamp:unset;overflow:visible;animation:pageIn .3s var(--ease)}
+.news-item .ann-toggle{margin-top:8px}
+.clamp-open .ann-toggle .i{transform:rotate(-90deg)}
+.menu-btn{position:relative}
+.menu-dot{position:absolute;top:6px;right:6px;width:10px;height:10px;border-radius:50%;background:var(--or);border:2px solid var(--bg)}
+
+/* ===================== TEST DATA (dev) ===================== */
+.tg{display:flex;flex-direction:column;gap:16px;padding:20px;border:1.5px solid var(--line);border-radius:var(--r-lg);background:var(--surface)}
+.tg-presets{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tg-presets .muted{font-weight:500;font-size:12px}
+.tg-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.stepper{display:flex;align-items:center;gap:6px}
+.stepper .input{text-align:center;font-weight:700;font-size:18px;min-height:44px;padding:6px 4px;-moz-appearance:textfield;appearance:textfield}
+.stepper .input::-webkit-inner-spin-button,.stepper .input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.stepper .ibtn{border-color:var(--line);font-weight:700;font-size:20px;line-height:1;width:36px;height:36px}
+.tg-opts{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.tg-done{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:var(--r);background:var(--tint);font-size:14px}
+.tg-done>.i{width:22px;height:22px;margin-top:1px}
+.tg-done p{margin-top:4px;font-size:13px}
+.tg-done code,.tg-info code{font:600 12.5px/1 ui-monospace,Menlo,Consolas,monospace;padding:3px 6px;border-radius:6px;background:var(--bg);border:1.5px solid var(--line)}
+.tg-sum{margin-top:8px}
+.tg-sum>div{padding:12px 16px}
+.tg-sum b{font-size:22px}
+.input.flash{animation:flash .6s var(--ease)}
+@keyframes flash{from{background:var(--tint-2);border-color:var(--or)}to{background:var(--bg)}}
+@media (max-width:760px){.tg-grid{grid-template-columns:1fr 1fr}.tg{padding:16px}}
+
+/* ===================== iPhone install guide ===================== */
+.iosg-stage{min-height:330px}
+.iosg-step{animation:iosIn .35s var(--ease)}
+.iosg-step.rev{animation-name:iosInBack}
+@keyframes iosIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+@keyframes iosInBack{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
+.iph{position:relative;margin:2px auto 18px;width:236px;height:206px;border:2px solid var(--line-strong);border-radius:30px;background:var(--tint);padding:16px 14px;overflow:hidden}
+.iph-page span{display:block;height:10px;border-radius:5px;background:var(--tint-2);margin-bottom:9px}
+.iph-page .w60{width:60%}
+.iph-bar{position:absolute;left:10px;right:10px;bottom:12px;display:flex;align-items:center;gap:6px;padding:6px;border-radius:20px;background:var(--surface);border:1.5px solid var(--line);box-shadow:var(--shadow)}
+.iph-b{width:32px;height:32px;flex:none;border-radius:50%;display:grid;place-items:center}
+.iph-b .i{width:16px;height:16px}
+.iph-url{flex:1;min-width:0;font-size:11px;font-weight:600;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iph .hl{background:var(--or);color:var(--on-or)}
+.iph [data-pulse]{animation:stPulse 1.6s var(--ease) infinite}
+.iph .dots{display:flex;gap:2.5px}
+.iph .dots b{width:4px;height:4px;border-radius:50%;background:currentColor}
+.iph-sheet,.iph-dlg{position:absolute;left:10px;right:10px;top:12px;bottom:12px;background:var(--surface);border:1.5px solid var(--line);border-radius:20px;padding:6px}
+.iph-sheet{display:flex;flex-direction:column;gap:3px}
+.iph-row{display:flex;align-items:center;gap:10px;min-height:36px;padding:4px 10px;border-radius:11px;font-size:12px;font-weight:600;line-height:1.2}
+.iph-row .i{width:16px;height:16px}
+.iph-row small{display:block;font-size:10px;font-weight:500;opacity:.9}
+.iph-row.dim{opacity:.4}
+.iph-dlg{display:flex;flex-direction:column;gap:12px;padding:10px 12px}
+.iph-dlg-top{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:10.5px;font-weight:600}
+.iph-dlg-top b{font-size:10.5px;font-weight:700}
+.iph-dlg-top .hl{padding:4px 9px;border-radius:9px}
+.iph-app{display:flex;gap:10px;align-items:center}
+.iph-app b{display:block;font-size:13px;font-weight:700}
+.iph-app small{font-size:10.5px;color:var(--soft)}
+.iph-ic{width:46px;height:46px;flex:none;border-radius:13px;background:var(--or);display:grid;place-items:center}
+.iph-ic svg{width:32px;height:32px}
+.iph-tog{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;font-weight:600;padding-top:10px;border-top:1.5px solid var(--line)}
+.iph-tog i{position:relative;width:36px;height:21px;border-radius:99px;background:var(--or)}
+.iph-tog i::after{content:"";position:absolute;right:2.5px;top:2.5px;width:16px;height:16px;border-radius:50%;background:#fff}
+.iph-arrow{position:absolute;width:18px;height:30px;--rot:0deg;transform:rotate(var(--rot));animation:bob 1.1s ease-in-out infinite;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 30'%3E%3Cpath d='M9 2v24M2.5 19.5 9 26.5l6.5-7' fill='none' stroke='%23FF7A00' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.iph-arrow{right:21px;bottom:58px}
+.iph-arrow.ar-left{--rot:90deg;right:0;bottom:auto;top:90px}
+.iph-arrow.ar-up{--rot:180deg;right:26px;bottom:auto;top:60px}
+@keyframes bob{0%,100%{transform:rotate(var(--rot)) translateY(-2px)}50%{transform:rotate(var(--rot)) translateY(5px)}}
+.iosg-t{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.iosg-t .n{width:26px;height:26px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--or);color:var(--on-or);font-weight:700;font-size:13px}
+.iosg-n{font-size:12.5px;color:var(--soft);margin:6px 0 0 36px}
+.iosg-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.iosg-dots button{width:9px;height:9px;padding:0;border-radius:99px;border:0;background:var(--line-strong);cursor:pointer;transition:width .3s var(--ease),background-color .2s}
+.iosg-dots button.on{width:24px;background:var(--or)}
+.iosg-foot{text-align:center;margin-top:12px}
+
+@media (max-width:900px){
+  .search-btn{min-width:0;width:38px;height:38px;padding:0;justify-content:center;border-color:transparent;background:transparent;color:var(--or)}
+  .search-btn:hover{box-shadow:none;background:var(--tint);border-color:var(--line)}
+  .search-btn span,.search-btn kbd{display:none}
+}
+@media (max-width:760px){
+  .qa{grid-template-columns:1fr 1fr;gap:10px}
+  .qa-btn{gap:10px;padding:11px 12px}
+  .qa-ic{width:38px;height:38px;border-radius:12px}
+  .qa-ic .i{width:19px;height:19px}
+  .qa-tx b{font-size:13.5px;line-height:1.25}
+  .qa-tx small{display:none}
+  .kpi{grid-template-columns:1fr 1fr;gap:10px}
+  .kpi-t{padding:14px}
+  .kpi-t b{font-size:28px}
+  .attn-row{grid-template-columns:24px minmax(0,1fr);padding:12px 14px}
+  .attn-a{grid-column:2}
+  .mback:has(.modal.palette){padding:0;align-items:stretch}
+  .modal.palette{height:100dvh;max-height:none!important;border-radius:0;border:0;animation:fade .2s ease}
+  .pal-list{max-height:none;flex:1}
+  .pal-foot{display:none}
+  .pal-q{padding:12px 12px 12px 16px}
+  .debt-row,.debt-head small{padding-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .st-debt,.news-dot::before,.iph [data-pulse],.iph-arrow,.attn-row{animation:none!important}
+}
 </style>
 </head>
 <body>
@@ -935,6 +1171,7 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
     <header class="top">
       <button class="ibtn menu-btn" data-act="openNav" aria-label="Menyunu aç"></button>
       <h1 id="pageTitle"></h1>
+      <button class="search-btn" data-act="openSearch" id="searchBtn" hidden></button>
       <div class="top-actions">
         <div class="umenu" id="bell" hidden>
           <button class="ibtn bell-btn" data-act="notifMenu" aria-label="Bildirişlər" title="Bildirişlər" id="bellBtn"></button>
@@ -966,7 +1203,7 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
  *  1) Google Apps Script veb tətbiqinin linkini buraya yazın:
  *     (Yerləşdir → Veb tətbiq → URL, sonu /exec ilə bitir)
  * ============================================================ */
-const API_URL = 'https://script.google.com/macros/s/AKfycbxYPW4C0fAArZLMBbjhaECOe6Ugh7GpBdh8erO12QemlN2uaMdus1cBB7gZO5cqBfYZ/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbyU4lArrnZF4A2rCMj6Fi0OjKdaY0JA1Ke4aqXvrNG59IG1NYPQXw-dANdA-RynNR7d/exec';
 
 /* ===================== ICONS ===================== */
 const ICONS = {
@@ -1022,7 +1259,13 @@ const ICONS = {
   flag:'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
   chart:'<path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6"/>',
   database:'<ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6M4.5 11.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/>',
-  eyeview:'<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2" opacity=".5"/>'
+  eyeview:'<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2" opacity=".5"/>',
+  sparkle:'<path d="M12 3c.6 4.6 3.4 7.4 8 8-4.6.6-7.4 3.4-8 8-.6-4.6-3.4-7.4-8-8 4.6-.6 7.4-3.4 8-8z"/>',
+  flask:'<path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 15h9"/>',
+  bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+  share:'<path d="M12 3v12M8 7l4-4 4 4"/><path d="M7 10H5.5A1.5 1.5 0 0 0 4 11.5v8A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5v-8a1.5 1.5 0 0 0-1.5-1.5H17"/>',
+  addsq:'<rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8.5v7M8.5 12h7"/>',
+  hourglass:'<path d="M6.5 3h11M6.5 21h11"/><path d="M7.5 3c0 4.5 4.5 5.5 4.5 9s-4.5 4.5-4.5 9M16.5 3c0 4.5-4.5 5.5-4.5 9s4.5 4.5 4.5 9"/>'
 };
 function ic(name, cls){ return `<svg class="i${cls?' '+cls:''}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name]||''}</svg>`; }
 const LOGO_SVG = (bg) => `<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 13 56 24 32 35 8 24z" fill="${bg}"/><path d="M19 29.5v9.5c0 3.4 5.8 6.5 13 6.5s13-3.1 13-6.5v-9.5" fill="none" stroke="${bg}" stroke-width="4"/><path d="M52 26v12.5" stroke="${bg}" stroke-width="3" stroke-linecap="round"/><circle cx="52" cy="41.5" r="3" fill="${bg}"/></svg>`;
@@ -1468,8 +1711,8 @@ function renderChrome(){
   const active = PAGES[S.page] && PAGES[S.page].parent ? PAGES[S.page].parent : S.page;
   const link = ([k, p]) => {
     let badge = '';
-    const n = k === 'courses' ? done : k === 'mine' ? mineDone : 0;
-    if (n) badge = `<span class="badge" title="Ayı tamamlanan məşğələlər">${n}</span>`;
+    const n = k === 'courses' ? done : k === 'mine' ? mineDone : k === 'news' ? (d.newsUnread || 0) : 0;
+    if (n) badge = `<span class="badge" title="${k === 'news' ? 'Oxunmamış yeniliklər' : 'Ayı tamamlanan məşğələlər'}">${n > 99 ? '99+' : n}</span>`;
     return `<a href="#/${k}" data-go="${k}" class="${active === k ? 'on' : ''}">${ic(p.icon)}<span>${p.title}</span>${badge}</a>`;
   };
   let html = '';
@@ -1492,8 +1735,13 @@ function renderChrome(){
   $('#sideUser').innerHTML = `<span class="ava">${esc(initials(d.me.name))}</span><span class="who"><b>${esc(d.me.name)}</b><small>${sub}</small></span>
     <button class="ibtn sm" data-act="logout" title="Çıxış" aria-label="Çıxış">${ic('logout')}</button>`;
   $('#pageTitle').textContent = (PAGES[S.page] || {}).title || '';
-  $('.menu-btn').innerHTML = ic('menu');
+  $('.menu-btn').innerHTML = ic('menu') + (d.newsUnread ? '<span class="menu-dot" aria-label="Oxunmamış yeniliklər var"></span>' : '');
   $('.refresh-btn').innerHTML = ic('refresh');
+  const sb = $('#searchBtn');
+  sb.hidden = !!d.me.isDev;
+  const mac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+  sb.setAttribute('aria-label', `Axtarış (${mac ? '⌘' : 'Ctrl'}+K)`);
+  sb.innerHTML = `${ic('search')}<span>Axtar</span><kbd>${mac ? '⌘' : 'Ctrl'} K</kbd>`;
   $('#umenuBtn').innerHTML = `<span class="ava" style="width:34px;height:34px;border-radius:11px;font-size:12.5px">${esc(initials(d.me.name))}</span>`;
   $('#shell').classList.toggle('ro', !!d.me.readOnly);
   renderBell(); renderAnnBar(); renderViewAs();
@@ -1912,11 +2160,14 @@ function courseCard(c, mode){
       <div class="lessons">${c.lessons.length ? c.lessons.slice().reverse().map(e => lessonRow(e, { course: c })).join('') : '<p class="hint" style="padding:8px 0">Bu ay hələ qeyd yoxdur.</p>'}</div>
     </details>`;
   }
-  return `<article class="ccard${c.complete ? ' done' : ''}">
-    <div class="ccard-top"><span class="tag${c.type === 'group' ? ' solid' : ''}">${typeLabel(c.type)}</span>${c.complete ? '<span class="tag line">Ay tamamlandı</span>' : ''}<span class="month">Ay ${c.monthNo}</span></div>
+  const st = courseState(c);
+  const pd = mode !== 'mine' ? coursePaid(c) : null;
+  return `<article class="ccard${c.complete ? ' done' : ''}${st && st.kind === 'stale' ? ' stale' : ''}">
+    <div class="ccard-top"><span class="tag${c.type === 'group' ? ' solid' : ''}">${typeLabel(c.type)}</span>${st ? stTag(st.kind, st.text) : ''}<span class="month">Ay ${c.monthNo}</span></div>
     <div><h3>${esc(courseTitle(c))}</h3>${who}</div>
     <div class="ccard-prog">${pips(c.held, c.lessonsPerMonth)}<span class="frac">${c.held}/${c.lessonsPerMonth}</span></div>
     <p class="ccard-meta">Ay ${fmtDate(c.monthStart)} tarixində başlayıb${c.absent ? `, qayıb sayı: ${c.absent}` : ''}${c.lastDate ? `. Son qeyd: ${fmtDate(c.lastDate)}` : ''}</p>
+    ${pd && pd.total ? `<p class="ccard-pay">${stDot(pd.paid === pd.total ? 'ok' : 'wait')}<span>Bu ay ödəyib: <b>${pd.paid}/${pd.total}</b></span></p>` : ''}
     ${doneNote}
     <div class="ccard-actions">${actions}<span class="push">${icons}</span></div>
     ${lessons}
@@ -1960,45 +2211,297 @@ RENDER.none = () => `
   ${emptyBox('Bölmə yoxdur', 'Baş admin sizə icazə verdikdən sonra yuxarıdakı «Yenilə» düyməsini basın və ya yenidən daxil olun.',
     '<button class="btn btn-primary" data-act="refresh">' + ic('refresh') + 'Yenilə</button>')}`;
 
-/* ---------- HOME ---------- */
+/* ===================== STATUSLAR ===================== */
+// Brend qaydası: hər şey #FF7A00. Ona görə vəziyyət rənglə yox, FORMA ilə oxunur:
+// qırıq dairə (qeyd yoxdur) → yarım dolu (gözlənilir) → dolu+✓ (ay bitdi) ; borc — dolu «!» və nəbz.
+const ST_LABEL = { ok: 'Ödənilib', wait: 'Ödəniş gözlənilir', debt: 'Borc var', done: 'Ay tamamlandı', stale: 'Dərs qeyd olunmur' };
+// <i> — .seg span kimi ümumi qaydalar dairəni pozmasın deyə
+function stDot(kind, title){ const t = title || ST_LABEL[kind]; return `<i class="st st-${kind}" role="img" aria-label="${esc(t)}" title="${esc(t)}"></i>`; }
+function stTag(kind, text){ return `<span class="sttag sttag-${kind}"><i class="st st-${kind}" aria-hidden="true"></i>${esc(text)}</span>`; }
+function ymd(s){ const [y, m, d] = String(s).slice(0, 10).split('-').map(Number); return Date.UTC(y, (m || 1) - 1, d || 1); }
+function daysSince(s){ return s ? Math.round((ymd(today()) - ymd(s)) / 864e5) : null; }
+function courseState(c){
+  if (c.complete) return { kind: 'done', text: 'Ay tamamlandı' };
+  if (!c.studentIds.length) return null;
+  const days = daysSince(c.lastDate || c.monthStart);
+  if (days != null && days >= (S.d.staleDays || 14)) return { kind: 'stale', text: `${days} gündür dərs yoxdur`, days };
+  return null;
+}
+function courseLabelById(id){ const c = S.cMap[id]; return c ? courseTitle(c) : 'Məşğələ'; }
+/** Tələbənin ödəniş vəziyyəti. null — icazə yoxdur və ya tələbə heç bir məşğələdə deyil. */
+function payInfo(sid){
+  if (!S.d || !S.d.pay) return null;
+  const p = S.d.pay[sid];
+  if (!p) return S.d.courses.some(c => c.studentIds.includes(sid)) ? { kind: 'ok', d: [], w: [] } : null;
+  return { kind: p.d.length ? 'debt' : p.w.length ? 'wait' : 'ok', d: p.d, w: p.w };
+}
+function payText(pi){
+  if (!pi) return '';
+  if (pi.kind === 'debt') return pi.d.length === 1 ? 'Borc: 1 ay' : `Borc: ${pi.d.length} ay`;
+  if (pi.kind === 'wait') return pi.w.length > 1 ? `${pi.w.length} məşğələdə gözlənilir` : `Ay ${pi.w[0][1]} gözlənilir`;
+  return 'Ödənilib';
+}
+// Məşğələnin cari ayı üçün neçə tələbə ödəyib
+function coursePaid(c){
+  if (!S.d.pay) return null;
+  const unpaid = c.studentIds.filter(sid => { const p = S.d.pay[sid]; return p && p.w.some(x => x[0] === c.id); }).length;
+  return { paid: c.studentIds.length - unpaid, total: c.studentIds.length };
+}
+
+/* ---------- HOME (İcmal) ---------- */
+function quickActions(){
+  if (ro()) return [];
+  const qa = [];
+  if (can('attendance.mark') || S.d.courses.some(c => c.teacherId === me().id)) qa.push({ act: 'qaLesson', icon: 'check', title: 'Dərs qeyd et', sub: 'Məşğələni seçin' });
+  if (can('payments.add')) qa.push({ act: 'qaPayment', icon: 'wallet', title: 'Ödəniş əlavə et', sub: 'Tələbəni seçin' });
+  if (can('students.add')) qa.push({ act: 'studentForm', icon: 'user', title: 'Yeni tələbə', sub: 'Ad və əlaqə' });
+  if (can('survey.send')) qa.push({ act: 'qaSurvey', icon: 'poll', title: 'Sorğu göndər', sub: 'Valideynə link' });
+  if (can('courses.add')) qa.push({ act: 'courseForm', icon: 'layers', title: 'Yeni məşğələ', sub: 'Fərdi və ya qrup' });
+  return qa.slice(0, 4);
+}
+function attentionItems(){
+  const d = S.d, out = [];
+  const payBtn = (sid, cid, m) => can('payments.add') && !ro()
+    ? `<button class="btn btn-sm btn-primary" data-act="paymentForm" data-id="${sid}" data-course="${cid}" data-month="${m}">${ic('wallet')}Ödəniş</button>` : '';
+  const who = (sid) => can('students.view') ? `<button class="linkish" data-go="student" data-param="${sid}">${esc(stuName(sid))}</button>` : esc(stuName(sid));
+  if (d.pay){
+    Object.entries(d.pay).forEach(([sid, p]) => {
+      if (!S.sMap[sid]) return;
+      if (p.d.length) out.push({ sev: 0, glyph: stDot('debt'), key: stuName(sid),
+        title: `${who(sid)} — ${p.d.length === 1 ? '1 ay' : p.d.length + ' ay'} ödənilməyib`,
+        meta: p.d.map(x => `${esc(courseLabelById(x[0]))}, ay ${x[1]} (${x[2]} dərs)`).join('; '),
+        act: payBtn(sid, p.d[0][0], p.d[0][1]) });
+      p.w.forEach(x => {
+        const c = S.cMap[x[0]]; if (!c) return;
+        if (x[2] * 2 >= c.lessonsPerMonth) out.push({ sev: 2, glyph: stDot('wait'), key: stuName(sid),
+          title: `${who(sid)} — ay ${x[1]} üçün ödəniş yoxdur`,
+          meta: `${esc(courseTitle(c))}: ${x[2]}/${c.lessonsPerMonth} dərs keçib`, act: payBtn(sid, x[0], x[1]) });
+      });
+    });
+  }
+  if (can('courses.view')){
+    d.courses.forEach(c => {
+      const st = courseState(c); if (!st) return;
+      const open = `<button class="linkish" data-act="courseDetail" data-id="${c.id}">«${esc(courseTitle(c))}»</button>`;
+      if (st.kind === 'done') out.push({ sev: 1, glyph: stDot('done'), key: courseTitle(c),
+        title: `${open} — ${c.held}/${c.lessonsPerMonth}, yeni ay başladılmalıdır`, meta: `Müəllim: ${esc(c.teacherName)}, ay ${c.monthNo}`,
+        act: can('month.new') && !ro() ? `<button class="btn btn-sm btn-primary" data-act="newMonth" data-id="${c.id}">${ic('calplus')}Yeni ay</button>` : '' });
+      else out.push({ sev: 2, glyph: stDot('stale'), key: courseTitle(c),
+        title: `${open} — ${st.days} gündür dərs qeyd olunmayıb`, meta: `Müəllim: ${esc(c.teacherName)}${c.lastDate ? `, son dərs ${fmtDate(c.lastDate)}` : ', bu ay hələ dərs yoxdur'}`,
+        act: `<button class="btn btn-sm btn-soft" data-act="courseDetail" data-id="${c.id}">Ətraflı</button>` });
+    });
+  }
+  const sa = d.surveyAlerts;
+  if (sa && sa.low) out.push({ sev: 0, glyph: `<span class="st-ic">${ic('poll')}</span>`, key: '~',
+    title: `${sa.low} aşağı qiymətli sorğu cavabına baxılmayıb`, meta: 'Valideynlə əlaqə saxlamaq lazım ola bilər.',
+    act: `<button class="btn btn-sm btn-primary" data-act="openResponses" data-low="1">Bax</button>` });
+  else if (sa && sa.fresh) out.push({ sev: 3, glyph: `<span class="st-ic">${ic('poll')}</span>`, key: '~',
+    title: `${sa.fresh} yeni sorğu cavabı`, meta: 'Aşağı qiymət yoxdur.', act: `<button class="btn btn-sm btn-soft" data-act="openResponses">Bax</button>` });
+  return out.sort((a, b) => (a.sev - b.sev) || a.key.localeCompare(b.key, 'az'));
+}
+const ATT_VISIBLE = 6;
+function attentionHtml(){
+  const items = attentionItems();
+  if (!items.length) return `<div class="attn-ok">${ic('checkcircle')}<div><b>Hər şey qaydasındadır</b><p>Borc, ayı bitən məşğələ və ya baxılmamış narazılıq yoxdur.</p></div></div>`;
+  const shown = S.ui.attAll ? items : items.slice(0, ATT_VISIBLE);
+  return `<div class="attn">${shown.map(x => `<div class="attn-row">
+      <span class="attn-g">${x.glyph}</span>
+      <div class="attn-b"><div class="attn-t">${x.title}</div>${x.meta ? `<div class="attn-m">${x.meta}</div>` : ''}</div>
+      ${x.act ? `<div class="attn-a">${x.act}</div>` : ''}</div>`).join('')}</div>
+    ${items.length > ATT_VISIBLE ? `<button class="attn-more ${S.ui.attAll ? 'open' : ''}" data-act="toggleAtt" aria-expanded="${!!S.ui.attAll}">${S.ui.attAll ? 'Daha az göstər' : `Hamısını göstər (${items.length})`}${ic('chev')}</button>` : ''}`;
+}
+ACT.toggleAtt = () => { S.ui.attAll = !S.ui.attAll; const b = $('#attBox'); if (b){ b.innerHTML = attentionHtml(); hydrateIcons(b); } };
+
 RENDER.home = () => {
-  const d = S.d;
-  const cs = d.courses;
+  const d = S.d, cs = d.courses;
   const done = cs.filter(c => c.complete);
   const heldTotal = cs.reduce((a, c) => a + c.held, 0);
-  const teachers = d.users.filter(u => u.role === 'teacher').length;
-  const sum = [];
-  if (can('students.view')) sum.push(`<div><b>${d.students.length}</b><span>tələbə</span></div>`);
-  if (can('teachers.view')) sum.push(`<div><b>${teachers}</b><span>müəllim</span></div>`);
-  if (can('courses.view')){
-    sum.push(`<div><b>${cs.length}</b><span>məşğələ: ${cs.filter(c => c.type === 'individual').length} fərdi, ${cs.filter(c => c.type === 'group').length} qrup</span></div>`);
-    sum.push(`<div><b>${heldTotal}</b><span>cari aylarda keçirilən dərs</span></div>`);
+  const qa = quickActions();
+  const tiles = [];
+  if (can('students.view')){
+    const inCourse = new Set(cs.flatMap(c => c.studentIds)).size;
+    tiles.push({ n: d.students.length, label: 'tələbə', sub: `${inCourse} nəfər məşğələlərdə`, go: 'students' });
   }
-  let attention = '';
-  if (can('courses.view')){
-    attention = `<div class="section"><div class="section-head"><h3>Ayı tamamlanan məşğələlər<span class="count">${done.length}</span></h3>
-      ${done.length ? `<button class="btn btn-sm btn-soft" data-act="showDone">Məşğələlərdə bax</button>` : ''}</div>
-      ${done.length
-        ? `<div class="cgrid">${done.map(c => courseCard(c, 'admin')).join('')}</div>`
-        : emptyBox('Hələlik tamamlanan ay yoxdur', 'Məşğələdə 8/8 və ya 12/12 dərs keçiriləndə o, burada görünəcək ki, yeni ay başlada biləsiniz.')}
-    </div>`;
-    const going = cs.filter(c => !c.complete).sort((a, b) => (b.held / b.lessonsPerMonth) - (a.held / a.lessonsPerMonth)).slice(0, 12);
-    attention += `<div class="section"><div class="section-head"><h3>Gedişat</h3>
-      ${can('courses.add') ? `<button class="btn btn-primary btn-sm" data-act="courseForm">${ic('plus')}Yeni məşğələ</button>` : ''}</div>
-      ${going.length ? `<table class="ledger"><thead><tr><th>Məşğələ</th><th>Müəllim</th><th>Bu ay</th><th></th></tr></thead><tbody>
-        ${going.map(c => `<tr>
-          <td data-label="Məşğələ"><b style="font-weight:600">${esc(courseTitle(c))}</b><br><small class="muted">${typeLabel(c.type)}, ay ${c.monthNo}</small></td>
+  if (can('courses.view')) tiles.push({ n: done.length, label: 'ayı bitən məşğələ', sub: done.length ? 'yeni ay gözləyir' : 'hamısı davam edir', act: done.length ? 'showDone' : '', hot: done.length > 0 });
+  if (d.pay){
+    const vals = Object.values(d.pay);
+    const debt = vals.filter(p => p.d.length).length, wait = vals.filter(p => !p.d.length && p.w.length).length;
+    tiles.push({ n: debt, label: 'borclu tələbə', sub: wait ? `${wait} nəfərin bu ay ödənişi gözlənilir` : 'bu ay hamı ödəyib', act: 'showPay', hot: debt > 0 });
+  }
+  if (d.surveyAlerts) tiles.push({ n: d.surveyAlerts.fresh, label: 'yeni sorğu cavabı', sub: d.surveyAlerts.low ? `${d.surveyAlerts.low} aşağı qiymət` : 'aşağı qiymət yoxdur', act: 'openResponses', hot: d.surveyAlerts.low > 0 });
+  if (d.stats) tiles.push({ n: d.stats.lessons7, label: 'dərs son 7 gündə', sub: `cari aylarda cəmi ${heldTotal}`, go: can('attendance.view') ? 'history' : '' });
+
+  const going = can('courses.view') ? cs.filter(c => !c.complete).sort((a, b) => (b.held / b.lessonsPerMonth) - (a.held / a.lessonsPerMonth)).slice(0, 12) : [];
+  return `<div class="page-head"><div><h2>${greeting()}, ${esc(d.me.name)}!</h2><p>Bu gün ${fmtDate(d.today)}, ${weekday(d.today)}.</p></div></div>
+    ${qa.length ? `<div class="qa" role="group" aria-label="Tez əməliyyatlar">${qa.map(a => `<button class="qa-btn" data-act="${a.act}">
+        <span class="qa-ic">${ic(a.icon)}</span><span class="qa-tx"><b>${a.title}</b><small>${a.sub}</small></span></button>`).join('')}</div>` : ''}
+    ${tiles.length ? `<div class="kpi">${tiles.map(t => {
+        const attr = t.act ? `data-act="${t.act}"` : t.go ? `data-go="${t.go}"` : '';
+        const tag = attr ? 'button' : 'div';
+        return `<${tag} class="kpi-t${t.hot ? ' hot' : ''}" ${attr}><b>${t.n}</b><span>${t.label}</span><small>${t.sub}</small></${tag}>`;
+      }).join('')}</div>` : ''}
+    ${(can('courses.view') || d.pay || d.surveyAlerts) ? `<div class="section"><div class="section-head"><h3>Diqqət tələb edir</h3>
+        <div class="st-legend" aria-hidden="true">${d.pay ? `<span>${stDot('debt')}borc</span><span>${stDot('wait')}gözlənilir</span>` : ''}${can('courses.view') ? `<span>${stDot('done')}ay bitdi</span><span>${stDot('stale')}dərs yoxdur</span>` : ''}</div></div>
+      <div id="attBox">${attentionHtml()}</div></div>` : ''}
+    ${can('courses.view') ? `<div class="section"><div class="section-head"><h3>Gedişat</h3>
+      ${can('courses.add') && !ro() ? `<button class="btn btn-primary btn-sm" data-act="courseForm">${ic('plus')}Yeni məşğələ</button>` : ''}</div>
+      ${going.length ? `<table class="ledger"><thead><tr><th>Məşğələ</th><th>Müəllim</th><th>Bu ay</th>${d.pay ? '<th>Ödəyib</th>' : ''}<th></th></tr></thead><tbody>
+        ${going.map(c => { const st = courseState(c); const pd = coursePaid(c); return `<tr>
+          <td data-label="Məşğələ"><div class="row" style="gap:8px;flex-wrap:nowrap">${st ? stDot(st.kind, st.text) : ''}<div><b style="font-weight:600">${esc(courseTitle(c))}</b><br><small class="muted">${typeLabel(c.type)}, ay ${c.monthNo}</small></div></div></td>
           <td data-label="Müəllim">${esc(c.teacherName)}</td>
           <td data-label="Bu ay"><div class="row">${pips(c.held, c.lessonsPerMonth)}<span class="frac">${c.held}/${c.lessonsPerMonth}</span></div></td>
+          ${pd ? `<td data-label="Ödəyib"><span class="paid-frac">${stDot(pd.paid === pd.total ? 'ok' : 'wait', pd.paid === pd.total ? 'Hamı ödəyib' : 'Ödəniş gözlənilir')}${pd.paid}/${pd.total}</span></td>` : ''}
           <td class="actions"><button class="btn btn-sm btn-soft" data-act="courseDetail" data-id="${c.id}">Ətraflı</button></td>
-        </tr>`).join('')}</tbody></table>`
-        : emptyBox('Məşğələ yoxdur', 'Hələ heç bir məşğələ yaradılmayıb.', can('courses.add') ? `<button class="btn btn-primary" data-act="courseForm">${ic('plus')}Yeni məşğələ</button>` : '')}
-    </div>`;
-  }
-  return `<div class="page-head"><div><h2>${greeting()}, ${esc(d.me.name)}!</h2><p>Bu gün ${fmtDate(d.today)}, ${weekday(d.today)}.</p></div></div>
-    ${sum.length ? `<div class="summary">${sum.join('')}</div>` : ''}
-    ${attention}`;
+        </tr>`; }).join('')}</tbody></table>`
+        : emptyBox(cs.length ? 'Bütün məşğələlərdə ay tamamlanıb' : 'Məşğələ yoxdur', cs.length ? 'Yuxarıdakı siyahıdan yeni ay başladın.' : 'Hələ heç bir məşğələ yaradılmayıb.', !cs.length && can('courses.add') ? `<button class="btn btn-primary" data-act="courseForm">${ic('plus')}Yeni məşğələ</button>` : '')}
+    </div>` : ''}`;
 };
+ACT.showPay = () => { S.ui.sf = Object.values(S.d.pay || {}).some(p => p.d.length) ? 'debt' : 'wait'; go('students'); };
+ACT.openResponses = (b) => { S.ui.tab = 'responses'; S.ui.respFilter = { onlyNew: true, low: !!(b && b.dataset && b.dataset.low) }; go('tools'); };
+
+/* ===================== PALİTRA: ümumi axtarış və seçicilər ===================== */
+/**
+ * openPalette({ title, placeholder, source(q) → [{ label, items:[{ title, sub, icon|ava|glyph, run, disabled }] }], empty })
+ * Klaviatura: ↑ ↓ seçir, Enter açır, Esc bağlayır. Siçan üzərinə gələndə də seçilir.
+ */
+function openPalette({ title, placeholder, source, empty }){
+  let flat = [], active = 0;
+  return openModal({ title, size: 'palette',
+    body: `<div class="pal">
+      <div class="pal-q">${ic('search')}<input id="palQ" type="search" placeholder="${esc(placeholder)}" autocomplete="off" spellcheck="false" enterkeyhint="go"
+        role="combobox" aria-expanded="true" aria-controls="palList" aria-autocomplete="list" aria-label="${esc(title)}">
+        <button class="pal-x" type="button" data-close aria-label="Bağla">Esc</button></div>
+      <div class="pal-list" id="palList" role="listbox" aria-label="${esc(title)}"></div>
+      <div class="pal-foot" aria-hidden="true"><span><kbd>↑</kbd><kbd>↓</kbd> seç</span><span><kbd>Enter</kbd> aç</span><span><kbd>Esc</kbd> bağla</span></div></div>`,
+    onMount: (el, close) => {
+      const q = el.querySelector('#palQ'), list = el.querySelector('#palList');
+      const setActive = (i, scroll) => {
+        if (!flat.length) return;
+        active = (i + flat.length) % flat.length;
+        $$('.pal-item', list).forEach((b, j) => { const on = j === active; b.classList.toggle('on', on); b.setAttribute('aria-selected', String(on)); });
+        const cur = list.querySelector(`.pal-item[data-i="${active}"]`);
+        if (cur){ q.setAttribute('aria-activedescendant', cur.id); if (scroll) cur.scrollIntoView({ block: 'nearest' }); }
+      };
+      const draw = () => {
+        const groups = source(q.value).filter(g => g.items.length);
+        flat = [];
+        list.innerHTML = groups.length ? groups.map(g => `<div class="pal-g" role="presentation"><div class="pal-gl">${esc(g.label)}</div>${g.items.map(it => {
+            const i = flat.push(it) - 1;
+            const lead = it.glyph ? `<span class="pal-lead">${it.glyph}</span>` : it.ava ? `<span class="ava sm">${esc(initials(it.ava))}</span>` : `<span class="pal-lead">${ic(it.icon || 'chev')}</span>`;
+            return `<button type="button" class="pal-item" role="option" id="pal-o${i}" data-i="${i}" ${it.disabled ? 'aria-disabled="true"' : ''}>
+              ${lead}<span class="pal-tx"><b>${esc(it.title)}</b>${it.sub ? `<small>${esc(it.sub)}</small>` : ''}</span>${it.badge ? `<span class="pal-badge">${it.badge}</span>` : ''}</button>`;
+          }).join('')}</div>`).join('')
+          : `<div class="pal-empty">${ic('search')}<b>Heç nə tapılmadı</b><span>${esc(empty || 'Başqa söz yazın.')}</span></div>`;
+        hydrateIcons(list);
+        active = Math.max(0, flat.findIndex(x => !x.disabled));
+        setActive(active, false);
+        list.scrollTop = 0;
+      };
+      const runIt = (i) => {
+        const it = flat[i]; if (!it) return;
+        if (it.disabled){ if (it.why) toast(it.why, 'info'); return; }
+        close();
+        setTimeout(() => it.run(), 0);
+      };
+      q.addEventListener('input', draw);
+      q.addEventListener('keydown', e => {
+        if (e.key === 'ArrowDown'){ e.preventDefault(); setActive(active + 1, true); }
+        else if (e.key === 'ArrowUp'){ e.preventDefault(); setActive(active - 1, true); }
+        else if (e.key === 'Enter'){ e.preventDefault(); runIt(active); }
+      });
+      list.addEventListener('mousemove', e => { const b = e.target.closest('.pal-item'); if (b && Number(b.dataset.i) !== active) setActive(Number(b.dataset.i), false); });
+      list.addEventListener('click', e => { const b = e.target.closest('.pal-item'); if (b) runIt(Number(b.dataset.i)); });
+      draw();
+      q.focus();
+    }
+  });
+}
+function navPages(){
+  return Object.entries(PAGES).filter(([k, p]) => p.nav && p.allow())
+    .map(([k, p]) => ({ icon: p.icon, title: p.title, sub: 'Bölmə', run: () => go(k) }));
+}
+function searchSource(raw){
+  const f = fold(raw.trim());
+  const has = (...parts) => fold(parts.filter(Boolean).join(' ')).includes(f);
+  const qa = quickActions().map(a => ({ icon: a.icon, title: a.title, sub: a.sub, run: () => ACT[a.act]({ dataset: {} }) }));
+  if (!f) return [{ label: 'Tez əməliyyatlar', items: qa }, { label: 'Bölmələr', items: navPages() }];
+  const groups = [];
+  if (can('students.view')) groups.push({ label: 'Tələbələr', items: S.d.students.filter(s => has(s.name, s.phone, s.parentName, s.parentPhone))
+    .sort((a, b) => a.name.localeCompare(b.name, 'az')).slice(0, 7).map(s => {
+      const pi = payInfo(s.id), n = coursesOfStudent(s.id).length;
+      return { ava: s.name, title: s.name, sub: [n ? `${n} məşğələ` : 'Məşğələ yoxdur', s.phone].filter(Boolean).join(', '),
+        badge: pi && pi.kind !== 'ok' ? stTag(pi.kind, payText(pi)) : '', run: () => go('student', s.id) };
+    }) });
+  groups.push({ label: 'Məşğələlər', items: S.d.courses.filter(c => has(courseTitle(c), c.title, c.teacherName, ...c.studentIds.map(stuName)))
+    .slice(0, 6).map(c => { const st = courseState(c); return { icon: c.type === 'group' ? 'users' : 'user', title: courseTitle(c),
+      sub: `${typeLabel(c.type)}, ${c.teacherName}, ${c.held}/${c.lessonsPerMonth}`, badge: st ? stTag(st.kind, st.text) : '', run: () => openCourseDetail(c.id) }; }) });
+  if (can('teachers.view')) groups.push({ label: 'Müəllimlər', items: S.d.users.filter(u => (u.role === 'teacher' || u.role === 'helper') && has(u.name, u.login, u.phone))
+    .slice(0, 5).map(u => ({ ava: u.name, title: u.name, sub: roleLabel(u.role) + (u.login ? ', login: ' + u.login : ''),
+      run: () => { S.ui.uq = u.name; go('staff'); } })) });
+  groups.push({ label: 'Əməliyyatlar', items: qa.filter(a => has(a.title, a.sub)) });
+  groups.push({ label: 'Bölmələr', items: navPages().filter(p => has(p.title)) });
+  return groups;
+}
+function canSearch(){ return !!(S.d && S.token && !$('#shell').hidden && !me().isDev); }
+ACT.openSearch = () => {
+  if (!canSearch()) return;
+  openPalette({ title: 'Axtarış', placeholder: can('students.view') ? 'Tələbə, məşğələ, müəllim və ya bölmə…' : 'Məşğələ və ya bölmə…', source: searchSource,
+    empty: 'Ad, telefon, qrup adı və ya bölmə adını yazın.' });
+};
+document.addEventListener('keydown', e => {
+  if ((e.key === 'k' || e.key === 'K') && (e.ctrlKey || e.metaKey) && !e.altKey){
+    if (!canSearch()) return;
+    e.preventDefault();
+    const top = modalStack[modalStack.length - 1];
+    if (top && top.el.querySelector('.modal.palette')) return top.close();
+    if (!modalStack.length) ACT.openSearch();
+    return;
+  }
+  if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey && canSearch() && !modalStack.length){
+    const t = e.target;
+    if (t && t.closest && t.closest('input, textarea, select, [contenteditable="true"]')) return;
+    e.preventDefault(); ACT.openSearch();
+  }
+});
+
+// Tez əməliyyatlar üçün seçicilər
+function pickCourse(onPick, title){
+  const mine = !can('attendance.mark');
+  const pool = S.d.courses.filter(c => !mine || c.teacherId === me().id);
+  if (pool.length === 1 && !pool[0].complete) return onPick(pool[0]);
+  openPalette({ title: title || 'Məşğələni seçin', placeholder: 'Məşğələ, tələbə və ya müəllim adı…', empty: 'Bu adla məşğələ yoxdur.',
+    source: (raw) => {
+      const f = fold(raw.trim());
+      const list = pool.filter(c => !f || fold([courseTitle(c), c.teacherName, ...c.studentIds.map(stuName)].join(' ')).includes(f))
+        .sort((a, b) => (a.complete - b.complete) || (a.teacherId === me().id ? -1 : 0) - (b.teacherId === me().id ? -1 : 0) || courseTitle(a).localeCompare(courseTitle(b), 'az'));
+      return [{ label: f ? 'Tapılan məşğələlər' : 'Məşğələlər', items: list.map(c => { const st = courseState(c); return {
+        glyph: `<span class="pal-frac">${c.held}<small>/${c.lessonsPerMonth}</small></span>`, title: courseTitle(c), sub: `${typeLabel(c.type)}, ${c.teacherName}, ${c.held}/${c.lessonsPerMonth}`,
+        badge: st ? stTag(st.kind, st.text) : '', disabled: c.complete, why: 'Bu məşğələdə ay tamamlanıb — əvvəlcə yeni ay başladılmalıdır.', run: () => onPick(c) }; }) }];
+    } });
+}
+function pickStudent(onPick, { title, filter, badge } = {}){
+  openPalette({ title: title || 'Tələbəni seçin', placeholder: 'Tələbənin adı və ya telefonu…', empty: 'Bu adla tələbə yoxdur.',
+    source: (raw) => {
+      const f = fold(raw.trim());
+      const rank = { debt: 0, wait: 1, ok: 2 };
+      const list = S.d.students.filter(s => (!filter || filter(s)) && (!f || fold([s.name, s.phone, s.parentName].join(' ')).includes(f)))
+        .sort((a, b) => { const pa = payInfo(a.id), pb = payInfo(b.id);
+          return (badge ? (rank[pa ? pa.kind : 'ok'] - rank[pb ? pb.kind : 'ok']) : 0) || a.name.localeCompare(b.name, 'az'); })
+        .slice(0, 60);
+      return [{ label: f ? 'Tapılan tələbələr' : 'Tələbələr', items: list.map(s => { const pi = badge ? payInfo(s.id) : null; const n = coursesOfStudent(s.id).length; return {
+        ava: s.name, title: s.name, sub: n ? `${n} məşğələ` : 'Məşğələ yoxdur', badge: pi && pi.kind !== 'ok' ? stTag(pi.kind, payText(pi)) : '', run: () => onPick(s) }; }) }];
+    } });
+}
+ACT.qaLesson = () => pickCourse(c => lessonModal({ course: c }), 'Dərs qeyd et: məşğələni seçin');
+ACT.qaPayment = () => pickStudent(s => ACT.paymentForm({ dataset: { id: s.id } }), { title: 'Ödəniş: tələbəni seçin', badge: true,
+  filter: s => coursesOfStudent(s.id).length > 0 || !!(S.d.pay && S.d.pay[s.id]) });
+ACT.qaSurvey = () => pickStudent(s => {
+  const cs = coursesOfStudent(s.id);
+  if (!cs.length) return toast('Bu tələbə heç bir məşğələdə deyil.', 'err');
+  if (cs.length === 1) return createSurvey(null, s.id, cs[0].id);
+  openPalette({ title: 'Hansı məşğələ üzrə?', placeholder: 'Məşğələ…', source: () => [{ label: s.name, items: cs.map(c => ({
+    icon: c.type === 'group' ? 'users' : 'user', title: courseTitle(c), sub: `Müəllim: ${c.teacherName}`, run: () => createSurvey(null, s.id, c.id) })) }] });
+}, { title: 'Sorğu: tələbəni seçin', filter: s => coursesOfStudent(s.id).length > 0 });
 
 /* ---------- MINE ---------- */
 RENDER.mine = () => {
@@ -2065,36 +2568,58 @@ AFTER.courses = (root) => {
 
 /* ---------- STUDENTS ---------- */
 function coursesOfStudent(id){ return S.d.courses.filter(c => c.studentIds.includes(id)); }
-RENDER.students = () => `
+const SF = [['all', 'Hamısı'], ['debt', 'Borclu'], ['wait', 'Gözlənilir'], ['ok', 'Ödəyib']];
+RENDER.students = () => {
+  const hasPay = !!S.d.pay;
+  const sf = hasPay ? (S.ui.sf || 'all') : 'all';
+  const cnt = { all: S.d.students.length, debt: 0, wait: 0, ok: 0 };
+  if (hasPay) S.d.students.forEach(st => { const pi = payInfo(st.id); if (pi) cnt[pi.kind]++; });
+  return `
   <div class="page-head"><div><h2>Tələbələr</h2><p>Cəmi ${S.d.students.length} tələbə.</p></div>
-    ${can('students.add') ? `<button class="btn btn-primary" data-act="studentForm">${ic('plus')}Yeni tələbə</button>` : ''}</div>
+    ${can('students.add') && !ro() ? `<button class="btn btn-primary" data-act="studentForm">${ic('plus')}Yeni tələbə</button>` : ''}</div>
   <div class="toolbar">
     <div class="input-wrap search">${ic('search','lead')}<input class="input has-lead" id="sq" placeholder="Ad, telefon və ya valideyn üzrə axtar" value="${esc(S.ui.sq || '')}"></div>
+    ${hasPay ? `<div class="seg" role="radiogroup" aria-label="Ödəniş vəziyyəti">${SF.map(([k, l]) =>
+      `<label><input type="radio" name="sf" value="${k}" ${sf === k ? 'checked' : ''}><span>${k !== 'all' ? stDot(k) : ''}${l} ${cnt[k]}</span></label>`).join('')}</div>` : ''}
   </div>
   <div id="slist">${studentsList()}</div>`;
+};
 function studentsList(){
   const q = fold(S.ui.sq || '');
-  const list = S.d.students.filter(s => !q || fold([s.name, s.phone, s.parentName, s.parentPhone].join(' ')).includes(q))
-    .sort((a, b) => a.name.localeCompare(b.name, 'az'));
+  const hasPay = !!S.d.pay;
+  const sf = hasPay ? (S.ui.sf || 'all') : 'all';
+  const list = S.d.students.filter(s => {
+    if (q && !fold([s.name, s.phone, s.parentName, s.parentPhone].join(' ')).includes(q)) return false;
+    if (sf !== 'all'){ const pi = payInfo(s.id); if (!pi || pi.kind !== sf) return false; }
+    return true;
+  }).sort((a, b) => a.name.localeCompare(b.name, 'az'));
   if (!S.d.students.length) return emptyBox('Hələ tələbə yoxdur', 'Tələbə əlavə edin, sonra onu məşğələyə yazın.',
     can('students.add') ? `<button class="btn btn-primary" data-act="studentForm">${ic('plus')}Yeni tələbə</button>` : '');
-  if (!list.length) return emptyBox('Heç nə tapılmadı', 'Axtarış sözünü dəyişin.');
-  return `<table class="ledger"><thead><tr><th>Tələbə</th><th>Əlaqə</th><th>Məşğələlər</th><th></th></tr></thead><tbody>
+  if (!list.length) return sf !== 'all' && !q
+    ? emptyBox(sf === 'debt' ? 'Borclu tələbə yoxdur' : sf === 'wait' ? 'Gözlənilən ödəniş yoxdur' : 'Ödəyən tələbə yoxdur', 'Başqa filtr seçin.')
+    : emptyBox('Heç nə tapılmadı', 'Axtarış sözünü və ya filtri dəyişin.');
+  return `<table class="ledger"><thead><tr><th>Tələbə</th><th>Əlaqə</th><th>Məşğələlər</th>${hasPay ? '<th>Ödəniş</th>' : ''}<th></th></tr></thead><tbody>
     ${list.map(s => {
       const cs = coursesOfStudent(s.id);
+      const pi = hasPay ? payInfo(s.id) : null;
+      const payCell = hasPay ? `<td data-label="Ödəniş">${pi ? `<span class="pay-cell">${stTag(pi.kind, payText(pi))}${pi.kind !== 'ok' && can('payments.add') && !ro()
+          ? `<button class="ibtn sm" data-act="paymentForm" data-id="${s.id}" ${pi.kind === 'debt' ? `data-course="${pi.d[0][0]}" data-month="${pi.d[0][1]}"` : `data-course="${pi.w[0][0]}" data-month="${pi.w[0][1]}"`} title="Ödəniş əlavə et" aria-label="Ödəniş əlavə et">${ic('wallet')}</button>` : ''}</span>` : '<span class="faint">—</span>'}</td>` : '';
       return `<tr>
         <td data-label="Tələbə" class="full"><div class="person"><span class="ava">${esc(initials(s.name))}</span><div><button class="linkish" data-go="student" data-param="${s.id}">${esc(s.name)}</button>${s.note ? `<small>${esc(s.note.length > 60 ? s.note.slice(0,60) + '…' : s.note)}</small>` : ''}</div></div></td>
         <td data-label="Əlaqə">${s.phone ? esc(s.phone) : '<span class="faint">—</span>'}${s.parentName || s.parentPhone ? `<br><small class="muted">Valideyn: ${esc([s.parentName, s.parentPhone].filter(Boolean).join(', '))}</small>` : ''}</td>
         <td data-label="Məşğələlər">${cs.length ? `<div class="chips">${cs.map(c => `<span class="cchip"><b>${typeLabel(c.type)}${c.type === 'group' ? ': ' + esc(courseTitle(c)) : ''}</b><span>${esc(c.teacherName)}, ${c.held}/${c.lessonsPerMonth}</span></span>`).join('')}</div>` : '<span class="faint">Məşğələ yoxdur</span>'}</td>
+        ${payCell}
         <td class="actions">
           <button class="ibtn sm" data-go="student" data-param="${s.id}" title="Tələbə kartı" aria-label="Tələbə kartı">${ic('card')}</button>
-          ${can('students.edit') ? `<button class="ibtn sm" data-act="studentForm" data-id="${s.id}" title="Redaktə et" aria-label="Redaktə et">${ic('edit')}</button>` : ''}
-          ${can('students.delete') ? `<button class="ibtn sm" data-act="deleteStudent" data-id="${s.id}" title="Sil" aria-label="Sil">${ic('trash')}</button>` : ''}
+          ${can('students.edit') && !ro() ? `<button class="ibtn sm" data-act="studentForm" data-id="${s.id}" title="Redaktə et" aria-label="Redaktə et">${ic('edit')}</button>` : ''}
+          ${can('students.delete') && !ro() ? `<button class="ibtn sm" data-act="deleteStudent" data-id="${s.id}" title="Sil" aria-label="Sil">${ic('trash')}</button>` : ''}
         </td></tr>`;
     }).join('')}</tbody></table>`;
 }
 AFTER.students = (root) => {
-  $('#sq', root).addEventListener('input', e => { S.ui.sq = e.target.value; $('#slist').innerHTML = studentsList(); hydrateIcons($('#slist')); });
+  const upd = () => { $('#slist').innerHTML = studentsList(); hydrateIcons($('#slist')); };
+  $('#sq', root).addEventListener('input', e => { S.ui.sq = e.target.value; upd(); });
+  $$('input[name=sf]', root).forEach(r => r.addEventListener('change', e => { S.ui.sf = e.target.value; upd(); }));
 };
 
 /* ---------- STUDENT CARD ---------- */
@@ -2257,6 +2782,19 @@ async function loadCard(){
   }
 }
 ACT.reloadCard = () => loadCard();
+function cardPayLine(sid, c){
+  const pi = payInfo(sid); if (!pi) return '';
+  const waiting = pi.w.find(x => x[0] === c.id);
+  const btn = waiting && can('payments.add') && !ro()
+    ? `<button class="btn btn-sm btn-soft" data-act="paymentForm" data-id="${sid}" data-course="${c.id}" data-month="${c.monthNo}">${ic('wallet')}Ödə</button>` : '';
+  return `<div class="ccard-pay">${waiting ? stTag('wait', `Ay ${c.monthNo}: ödəniş gözlənilir`) : stTag('ok', `Ay ${c.monthNo}: ödənilib`)}${btn}</div>`;
+}
+function cardDebtBox(sid){
+  const pi = payInfo(sid); if (!pi || !pi.d.length) return '';
+  return `<div class="debt-box"><div class="debt-head">${stDot('debt')}<b>Ödənilməmiş aylar</b><small>Tələbə bu aylarda dərsə gəlib, amma ödəniş qeyd olunmayıb.</small></div>
+    ${pi.d.map(x => `<div class="debt-row"><span>${esc(courseLabelById(x[0]))}, <b>ay ${x[1]}</b> <span class="muted">(${x[2]} dərs)</span></span>
+      ${can('payments.add') && !ro() ? `<button class="btn btn-sm btn-primary" data-act="paymentForm" data-id="${sid}" data-course="${x[0]}" data-month="${x[1]}">${ic('wallet')}Ödəniş əlavə et</button>` : ''}</div>`).join('')}</div>`;
+}
 function cardHtml(k){
   const s = k.student;
   const total = k.stats.held + k.stats.absent;
@@ -2297,6 +2835,7 @@ function cardHtml(k){
       <p class="who">Müəllim: <b>${esc(c.teacherName)}</b></p>${c.type === 'group' ? `<p class="who">Qrupda: <b>${esc(c.studentNames.join(', '))}</b></p>` : ''}</div>
       <div class="ccard-prog">${pips(c.held, c.lessonsPerMonth)}<span class="frac">${c.held}/${c.lessonsPerMonth}</span></div>
       <p class="ccard-meta">Bu ay tələbə ${c.mine.held} dərsdə iştirak edib${c.mine.absent ? `, ${c.mine.absent} dəfə qayıb olub` : ''}.</p>
+      ${cardPayLine(s.id, c)}
       ${c.type === 'group' && can('tools.bulk') ? `<div class="ccard-actions"><button class="btn btn-sm btn-soft" data-act="transferForm" data-student="${s.id}" data-from="${c.id}">${ic('swap')}Başqa qrupa köçür</button></div>` : ''}
     </article>`).join('')}</div>` : emptyBox('Məşğələ yoxdur', 'Bu tələbə hazırda heç bir məşğələdə iştirak etmir.')}
   </div>
@@ -2323,7 +2862,8 @@ function cardHtml(k){
   </div>
 
   ${k.payments ? `<div class="section"><div class="section-head"><h3>Ödənişlər<span class="count">${k.payments.length}</span></h3>
-      ${can('payments.add') ? `<button class="btn btn-sm btn-soft" data-act="paymentForm" data-id="${s.id}">${ic('plus')}Ödəniş əlavə et</button>` : ''}</div>
+      ${can('payments.add') && !ro() ? `<button class="btn btn-sm btn-soft" data-act="paymentForm" data-id="${s.id}">${ic('plus')}Ödəniş əlavə et</button>` : ''}</div>
+    ${cardDebtBox(s.id)}
     ${k.payments.length ? `<table class="ledger"><thead><tr><th>Tarix</th><th>Məbləğ</th><th>Məşğələ</th><th>Qeyd</th><th>Əlavə edən</th><th></th></tr></thead><tbody>
       ${k.payments.map(p => `<tr>
         <td data-label="Tarix" class="nowrap">${fmtDate(p.date)}</td>
@@ -3101,31 +3641,63 @@ function lessonModal({ course, event, preset }){
 ACT.paymentForm = (b) => {
   const sid = b.dataset.id;
   const k = S.ui.card && S.ui.card.student.id === sid ? S.ui.card : null;
-  const cs = k ? k.courses : coursesOfStudent(sid);
   const name = k ? k.student.name : stuName(sid);
+  const pi = payInfo(sid) || { d: [], w: [] };
+  // Cari məşğələlər + borcu qalan, amma tələbənin artıq olmadığı məşğələlər
+  const opts = [];
+  coursesOfStudent(sid).forEach(c => opts.push({ id: c.id, title: courseTitle(c), cur: c.monthNo, member: true }));
+  pi.d.forEach(x => { if (!opts.some(o => o.id === x[0])) opts.push({ id: x[0], title: courseLabelById(x[0]) + ' (artıq qrupda deyil)', cur: x[1], member: false }); });
+  const debtOf = id => pi.d.filter(x => x[0] === id).map(x => x[1]);
+  const waitOf = id => pi.w.filter(x => x[0] === id).map(x => x[1]);
+  const pre = b.dataset.course && opts.some(o => o.id === b.dataset.course) ? b.dataset.course
+    : (pi.d[0] && opts.some(o => o.id === pi.d[0][0]) ? pi.d[0][0] : (opts[0] ? opts[0].id : ''));
+  const monthOpts = (cid, sel) => {
+    const o = opts.find(x => x.id === cid); if (!o) return '';
+    const debt = debtOf(cid), wait = waitOf(cid);
+    const months = o.member ? Array.from({ length: o.cur }, (_, i) => o.cur - i) : debt.slice().reverse();
+    const def = sel || (debt.length ? debt[0] : o.cur);
+    return months.map(m => `<option value="${m}" ${Number(def) === m ? 'selected' : ''}>Ay ${m}${m === o.cur && o.member ? ' (cari)' : ''}${debt.includes(m) ? ' — borc' : wait.includes(m) ? ' — gözlənilir' : ''}</option>`).join('');
+  };
   openModal({
     title: 'Ödəniş əlavə et', sub: esc(name), size: 'sm',
     body: `<form class="stack" id="pyForm" novalidate>
       <div class="grid2">
-        <label class="field"><span>Məbləğ, AZN</span><input class="input" name="amount" inputmode="decimal" placeholder="məsələn: 120" required></label>
+        <label class="field"><span>Məbləğ, AZN</span><input class="input" name="amount" inputmode="decimal" placeholder="məsələn: 120" required autofocus></label>
         <label class="field"><span>Tarix</span><input type="date" class="input" name="date" value="${today()}" max="${today()}"></label>
       </div>
-      <label class="field"><span>Məşğələ</span><select class="select" name="courseId"><option value="">Göstərilməyib</option>
-        ${cs.map(c => `<option value="${c.id}" ${cs.length === 1 ? 'selected' : ''}>${esc(c.title || courseTitle(S.cMap[c.id] || c))} (ay ${c.monthNo})</option>`).join('')}</select>
-        <small>Ödəniş seçilmiş məşğələnin cari ayına yazılır.</small></label>
+      <label class="field"><span>Məşğələ</span><select class="select" name="courseId" id="pyCourse">
+        ${opts.map(o => `<option value="${o.id}" ${o.id === pre ? 'selected' : ''}>${esc(o.title)}</option>`).join('')}
+        <option value="" ${!pre ? 'selected' : ''}>Ümumi ödəniş (məşğələyə aid deyil)</option></select></label>
+      <label class="field" id="pyMonthF" ${pre ? '' : 'hidden'}><span>Hansı ay üçün</span><select class="select" name="monthNo" id="pyMonth">${monthOpts(pre, b.dataset.month)}</select>
+        <small id="pyHint"></small></label>
       <label class="field"><span>Qeyd</span><input class="input" name="note" maxlength="200" placeholder="İstəyə bağlı"></label>
     </form>`,
     foot: `<button class="btn btn-ghost" data-close>Ləğv et</button><button class="btn btn-primary" form="pyForm" type="submit">${ic('check')}Yadda saxla</button>`,
     onMount: (el, close) => {
       const f = el.querySelector('#pyForm');
+      const cSel = el.querySelector('#pyCourse'), mSel = el.querySelector('#pyMonth'), mF = el.querySelector('#pyMonthF'), hint = el.querySelector('#pyHint');
+      const sync = () => {
+        const cid = cSel.value;
+        mF.hidden = !cid;
+        hint.textContent = !cid ? '' : debtOf(cid).length ? 'Ödənilməmiş ay avtomatik seçilib.' : 'Ödəniş seçilən aya yazılır.';
+      };
+      cSel.addEventListener('change', () => { mSel.innerHTML = monthOpts(cSel.value); sync(); });
+      if (!pre) hint.textContent = '';
+      sync();
       f.addEventListener('submit', e => {
         e.preventDefault();
         const d = Object.fromEntries(new FormData(f));
         const amt = Number(String(d.amount).replace(',', '.'));
         if (!isFinite(amt) || amt <= 0) return fieldErr(f, 'Məbləği düzgün daxil edin.');
         if (!d.date) return fieldErr(f, 'Tarixi seçin.');
+        if (!d.courseId) delete d.monthNo;
         run(el.querySelector('[type=submit]'), async () => {
-          try { await api('addPayment', Object.assign({ studentId: sid }, d)); close(); toast('Ödəniş əlavə edildi.'); if (S.page === 'student') loadCard(); }
+          try {
+            await api('addPayment', Object.assign({ studentId: sid }, d));
+            close();
+            toast(d.courseId ? `Ödəniş əlavə edildi (ay ${d.monthNo}).` : 'Ödəniş əlavə edildi.');
+            if (S.page === 'student') loadCard();
+          }
           catch (ex) { if (ex.code !== 'AUTH') fieldErr(f, ex.message); }
         });
       });
@@ -3167,34 +3739,51 @@ ACT.cardSurvey = (b) => {
 /* ============================================================
  *  YENİLİKLƏR (changelog)
  * ============================================================ */
-const CL_KIND = { new:['Yeni','new'], fix:['Düzəliş','fix'], update:['Yenilik','update'] };
-RENDER.news = () => `<div class="page-head"><div><h2>Yeniliklər</h2><p>Saytdakı yeniliklər və düzəlişlər.</p></div>
+const CL_KIND = { new:['Yeni funksiya','new'], fix:['Düzəliş','fix'], update:['Təkmilləşmə','update'] };
+RENDER.news = () => `<div class="page-head"><div><h2>Yeniliklər</h2><p>Saytda nə dəyişib — yeni funksiyalar, təkmilləşmələr və düzəlişlər.</p></div>
   ${me().isDev ? `<button class="btn btn-primary" data-act="newsForm">${ic('plus')}Yeni qeyd</button>` : ''}</div>
   <div id="newsList">${loadingBox()}</div>`;
-AFTER.news = () => loadNews();
+AFTER.news = (root, isRefresh) => {
+  // «Yeni» nişanı üçün: bu ziyarətdən əvvəl harada qalmışdıq (yeniləmədə itməsin)
+  if (!isRefresh) S.ui.newsPrevSeen = S.d.me.newsSeenAt || '';
+  loadNews();
+  if (S.d.newsUnread && !me().isDev && !me().readOnly){
+    S.d.newsUnread = 0; S.d.me.newsSeenAt = fmtLocal(new Date());
+    renderChrome();
+    api('markNewsSeen', {}, { noRender: true, silent: true }).catch(() => {});
+  }
+};
 async function loadNews(){
   try {
     const res = await api('listChangelog', {}, { noRender: true });
     if (S.page !== 'news') return;
     S.ui.canEditNews = res.canEdit;
+    S.ui.newsItems = res.items;
     const box = $('#newsList'); if (!box) return;
     if (!res.items.length){ box.innerHTML = emptyBox('Hələ qeyd yoxdur', me().isDev ? 'İlk yeniliyi əlavə edin.' : 'Developer yenilik əlavə edəndə burada görünəcək.'); return; }
-    box.innerHTML = res.items.map(c => {
+    const prev = S.ui.newsPrevSeen || '';
+    const isNew = c => !me().isDev && prev !== '' && c.createdAt > prev;
+    const freshN = res.items.filter(isNew).length;
+    box.innerHTML = (freshN ? `<p class="news-fresh">${ic('sparkle')}<span>Son baxışınızdan bəri <b>${freshN}</b> yeni qeyd</span></p>` : '') +
+      `<div class="news-list">${res.items.map(c => {
       const k = CL_KIND[c.kind] || CL_KIND.update;
-      return `<article class="news-item"><span class="kind ${k[1]}">${esc(k[0])}</span>
-        <div class="row" style="justify-content:space-between;align-items:flex-start">
-          <h3>${esc(c.title)}</h3>
-          ${res.canEdit ? `<span class="lacts"><button class="ibtn sm" data-act="newsForm" data-id="${c.id}" aria-label="Redaktə">${ic('edit')}</button><button class="ibtn sm" data-act="deleteNews" data-id="${c.id}" aria-label="Sil">${ic('trash')}</button></span>` : ''}
-        </div>
-        ${c.body ? `<div class="body">${esc(c.body)}</div>` : ''}<time>${fmtDT(c.createdAt)}</time></article>`;
-    }).join('');
+      return `<article class="news-item ${isNew(c) ? 'fresh' : ''}" data-clamp>
+        <div class="news-top"><span class="kind ${k[1]}">${esc(k[0])}</span>${isNew(c) ? '<span class="news-dot">Oxunmamış</span>' : ''}
+          <time datetime="${esc(c.createdAt)}">${fmtDT(c.createdAt)}</time>
+          ${res.canEdit ? `<span class="lacts"><button class="ibtn sm" data-act="newsForm" data-id="${c.id}" aria-label="Redaktə">${ic('edit')}</button><button class="ibtn sm" data-act="deleteNews" data-id="${c.id}" aria-label="Sil">${ic('trash')}</button></span>` : ''}</div>
+        <h3>${esc(c.title)}</h3>
+        ${c.body ? `<div class="body clamp3">${esc(c.body)}</div>
+        <button class="ann-toggle" data-act="toggleClamp" hidden aria-expanded="false">Ətraflı${ic('chev')}</button>` : ''}
+      </article>`;
+    }).join('')}</div>`;
     hydrateIcons(box);
+    requestAnimationFrame(() => measureClamps(box));
   } catch (e) { if (e.code !== 'AUTH' && e.code !== 'MAINT'){ const box=$('#newsList'); if (box) box.innerHTML = emptyBox('Yüklənmədi', esc(e.message)); } }
 }
 S.ui.newsCache = {};
 ACT.newsForm = async (b) => {
   let item = null;
-  if (b.dataset.id){ const res = await api('listChangelog', {}, { noRender: true }).catch(()=>null); item = res && res.items.find(x => x.id === b.dataset.id); }
+  if (b.dataset.id) item = (S.ui.newsItems || []).find(x => x.id === b.dataset.id) || null;
   openModal({
     title: item ? 'Yeniliyi redaktə et' : 'Yeni qeyd', size: 'sm',
     body: `<form class="stack" id="nwForm" novalidate>
@@ -3257,6 +3846,12 @@ RENDER.dev = () => {
         <span class="btn btn-sm btn-soft" style="margin-top:8px;align-self:flex-start">${ic('eyeview')}Gözü ilə bax</span></button>`).join('')}</div>` : emptyBox('İstifadəçi yoxdur', 'Hələ müəllim və ya admin yoxdur.')}
     </div>
 
+    <div class="section"><div class="section-head"><h3>Test məlumatları</h3></div>
+      <p class="hint" style="margin-bottom:14px">Yoxlamaq üçün saxta müəllim, tələbə, məşğələ və dərslər bir kliklə yaradılır. Hamısının adı «Test» sözü ilə başlayır, telefon nömrəsi yazılmır və aşağıdakı düymə ilə tam silinir.</p>
+      ${testGenHtml()}
+      <div id="tgInfo" style="margin-top:16px">${loadingBox('none')}</div>
+    </div>
+
     <div class="section"><div class="section-head"><h3>Arxiv (məlumatların köçürülməsi)</h3></div>
       <p class="hint" style="margin-bottom:12px">Köhnə qeydləri ayrıca arxiv faylına (Google Drive-da, hər il üçün bir fayl) köçürün ki, işçi cədvəl kiçik və sürətli qalsın. Arxivdəki məlumat silinmir — faylı istənilən vaxt açmaq olar.</p>
       <div id="archPanel">${loadingBox()}</div>
@@ -3272,6 +3867,101 @@ AFTER.dev = (root, isRefresh) => {
   if (n) n.addEventListener('input', e => { S.ui.mtNote = e.target.value; });
   if (mm) mm.addEventListener('change', e => { S.ui.mtMin = e.target.value; });
   loadArchivePanel(isRefresh);   // avtomatik yeniləmədə seçimlər itməsin
+  bindTestGen(root);
+  loadTestInfo();
+};
+
+/* ---------- Test məlumatları generatoru ---------- */
+const TG_PRESETS = { small: ['Kiçik', 2, 8, 4, 4], mid: ['Orta', 4, 30, 12, 6], big: ['Böyük', 10, 120, 40, 8] };
+const TG_FIELDS = [['teachers', 'Müəllim'], ['students', 'Tələbə'], ['courses', 'Məşğələ'], ['lessons', 'Hər məşğələyə dərs']];
+const TG_MAX = { teachers: 20, students: 200, courses: 60, lessons: 12 };
+function tgState(){ return S.ui.tg || (S.ui.tg = { teachers: 2, students: 8, courses: 4, lessons: 4, mix: 'mixed', payments: true, pastMonth: true }); }
+function testGenHtml(){
+  const t = tgState();
+  return `<div class="tg">
+    <div class="tg-presets"><span class="lbl">Hazır dəst:</span>${Object.entries(TG_PRESETS).map(([k, p]) =>
+      `<button class="btn btn-sm btn-soft" data-act="tgPreset" data-k="${k}">${p[0]} <span class="muted">${p[1]}/${p[2]}/${p[3]}</span></button>`).join('')}</div>
+    <div class="tg-grid">${TG_FIELDS.map(([k, l]) => `<label class="field tg-num"><span>${l}</span>
+      <div class="stepper"><button type="button" class="ibtn sm" data-step="${k}" data-d="-1" aria-label="Azalt">−</button>
+        <input class="input" type="number" inputmode="numeric" min="0" max="${TG_MAX[k]}" id="tg-${k}" value="${t[k]}">
+        <button type="button" class="ibtn sm" data-step="${k}" data-d="1" aria-label="Artır">${ic('plus')}</button></div>
+      <small>0–${TG_MAX[k]}</small></label>`).join('')}</div>
+    <div class="tg-opts">
+      <div class="seg" role="radiogroup" aria-label="Məşğələ növü">${[['mixed', 'Qarışıq'], ['individual', 'Yalnız fərdi'], ['group', 'Yalnız qrup']].map(([v, l]) =>
+        `<label><input type="radio" name="tgmix" value="${v}" ${t.mix === v ? 'checked' : ''}><span>${l}</span></label>`).join('')}</div>
+      <label class="chk"><input type="checkbox" id="tg-pay" ${t.payments ? 'checked' : ''}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Bəzi tələbələrə ödəniş əlavə et</label>
+      <label class="chk"><input type="checkbox" id="tg-past" ${t.pastMonth ? 'checked' : ''}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Keçmiş ay da yarat (borcları yoxlamaq üçün)</label>
+    </div>
+    <div class="row"><button class="btn btn-primary" data-act="tgRun">${ic('flask')}Test məlumatlarını yarat</button></div>
+    <div id="tgResult" aria-live="polite"></div>
+  </div>`;
+}
+function bindTestGen(root){
+  const t = tgState();
+  TG_FIELDS.forEach(([k]) => {
+    const inp = $('#tg-' + k, root); if (!inp) return;
+    inp.addEventListener('input', () => { t[k] = Math.max(0, Math.min(TG_MAX[k], Math.floor(Number(inp.value) || 0))); });
+    inp.addEventListener('blur', () => { inp.value = t[k]; });
+  });
+  $$('[data-step]', root).forEach(b => b.addEventListener('click', () => {
+    const k = b.dataset.step, inp = $('#tg-' + k, root);
+    t[k] = Math.max(0, Math.min(TG_MAX[k], (Number(inp.value) || 0) + Number(b.dataset.d)));
+    inp.value = t[k];
+  }));
+  $$('input[name=tgmix]', root).forEach(r => r.addEventListener('change', e => { t.mix = e.target.value; }));
+  const pay = $('#tg-pay', root), past = $('#tg-past', root);
+  if (pay) pay.addEventListener('change', e => { t.payments = e.target.checked; });
+  if (past) past.addEventListener('change', e => { t.pastMonth = e.target.checked; });
+}
+ACT.tgPreset = (b) => {
+  const p = TG_PRESETS[b.dataset.k], t = tgState();
+  [t.teachers, t.students, t.courses, t.lessons] = p.slice(1);
+  TG_FIELDS.forEach(([k]) => { const i = $('#tg-' + k); if (i){ i.value = t[k]; i.classList.remove('flash'); void i.offsetWidth; i.classList.add('flash'); } });
+};
+ACT.tgRun = (b) => run(b, async () => {
+  const t = tgState();
+  if (!t.teachers && !t.students && !t.courses) return toast('Heç olmasa bir rəqəm daxil edin.', 'err');
+  const r = await api('genTestData', { teachers: t.teachers, students: t.students, courses: t.courses, lessons: t.lessons, mix: t.mix, payments: t.payments, pastMonth: t.pastMonth }, { noRender: true });
+  const box = $('#tgResult');
+  if (box){
+    box.innerHTML = `<div class="tg-done">${ic('checkcircle')}<div><b>Yaradıldı: ${r.teachers} müəllim, ${r.students} tələbə, ${r.courses} məşğələ, ${r.lessons} dərs${r.payments ? `, ${r.payments} ödəniş` : ''}.</b>
+      ${r.logins.length ? `<p>Müəllim girişləri: <code>${r.logins.map(esc).join('</code> <code>')}</code>, şifrə: <code>${esc(r.password)}</code></p>` : ''}
+      ${r.autoTeachers || r.autoStudents ? `<p class="muted">Məşğələlər üçün əlavə yaradıldı: ${r.autoTeachers ? r.autoTeachers + ' müəllim' : ''}${r.autoTeachers && r.autoStudents ? ', ' : ''}${r.autoStudents ? r.autoStudents + ' tələbə' : ''}.</p>` : ''}</div></div>`;
+    hydrateIcons(box);
+  }
+  toast('Test məlumatları yaradıldı.', 'ok');
+  loadTestInfo();
+});
+async function loadTestInfo(){
+  const box = $('#tgInfo'); if (!box) return;
+  try {
+    const r = await api('testDataInfo', {}, { noRender: true });
+    if (S.page !== 'dev' || !box.isConnected) return;
+    const c = r.counts, any = c.teachers || c.students || c.courses;
+    box.innerHTML = any ? `<div class="tg-info">
+        <div class="tg-now"><span class="lbl">Hazırda sistemdə test məlumatı:</span>
+          <div class="summary tg-sum">${[['teachers', 'müəllim'], ['students', 'tələbə'], ['courses', 'məşğələ'], ['lessons', 'dərs'], ['payments', 'ödəniş']].map(([k, l]) => `<div><b>${c[k]}</b><span>${l}</span></div>`).join('')}</div></div>
+        ${r.conflicts.length ? `<div class="done-note" style="margin-top:12px">${ic('alert')}<span>Bu real məşğələlər test müəllimə bağlıdır və silinməyə mane olur: <b>${r.conflicts.map(esc).join(', ')}</b>. Əvvəlcə onlara başqa müəllim təyin edin.</span></div>` : ''}
+        ${r.mixed ? `<p class="hint" style="margin-top:10px">${r.mixed} real məşğələdə test tələbəsi var — silinəndə yalnız test tələbələri çıxarılacaq.</p>` : ''}
+        <div class="row" style="margin-top:12px"><button class="btn btn-soft" data-act="tgPurge" ${r.conflicts.length ? 'disabled' : ''}>${ic('trash')}Bütün test məlumatlarını sil</button></div></div>`
+      : `<p class="hint">Sistemdə test məlumatı yoxdur.</p>`;
+    hydrateIcons(box);
+  } catch (e) { if (e.code !== 'AUTH' && e.code !== 'MAINT' && box.isConnected) box.innerHTML = `<p class="hint">${esc(e.message)}</p>`; }
+}
+ACT.tgPurge = async (b) => {
+  const r = await api('testDataInfo', {}, { noRender: true }).catch(() => null);
+  if (!r) return;
+  const c = r.counts;
+  const ok = await confirmBox({ title: 'Test məlumatlarını sil', danger: true, ok: 'Hamısını sil',
+    text: `<b>${c.teachers}</b> müəllim, <b>${c.students}</b> tələbə, <b>${c.courses}</b> məşğələ, <b>${c.lessons}</b> dərs və <b>${c.payments}</b> ödəniş birdəfəlik silinəcək (zibil qutusuna düşmür). Real məlumatlara toxunulmur.` });
+  if (!ok) return;
+  run(b, async () => {
+    const res = await api('purgeTestData', {}, { noRender: true });
+    const x = res.removed;
+    toast(`Silindi: ${x.teachers} müəllim, ${x.students} tələbə, ${x.courses} məşğələ, ${x.lessons} dərs.`, 'ok');
+    const box = $('#tgResult'); if (box) box.innerHTML = '';
+    loadTestInfo();
+  });
 };
 async function loadArchivePanel(keepSel){
   const box = $('#archPanel'); if (!box) return;
@@ -3504,7 +4194,7 @@ function drawAnns(res){
   box.innerHTML = `<div class="section-head" style="margin-bottom:14px"><h3>Elanlar<span class="count">${res.anns.length}</span></h3>
     <button class="btn btn-primary btn-sm" data-act="annForm">${ic('plus')}Yeni elan</button></div>
     <p class="hint" style="margin-bottom:14px">Aktiv elan bütün müəllimlərin ana səhifəsinin yuxarısında görünür (hər kəs özü üçün bağlaya bilər). «Girişdə pəncərə» seçilsə, müəllim ilk dəfə girəndə açılan pəncərə də görünür.</p>
-    ${res.anns.length ? res.anns.map(a => `<div class="resp-card">
+    ${res.anns.length ? res.anns.map(a => `<div class="resp-card" data-clamp>
       <div class="resp-head"><div style="flex:1;min-width:0"><div class="row" style="gap:8px">${a.active ? '<span class="tag solid">Aktiv</span>' : '<span class="tag">Söndürülüb</span>'}${a.popup ? '<span class="tag line">Girişdə pəncərə</span>' : ''}</div>
         <h3 style="font-size:16px;margin-top:8px">${esc(a.title)}</h3></div>
         <span class="lacts"><button class="ibtn sm" data-act="annForm" data-id="${a.id}" aria-label="Redaktə">${ic('edit')}</button><button class="ibtn sm" data-act="deleteAnn" data-id="${a.id}" aria-label="Sil">${ic('trash')}</button></span></div>
@@ -3515,16 +4205,22 @@ function drawAnns(res){
       </div></div>`).join('') : emptyBox('Elan yoxdur', 'İlk elanı yaradın.')}`;
   S.ui.annCache = {}; res.anns.forEach(a => S.ui.annCache[a.id] = a);
   hydrateIcons(box);
-  // yalnız 2 sətirdən uzun olanlarda «Ətraflı» düyməsi göstər
-  requestAnimationFrame(() => $$('.resp-card', box).forEach(card => {
-    const p = card.querySelector('.clamp2'), t = card.querySelector('[data-act=toggleClamp]');
+  requestAnimationFrame(() => measureClamps(box));
+}
+// Yığılmış mətn (.clamp2/.clamp3): yalnız həqiqətən sığmayanda «Ətraflı» göstər
+function measureClamps(root){
+  $$('[data-clamp]', root).forEach(card => {
+    if (card.classList.contains('clamp-open')) return;
+    const p = card.querySelector('.clamp2, .clamp3'), t = card.querySelector('[data-act=toggleClamp]');
     if (p && t) t.hidden = !(p.scrollHeight > p.clientHeight + 2);
-  }));
+  });
 }
 ACT.toggleClamp = (b) => {
-  const card = b.closest('.resp-card'); if (!card) return;
+  const card = b.closest('[data-clamp]'); if (!card) return;
   const open = card.classList.toggle('clamp-open');
+  b.setAttribute('aria-expanded', String(open));
   b.innerHTML = (open ? 'Gizlət' : 'Ətraflı') + ic('chev');
+  if (!open){ const r = card.getBoundingClientRect(); if (r.top < 80) card.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
 };
 ACT.annForm = (b) => {
   const a = b.dataset.id && S.ui.annCache ? S.ui.annCache[b.dataset.id] : null;
@@ -3623,17 +4319,19 @@ function drawResponses(res){
       <select class="select" id="rf-teacher"><option value="">Bütün müəllimlər</option>${res.teachers.map(t => `<option value="${t.id}" ${f.teacherId===t.id?'selected':''}>${esc(t.name)}</option>`).join('')}</select>
       <select class="select" id="rf-month"><option value="">Bütün aylar</option>${res.months.map(m => `<option value="${m}" ${f.month===m?'selected':''}>${fmtMonthKey(m)}</option>`).join('')}</select>
       <label class="chk" style="margin-left:4px"><input type="checkbox" id="rf-low" ${f.low?'checked':''}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Yalnız aşağı qiymətlər</label>
+      <label class="chk" style="margin-left:4px"><input type="checkbox" id="rf-new" ${f.onlyNew?'checked':''}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Yalnız baxılmamış</label>
     </div>
     <p class="hint" style="margin-bottom:12px">Tapıldı: ${res.shown} / ${res.total}</p>
     <div id="respList">${res.responses.length ? res.responses.map(respCard).join('') : emptyBox('Cavab yoxdur', 'Bu filtrə uyğun cavab tapılmadı.')}</div>`;
   S.ui.respCache = {}; res.responses.forEach(r => S.ui.respCache[r.id] = r);
   hydrateIcons(box);
   const upd = () => { S.ui.respFilter = {
-    teacherId: $('#rf-teacher').value, month: $('#rf-month').value, low: $('#rf-low').checked
+    teacherId: $('#rf-teacher').value, month: $('#rf-month').value, low: $('#rf-low').checked, onlyNew: $('#rf-new').checked
   }; loadTool('responses'); };
   $('#rf-teacher').addEventListener('change', upd);
   $('#rf-month').addEventListener('change', upd);
   $('#rf-low').addEventListener('change', upd);
+  $('#rf-new').addEventListener('change', upd);
 }
 const ASTAT = { new:['Yeni','new'], reviewed:['Baxıldı','reviewed'], contacted:['Əlaqə saxlanıldı','contacted'] };
 function respCard(r){
@@ -3667,7 +4365,14 @@ ACT.respStatus = (b) => {
       ev.preventDefault();
       const fd = new FormData(el.querySelector('#rsForm'));
       run(el.querySelector('[type=submit]'), async () => {
-        try { await api('setSurveyStatus', { id: r.id, status: fd.get('st'), note: fd.get('note') }, { noRender: true }); close(); toast('Status yeniləndi.'); loadTool('responses'); }
+        try {
+          const st = fd.get('st');
+          await api('setSurveyStatus', { id: r.id, status: st, note: fd.get('note') }, { noRender: true });
+          // İcmaldakı «yeni cavab» sayğacını yerində yenilə (tam yükləmə lazım deyil)
+          const sa = S.d.surveyAlerts, was = (r.adminStatus || 'new') === 'new', now = st === 'new';
+          if (sa && was !== now){ const k = now ? 1 : -1; sa.fresh = Math.max(0, sa.fresh + k); if (r.low) sa.low = Math.max(0, sa.low + k); }
+          close(); toast('Status yeniləndi.'); loadTool('responses');
+        }
         catch (ex) { if (ex.code !== 'AUTH') toast(ex.message, 'err'); }
       });
     })
@@ -4013,7 +4718,7 @@ function maybeInstallHint(){
   const el = document.createElement('div');
   el.id = 'installHint'; el.className = 'install-hint'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Ana ekrana əlavə et');
   el.innerHTML = `<span class="ic">${ic('home')}</span>
-    <span class="tx"><b>Ana ekrana əlavə et</b><small>Saytı tətbiq kimi bir toxunuşla açın — hər dəfə brauzerə girmədən.</small></span>
+    <span class="tx"><b>Ana ekrana əlavə et</b><small>Saytı tətbiq kimi bir toxunuşla açın.</small></span>
     <button class="btn btn-primary btn-sm" data-act="installApp">Əlavə et</button>
     <button class="ibtn sm" data-act="dismissInstall" aria-label="Bağla">${ic('x')}</button>`;
   document.body.appendChild(el); hydrateIcons(el);
@@ -4027,6 +4732,68 @@ ACT.dismissInstall = () => {
 function installSteps(steps){
   return `<ul class="ios-steps" style="list-style:none;padding:0;margin:0">${steps.map((s, i) => `<li><span class="n">${i + 1}</span><span>${s}</span></li>`).join('')}</ul>`;
 }
+/**
+ * iPhone/iPad: Apple saytın özünə ikonu avtomatik əlavə etməyə icazə vermir — yeganə yol Safari-nin menyusudur.
+ * Ona görə mətn yox, telefon ekranının sadə maketi ilə 3 addımlıq bələdçi göstərilir.
+ * iOS 26: «⋯» → «Paylaş» → «Add to Home Screen»; köhnə iOS-da Paylaş düyməsi birbaşa aşağı paneldədir.
+ * iPhone dili adətən ingilis və ya rus olduğu üçün düymələrin adları həm də o dillərdə yazılır.
+ */
+function iosGuide(){
+  const chrome = /CriOS|FxiOS|EdgiOS/.test(navigator.userAgent);
+  const host = location.host || 'aslan-lessons';
+  const steps = [
+    { art: `<div class="iph"><div class="iph-page"><span></span><span></span><span class="w60"></span></div>
+        <div class="iph-bar"><span class="iph-b">${ic('back')}</span><span class="iph-url">${esc(host)}</span><span class="iph-b hl" data-pulse>${chrome ? ic('share') : '<i class="dots"><b></b><b></b><b></b></i>'}</span></div>
+        <span class="iph-arrow" aria-hidden="true"></span></div>`,
+      text: chrome
+        ? 'Ünvan sətrinin sağındakı <b>Paylaş</b> düyməsinə toxunun.'
+        : 'Ünvan sətrinin yanındakı <b>⋯</b> düyməsinə, sonra <b>Paylaş</b> (Share / Поделиться) bəndinə toxunun.',
+      note: chrome ? '' : 'Köhnə iOS-da Paylaş düyməsi (kvadrat və yuxarı ox) birbaşa aşağı paneldədir.' },
+    { art: `<div class="iph"><div class="iph-sheet">
+        <div class="iph-row">${ic('copy')}<span>Copy</span></div>
+        <div class="iph-row">${ic('book')}<span>Add Bookmark</span></div>
+        <div class="iph-row hl" data-pulse>${ic('addsq')}<span>Add to Home Screen<small>На экран «Домой»</small></span></div>
+        <div class="iph-row dim">${ic('flag')}<span>Find on Page</span></div></div>
+        <span class="iph-arrow ar-left" aria-hidden="true"></span></div>`,
+      text: 'Siyahını bir az aşağı sürüşdürüb <b>Add to Home Screen</b> (rus dilində: <b>На экран «Домой»</b>) seçin.',
+      note: 'Görünmürsə, siyahının sonundakı «Edit Actions / Изменить действия» ilə əlavə edin.' },
+    { art: `<div class="iph"><div class="iph-dlg">
+        <div class="iph-dlg-top"><span>Cancel</span><b>Add to Home Screen</b><span class="hl" data-pulse>Add</span></div>
+        <div class="iph-app"><span class="iph-ic" data-logo="light"></span><div><b>Aslan Lessons</b><small>${esc(host)}</small></div></div>
+        <div class="iph-tog"><span>Open as Web App</span><i class="on"></i></div></div>
+        <span class="iph-arrow ar-up" aria-hidden="true"></span></div>`,
+      text: 'Yuxarı sağdakı <b>Add</b> (<b>Добавить</b>) düyməsini basın. «Open as Web App» açıq qalsın.',
+      note: 'Bundan sonra Aslan Lessons ana ekranda ayrıca tətbiq kimi açılacaq.' }
+  ];
+  let i = 0;
+  openModal({ title: 'iPhone-da ana ekrana əlavə et', size: 'sm',
+    body: `<div class="iosg">
+      <div class="iosg-stage" aria-live="polite"></div>
+      <div class="iosg-dots" role="tablist" aria-label="Addımlar">${steps.map((_, k) => `<button type="button" role="tab" data-k="${k}" aria-label="Addım ${k + 1}"></button>`).join('')}</div>
+      ${chrome ? '' : '<p class="hint iosg-foot">Safari-də ən rahatdır. Başqa brauzerdə də Paylaş menyusunda eyni bənd var.</p>'}</div>`,
+    foot: `<button class="btn btn-ghost" data-ios="prev">Geri</button><button class="btn btn-primary" data-ios="next">Növbəti</button>`,
+    onMount: (el, close) => {
+      const stage = el.querySelector('.iosg-stage'), prev = el.querySelector('[data-ios=prev]'), next = el.querySelector('[data-ios=next]');
+      const show = (k, dir) => {
+        i = Math.max(0, Math.min(steps.length - 1, k));
+        const st = steps[i];
+        stage.innerHTML = `<div class="iosg-step ${dir < 0 ? 'rev' : ''}">${st.art}<p class="iosg-t"><span class="n">${i + 1}</span><span>${st.text}</span></p>${st.note ? `<p class="iosg-n">${st.note}</p>` : ''}</div>`;
+        hydrateIcons(stage);
+        $$('.iosg-dots button', el).forEach((d, j) => { d.classList.toggle('on', j === i); d.setAttribute('aria-selected', String(j === i)); });
+        prev.disabled = i === 0;
+        next.textContent = i === steps.length - 1 ? 'Anladım' : 'Növbəti';
+      };
+      prev.addEventListener('click', () => show(i - 1, -1));
+      next.addEventListener('click', () => i === steps.length - 1 ? close() : show(i + 1, 1));
+      $$('.iosg-dots button', el).forEach(d => d.addEventListener('click', () => show(Number(d.dataset.k), Number(d.dataset.k) < i ? -1 : 1)));
+      // barmaqla sürüşdürmə
+      let x0 = null;
+      stage.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+      stage.addEventListener('touchend', e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1); });
+      show(0, 1);
+    }
+  });
+}
 ACT.installApp = async () => {
   closeUserMenu();
   if (isStandalone()) return toast('Sayt artıq ana ekrandan tətbiq kimi açılıb.', 'info');
@@ -4038,13 +4805,8 @@ ACT.installApp = async () => {
     return;
   }
   let title = 'Ana ekrana əlavə et', body;
-  if (isIOS()){
-    body = installSteps([
-      '<b>Safari</b> brauzerində aşağıdakı <b>Paylaş</b> düyməsinə (kvadrat və yuxarı ox) toxunun.',
-      '<b>«Ana ekrana»</b> (Add to Home Screen) seçin.',
-      '<b>«Əlavə et»</b> düyməsini basın — ikon ana ekranda görünəcək.'
-    ]) + `<p class="hint" style="margin-top:12px">iPhone-da bu yalnız Safari-də işləyir.</p>`;
-  } else if (isAndroid()){
+  if (isIOS()){ hideInstallHint(); return iosGuide(); }
+  if (isAndroid()){
     body = installSteps([
       '<b>Chrome</b> brauzerində yuxarı sağdakı <b>⋮</b> menyusunu açın.',
       '<b>«Ana ekrana əlavə et»</b> və ya <b>«Tətbiqi quraşdır»</b> seçin.',
