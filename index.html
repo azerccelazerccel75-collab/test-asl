@@ -665,6 +665,10 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
 .dev-hero .mark .i{width:32px;height:32px;stroke:var(--on-or)}
 .maint-toggle{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px 20px;border:1.5px solid var(--line);border-radius:var(--r-lg);background:var(--surface)}
 .maint-toggle.on{border-color:var(--or);box-shadow:inset 0 0 0 1px var(--or)}
+.maint-form{flex-basis:100%;display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:12px;padding-top:14px;border-top:1.5px dashed var(--line)}
+.maint-form .textarea{min-height:64px}
+.maint-prev{flex-basis:100%;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+@media (max-width:640px){.maint-form{grid-template-columns:1fr}}
 .news-item{border:1.5px solid var(--line);border-radius:var(--r-lg);padding:18px 20px;background:var(--surface);margin-bottom:12px}
 .news-item .kind{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:99px;font-size:11.5px;font-weight:700;margin-bottom:8px}
 .news-item .kind.new{background:var(--or);color:var(--on-or)}
@@ -679,6 +683,7 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
 .tl-item::before{content:"";position:absolute;left:-22px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--or);border:2.5px solid var(--bg)}
 .tl-item b{font-weight:600}
 .tl-item small{color:var(--soft);font-size:12.5px}
+.tl-note{font-size:13px;color:var(--soft);margin-top:6px;padding:6px 10px;border-radius:10px;background:var(--tint);width:fit-content;max-width:100%}
 @media (max-width:760px){
   .ann,.viewas-bar{padding-left:16px;padding-right:16px}
   .donut-wrap{justify-content:center}
@@ -719,7 +724,8 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
 .loader .cap{width:56px;height:56px;border-radius:17px;background:var(--or);display:grid;place-items:center;box-shadow:var(--shadow)}
 .loader .cap svg{width:34px;height:34px}
 .loader .pips{justify-content:center}
-.loader .pips .pip{animation:bootPip 1.2s var(--ease) infinite}
+.loader .cap{animation:capBob 1.6s var(--ease) infinite}
+@keyframes capBob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-4deg)}}
 .loader-msg{min-height:40px;display:flex;align-items:center;justify-content:center;max-width:36ch}
 .loader-msg p{font-size:14px;color:var(--soft);line-height:1.5;animation:pageIn .4s var(--ease)}
 .loader-msg.tip p{font-weight:500}
@@ -735,27 +741,117 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
 .install-hint b{font-size:14px;font-weight:600;display:block}
 .install-hint small{font-size:12px;color:var(--soft)}
 .install-hint.out{animation:tOut .3s ease forwards}
+.install-link{display:inline-flex;align-items:center;gap:8px;align-self:center;margin-top:2px;padding:8px 14px;border-radius:99px;border:1.5px dashed var(--line-strong);background:none;color:var(--or);font:600 13px/1 Poppins,sans-serif;cursor:pointer;transition:border-color .2s,background-color .2s,transform .15s var(--ease)}
+.install-link:hover{border-color:var(--or);background:var(--tint)}
+.install-link:active{transform:scale(.97)}
+.install-link .i{width:16px;height:16px}
 .ios-steps{display:flex;flex-direction:column;gap:12px;font-size:14.5px;line-height:1.5}
 .ios-steps li{display:flex;gap:10px;align-items:flex-start}
 .ios-steps .n{width:24px;height:24px;flex:none;border-radius:8px;background:var(--tint-2);display:grid;place-items:center;font-weight:700;font-size:13px}
 
 /* ===================== ANNOUNCEMENT COLLAPSE ===================== */
-.ann .ann-body p{max-height:3em;overflow:hidden;transition:max-height .3s var(--ease)}
-.ann.open .ann-body p{max-height:600px}
-.ann-toggle{background:none;border:0;color:var(--or);font-weight:600;font-size:12.5px;padding:2px 0;margin-top:2px;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
-.ann-toggle .i{width:14px;height:14px;transition:transform .25s var(--ease)}
-.ann.open .ann-toggle .i{transform:rotate(180deg)}
+.ann{padding-top:10px;padding-bottom:10px}
+.ann .ann-body .ann-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.ann .ann-body .ann-text{margin-top:2px;font-size:13.5px;color:var(--soft);line-height:1.5;word-break:break-word;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ann.open .ann-body .ann-text{white-space:pre-wrap;overflow:visible;animation:pageIn .3s var(--ease)}
+.ann .ann-meta{display:none;font-size:11.5px;color:var(--faint);margin-top:4px}
+.ann.open .ann-meta,.ann.short .ann-meta{display:block}
+.ann.short .ann-body .ann-text{white-space:pre-wrap}
+.ann-toggle{background:none;border:0;color:var(--or);font-weight:600;font-size:12.5px;padding:2px 0;margin-top:2px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;border-radius:6px}
+.ann-toggle .i{width:14px;height:14px;transform:rotate(90deg);transition:transform .25s var(--ease)}
+.ann.open .ann-toggle .i{transform:rotate(-90deg)}
+.ann.short .ann-toggle{display:none}
+/* yığılmış elan — bir sətir: başlıq · mətnin əvvəli … · Ətraflı */
+.ann:not(.open){align-items:center}
+.ann:not(.open) .i.lead{margin-top:0}
+.ann:not(.open) .ann-body{display:flex;align-items:baseline;gap:10px}
+.ann:not(.open) .ann-body b{flex:none;max-width:40%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ann:not(.open) .ann-body .ann-text{flex:1;min-width:0;margin-top:0}
+.ann:not(.open) .ann-toggle{flex:none;margin-top:0}
+.ann.short:not(.open) .ann-body .ann-text{white-space:nowrap}
+.ann.short:not(.open) .ann-meta{display:block;flex:none;margin-top:0}
+@media (max-width:640px){
+  .ann:not(.open){align-items:flex-start}
+  .ann:not(.open) .i.lead{margin-top:2px}
+  .ann:not(.open) .ann-body{flex-wrap:wrap;row-gap:2px}
+  .ann:not(.open) .ann-body b{max-width:calc(100% - 90px)}
+  .ann:not(.open) .ann-toggle{order:1;margin-left:auto}
+  .ann:not(.open) .ann-body .ann-text{order:2;flex-basis:100%}
+  .ann.short:not(.open) .ann-meta{display:none}
+}
+.ann-more{display:flex;justify-content:center;padding:6px clamp(16px,3vw,36px) 8px;background:var(--tint);border-bottom:1.5px solid var(--line)}
+.ann-more button{background:none;border:0;color:var(--or);font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:99px}
+.ann-more button:hover{background:var(--tint-2)}
+.ann-more .i{width:15px;height:15px;transform:rotate(90deg);transition:transform .25s var(--ease)}
+.ann-more.open .i{transform:rotate(-90deg)}
+/* admin list: body collapsed to 2 lines */
+.clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-wrap}
+.clamp-open .clamp2{display:block;-webkit-line-clamp:unset;overflow:visible}
+.clamp-open .ann-toggle .i{transform:rotate(-90deg)}
+
+/* ===================== PAGER ===================== */
+.pager{display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap;margin-top:18px}
+.pager button{min-width:38px;height:38px;padding:0 10px;border-radius:11px;border:1.5px solid var(--line);background:var(--surface);color:var(--or);font-weight:600;font-size:13.5px;transition:background-color .15s,border-color .15s,transform .15s var(--ease)}
+.pager button:hover:not([disabled]){border-color:var(--or);transform:translateY(-1px)}
+.pager button.on{background:var(--or);border-color:var(--or);color:var(--on-or)}
+.pager button[disabled]{opacity:.4;cursor:default}
+.pager .gap{padding:0 4px;color:var(--faint)}
+.pager-info{text-align:center;font-size:12.5px;color:var(--soft);margin-top:8px}
+
+/* ===================== SPLASH (login) + SLOW BANNER ===================== */
+.splash{position:fixed;inset:0;z-index:75;display:grid;place-items:center;background:var(--bg);animation:fade .25s ease}
+.splash.out{animation:fadeOut .3s ease forwards}
+.splash .loader{padding:24px}
+.slow-bar{position:fixed;left:50%;top:78px;transform:translateX(-50%);z-index:88;display:flex;align-items:center;gap:10px;max-width:calc(100% - 28px);
+  padding:10px 16px;border-radius:99px;background:var(--surface);border:1.5px solid var(--or);box-shadow:var(--shadow-lg);font-size:13.5px;font-weight:600;animation:tIn .35s var(--ease)}
+.slow-bar .spin{width:16px;height:16px;border-width:2px}
+
+/* ===================== MAINTENANCE: role art (book) ===================== */
+.m-book{position:relative;width:120px;height:84px;perspective:420px}
+.m-book .cover{position:absolute;bottom:0;width:58px;height:74px;border:3px solid var(--or);background:var(--tint)}
+.m-book .cover.l{left:2px;border-radius:10px 2px 2px 10px}
+.m-book .cover.r{right:2px;border-radius:2px 10px 10px 2px}
+.m-book .page{position:absolute;bottom:3px;left:60px;width:54px;height:68px;background:var(--bg);border:2px solid var(--or);border-radius:2px 8px 8px 2px;
+  transform-origin:left center;animation:mflip 2.4s var(--ease) infinite}
+.m-book .page:nth-child(4){animation-delay:.8s}
+.m-book .page:nth-child(5){animation-delay:1.6s}
+.m-book .page::before,.m-book .page::after{content:"";position:absolute;left:9px;right:9px;height:3px;border-radius:2px;background:var(--line-strong)}
+.m-book .page::before{top:16px}.m-book .page::after{top:28px}
+@keyframes mflip{0%{transform:rotateY(0)}55%,100%{transform:rotateY(-180deg)}}
+.m-lessons .pips .pip{width:20px;height:20px}
+.m-sub{font-size:13.5px;color:var(--soft);min-height:22px;animation:pageIn .4s var(--ease)}
+.m-until{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:99px;background:var(--tint);border:1.5px solid var(--line)}
+.m-until .i{width:16px;height:16px}
+.m-preview{position:fixed;top:0;left:0;right:0;z-index:72;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:10px 16px;background:var(--or);color:var(--on-or);font-weight:600;font-size:13.5px}
+.m-preview .btn{border-color:var(--on-or);color:var(--on-or);min-height:32px}
+@media (prefers-reduced-motion:reduce){ .m-book .page{animation:none!important} }
+
+/* ===================== ARCHIVE extras ===================== */
+.arch-sheet{align-items:flex-start}
+.arch-sheet .meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.arch-sheet .note{font-size:12px;color:var(--soft);line-height:1.4}
+.arch-locked{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.arch-locked span{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:99px;border:1.5px dashed var(--line-strong);font-size:12px;color:var(--soft)}
+.arch-locked .i{width:13px;height:13px}
+.arch-status{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:4px}
+.arch-status div{padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.arch-status span{display:block;font-size:12px;color:var(--soft)}
+.arch-status b{font-size:14px;font-weight:600}
+.trig{display:flex;align-items:center;gap:8px;font-size:13px;padding:4px 0}
+.trig .dot{width:9px;height:9px;border-radius:50%;background:var(--line-strong)}
+.trig.on .dot{background:var(--or)}
 
 /* ===================== ARCHIVE (dev) ===================== */
 .arch-sheets{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
-.arch-sheet{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--r);cursor:pointer;transition:border-color .2s,background-color .2s}
+.arch-sheet{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--r);cursor:pointer;transition:border-color .2s,background-color .2s}
 .arch-sheet:hover{border-color:var(--line-strong)}
 .arch-sheet.on{border-color:var(--or);background:var(--tint)}
 .arch-sheet .nm{flex:1;font-weight:600;font-size:14px}
 .arch-sheet .ct{font-size:12.5px;color:var(--soft)}
 .arch-file{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--r);margin-bottom:8px}
 @media (prefers-reduced-motion:reduce){
-  .m-gears .i,.m-orbit i,.m-pulse span,.m-sweep i,.loader .pips .pip{animation:none!important}
+  .m-gears .i,.m-orbit i,.m-pulse span,.m-sweep i,.loader .pips .pip,.loader .cap{animation:none!important}
 }
 </style>
 </head>
@@ -764,6 +860,8 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
 <div id="loadbar" class="loadbar"></div>
 
 <div id="boot" class="boot" hidden></div>
+<div id="splash" class="splash" hidden></div>
+<div id="slowBar" class="slow-bar" hidden role="status"></div>
 
 <!-- ===================== LOGIN ===================== -->
 <section id="login" class="login" hidden>
@@ -816,6 +914,7 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
         <div class="caps" id="capsHint" hidden><svg class="i" viewBox="0 0 24 24" data-icon="alert"></svg>Caps Lock aktivdir</div>
         <button class="btn btn-primary btn-lg btn-block" type="submit" id="loginBtn">Daxil ol</button>
         <p class="hint">Şifrənizi unutmusunuzsa, administratora müraciət edin.</p>
+        <button class="install-link" type="button" data-act="installApp" id="loginInstall" hidden><svg class="i" viewBox="0 0 24 24" data-icon="home"></svg>Ana ekrana əlavə et</button>
       </form>
     </div>
   </div>
@@ -867,7 +966,7 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
  *  1) Google Apps Script veb tətbiqinin linkini buraya yazın:
  *     (Yerləşdir → Veb tətbiq → URL, sonu /exec ilə bitir)
  * ============================================================ */
-const API_URL = 'https://script.google.com/macros/s/AKfycbzSoYp4rKS4ZT-3G-HwJR59oVCH97JXzvIlu5zDCy_qcv4HVGjEW8B0JnBzH5egwdI_/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbxYPW4C0fAArZLMBbjhaECOe6Ugh7GpBdh8erO12QemlN2uaMdus1cBB7gZO5cqBfYZ/exec';
 
 /* ===================== ICONS ===================== */
 const ICONS = {
@@ -1027,7 +1126,7 @@ async function api(action, payload = {}, opts = {}){
   if (!API_URL || /BURAYA/.test(API_URL)) {
     throw new ApiError('Server linki təyin edilməyib. index.html faylında API_URL sahəsinə Google Apps Script veb tətbiqinin linkini yazın.');
   }
-  if (!opts.silent) setBusy(1);
+  if (!opts.silent){ setBusy(1); slowWatch(true); }
   try {
     let res;
     try {
@@ -1044,14 +1143,14 @@ async function api(action, payload = {}, opts = {}){
     catch (e) { throw new ApiError('Serverdən düzgün cavab gəlmədi. API_URL linkini və veb tətbiqin yerləşdirilməsini yoxlayın.'); }
     if (!json.ok) {
       if (json.code === 'AUTH' && action !== 'login') { forceLogout(json.error); throw new ApiError(json.error, 'AUTH'); }
-      if (json.code === 'MAINT' && action !== 'login') { showMaintenance(json.error); throw new ApiError(json.error, 'MAINT'); }
+      if (json.code === 'MAINT' && action !== 'login') { showMaintenance({ maintenance: json.maintenance, me: json.me }); throw new ApiError(json.error, 'MAINT'); }
       if (json.code === 'PERM') setTimeout(() => syncData(true), 50);
       throw new ApiError(json.error || 'Naməlum xəta baş verdi.', json.code);
     }
     if (json.data) applyData(json.data, opts);
     return json;
   } finally {
-    if (!opts.silent) setBusy(-1);
+    if (!opts.silent){ setBusy(-1); slowWatch(false); }
   }
 }
 async function run(btn, fn){
@@ -1066,7 +1165,7 @@ async function run(btn, fn){
   }
   try { return await fn(); }
   catch (e) {
-    if (e.code !== 'AUTH') toast(e.message || String(e), 'err');
+    if (e.code !== 'AUTH' && e.code !== 'MAINT') toast(e.message || String(e), 'err');
     return undefined;
   }
   finally {
@@ -1205,6 +1304,7 @@ function showLogin(msg){
   const err = $('#loginError');
   if (msg){ err.innerHTML = ic('alert') + `<span>${esc(msg)}</span>`; err.hidden = false; } else err.hidden = true;
   $('#lgPass').value = '';
+  hideInstallHint(); installHiddenNow = false; syncLoginInstall();
   setTimeout(() => $('#lgLogin').focus(), 50);
   startDemo();
 }
@@ -1239,14 +1339,30 @@ $('#loginForm').addEventListener('submit', async e => {
   }
   err.hidden = true;
   const btn = $('#loginBtn');
+  const wait = loginWait = { cancelled: false };
+  const started = showSplash();
   await run(btn, async () => {
     try {
       const res = await api('login', { login, password }, { noRender: true });
+      if (wait.cancelled) return;                     // istifadəçi gözləməni ləğv edib
       S.token = res.token;
+      if (res.maintenance && res.maintenance.on && !res.data){
+        // Texniki iş rejimi: daxil oldu, amma sayt bağlıdır — rola görə xüsusi ekran
+        S.maint = res.maintenance;
+        if (res.me && res.me.theme) setTheme(res.me.theme, false);
+        await hideSplash(started);
+        showMaintenance({ maintenance: res.maintenance, me: res.me });
+        return;
+      }
+      await hideSplash(started);
       enterApp();
     } catch (ex) {
+      if (wait.cancelled) return;
+      hideSplash(0);
       err.innerHTML = ic('alert') + `<span>${esc(ex.message)}</span>`; err.hidden = false;
       $('.login-form').classList.remove('shake'); void $('.login-form').offsetWidth; $('.login-form').classList.add('shake');
+    } finally {
+      if (loginWait === wait) loginWait = null;
     }
   });
 });
@@ -1263,10 +1379,10 @@ function enterApp(){
     return;
   }
   $('#login').hidden = true;
-  $('#maint').hidden = true;
+  $('#maint').hidden = true; $('#maint').dataset.role = ''; stopMaintPoll();
   $('#public').hidden = true;
   $('#shell').hidden = false;
-  S.ui = {}; S.viewAs = null; popupShown = false;
+  S.ui = {}; S.viewAs = null; S.maintMe = null; popupShown = false;
   renderChrome();
   renderBell(); renderAnnBar(); maybePopup();
   const h = parseHash();
@@ -1275,15 +1391,16 @@ function enterApp(){
   setTimeout(maybeInstallHint, 2500);
 }
 function forceLogout(msg){
-  S.token = null; S.d = null; S.permsSig = ''; S.viewAs = null;
-  $('#maint').hidden = true;
+  S.token = null; S.d = null; S.permsSig = ''; S.viewAs = null; S.maintMe = null;
+  stopMaintPoll();
+  $('#maint').hidden = true; $('#maint').dataset.role = '';
   showLogin(msg || 'Sessiya bitib. Yenidən daxil olun.');
 }
 async function logout(){
   const ok = await confirmBox({ title: 'Sistemdən çıxış', text: 'Sistemdən çıxmaq istədiyinizə əminsiniz?', ok: 'Çıxış et' });
   if (!ok) return;
   try { await api('logout', {}, { noRender: true }); } catch (e) {}
-  S.token = null; S.d = null; S.permsSig = '';
+  S.token = null; S.d = null; S.permsSig = ''; S.viewAs = null; S.maintMe = null;
   history.replaceState(null, '', location.pathname + location.search);
   showLogin();
 }
@@ -1394,22 +1511,43 @@ function renderBell(){
   btn.innerHTML = ic('bell') + (n ? `<span class="bell-dot">${n > 99 ? '99+' : n}</span>` : '');
 }
 /* ---------- announcement bar ---------- */
+// Elanlar yığcam: başlıq + bir sətir. «Ətraflı» — tam mətn, «Gizlət» — geri yığ.
+// Açıq/bağlı vəziyyət avtomatik yeniləmədə itmir. 3-dən çox elan varsa, qalanı «Daha N elan» altında.
+const ANN_VISIBLE = 3;
+S.annOpen = new Set(); S.annAll = false;
 function renderAnnBar(){
   const d = S.d, bar = $('#annBar');
   if (!d || !d.announcements || !d.announcements.length){ bar.innerHTML = ''; return; }
-  bar.innerHTML = d.announcements.map(a => {
-    const long = String(a.body || '').length > 120;
-    return `<div class="ann" data-ann="${a.id}">
+  const list = d.announcements;
+  const shown = S.annAll ? list : list.slice(0, ANN_VISIBLE);
+  const extra = list.length - ANN_VISIBLE;
+  bar.innerHTML = shown.map(a => `<div class="ann ${S.annOpen.has(a.id) ? 'open' : ''}" data-ann="${a.id}">
       ${ic('megaphone','lead')}
-      <div class="ann-body"><b>${esc(a.title)}</b><p>${esc(a.body)}</p><small>${esc(a.by)} · ${fmtDT(a.createdAt)}</small>
-        ${long ? `<button class="ann-toggle" data-act="toggleAnn">Ətraflı${ic('chev')}</button>` : ''}</div>
+      <div class="ann-body">
+        <b>${esc(a.title)}</b>
+        <p class="ann-text">${esc(a.body)}</p>
+        <small class="ann-meta">${esc(a.by)} · ${fmtDT(a.createdAt)}</small>
+        <button class="ann-toggle" data-act="toggleAnn" aria-expanded="${S.annOpen.has(a.id)}">${S.annOpen.has(a.id) ? 'Gizlət' : 'Ətraflı'}${ic('chev')}</button>
+      </div>
       <button class="ibtn sm" data-act="dismissAnn" data-id="${a.id}" title="Bağla" aria-label="Bağla">${ic('x')}</button>
-    </div>`;
-  }).join('');
+    </div>`).join('')
+    + (extra > 0 ? `<div class="ann-more ${S.annAll ? 'open' : ''}"><button data-act="toggleAnnAll">${S.annAll ? 'Daha az göstər' : `Daha ${extra} elan`}${ic('chev')}</button></div>` : '');
   hydrateIcons(bar);
-  // uzun olmayanları tam göstər
-  $$('.ann', bar).forEach(el => { if (!el.querySelector('.ann-toggle')) el.classList.add('open'); });
+  requestAnimationFrame(measureAnns);
 }
+// Qısa (bir sətrə tam sığan) elanlarda «Ətraflı» lazım deyil. Ekran ölçüsü dəyişəndə yenidən yoxlanılır.
+function measureAnns(){
+  $$('#annBar .ann').forEach(el => {
+    if (el.classList.contains('open')) return;
+    const p = el.querySelector('.ann-text'); if (!p) return;
+    const over = () => p.scrollWidth > p.clientWidth + 1;
+    el.classList.remove('short');
+    if (/\n/.test(p.textContent) || over()) return;
+    el.classList.add('short');
+    if (over()) el.classList.remove('short');   // müəllif/tarix yer tutdu — mətn sığmır, «Ətraflı» qalsın
+  });
+}
+window.addEventListener('resize', debounce(measureAnns, 200));
 /* ---------- view-as bar ---------- */
 function renderViewAs(){
   const d = S.d, bar = $('#viewAsBar');
@@ -1476,6 +1614,7 @@ ACT.userMenu = () => {
     <button class="mitem" data-act="changePassword">${ic('key')}Şifrəni dəyiş</button>
     ${d.me.isSuper ? `<button class="mitem" data-act="editSelf">${ic('user')}Profilim</button>` : ''}
     <button class="mitem" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</button>
+    ${isStandalone() ? '' : `<button class="mitem" data-act="installApp">${ic('home')}Ana ekrana əlavə et</button>`}
     <button class="mitem" data-act="logout">${ic('logout')}Çıxış</button>`;
   box.appendChild(pop);
 };
@@ -1506,11 +1645,13 @@ function closeNotif(){ const p = $('#bell .umenu-pop'); if (p) p.remove(); }
 ACT.readAllNotifs = (b) => run(b, async () => { await api('markAllNotifs', {}, { noRender: true }); closeNotif(); renderBell(); await syncData(true); });
 
 /* ===================== ANNOUNCEMENTS ===================== */
+ACT.toggleAnnAll = () => { S.annAll = !S.annAll; renderAnnBar(); };
 ACT.toggleAnn = (b) => {
   const ann = b.closest('.ann'); if (!ann) return;
   const open = ann.classList.toggle('open');
-  b.innerHTML = (open ? 'Yığ' : 'Ətraflı') + ic('chev');
-  hydrateIcons(b);
+  if (open) S.annOpen.add(ann.dataset.ann); else S.annOpen.delete(ann.dataset.ann);
+  b.innerHTML = (open ? 'Gizlət' : 'Ətraflı') + ic('chev');
+  b.setAttribute('aria-expanded', String(open));
 };
 ACT.dismissAnn = (b) => {
   const id = b.dataset.id;
@@ -1535,71 +1676,157 @@ function maybePopup(){
 }
 
 /* ===================== MAINTENANCE ===================== */
-// Hər dəfə fərqli animasiya + mətn
-const MAINT_VARIANTS = [
-  { art: `<div class="m-gears">${ic('tools')}${ic('tools')}</div>`,
-    title: 'Təkmilləşdirmə gedir',
-    text: 'Saytı daha yaxşı etmək üçün üzərində işləyirik. Çox keçməz — tezliklə hər şey hazır olacaq.' },
-  { art: `<div class="m-pulse"><span></span><span></span><span></span><span></span></div>`,
-    title: 'Bir az səbr',
-    text: 'Hazırda texniki işlər aparılır. Bu, müvəqqəti prosesdir — məlumatlarınız tam qorunur.' },
-  { art: `<div class="m-sweep"><i></i></div>`,
-    title: 'Tezliklə qayıdırıq',
-    text: 'Sistem yenilənir. Bir neçə dəqiqəyə sayt yenidən əlçatan olacaq. Təşəkkür edirik ki, gözləyirsiniz!' },
-  { art: `<div class="m-orbit"><b></b><i></i></div>`,
-    title: 'Yeniliklər yüklənir',
-    text: 'Sizin üçün yeni imkanlar hazırlayırıq. Pəncərəni açıq saxlayın — iş bitən kimi avtomatik daxil olacaqsınız.' }
-];
-let maintPoll = null;
-function showMaintenance(msg){
-  closeAllModals();
+// Müəllim və rəhbərlik üçün fərqli mətn + fərqli animasiya (hər rolun içində də bir neçə variant)
+const M_ART = {
+  book:    `<div class="m-book"><span class="cover l"></span><span class="cover r"></span><span class="page"></span><span class="page"></span><span class="page"></span></div>`,
+  lessons: `<div class="m-lessons">${'<div class="pips lg">' + Array.from({length:4},(_,w)=>'<span class="wk">'+Array.from({length:2},(_,j)=>`<i class="pip" style="animation:bootPip 1.6s var(--ease) infinite;animation-delay:${(w*2+j)*180}ms"></i>`).join('')+'</span>').join('') + '</div>'}</div>`,
+  gears:   `<div class="m-gears">${'<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg>'.repeat(2)}</div>`,
+  orbit:   `<div class="m-orbit"><b></b><i></i></div>`
+};
+const MAINT_ROLE = {
+  teacher: {
+    label: 'müəllim',
+    variants: [
+      { art: 'book', title: 'Dərs jurnalı yenilənir',
+        text: 'Dərs qeydiyyatı sistemində texniki işlər aparılır. Bütün qeydləriniz qorunur — işlər bitən kimi dərsləri qeyd etməyə davam edə biləcəksiniz.' },
+      { art: 'lessons', title: 'Sizin üçün hazırlayırıq',
+        text: 'Sayt bir az sonra yenilənmiş şəkildə açılacaq. Səhifəni bağlamağa ehtiyac yoxdur — hazır olan kimi sizi avtomatik içəri buraxacağıq.' }
+    ],
+    subs: ['Bütün dərs qeydləriniz qorunur.', 'Səhifəni açıq saxlayın — avtomatik daxil olacaqsınız.', 'Bu vaxt qeyd etmədiyiniz dərsləri sonra rahatlıqla əlavə edə bilərsiniz.', 'Səbriniz üçün təşəkkür edirik!']
+  },
+  leader: {
+    label: 'rəhbərlik',
+    variants: [
+      { art: 'gears', title: 'Sistem yenilənir',
+        text: 'İdarəetmə panelində texniki işlər aparılır. Tələbə, müəllim və dərs məlumatlarına toxunulmur — işlər bitən kimi panel avtomatik açılacaq.' },
+      { art: 'orbit', title: 'Təkmilləşdirmə gedir',
+        text: 'Developer sistem üzərində işləyir. Bu müddətdə müəllimlər də gözləmə ekranını görür, valideyn linkləri isə işləməyə davam edir.' }
+    ],
+    subs: ['Bütün məlumatlar təhlükəsizdir.', 'Valideyn linkləri bu müddətdə də açılır.', 'Pəncərəni açıq saxlayın — avtomatik daxil olacaqsınız.', 'Yeniliklər haqqında «Yeniliklər» bölməsində yazılacaq.']
+  }
+};
+let maintPoll = null, maintSubTimer = null, maintPreview = false;
+function maintRoleKey(role){ return role === 'teacher' ? 'teacher' : 'leader'; }
+function untilText(until){
+  if (!until) return '';
+  const left = (new Date(String(until).replace(' ', 'T') + '+04:00').getTime() - Date.now()) / 60000;
+  if (!(left > 0)) return 'Bir neçə dəqiqəyə hazır olacaq';
+  return 'Təxmini bitmə vaxtı: ' + String(until).slice(11, 16) + (left < 90 ? ` (~${Math.max(1, Math.round(left))} dəq)` : '');
+}
+/**
+ * opts: { maintenance, me, preview: 'teacher'|'leader' }
+ * me — giriş zamanı serverdən gələn ad/rol (S.d olmaya bilər).
+ */
+function showMaintenance(opts = {}){
+  if (typeof opts === 'string') opts = {};
+  const m = $('#maint');
+  if (opts.maintenance) S.maint = opts.maintenance;
+  if (opts.me) S.maintMe = opts.me;
+  const who = opts.preview ? { name: me().name, role: opts.preview === 'teacher' ? 'teacher' : 'superadmin' }
+    : (S.maintMe || (S.d && S.d.me) || {});
+  if (who.isDev && !opts.preview) return;                 // developer heç vaxt gözləmə ekranı görmür
+  maintPreview = !!opts.preview;
+  // artıq açıqdırsa (məs. avtomatik yeniləmə MAINT qaytardı) — yenidən çəkmə
+  if (!m.hidden && !opts.preview && m.dataset.role === maintRoleKey(who.role)) return;
+  closeAllModals(); closeUserMenu(); closeNotif();
   $('#shell').hidden = true; $('#login').hidden = true; $('#public').hidden = true;
-  const m = $('#maint'); m.hidden = false;
-  const isDev = S.d && S.d.me && S.d.me.isDev;
-  const name = S.d && S.d.me && !isDev ? S.d.me.name : '';
-  const v = MAINT_VARIANTS[Math.floor(Math.random() * MAINT_VARIANTS.length)];
-  const extra = msg || (S.d && S.d.maintenance && S.d.maintenance.text) || (S.maint && S.maint.text) || '';
-  m.innerHTML = `<div class="maint-card">
-    <div class="maint-art">${v.art}</div>
-    ${name ? `<p class="m-hi">Salam, ${esc(name)}!</p>` : ''}
-    <h1>${v.title}</h1>
+  const info = opts.info || S.maint || {};
+  const key = maintRoleKey(who.role);
+  const set = MAINT_ROLE[key];
+  const v = set.variants[Math.floor(Math.random() * set.variants.length)];
+  // «Salam, Aysel!» — ad vəzifə kimi yazılıbsa («Baş admin»), tam yazılır
+  const fullName = String(who.name || '').trim();
+  const first = /^(baş|admin|developer|kurs|rəhbər|müəllim)/i.test(fullName) ? fullName : fullName.split(/\s+/)[0];
+  m.dataset.role = key;
+  m.hidden = false;
+  const ut = untilText(info.until);
+  m.innerHTML = `${maintPreview ? `<div class="m-preview">${ic('eyeview')}<span>Önizləmə: ${set.label} ekranı — istifadəçilər bunu görür</span><button class="btn btn-sm" data-act="closeMaintPreview">${ic('x')}Önizləməni bağla</button></div>` : ''}
+  <div class="maint-card">
+    <div class="maint-art">${M_ART[v.art]}</div>
+    ${first ? `<p class="m-hi">Salam, ${esc(first)}!</p>` : ''}
+    <h1>${esc(v.title)}</h1>
     <p>${esc(v.text)}</p>
-    ${extra && extra !== v.text ? `<p class="m-note">${esc(extra)}</p>` : ''}
+    ${ut ? `<span class="m-until">${ic('clock')}${esc(ut)}</span>` : ''}
+    ${info.text ? `<p class="m-note"><b>Developerin qeydi:</b> ${esc(info.text)}</p>` : ''}
+    <p class="m-sub" id="mSub">${esc(set.subs[0])}</p>
     <div class="m-actions">
-      <button class="btn btn-primary btn-lg" data-act="retryMaint">${ic('refresh')}Yenidən yoxla</button>
-      ${isDev ? `<button class="btn btn-soft" data-act="goDevFromMaint">${ic('code')}Developer panelinə qayıt</button>`
-              : (S.token ? `<button class="btn btn-ghost" data-act="maintLogout">${ic('logout')}Çıxış</button>` : '')}
+      ${maintPreview ? '' : `<button class="btn btn-primary btn-lg" data-act="retryMaint">${ic('refresh')}Yenidən yoxla</button>`}
+      ${!maintPreview && S.token ? `<button class="btn btn-ghost" data-act="maintLogout">${ic('logout')}Çıxış</button>` : ''}
     </div>
-    <p class="m-poll" id="mPoll">Avtomatik yoxlanılır…</p>
+    ${maintPreview ? '' : `<p class="m-poll" id="mPoll">Hər 20 saniyədən bir avtomatik yoxlanılır…</p>`}
   </div>`;
   hydrateIcons(m);
+  // alt sətir hər 4 saniyədən bir dəyişir
+  clearInterval(maintSubTimer);
+  let si = 0;
+  maintSubTimer = setInterval(() => {
+    const el = $('#mSub'); if (!el || m.hidden){ clearInterval(maintSubTimer); return; }
+    si = (si + 1) % set.subs.length;
+    el.style.animation = 'none'; void el.offsetWidth; el.style.animation = '';
+    el.textContent = set.subs[si];
+  }, 4000);
   clearInterval(maintPoll);
-  maintPoll = setInterval(checkMaintEnded, 20000);
+  if (!maintPreview) maintPoll = setInterval(checkMaintEnded, 20000);
 }
-function stopMaintPoll(){ clearInterval(maintPoll); maintPoll = null; }
-async function checkMaintEnded(silent){
-  const r = await api('maintenanceStatus', {}, { noRender: true, silent: true }).catch(() => null);
-  if (r && r.maintenance){ S.maint = r.maintenance; if (S.d) S.d.maintenance = r.maintenance; }
-  if (r && r.maintenance && !r.maintenance.on){
+function stopMaintPoll(){ clearInterval(maintPoll); maintPoll = null; clearInterval(maintSubTimer); }
+let maintChecking = false;
+async function checkMaintEnded(){
+  if (maintChecking) return false;
+  maintChecking = true;
+  try {
+    const r = await api('maintenanceStatus', {}, { noRender: true, silent: true }).catch(() => null);
+    if (!r || !r.maintenance) return false;
+    S.maint = r.maintenance; if (S.d) S.d.maintenance = r.maintenance;
+    if (r.maintenance.on){
+      // təxmini vaxt dəyişibsə yenilə
+      const u = $('#maint .m-until'); const ut = untilText(r.maintenance.until);
+      if (u && ut) u.lastChild.textContent = ut;
+      return false;
+    }
     stopMaintPoll();
-    $('#maint').hidden = true;
-    if (S.token){ try { await syncData(false); enterApp(); } catch(e){ showLogin(); } }
-    else showLogin();
+    $('#maint').hidden = true; $('#maint').dataset.role = '';
+    if (!S.token){ showLogin(); return true; }
+    try {
+      await api('bootstrap', {}, { noRender: true });   // S.d yenilənir (shell gizli olduğu üçün çəkilmir)
+      S.maintMe = null;
+      enterApp();
+    } catch (e) {
+      if (e.code !== 'AUTH' && e.code !== 'MAINT') showLogin('Yenidən daxil olun.');
+    }
     return true;
-  }
-  return false;
+  } finally { maintChecking = false; }
 }
 ACT.retryMaint = async (b) => {
   b.classList.add('spinning');
   const ended = await checkMaintEnded();
   b.classList.remove('spinning');
-  if (!ended) { const p = $('#mPoll'); if (p){ p.textContent = 'Texniki işlər hələ davam edir…'; setTimeout(() => { if ($('#mPoll')) $('#mPoll').textContent = 'Avtomatik yoxlanılır…'; }, 2500); } }
+  if (!ended) { const p = $('#mPoll'); if (p){ p.textContent = 'Texniki işlər hələ davam edir…'; setTimeout(() => { if ($('#mPoll')) $('#mPoll').textContent = 'Hər 20 saniyədən bir avtomatik yoxlanılır…'; }, 2500); } }
 };
-ACT.goDevFromMaint = () => { stopMaintPoll(); $('#maint').hidden = true; $('#shell').hidden = false; go('dev'); };
-ACT.maintLogout = async () => { stopMaintPoll(); try { await api('logout', {}, { noRender: true }); } catch(e){} S.token = null; S.d = null; $('#maint').hidden = true; showLogin(); };
+ACT.closeMaintPreview = () => { stopMaintPoll(); maintPreview = false; const m = $('#maint'); m.hidden = true; m.innerHTML = ''; m.dataset.role = ''; $('#shell').hidden = false; go('dev', null, true); };
+ACT.previewMaint = (b) => {
+  // Rejim sönülüdürsə — formadakı qaralama (qeyd + müddət) ilə göstər ki, developer nəticəni əvvəlcədən görsün
+  const cur = S.d.maintenance || {};
+  let info = cur;
+  if (!cur.on){
+    const note = ($('#mtNote') || {}).value || '';
+    const mins = Number(($('#mtMin') || {}).value) || 0;
+    const until = mins ? fmtLocal(new Date(Date.now() + mins * 60000)) : '';
+    info = { on: true, text: note.trim(), until };
+  }
+  showMaintenance({ preview: b.dataset.role, info });
+};
+// Bakı vaxtı ilə 'yyyy-MM-dd HH:mm:ss'
+function fmtLocal(d){ return new Date(d.getTime() + 4 * 3600e3).toISOString().slice(0, 19).replace('T', ' '); }
+ACT.maintLogout = async () => {
+  stopMaintPoll();
+  try { await api('logout', {}, { noRender: true }); } catch(e){}
+  S.token = null; S.d = null; S.maintMe = null;
+  const m = $('#maint'); m.hidden = true; m.dataset.role = '';
+  showLogin();
+};
 
 /* ===================== VIEW AS (developer) ===================== */
-ACT.devViewAs = (b) => run(b, async () => { S.viewAs = b.dataset.id; await api('bootstrap', { viewAs: S.viewAs }); go(defaultPage(), null, true); });
+ACT.devViewAs = (b) => run(b, async () => { S.viewAs = b.dataset.id; await api('bootstrap', { viewAs: S.viewAs, viewAsStart: true }); go(defaultPage(), null, true); });
 ACT.exitViewAs = () => run(null, async () => { S.viewAs = null; await api('bootstrap', {}); go('dev', null, true); });
 
 /* ===================== CHARTS (inline SVG) ===================== */
@@ -1880,7 +2107,10 @@ const SITE_TIPS = [
   'Tələbə kartında bütün dərs tarixçəsi və qrafiklər var.',
   'Yuxarıdakı zəng işarəsində bütün bildirişləriniz toplanır.',
   'Ay 8/8 və ya 12/12 olanda sistem yeni ay üçün xəbərdarlıq edir.',
-  'Valideynə fərdi link göndərib dərs hesabatını paylaşa bilərsiniz.'
+  'Valideynə fərdi link göndərib dərs hesabatını paylaşa bilərsiniz.',
+  'Saytı telefonun ana ekranına əlavə edib proqram kimi aça bilərsiniz.',
+  'Qaranlıq rejimi yuxarıdakı ay işarəsi ilə açıb-bağlaya bilərsiniz.',
+  'Uzun elanı «Ətraflı» düyməsi ilə tam oxuya bilərsiniz.'
 ];
 const SLOW_MSGS = [
   'İnternetiniz zəif görünür. Bağlantınızı yoxlayın…',
@@ -1888,51 +2118,120 @@ const SLOW_MSGS = [
   'Hələ də yüklənir — şəbəkəni yoxlamağa dəyər.',
   'Zəif internet. Wi-Fi və ya mobil şəbəkəni yoxlayın.'
 ];
-function loadingBox(){
-  return `<div class="loader" data-staged>
+/**
+ * Mərhələli yükləyici:
+ *  0–3 san — animasiya (papaq yırğalanır, ayın 8 dərsi bir-bir «dolur»)
+ *  3 san+  — sayt haqqında ipucu (hər 3 san dəyişir, ard-arda təkrarlanmır)
+ *  6 san+  — zəif internet xəbərdarlığı (hər dəfə fərqli mətn) + düymə
+ * retry: 'page' — bölməni yenidən yüklə (çıxış etmədən), 'reload' — səhifəni yenilə (yalnız valideyn linkləri),
+ *        'cancel' — girişi ləğv et, 'none' — düymə yoxdur.
+ */
+function loadingBox(retry){
+  return `<div class="loader" data-staged data-retry="${retry || 'page'}">
     <span class="cap" data-logo="light"></span>
     ${pips(0, 8, '')}
     <div class="loader-msg"><p>Yüklənir…</p></div>
   </div>`;
+}
+let lastTip = -1;
+function pickTip(){
+  let i; do { i = Math.floor(Math.random() * SITE_TIPS.length); } while (SITE_TIPS.length > 1 && i === lastTip);
+  lastTip = i; return SITE_TIPS[i];
 }
 function initLoader(el){
   if (el.dataset.run) return; el.dataset.run = '1';
   if (el.querySelector('[data-logo]')) hydrateIcons(el);
   const msg = el.querySelector('.loader-msg');
   const pipsEl = el.querySelector('.pips');
-  let filled = 0, timers = [];
-  // animasiya: nöqtələr bir-bir "dolur"
-  const fill = setInterval(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let filled = 0;
+  const timers = [];
+  // animasiya: nöqtələr bir-bir "dolur" (ayın 8 dərsi kimi), sonra yenidən
+  if (!reduce) timers.push(setInterval(() => {
     if (!el.isConnected) return stop();
     const dots = pipsEl ? pipsEl.querySelectorAll('.pip') : [];
     filled = (filled + 1) % (dots.length + 1);
     dots.forEach((d, i) => d.classList.toggle('on', i < filled));
-  }, 260);
-  timers.push(fill);
+  }, 280));
   // 3 saniyə: sayt haqqında ipucu, hər 3 saniyə dəyişir
   timers.push(setTimeout(() => {
     if (!el.isConnected) return stop();
-    msg.className = 'loader-msg tip';
-    const showTip = () => { if (!el.isConnected) return; msg.innerHTML = `<p>${esc(SITE_TIPS[Math.floor(Math.random() * SITE_TIPS.length)])}</p>`; };
+    const showTip = () => {
+      if (!el.isConnected || msg.classList.contains('warn')) return;
+      msg.className = 'loader-msg tip';
+      msg.innerHTML = `<p>${esc(pickTip())}</p>`;
+    };
     showTip();
     timers.push(setInterval(showTip, 3000));
   }, 3000));
-  // 6 saniyə: zəif internet
+  // 6 saniyə: zəif internet (ipucları dayanır)
   timers.push(setTimeout(() => {
     if (!el.isConnected) return stop();
-    const txt = !navigator.onLine ? 'İnternet yoxdur. Bağlantınızı yoxlayın.' : SLOW_MSGS[Math.floor(Math.random() * SLOW_MSGS.length)];
+    const txt = navigator.onLine === false ? 'İnternet bağlantısı yoxdur. Bağlantınızı yoxlayın — qoşulan kimi davam edəcəyik.'
+      : SLOW_MSGS[Math.floor(Math.random() * SLOW_MSGS.length)];
     msg.className = 'loader-msg warn';
     msg.innerHTML = `<p>${esc(txt)}</p>`;
+    const mode = el.dataset.retry;
+    if (mode === 'none') return;
     const r = document.createElement('button');
     r.className = 'btn btn-soft btn-sm retry';
-    r.innerHTML = ic('refresh') + 'Yenidən yoxla';
-    r.addEventListener('click', () => location.reload());
-    el.appendChild(r); hydrateIcons(el);
+    r.innerHTML = mode === 'cancel' ? ic('x') + 'Ləğv et' : ic('refresh') + 'Yenidən yoxla';
+    r.addEventListener('click', () => {
+      if (mode === 'reload') location.reload();
+      else if (mode === 'cancel') cancelLoginWait();
+      else { stop(); if (S.d && !$('#shell').hidden) renderPage(false); }
+    });
+    el.appendChild(r);
   }, 6000));
   function stop(){ timers.forEach(t => { clearTimeout(t); clearInterval(t); }); }
   el._stop = stop;
   // avtomatik dayandır: element DOM-dan çıxanda
   const chk = setInterval(() => { if (!el.isConnected){ stop(); clearInterval(chk); } }, 1000);
+}
+
+/* ---------- Giriş zamanı tam ekran yükləyici ---------- */
+let loginWait = null;
+function showSplash(){
+  const sp = $('#splash');
+  sp.classList.remove('out');
+  sp.innerHTML = loadingBox('cancel');
+  sp.hidden = false;
+  return Date.now();
+}
+async function hideSplash(started){
+  const sp = $('#splash'); if (sp.hidden) return;
+  const min = 600 - (Date.now() - (started || 0)); // çox qısa yükləmədə «parıltı» olmasın
+  if (min > 0) await new Promise(r => setTimeout(r, min));
+  sp.classList.add('out');
+  setTimeout(() => { sp.hidden = true; sp.innerHTML = ''; sp.classList.remove('out'); }, 300);
+}
+function cancelLoginWait(){
+  if (loginWait) loginWait.cancelled = true;
+  loginWait = null;
+  hideSplash(0);
+  const btn = $('#loginBtn'); if (btn){ btn.disabled = false; delete btn.dataset.busy; btn.innerHTML = 'Daxil ol'; }
+  toast('Giriş dayandırıldı. Bağlantını yoxlayıb yenidən cəhd edin.', 'info');
+}
+
+/* ---------- Uzun çəkən əməliyyatlar üçün (məs. dərs qeydi) zəif internet zolağı ---------- */
+let slowTimer = null, slowCount = 0;
+function slowWatch(start){
+  if (start){
+    slowCount++;
+    if (slowCount === 1){
+      clearTimeout(slowTimer);
+      slowTimer = setTimeout(() => {
+        if (document.querySelector('.loader[data-staged]') && document.querySelector('.loader[data-staged]').offsetParent) return; // yükləyici öz mesajını göstərir
+        const bar = $('#slowBar');
+        const txt = navigator.onLine === false ? 'İnternet bağlantısı yoxdur…' : SLOW_MSGS[Math.floor(Math.random() * SLOW_MSGS.length)];
+        bar.innerHTML = `<span class="spin"></span><span>${esc(txt)}</span>`;
+        bar.hidden = false;
+      }, 6000);
+    }
+  } else {
+    slowCount = Math.max(0, slowCount - 1);
+    if (!slowCount){ clearTimeout(slowTimer); const bar = $('#slowBar'); bar.hidden = true; bar.innerHTML = ''; }
+  }
 }
 // Hər yerdə yaranan loader-ləri avtomatik işə sal
 const loaderObserver = new MutationObserver(muts => {
@@ -2001,6 +2300,13 @@ function cardHtml(k){
       ${c.type === 'group' && can('tools.bulk') ? `<div class="ccard-actions"><button class="btn btn-sm btn-soft" data-act="transferForm" data-student="${s.id}" data-from="${c.id}">${ic('swap')}Başqa qrupa köçür</button></div>` : ''}
     </article>`).join('')}</div>` : emptyBox('Məşğələ yoxdur', 'Bu tələbə hazırda heç bir məşğələdə iştirak etmir.')}
   </div>
+
+  ${k.transfers && k.transfers.length ? `<div class="section"><div class="section-head"><h3>Köçürmə tarixçəsi<span class="count">${k.transfers.length}</span></h3></div>
+    <div class="timeline">${k.transfers.map(t => `<div class="tl-item">
+      <div><b>${esc(t.from)}</b> <span class="muted">→</span> <b>${esc(t.to)}</b></div>
+      <small>${fmtDT(t.at)}, köçürən: ${esc(t.by)}</small>${t.note ? `<div class="tl-note">${esc(t.note)}</div>` : ''}
+    </div>`).join('')}</div>
+  </div>` : ''}
 
   <div class="section"><div class="section-head"><h3>Davamiyyət tarixçəsi<span class="count">${k.history.length}</span></h3></div>
     ${k.history.length ? `<table class="ledger"><thead><tr><th>Tarix</th><th>Məşğələ</th><th>Ay, dərs</th><th>Status</th><th>Qeyd edən</th><th></th></tr></thead><tbody>
@@ -2137,63 +2443,114 @@ function drawHistory(){
 }
 
 /* ---------- LOGS ---------- */
-const LOG_TYPES = [['','Bütün növlər'],['auth','Giriş və çıxış'],['lesson','Dərs qeydləri'],['course','Məşğələlər'],['month','Yeni ay'],['student','Tələbələr'],['teacher','Müəllimlər'],['payment','Ödənişlər'],['permission','İcazələr'],['security','Təhlükəsizlik'],['profile','Profil'],['view','Baxışlar'],['system','Sistem']];
+const LOG_TYPES = [['','Bütün növlər'],['auth','Giriş və çıxış'],['lesson','Dərs qeydləri'],['course','Məşğələlər'],['month','Yeni ay'],['student','Tələbələr'],['teacher','Müəllimlər'],['payment','Ödənişlər'],['permission','İcazələr'],['security','Təhlükəsizlik'],['profile','Profil'],['view','Baxışlar'],['transfer','Köçürmələr'],['announce','Elanlar'],['survey','Sorğular'],['trash','Zibil qutusu'],['tools','Admin alətləri'],['system','Sistem']];
+const LOG_PAGE = 20;
+function monthsAgoStr(n){
+  const [y, m, d] = String(today()).split('-').map(Number);
+  const dt = new Date(Date.UTC(y, m - 1 - n, d));
+  return dt.toISOString().slice(0, 10);
+}
 RENDER.logs = () => {
   const f = S.ui.lf || (S.ui.lf = { q: '', type: '', userId: '', from: '', to: '' });
+  const tab = me().isSuper ? (S.ui.ltab || 'all') : 'all';
+  const since = S.ui.lsince || monthsAgoStr(3);
   return `<div class="page-head"><div><h2>Jurnal</h2><p>Sistemdə edilən bütün əməliyyatlar: girişlər, qeydlər, dəyişikliklər, silmələr.</p></div></div>
-  <div class="toolbar">
+  ${me().isSuper ? `<div class="seg" role="tablist" style="margin-bottom:16px">
+    <label><input type="radio" name="ltab" value="all" ${tab === 'all' ? 'checked' : ''}><span>${ic('clock')}Ümumi jurnal</span></label>
+    <label><input type="radio" name="ltab" value="dev" ${tab === 'dev' ? 'checked' : ''}><span>${ic('code')}Developer fəaliyyəti</span></label></div>` : ''}
+  ${tab === 'all' ? `<div class="toolbar">
     <div class="input-wrap search">${ic('search','lead')}<input class="input has-lead" id="lq" placeholder="Jurnalda axtar" value="${esc(f.q)}"></div>
     <select class="select" id="lt" aria-label="Növ">${LOG_TYPES.map(([k, l]) => `<option value="${k}" ${f.type === k ? 'selected' : ''}>${l}</option>`).join('')}</select>
     <select class="select" id="lu" aria-label="İstifadəçi"><option value="">Bütün istifadəçilər</option>${S.d.users.slice().sort((a,b)=>a.name.localeCompare(b.name,'az')).map(u => `<option value="${u.id}" ${f.userId === u.id ? 'selected' : ''}>${esc(u.name)}</option>`).join('')}</select>
-    <label class="row" style="gap:6px"><span class="lbl">Başlanğıc</span><input type="date" class="input" id="lfrom" value="${esc(f.from)}" max="${today()}" style="width:auto"></label>
-    <label class="row" style="gap:6px"><span class="lbl">Son</span><input type="date" class="input" id="lto" value="${esc(f.to)}" max="${today()}" style="width:auto"></label>
-  </div>
+    <div class="row" style="gap:8px">
+      <label class="row" style="gap:6px"><span class="lbl">Tarix</span><input type="date" class="input" id="lfrom" value="${esc(f.from)}" min="${since}" max="${today()}" style="width:auto" aria-label="Başlanğıc tarixi"></label>
+      <label class="row" style="gap:6px"><span class="lbl">—</span><input type="date" class="input" id="lto" value="${esc(f.to)}" min="${since}" max="${today()}" style="width:auto" aria-label="Son tarix"></label>
+    </div>
+  </div>` : `<p class="hint" style="margin-bottom:14px">Developerin texniki əməliyyatları (texniki rejim, arxiv, «müəllim gözü ilə baxış» və s.). Bu qeydlər ümumi jurnalı doldurmasın deyə ayrıca saxlanılır.</p>`}
   <div id="llist">${loadingBox()}</div>`;
 };
-AFTER.logs = (root) => {
+AFTER.logs = (root, isRefresh) => {
   const f = S.ui.lf;
-  const reload = () => loadLogs(false);
-  const deb = debounce(reload, 450);
-  $('#lq', root).addEventListener('input', e => { f.q = e.target.value; deb(); });
-  $('#lt', root).addEventListener('change', e => { f.type = e.target.value; reload(); });
-  $('#lu', root).addEventListener('change', e => { f.userId = e.target.value; reload(); });
-  $('#lfrom', root).addEventListener('change', e => { f.from = e.target.value; reload(); });
-  $('#lto', root).addEventListener('change', e => { f.to = e.target.value; reload(); });
-  loadLogs(false);
+  if (!isRefresh || !S.ui.lpage){ S.ui.lpage = 1; S.ui.ldevLogged = false; }   // bölməyə yenidən girəndə 1-ci səhifədən başla
+  $$('input[name=ltab]', root).forEach(r => r.addEventListener('change', e => { S.ui.ltab = e.target.value; S.ui.lpage = 1; renderPage(true); }));
+  if ((S.ui.ltab || 'all') === 'all' || !me().isSuper){
+    const reload = () => { S.ui.lpage = 1; loadLogs(); };
+    const deb = debounce(reload, 450);
+    $('#lq', root).addEventListener('input', e => { f.q = e.target.value; deb(); });
+    $('#lt', root).addEventListener('change', e => { f.type = e.target.value; reload(); });
+    $('#lu', root).addEventListener('change', e => { f.userId = e.target.value; reload(); });
+    $('#lfrom', root).addEventListener('change', e => { f.from = e.target.value; reload(); });
+    $('#lto', root).addEventListener('change', e => { f.to = e.target.value; reload(); });
+  }
+  loadLogs();
 };
-async function loadLogs(more){
+async function loadLogs(){
   const f = S.ui.lf;
+  const dev = me().isSuper && S.ui.ltab === 'dev';
   const seq = (S.ui.lseq = (S.ui.lseq || 0) + 1);
-  const offset = more ? (S.ui.litems || []).length : 0;
+  const page = S.ui.lpage || 1;
+  const box = $('#llist');
+  if (box && box.dataset.loaded){ box.style.opacity = '.55'; }
   try {
-    const res = await api('getLogs', Object.assign({ offset, limit: 20 }, f));
+    const first = dev && !S.ui.ldevLogged;
+    const res = await api(dev ? 'getDevLog' : 'getLogs', Object.assign({ offset: (page - 1) * LOG_PAGE, limit: LOG_PAGE }, dev ? { first } : f));
+    if (first) S.ui.ldevLogged = true;
     if (seq !== S.ui.lseq || S.page !== 'logs') return;
-    S.ui.litems = more ? (S.ui.litems || []).concat(res.logs) : res.logs;
+    S.ui.litems = res.logs;
     S.ui.ltotal = res.total;
     S.ui.lret = res.retentionMonths || 3;
-    drawLogs();
+    S.ui.lsince = res.since || S.ui.lsince;
+    // səhifə nömrəsi artıq yoxdursa (məs. filtr dəyişdi) — sonuncuya keç
+    const pages = Math.max(1, Math.ceil(res.total / LOG_PAGE));
+    if (page > pages){ S.ui.lpage = pages; return loadLogs(); }
+    drawLogs(dev);
   } catch (e) {
-    if (e.code === 'AUTH' || S.page !== 'logs') return;
-    const box = $('#llist'); if (box) box.innerHTML = emptyBox('Yükləmək olmadı', esc(e.message), `<button class="btn btn-primary" data-act="reloadLogs">${ic('refresh')}Yenidən cəhd et</button>`);
+    if (e.code === 'AUTH' || e.code === 'MAINT' || S.page !== 'logs') return;
+    const b2 = $('#llist'); if (b2) b2.innerHTML = emptyBox('Yükləmək olmadı', esc(e.message), `<button class="btn btn-primary" data-act="reloadLogs">${ic('refresh')}Yenidən cəhd et</button>`);
   }
 }
-ACT.reloadLogs = () => loadLogs(false);
-ACT.moreLogs = (b) => run(b, () => loadLogs(true));
-function drawLogs(){
+ACT.reloadLogs = () => loadLogs();
+ACT.logPage = (b) => {
+  S.ui.lpage = Number(b.dataset.page) || 1;
+  loadLogs();
+  const top = $('#llist'); if (top) top.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+function pagerHtml(page, total, size, act){
+  const pages = Math.max(1, Math.ceil(total / size));
+  if (pages <= 1) return '';
+  const nums = new Set([1, pages, page - 1, page, page + 1].filter(n => n >= 1 && n <= pages));
+  if (page <= 3) [2, 3, 4].forEach(n => n <= pages && nums.add(n));
+  if (page >= pages - 2) [pages - 1, pages - 2, pages - 3].forEach(n => n >= 1 && nums.add(n));
+  const sorted = [...nums].sort((a, b) => a - b);
+  let html = `<button data-act="${act}" data-page="${page - 1}" ${page <= 1 ? 'disabled' : ''} aria-label="Əvvəlki səhifə">${ic('back')}</button>`;
+  let prev = 0;
+  sorted.forEach(n => {
+    if (n - prev > 1) html += `<span class="gap">…</span>`;
+    html += `<button data-act="${act}" data-page="${n}" class="${n === page ? 'on' : ''}" ${n === page ? 'aria-current="page"' : ''}>${n}</button>`;
+    prev = n;
+  });
+  html += `<button data-act="${act}" data-page="${page + 1}" ${page >= pages ? 'disabled' : ''} aria-label="Növbəti səhifə">${ic('chev')}</button>`;
+  return `<nav class="pager" aria-label="Səhifələr">${html}</nav>`;
+}
+function drawLogs(dev){
   const box = $('#llist'); if (!box) return;
+  box.style.opacity = '';
+  box.dataset.loaded = '1';
   const items = S.ui.litems || [];
   const tl = Object.fromEntries(LOG_TYPES);
-  if (!items.length){ box.innerHTML = emptyBox('Qeyd tapılmadı', 'Filtrləri dəyişin.'); return; }
   const rm = S.ui.lret || 3;
-  box.innerHTML = `<div class="done-note" style="margin-bottom:12px">${ic('info')}<span>Yalnız son ${rm} ayın qeydləri göstərilir — köhnələr avtomatik arxivə köçürülür.</span></div>
-    <p class="hint" style="margin-bottom:10px">Tapıldı: ${S.ui.ltotal}, göstərilir: ${items.length}</p>
-    <table class="ledger"><thead><tr><th>Vaxt</th><th>İstifadəçi</th><th>Əməliyyat</th></tr></thead><tbody>
+  const page = S.ui.lpage || 1;
+  const note = `<div class="done-note" style="margin-bottom:12px">${ic('info')}<span>Son ${rm} ayın qeydləri göstərilir${S.ui.lsince ? ` (${fmtDate(S.ui.lsince)} tarixindən)` : ''}. Köhnə qeydlər hər 3 aydan bir avtomatik arxivə köçürülür.</span></div>`;
+  if (!items.length){ box.innerHTML = note + emptyBox('Qeyd tapılmadı', dev ? 'Son 3 ayda developer fəaliyyəti olmayıb.' : 'Filtrləri dəyişin.'); hydrateIcons(box); return; }
+  const from = (page - 1) * LOG_PAGE + 1, to = from + items.length - 1;
+  box.innerHTML = note + `<table class="ledger"><thead><tr><th>Vaxt</th><th>İstifadəçi</th><th>Əməliyyat</th></tr></thead><tbody>
     ${items.map(l => `<tr>
       <td data-label="Vaxt" class="log-time">${fmtDT(l.time)}</td>
-      <td data-label="İstifadəçi"><b style="font-weight:600">${esc(l.userName)}</b><br><small class="muted">${esc(l.role)}</small></td>
-      <td data-label="Əməliyyat"><span class="tag line" style="margin-bottom:4px">${esc(tl[l.type] || l.type)}</span><div class="log-action">${esc(l.action)}</div>${l.details ? `<div class="log-details">${esc(l.details)}</div>` : ''}</td>
+      <td data-label="İstifadəçi"><b style="font-weight:600">${esc(l.userName)}</b><br><small class="muted">${esc(dev ? 'Developer' : l.role)}</small></td>
+      <td data-label="Əməliyyat">${dev ? '' : `<span class="tag line" style="margin-bottom:4px">${esc(tl[l.type] || l.type)}</span>`}<div class="log-action">${esc(l.action)}</div>${l.details ? `<div class="log-details">${esc(l.details)}</div>` : ''}</td>
     </tr>`).join('')}</tbody></table>
-    ${items.length < S.ui.ltotal ? `<div class="more-row"><button class="btn btn-soft" data-act="moreLogs">Daha çox göstər</button></div>` : ''}`;
+    ${pagerHtml(page, S.ui.ltotal, LOG_PAGE, 'logPage')}
+    <p class="pager-info">${from}–${to} / ${S.ui.ltotal} qeyd</p>`;
   hydrateIcons(box);
 }
 
@@ -2876,9 +3233,21 @@ RENDER.dev = () => {
       <button class="btn btn-soft" data-act="devStats">${ic('database')}Sistem statistikası</button></div>
 
     <div class="section"><div class="maint-toggle ${m.on ? 'on' : ''}">
-      <div style="flex:1;min-width:200px"><div class="row" style="gap:8px"><b style="font-size:16px">Texniki iş rejimi</b>${m.on ? '<span class="tag solid">AKTİV</span>' : '<span class="tag">Söndürülüb</span>'}</div>
-        <p class="hint" style="margin-top:4px">Açılanda bütün istifadəçilər «Texniki işlər aparılır» ekranını görür. Yalnız siz daxil ola bilərsiniz.${m.on && m.at ? ' Açılıb: ' + fmtDT(m.at) : ''}</p></div>
+      <div style="flex:1;min-width:200px"><div class="row" style="gap:8px"><b style="font-size:16px">Texniki iş rejimi</b>${m.on ? '<span class="tag solid">Aktiv</span>' : '<span class="tag">Söndürülüb</span>'}</div>
+        <p class="hint" style="margin-top:4px">${m.on
+          ? `Açılıb: ${fmtDT(m.at)}.${m.until ? ' Təxmini bitmə: ' + esc(String(m.until).slice(11, 16)) + '.' : ''} İstifadəçilər daxil ola bilir, amma işlər bitənə qədər gözləmə ekranını görür. Valideyn linkləri və sorğular işləyir.`
+          : 'Açılanda müəllimlər və kurs rəhbərləri daxil ola bilir, amma işlər bitənə qədər gözləmə ekranını görür. Valideyn linkləri və sorğular işləməyə davam edir.'}</p>
+        ${m.on && m.text ? `<p class="m-note" style="margin-top:10px;text-align:left"><b>Qeyd:</b> ${esc(m.text)}</p>` : ''}</div>
       <button class="btn ${m.on ? 'btn-soft' : 'btn-primary'} btn-lg" data-act="toggleMaint" data-on="${m.on ? '0' : '1'}">${ic('power')}${m.on ? 'Rejimi söndür' : 'Rejimi aç'}</button>
+      ${m.on ? '' : `<div class="maint-form">
+        <label class="field"><span>İstifadəçilərə qeyd (istəyə bağlı)</span><textarea class="textarea" id="mtNote" maxlength="300" rows="2" placeholder="məsələn: Yeni hesabat bölməsi əlavə olunur.">${esc(S.ui.mtNote || '')}</textarea></label>
+        <label class="field"><span>Təxmini müddət</span><select class="select" id="mtMin">
+          ${[[0,'Göstərmə'],[15,'15 dəqiqə'],[30,'30 dəqiqə'],[60,'1 saat'],[120,'2 saat'],[240,'4 saat']].map(([v,l]) => `<option value="${v}" ${Number(S.ui.mtMin || 0) === v ? 'selected' : ''}>${l}</option>`).join('')}
+        </select></label>
+      </div>`}
+      <div class="maint-prev"><span class="hint">Ekranı əvvəlcədən gör:</span>
+        <button class="btn btn-sm btn-soft" data-act="previewMaint" data-role="teacher">${ic('teacher')}Müəllim ekranı</button>
+        <button class="btn btn-sm btn-soft" data-act="previewMaint" data-role="leader">${ic('shield')}Rəhbərlik ekranı</button></div>
     </div></div>
 
     <div class="section"><div class="section-head"><h3>Müəllim gözü ilə bax</h3></div>
@@ -2889,7 +3258,7 @@ RENDER.dev = () => {
     </div>
 
     <div class="section"><div class="section-head"><h3>Arxiv (məlumatların köçürülməsi)</h3></div>
-      <p class="hint" style="margin-bottom:12px">Köhnə qeydləri ayrıca arxiv faylına köçürün ki, işçi cədvəl kiçik və sürətli qalsın. Aktiv məlumatlar (tələbə, müəllim, məşğələ, dərs) köçürülmür.</p>
+      <p class="hint" style="margin-bottom:12px">Köhnə qeydləri ayrıca arxiv faylına (Google Drive-da, hər il üçün bir fayl) köçürün ki, işçi cədvəl kiçik və sürətli qalsın. Arxivdəki məlumat silinmir — faylı istənilən vaxt açmaq olar.</p>
       <div id="archPanel">${loadingBox()}</div>
     </div>
 
@@ -2898,80 +3267,177 @@ RENDER.dev = () => {
       <div class="row" style="margin-top:12px"><button class="btn btn-soft" data-go="news">${ic('rocket')}Yeniliklər bölməsinə keç</button></div>
     </div>`;
 };
-AFTER.dev = () => { loadArchivePanel(); };
-async function loadArchivePanel(){
+AFTER.dev = (root, isRefresh) => {
+  const n = $('#mtNote', root), mm = $('#mtMin', root);
+  if (n) n.addEventListener('input', e => { S.ui.mtNote = e.target.value; });
+  if (mm) mm.addEventListener('change', e => { S.ui.mtMin = e.target.value; });
+  loadArchivePanel(isRefresh);   // avtomatik yeniləmədə seçimlər itməsin
+};
+async function loadArchivePanel(keepSel){
   const box = $('#archPanel'); if (!box) return;
   try {
     const r = await api('archiveInfo', {}, { noRender: true });
     if (S.page !== 'dev') return;
-    S.ui.arch = { sel: new Set(['Logs']), months: '3', from: '', to: '', info: r };
+    const prev = S.ui.arch;
+    S.ui.arch = (keepSel && prev) ? Object.assign(prev, { info: r, preview: null })
+      : { sel: new Set(['Logs']), months: '3', from: '', to: '', userId: '', type: '', info: r, preview: null };
     drawArchivePanel();
-  } catch (e) { if (e.code !== 'AUTH' && e.code !== 'MAINT' && box.isConnected) box.innerHTML = emptyBox('Yüklənmədi', esc(e.message)); }
+  } catch (e) { if (e.code !== 'AUTH' && e.code !== 'MAINT' && box.isConnected) box.innerHTML = emptyBox('Yüklənmədi', esc(e.message), `<button class="btn btn-soft" data-act="reloadArch">${ic('refresh')}Yenidən cəhd et</button>`); }
 }
+ACT.reloadArch = () => loadArchivePanel(true);
+const ARCH_PERIODS = [['3', '3 aydan köhnə'], ['6', '6 aydan köhnə'], ['12', '1 ildən köhnə']];
 function drawArchivePanel(){
   const box = $('#archPanel'); if (!box) return;
   const a = S.ui.arch, info = a.info;
-  const live = info.live;
+  const sections = info.sections || [];
+  const useRange = !!(a.from || a.to);
+  const trig = info.triggers || [];
+  const trigMissing = trig.some(t => t.on === false);
+  const logsOn = a.sel.has('Logs');
   box.innerHTML = `
-    <div class="arch-sheets">${Object.keys(live).map(k => `<label class="arch-sheet ${a.sel.has(k) ? 'on' : ''}">
-      <span class="chk" style="pointer-events:none"><input type="checkbox" data-arch-sheet="${k}" ${a.sel.has(k) ? 'checked' : ''}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span>
-      <span class="nm">${esc(live[k].label)}</span><span class="ct">${live[k].count} sətir</span></label>`).join('')}</div>
-    <div class="toolbar" style="margin-top:16px;align-items:flex-end">
+    <p class="lbl" style="margin-bottom:8px">1. Nəyi arxivləşdirək?</p>
+    <div class="arch-sheets">${sections.map(s => `<label class="arch-sheet ${a.sel.has(s.sheet) ? 'on' : ''}">
+      <span class="chk" style="pointer-events:none;margin-top:2px"><input type="checkbox" data-arch-sheet="${s.sheet}" ${a.sel.has(s.sheet) ? 'checked' : ''}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></span>
+      <span class="meta"><span class="row" style="gap:6px"><span class="nm">${esc(s.label)}</span>${s.auto ? '<span class="tag line" title="Avtomatik arxivə daxildir">Avto</span>' : ''}</span>
+        <span class="ct">İşçi cədvəldə: ${s.count} sətir</span>${s.note ? `<span class="note">${esc(s.note)}</span>` : ''}</span></label>`).join('')}</div>
+    <div class="arch-locked" aria-label="Arxivləşdirilmir">${(info.locked || []).map(x => `<span>${ic('lock')}${esc(x)}</span>`).join('')}</div>
+    <p class="hint" style="margin-top:6px">Kilidli bölmələr heç vaxt arxivə köçürülmür — bunlar tələbələrin tarixçəsi və hesablamalar üçün lazımdır.</p>
+
+    <p class="lbl" style="margin:18px 0 8px">2. Hansı dövr?</p>
+    <div class="toolbar" style="align-items:center">
       <div class="seg" role="radiogroup" aria-label="Müddət">
-        ${[['3','3 aydan köhnə'],['6','6 aydan köhnə'],['12','1 ildən köhnə']].map(([v,l]) => `<label><input type="radio" name="archm" value="${v}" ${a.months===v&&!a.from&&!a.to?'checked':''}><span>${l}</span></label>`).join('')}
+        ${ARCH_PERIODS.map(([v, l]) => `<label><input type="radio" name="archm" value="${v}" ${a.months === v && !useRange ? 'checked' : ''}><span>${l}</span></label>`).join('')}
       </div>
-      <label class="row" style="gap:6px"><span class="lbl">və ya aralıq:</span><input type="date" class="input" id="archFrom" value="${esc(a.from)}" max="${today()}" style="width:auto"></label>
-      <label class="row" style="gap:6px"><span class="lbl">—</span><input type="date" class="input" id="archTo" value="${esc(a.to)}" max="${today()}" style="width:auto"></label>
+      <label class="row" style="gap:6px"><span class="lbl">və ya aralıq:</span><input type="date" class="input" id="archFrom" value="${esc(a.from)}" max="${today()}" style="width:auto" aria-label="Başlanğıc"></label>
+      <label class="row" style="gap:6px"><span class="lbl">—</span><input type="date" class="input" id="archTo" value="${esc(a.to)}" max="${today()}" style="width:auto" aria-label="Son"></label>
+      ${useRange ? `<button class="btn btn-sm btn-ghost" data-act="archClearRange">${ic('x')}Aralığı təmizlə</button>` : ''}
     </div>
-    <div class="row" style="margin-top:14px">
-      <button class="btn btn-soft" data-act="archPreview">${ic('search')}Nə qədər?</button>
+
+    <div id="archLogFilters" ${logsOn ? '' : 'hidden'}>
+      <p class="lbl" style="margin:18px 0 8px">3. Jurnal üçün əlavə filtr (istəyə bağlı)</p>
+      <div class="toolbar">
+        <select class="select" id="archUser" aria-label="İstifadəçi"><option value="">Bütün istifadəçilər</option>${(info.users || []).map(u => `<option value="${esc(u.id)}" ${a.userId === u.id ? 'selected' : ''}>${esc(u.name)}</option>`).join('')}</select>
+        <select class="select" id="archType" aria-label="Əməliyyat növü">${LOG_TYPES.concat([['dev', 'Developer']]).map(([k, l]) => `<option value="${k}" ${a.type === k ? 'selected' : ''}>${k ? l : 'Bütün əməliyyatlar'}</option>`).join('')}</select>
+      </div>
+      <p class="hint" style="margin-top:6px">Bu filtrlər yalnız jurnala aiddir; digər bölmələr dövrə görə köçürülür.</p>
+    </div>
+
+    <div class="row" style="margin-top:18px">
+      <button class="btn btn-soft" data-act="archPreview">${ic('search')}Nə qədər köçəcək?</button>
       <button class="btn btn-primary" data-act="archRun">${ic('database')}Arxivləşdir</button>
-      <span id="archResult" class="hint" style="margin-left:6px"></span>
     </div>
-    <div class="done-note" style="margin-top:16px">${ic('info')}<span>Avtomatik arxiv hər 3 ayda bir «${esc(info.autoSheets.join(', '))}» bölmələrinin ${info.retentionMonths} aydan köhnə qeydlərini köçürür. (Apps Script-də <b>autoArchiveQuarterly</b> triggeri ilə.)</span></div>
-    ${info.files.length ? `<div class="section" style="margin-top:18px"><p class="lbl" style="margin-bottom:8px">Arxiv faylları</p>
-      ${info.files.map(f => `<div class="arch-file">${ic('database')}<div style="flex:1"><b>Arxiv ${esc(f.year)}</b></div><a class="btn btn-sm btn-soft" href="${esc(f.url)}" target="_blank" rel="noopener">${ic('eye')}Aç</a></div>`).join('')}</div>` : ''}`;
+    <div id="archResult" class="hint" style="margin-top:10px" aria-live="polite">${archPreviewHtml(a.preview)}</div>
+
+    <p class="lbl" style="margin:24px 0 8px">Avtomatik arxiv</p>
+    <div class="arch-status">
+      <div><span>Nəyi köçürür</span><b>${esc((info.autoSheets || []).join(', '))}</b></div>
+      <div><span>Hansı qeydləri</span><b>${info.retentionMonths} aydan köhnə</b></div>
+      <div><span>Sonuncu dəfə</span><b>${info.autoLast ? fmtDT(info.autoLast) + (info.autoLastCount != null ? ` · ${info.autoLastCount} qeyd` : '') : 'Hələ işləməyib'}</b></div>
+      <div><span>Növbəti</span><b>${info.autoNext ? fmtDate(info.autoNext) + ' tarixindən sonra, ayın 1-də' : 'Ayın 1-də (ilk dəfə)'}</b></div>
+    </div>
+    <div style="margin-top:12px">${trig.map(t => `<div class="trig ${t.on ? 'on' : ''}"><span class="dot"></span><span>${esc(t.label || t.fn)}: <b>${t.on === null ? 'yoxlamaq olmadı' : t.on ? 'qurulub' : 'qurulmayıb'}</b></span></div>`).join('')}</div>
+    ${trigMissing ? `<div class="done-note" style="margin-top:10px">${ic('alert')}<span>Bəzi avtomatik işlər qurulmayıb — avto-arxiv və zibil qutusunun təmizlənməsi işləməyəcək. Aşağıdakı düymə ilə qurun.</span></div>` : ''}
+    <div class="row" style="margin-top:12px">
+      ${trigMissing ? `<button class="btn btn-primary btn-sm" data-act="archInstallTriggers">${ic('wrench2')}Avtomatik işləri qur</button>` : ''}
+      <button class="btn btn-soft btn-sm" data-act="archAutoNow">${ic('refresh')}Avto-arxivi indi işə sal</button>
+    </div>
+
+    ${info.files.length ? `<p class="lbl" style="margin:24px 0 8px">Arxiv faylları</p>
+      ${info.files.map(f => `<div class="arch-file">${ic('database')}<div style="flex:1"><b>Arxiv ${esc(f.year)}</b><br><small class="muted">Google Drive-da ayrıca cədvəl</small></div><a class="btn btn-sm btn-soft" href="${esc(f.url)}" target="_blank" rel="noopener">${ic('eye')}Aç</a></div>`).join('')}`
+      : `<p class="hint" style="margin-top:18px">Arxiv faylı hələ yoxdur — ilk arxivləşdirmədə avtomatik yaradılacaq.</p>`}`;
   hydrateIcons(box);
+  const invalidate = () => { a.preview = null; const el = $('#archResult'); if (el) el.innerHTML = ''; };
   box.querySelectorAll('[data-arch-sheet]').forEach(c => c.addEventListener('change', e => {
     const k = e.target.dataset.archSheet;
     if (e.target.checked) a.sel.add(k); else a.sel.delete(k);
     e.target.closest('.arch-sheet').classList.toggle('on', e.target.checked);
+    const lf = $('#archLogFilters'); if (lf) lf.hidden = !a.sel.has('Logs');
+    invalidate();
   }));
-  box.querySelectorAll('input[name=archm]').forEach(r => r.addEventListener('change', e => { a.months = e.target.value; a.from = ''; a.to = ''; const af=$('#archFrom'),at=$('#archTo'); if(af)af.value=''; if(at)at.value=''; }));
-  const af = $('#archFrom'), at = $('#archTo');
-  if (af) af.addEventListener('change', e => { a.from = e.target.value; });
-  if (at) at.addEventListener('change', e => { a.to = e.target.value; });
+  box.querySelectorAll('input[name=archm]').forEach(r => r.addEventListener('change', e => {
+    a.months = e.target.value; a.from = ''; a.to = '';
+    const af = $('#archFrom'), at = $('#archTo'); if (af) af.value = ''; if (at) at.value = '';
+    const cb = box.querySelector('[data-act=archClearRange]'); if (cb) cb.remove();
+    invalidate();
+  }));
+  const onRange = () => {
+    a.from = $('#archFrom').value; a.to = $('#archTo').value;
+    // aralıq seçiləndə «N aydan köhnə» düymələri söndürülür ki, nəyin istifadə olunduğu aydın olsun
+    box.querySelectorAll('input[name=archm]').forEach(r => { r.checked = !(a.from || a.to) && r.value === a.months; });
+    invalidate();
+  };
+  $('#archFrom').addEventListener('change', onRange);
+  $('#archTo').addEventListener('change', onRange);
+  const su = $('#archUser'), st = $('#archType');
+  if (su) su.addEventListener('change', e => { a.userId = e.target.value; invalidate(); });
+  if (st) st.addEventListener('change', e => { a.type = e.target.value; invalidate(); });
 }
-function archReq(){ const a = S.ui.arch; const req = { sheets: [...a.sel] }; if (a.from || a.to){ req.from = a.from; req.to = a.to; } else req.months = Number(a.months); return req; }
+function archPreviewHtml(p){
+  if (!p) return '';
+  if (!p.total) return `Seçilən şərtlərə uyğun köçürüləcək qeyd yoxdur <span class="muted">(${esc(p.describe)})</span>.`;
+  return `<b>${p.total}</b> qeyd köçürüləcək: ${p.preview.filter(x => x.count).map(x => esc(x.label) + ' — ' + x.count).join(', ')} <span class="muted">(${esc(p.describe)})</span>`;
+}
+ACT.archClearRange = () => { const a = S.ui.arch; a.from = ''; a.to = ''; a.preview = null; drawArchivePanel(); };
+function archReq(){
+  const a = S.ui.arch;
+  const req = { sheets: [...a.sel] };
+  if (a.from || a.to){ req.from = a.from; req.to = a.to; } else req.months = Number(a.months);
+  if (a.sel.has('Logs')){ if (a.userId) req.userId = a.userId; if (a.type) req.type = a.type; }
+  return req;
+}
+function archCheck(){
+  const a = S.ui.arch;
+  if (!a.sel.size){ toast('Ən azı bir bölmə seçin.', 'err'); return false; }
+  if (a.from && a.to && a.from > a.to){ toast('Başlanğıc tarixi son tarixdən sonra ola bilməz.', 'err'); return false; }
+  return true;
+}
 ACT.archPreview = (b) => run(b, async () => {
-  if (!S.ui.arch.sel.size) return toast('Bölmə seçin.', 'err');
+  if (!archCheck()) return;
   const r = await api('archivePreview', archReq(), { noRender: true });
-  const total = r.preview.reduce((s, x) => s + x.count, 0);
-  const el = $('#archResult');
-  if (el) el.innerHTML = total ? `<b>${total}</b> qeyd arxivləşəcək (${r.preview.filter(x=>x.count).map(x=>x.label+': '+x.count).join(', ')})` : 'Köçürüləcək qeyd yoxdur.';
+  S.ui.arch.preview = r;
+  const el = $('#archResult'); if (el) el.innerHTML = archPreviewHtml(r);
 });
-ACT.archRun = async (b) => {
-  if (!S.ui.arch.sel.size) return toast('Bölmə seçin.', 'err');
-  const pre = await api('archivePreview', archReq(), { noRender: true }).catch(() => null);
-  const total = pre ? pre.preview.reduce((s, x) => s + x.count, 0) : 0;
-  if (!total) return toast('Köçürüləcək qeyd yoxdur.', 'info');
-  const ok = await confirmBox({ title: 'Arxivləşdir', text: `<b>${total}</b> qeyd ayrıca arxiv faylına köçürüləcək və işçi cədvəldən silinəcək (məlumatlar itmir, arxivdə qalır). Davam edilsin?`, ok: 'Arxivləşdir' });
+ACT.archRun = (b) => run(b, async () => {
+  if (!archCheck()) return;
+  const pre = await api('archivePreview', archReq(), { noRender: true });
+  S.ui.arch.preview = pre;
+  const el = $('#archResult'); if (el) el.innerHTML = archPreviewHtml(pre);
+  if (!pre.total) return toast('Köçürüləcək qeyd yoxdur.', 'info');
+  const ok = await confirmBox({ title: 'Arxivləşdir',
+    text: `<b>${pre.total}</b> qeyd ayrıca arxiv faylına köçürüləcək və saytdan götürüləcək. Məlumat itmir — arxiv faylında qalır.<br><br><small>${esc(pre.describe)}</small>`, ok: 'Arxivləşdir' });
+  if (!ok) return;
+  const r = await api('archiveNow', archReq(), { noRender: true });
+  toast(r.left ? `${r.archived} qeyd köçürüldü. Hələ ${r.left} qeyd qalıb — davam etmək üçün yenidən basın.` : `${r.archived} qeyd arxivə köçürüldü.`, 'ok');
+  loadArchivePanel(true);
+});
+ACT.archAutoNow = async (b) => {
+  const ok = await confirmBox({ title: 'Avto-arxivi indi işə sal',
+    text: `«${esc((S.ui.arch.info.autoSheets || []).join(', '))}» bölmələrinin ${S.ui.arch.info.retentionMonths} aydan köhnə qeydləri arxiv faylına köçürüləcək. Növbəti avtomatik arxiv bu tarixdən 3 ay sonra olacaq.`, ok: 'İşə sal' });
   if (!ok) return;
   run(b, async () => {
-    const r = await api('archiveNow', archReq(), { noRender: true });
-    toast(`${r.archived} qeyd arxivləşdirildi${r.left ? ' · qalan: ' + r.left + ' (yenidən basın)' : ''}.`, 'ok');
-    loadArchivePanel();
+    const r = await api('archiveAutoNow', {}, { noRender: true });
+    toast(r.archived ? `${r.archived} qeyd arxivə köçürüldü.` : 'Köçürüləcək köhnə qeyd yox idi.', 'ok');
+    loadArchivePanel(true);
   });
 };
+ACT.archInstallTriggers = (b) => run(b, async () => {
+  const r = await api('installTriggers', {}, { noRender: true });
+  toast(r.created.length ? 'Avtomatik işlər quruldu.' : 'Hamısı artıq qurulub.', 'ok');
+  loadArchivePanel(true);
+});
 ACT.toggleMaint = async (b) => {
   const on = b.dataset.on === '1';
-  if (on){
-    const ok = await confirmBox({ title: 'Texniki rejimi aç', text: 'Bütün istifadəçilər (müəllimlər və admin) sistemdən çıxarılacaq və «Texniki işlər» ekranını görəcək. Davam edilsin?', ok: 'Rejimi aç' });
-    if (!ok) return;
-  }
+  const note = on ? (($('#mtNote') || {}).value || '').trim() : '';
+  const minutes = on ? Number(($('#mtMin') || {}).value) || 0 : 0;
+  const ok = await confirmBox(on
+    ? { title: 'Texniki rejimi aç', ok: 'Rejimi aç',
+        text: `Müəllimlər və kurs rəhbərləri daxil ola biləcək, amma işlər bitənə qədər gözləmə ekranını görəcək. Açıq olan səhifələr növbəti əməliyyatda bu ekrana keçəcək.<br><br>Valideyn linkləri və sorğular işləməyə davam edir.${minutes ? `<br>Təxmini müddət: <b>${minutes} dəq</b>` : ''}${note ? `<br>Qeyd: «${esc(note)}»` : ''}` }
+    : { title: 'Texniki rejimi söndür', ok: 'Söndür', text: 'İstifadəçilər yenidən sistemdən istifadə edə biləcək. Gözləmə ekranında olanlar 20 saniyə ərzində avtomatik içəri keçəcək.' });
+  if (!ok) return;
   run(b, async () => {
-    const r = await api('setMaintenance', { on, text: 'Saytda texniki işlər aparılır. Zəhmət olmasa, bir az sonra yenidən cəhd edin.' }, { noRender: true });
+    const r = await api('setMaintenance', { on, text: note, minutes }, { noRender: true });
     S.d.maintenance = r.maintenance; S.maint = r.maintenance;
+    if (on){ S.ui.mtNote = ''; S.ui.mtMin = 0; }
     toast(on ? 'Texniki rejim açıldı.' : 'Texniki rejim söndürüldü.');
     renderPage(true);
   });
@@ -3042,11 +3508,24 @@ function drawAnns(res){
       <div class="resp-head"><div style="flex:1;min-width:0"><div class="row" style="gap:8px">${a.active ? '<span class="tag solid">Aktiv</span>' : '<span class="tag">Söndürülüb</span>'}${a.popup ? '<span class="tag line">Girişdə pəncərə</span>' : ''}</div>
         <h3 style="font-size:16px;margin-top:8px">${esc(a.title)}</h3></div>
         <span class="lacts"><button class="ibtn sm" data-act="annForm" data-id="${a.id}" aria-label="Redaktə">${ic('edit')}</button><button class="ibtn sm" data-act="deleteAnn" data-id="${a.id}" aria-label="Sil">${ic('trash')}</button></span></div>
-      <p class="muted" style="white-space:pre-wrap;margin-top:6px;font-size:14px">${esc(a.body)}</p>
-      <small class="faint">${esc(a.by)} · ${fmtDT(a.createdAt)}</small></div>`).join('') : emptyBox('Elan yoxdur', 'İlk elanı yaradın.')}`;
+      <p class="muted clamp2" style="margin-top:6px;font-size:14px">${esc(a.body)}</p>
+      <div class="row" style="justify-content:space-between;margin-top:4px">
+        <small class="faint">${esc(a.by)} · ${fmtDT(a.createdAt)}</small>
+        <button class="ann-toggle" data-act="toggleClamp" hidden>Ətraflı${ic('chev')}</button>
+      </div></div>`).join('') : emptyBox('Elan yoxdur', 'İlk elanı yaradın.')}`;
   S.ui.annCache = {}; res.anns.forEach(a => S.ui.annCache[a.id] = a);
   hydrateIcons(box);
+  // yalnız 2 sətirdən uzun olanlarda «Ətraflı» düyməsi göstər
+  requestAnimationFrame(() => $$('.resp-card', box).forEach(card => {
+    const p = card.querySelector('.clamp2'), t = card.querySelector('[data-act=toggleClamp]');
+    if (p && t) t.hidden = !(p.scrollHeight > p.clientHeight + 2);
+  }));
 }
+ACT.toggleClamp = (b) => {
+  const card = b.closest('.resp-card'); if (!card) return;
+  const open = card.classList.toggle('clamp-open');
+  b.innerHTML = (open ? 'Gizlət' : 'Ətraflı') + ic('chev');
+};
 ACT.annForm = (b) => {
   const a = b.dataset.id && S.ui.annCache ? S.ui.annCache[b.dataset.id] : null;
   openModal({
@@ -3511,49 +3990,76 @@ function registerSW(){
   if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') return;
   try { navigator.serviceWorker.register('sw.js').catch(() => {}); } catch (e) {}
 }
-let deferredInstall = null, installDismissed = false;
+let deferredInstall = null, installHiddenNow = false;
 function isStandalone(){ return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true; }
-function isIOS(){ return /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream; }
+function isIOS(){ return /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); }
+function isAndroid(){ return /android/i.test(navigator.userAgent); }
 function initInstallHint(){
-  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredInstall = e; maybeInstallHint(); });
-  window.addEventListener('appinstalled', () => { hideInstallHint(); deferredInstall = null; toast('Tətbiq ana ekrana əlavə edildi.', 'ok'); });
-  // iOS-da beforeinstallprompt yoxdur — bir qədər sonra təlimat göstər
-  if (isIOS() && !isStandalone()) setTimeout(maybeInstallHint, 4000);
+  window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredInstall = e; syncLoginInstall(); maybeInstallHint(); });
+  window.addEventListener('appinstalled', () => { hideInstallHint(); deferredInstall = null; syncLoginInstall(); toast('Tətbiq ana ekrana əlavə edildi.', 'ok'); });
+  syncLoginInstall();
 }
+// Giriş səhifəsindəki kiçik «Ana ekrana əlavə et» linki — tətbiq artıq açılıbsa gizlənir
+function syncLoginInstall(){ const b = $('#loginInstall'); if (b) b.hidden = isStandalone(); }
+/**
+ * Alt paneldəki təklif: yalnız sistemə daxil olduqdan sonra, istifadəçi əvvəllər bağlamayıbsa.
+ * «Bağla» serverdə yadda saxlanılır (localStorage istifadə olunmur), menyudan isə həmişə əlçatandır.
+ */
 function maybeInstallHint(){
-  if (installDismissed || isStandalone()) return;
+  if (installHiddenNow || isStandalone() || !S.d || S.viewAs) return;
+  if (S.d.me.installHint === 'dismissed') return;
   if (!deferredInstall && !isIOS()) return;
-  if ($('#installHint') || $('#login').hidden === false || !$('#public').hidden) return; // girişdə/public-də göstərmə
+  if ($('#installHint') || $('#shell').hidden) return;
   const el = document.createElement('div');
-  el.id = 'installHint'; el.className = 'install-hint';
+  el.id = 'installHint'; el.className = 'install-hint'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Ana ekrana əlavə et');
   el.innerHTML = `<span class="ic">${ic('home')}</span>
-    <span class="tx"><b>Tətbiq kimi əlavə et</b><small>Ana ekrandan bir toxunuşla açın — brauzersiz.</small></span>
+    <span class="tx"><b>Ana ekrana əlavə et</b><small>Saytı tətbiq kimi bir toxunuşla açın — hər dəfə brauzerə girmədən.</small></span>
     <button class="btn btn-primary btn-sm" data-act="installApp">Əlavə et</button>
     <button class="ibtn sm" data-act="dismissInstall" aria-label="Bağla">${ic('x')}</button>`;
   document.body.appendChild(el); hydrateIcons(el);
 }
 function hideInstallHint(){ const el = $('#installHint'); if (el){ el.classList.add('out'); setTimeout(() => el.remove(), 300); } }
-ACT.dismissInstall = () => { installDismissed = true; hideInstallHint(); };
+ACT.dismissInstall = () => {
+  installHiddenNow = true; hideInstallHint();
+  if (S.d){ S.d.me.installHint = 'dismissed'; api('dismissInstall', {}, { noRender: true, silent: true }).catch(() => {}); }
+  toast('Lazım olanda profil menyusundan «Ana ekrana əlavə et» seçə bilərsiniz.', 'info');
+};
+function installSteps(steps){
+  return `<ul class="ios-steps" style="list-style:none;padding:0;margin:0">${steps.map((s, i) => `<li><span class="n">${i + 1}</span><span>${s}</span></li>`).join('')}</ul>`;
+}
 ACT.installApp = async () => {
+  closeUserMenu();
+  if (isStandalone()) return toast('Sayt artıq ana ekrandan tətbiq kimi açılıb.', 'info');
   if (deferredInstall){
     hideInstallHint();
-    deferredInstall.prompt();
-    try { await deferredInstall.userChoice; } catch (e) {}
-    deferredInstall = null;
+    const ev = deferredInstall; deferredInstall = null;   // prompt() yalnız bir dəfə çağırıla bilər
+    ev.prompt();
+    try { await ev.userChoice; } catch (e) {}
     return;
   }
+  let title = 'Ana ekrana əlavə et', body;
   if (isIOS()){
-    openModal({
-      title: 'Ana ekrana əlavə et', size: 'sm',
-      body: `<ul class="ios-steps" style="list-style:none;padding:0;margin:0">
-        <li><span class="n">1</span><span>Aşağıdakı <b>Paylaş</b> düyməsinə (kvadrat + yuxarı ox) toxunun.</span></li>
-        <li><span class="n">2</span><span><b>«Ana ekrana əlavə et»</b> (Add to Home Screen) seçin.</span></li>
-        <li><span class="n">3</span><span><b>«Əlavə et»</b> düyməsini basın — ikon ana ekranda görünəcək.</span></li>
-      </ul>`,
-      foot: `<button class="btn btn-primary" data-close>Anladım</button>`
-    });
-    hideInstallHint();
+    body = installSteps([
+      '<b>Safari</b> brauzerində aşağıdakı <b>Paylaş</b> düyməsinə (kvadrat və yuxarı ox) toxunun.',
+      '<b>«Ana ekrana»</b> (Add to Home Screen) seçin.',
+      '<b>«Əlavə et»</b> düyməsini basın — ikon ana ekranda görünəcək.'
+    ]) + `<p class="hint" style="margin-top:12px">iPhone-da bu yalnız Safari-də işləyir.</p>`;
+  } else if (isAndroid()){
+    body = installSteps([
+      '<b>Chrome</b> brauzerində yuxarı sağdakı <b>⋮</b> menyusunu açın.',
+      '<b>«Ana ekrana əlavə et»</b> və ya <b>«Tətbiqi quraşdır»</b> seçin.',
+      'Təsdiqləyin — ikon ana ekranda görünəcək.'
+    ]);
+  } else {
+    title = 'Kompüterə tətbiq kimi əlavə et';
+    body = installSteps([
+      '<b>Chrome</b> və ya <b>Edge</b> brauzerində ünvan sətrinin sağındakı <b>quraşdırma</b> işarəsinə basın.',
+      'İşarə görünmürsə: brauzer menyusu (<b>⋮</b> və ya <b>…</b>) → <b>«Tətbiqi quraşdır»</b> / «Saytı tətbiq kimi quraşdır».',
+      'Sayt ayrıca pəncərədə açılacaq, ikonu masaüstündə və ya tapşırıq panelində olacaq.'
+    ]);
   }
+  hideInstallHint();
+  openModal({ title, size: 'sm', body, foot: `<button class="btn btn-primary" data-close>Anladım</button>` });
 };
 
 /* ===================== START ===================== */
