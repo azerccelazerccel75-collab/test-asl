@@ -996,7 +996,7 @@ kbd{display:inline-grid;place-items:center;min-width:20px;height:21px;padding:0 
 .tg{display:flex;flex-direction:column;gap:16px;padding:20px;border:1.5px solid var(--line);border-radius:var(--r-lg);background:var(--surface)}
 .tg-presets{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .tg-presets .muted{font-weight:500;font-size:12px}
-.tg-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.tg-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
 .stepper{display:flex;align-items:center;gap:6px}
 .stepper .input{text-align:center;font-weight:700;font-size:18px;min-height:44px;padding:6px 4px;-moz-appearance:textfield;appearance:textfield}
 .stepper .input::-webkit-inner-spin-button,.stepper .input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
@@ -1089,6 +1089,389 @@ kbd{display:inline-grid;place-items:center;min-width:20px;height:21px;padding:0 
 @media (prefers-reduced-motion:reduce){
   .st-debt,.news-dot::before,.iph [data-pulse],.iph-arrow,.attn-row{animation:none!important}
 }
+
+/* ===================== İMTAHANLAR (müəllim) ===================== */
+.ex-head-acts{display:flex;gap:8px;flex-wrap:wrap}
+.excard{position:relative;display:flex;flex-direction:column;gap:12px;padding:20px;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-lg);transition:border-color .25s,box-shadow .25s}
+.excard:hover{border-color:var(--line-strong)}
+.excard.closed{border-style:dashed}
+.excard.needs{border-color:var(--or);box-shadow:inset 0 0 0 1px var(--or)}
+.excard h3{font-size:18px;font-weight:600;word-break:break-word;line-height:1.3}
+.excard .who{font-size:13px;color:var(--soft);margin-top:3px}
+.ex-top{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ex-top .lockic{margin-left:auto;display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--soft)}
+.ex-top .lockic .i{width:15px;height:15px}
+.ex-facts{display:flex;flex-wrap:wrap;gap:6px}
+.ex-fact{display:inline-flex;align-items:center;gap:5px;height:28px;padding:0 10px;border-radius:9px;background:var(--tint);font-size:12.5px;font-weight:600;white-space:nowrap}
+.ex-fact .i{width:14px;height:14px}
+.ex-stats{display:grid;grid-template-columns:repeat(3,1fr);width:100%;padding:12px 0 0;border:0;border-top:1.5px dashed var(--line);background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.ex-stats>span{display:flex;flex-direction:column;gap:1px;min-width:0}
+.ex-stats b{font-size:21px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.15}
+.ex-stats small{font-size:12px;color:var(--soft)}
+.ex-stats:hover b{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.ex-acts{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:auto}
+.ex-acts .push{margin-left:auto;display:flex;gap:2px}
+.ex-pend{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:12px;background:var(--or);color:var(--on-or);font-size:13px;font-weight:600;border:0;cursor:pointer;text-align:left;font-family:inherit}
+.ex-pend .i{width:17px;height:17px}
+.ex-pend:hover{filter:brightness(1.05)}
+.ex-menu{min-width:220px}
+.ex-filter{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.ex-filter .search{flex:1 1 240px;max-width:380px}
+.ex-filter .select{width:auto;min-width:170px;flex:0 1 230px}
+.pct{display:inline-flex;align-items:center;justify-content:center;min-width:52px;height:26px;padding:0 9px;border-radius:99px;font-size:12.5px;font-weight:700;font-variant-numeric:tabular-nums;border:1.5px solid var(--line-strong)}
+.pct.hi{background:var(--or);color:var(--on-or);border-color:var(--or)}
+.pct.mid{background:var(--tint-2);border-color:transparent}
+.pct.zero{border-style:dashed}
+.xs-st{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;white-space:nowrap}
+.res-score{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* redaktor */
+.exed{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);gap:22px;align-items:start}
+.exed-col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.exbox{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-lg);padding:18px}
+.exbox>h3{font-size:16px;font-weight:600;display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.exbox>h3 .i{width:19px;height:19px}
+.paste-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.paste-head h3{font-size:16px;font-weight:600;flex:1;min-width:140px;display:flex;align-items:center;gap:8px}
+.paste-head h3 .i{width:19px;height:19px}
+.paste{min-height:380px;font-size:14px;line-height:1.65;resize:vertical;tab-size:2}
+.paste[readonly]{background:var(--tint);cursor:default}
+.paste-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:var(--soft)}
+.lockbar{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:var(--r);border:1.5px solid var(--or);background:var(--tint);font-size:13.5px;line-height:1.5}
+.lockbar>.i{width:20px;height:20px;margin-top:1px}
+.lockbar b{font-weight:700}
+.lockbar .btn{margin-top:8px}
+.exset{display:flex;flex-direction:column}
+.exset-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1.5px solid var(--line)}
+.exset-row:last-child{border-bottom:0;padding-bottom:2px}
+.exset-row:first-child{padding-top:2px}
+.exset-row .lbl2{min-width:0}
+.exset-row .lbl2 b{display:block;font-weight:600;font-size:14px}
+.exset-row .lbl2 small{display:block;font-size:12px;color:var(--soft);line-height:1.4;margin-top:1px}
+.exset-row.off{opacity:.45;pointer-events:none}
+.exset-row .stepper .input{width:74px;font-size:16px}
+.exset-row .unit{font-size:12.5px;font-weight:600;color:var(--soft);min-width:26px}
+.exset-row.locked .stepper{opacity:.5;pointer-events:none}
+.savebar{position:sticky;bottom:0;z-index:5;display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:18px;padding:14px 16px;border:1.5px solid var(--line);border-radius:var(--r-lg);background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:var(--shadow)}
+.savebar .msg{flex:1;min-width:200px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:8px}
+.savebar .msg .i{width:18px;height:18px;flex:none}
+
+/* önizləmə */
+.exprev{position:sticky;top:88px;max-height:calc(100dvh - 104px);display:flex;flex-direction:column;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.exprev-head{padding:16px 18px 12px;border-bottom:1.5px solid var(--line)}
+.exprev-head h3{font-size:16px;font-weight:600;display:flex;align-items:center;gap:8px}
+.exprev-head h3 .i{width:19px;height:19px}
+.pv-sum{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.pv-chip{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:99px;background:var(--tint);font-size:12px;font-weight:600;white-space:nowrap}
+.pv-chip.bad{background:var(--or);color:var(--on-or)}
+.pv-chip.warn{background:transparent;border:1.5px dashed var(--line-strong)}
+.pv-chip .i{width:14px;height:14px}
+.exprev-body{overflow-y:auto;padding:14px 18px 18px;display:flex;flex-direction:column;gap:12px;overscroll-behavior:contain}
+.pv-q{border:1.5px solid var(--line);border-radius:var(--r);padding:12px 14px;animation:pageIn .3s var(--ease) both}
+.pv-q.bad{border-color:var(--or);border-style:dashed}
+.pv-qh{display:flex;align-items:flex-start;gap:10px}
+.pv-n{width:28px;height:28px;flex:none;border-radius:9px;display:grid;place-items:center;background:var(--or);color:var(--on-or);font-size:12.5px;font-weight:700}
+.pv-q.bad .pv-n{background:transparent;border:1.5px dashed var(--or);color:var(--or)}
+.pv-t{flex:1;min-width:0;font-weight:600;font-size:14px;line-height:1.45;white-space:pre-wrap;word-break:break-word}
+.pv-meta{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 0 38px}
+.pv-meta .tag{height:22px;font-size:11.5px}
+.pv-opts{display:flex;flex-direction:column;gap:5px;margin:10px 0 0 38px}
+.pv-opt{display:flex;align-items:flex-start;gap:8px;padding:6px 10px;border-radius:10px;border:1.5px solid var(--line);font-size:13.5px;line-height:1.4;word-break:break-word}
+.pv-opt .l{font-weight:700;font-size:12px;min-width:16px;padding-top:1px}
+.pv-opt.ok{background:var(--or);border-color:var(--or);color:var(--on-or)}
+.pv-opt .i{width:16px;height:16px;margin-left:auto;flex:none}
+.pv-open{margin:10px 0 0 38px;padding:10px 12px;border-radius:10px;border:1.5px dashed var(--line-strong);font-size:12.5px;color:var(--soft);display:flex;flex-direction:column;gap:4px}
+.pv-open b{color:var(--or);font-weight:600}
+.pv-msgs{margin:10px 0 0 38px;display:flex;flex-direction:column;gap:5px}
+.pv-err,.pv-warn{display:flex;gap:7px;align-items:flex-start;font-size:12.5px;font-weight:500;line-height:1.4}
+.pv-err .i,.pv-warn .i{width:15px;height:15px;flex:none;margin-top:1px}
+.pv-err{font-weight:600}
+.pv-warn{color:var(--soft)}
+.pv-goto{background:none;border:0;padding:0;margin-left:4px;font:inherit;color:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.pv-empty{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:34px 14px;color:var(--soft);font-size:13.5px}
+.pv-empty .i{width:34px;height:34px;color:var(--or)}
+
+/* kömək */
+.help{display:flex;flex-direction:column;gap:18px}
+.help h4{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.help h4 .i{width:18px;height:18px}
+.help p,.help li{font-size:13.5px;line-height:1.6}
+.help ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.help-steps{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;counter-reset:hs}
+.help-steps li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.5}
+.help-steps li::before{counter-increment:hs;content:counter(hs);width:24px;height:24px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--or);color:var(--on-or);font-weight:700;font-size:12px}
+.ex-sample{margin:0;padding:14px 16px;border-radius:var(--r);background:var(--tint);border:1.5px solid var(--line);font:500 13px/1.7 Poppins,sans-serif;white-space:pre-wrap;word-break:break-word;color:var(--or)}
+.ex-sample mark{background:var(--or);color:var(--on-or);border-radius:4px;padding:0 4px;font-weight:700}
+.ex-sample em{font-style:normal;color:var(--soft)}
+.help-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.help-card{padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--r);font-size:13px;line-height:1.5}
+.help-card b{display:block;font-weight:600;margin-bottom:2px}
+.help-note{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:var(--r);border:1.5px dashed var(--or);font-size:13px;line-height:1.55}
+.help-note .i{width:18px;height:18px;flex:none;margin-top:1px}
+
+/* göndər */
+.send-course{border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden}
+.send-course+.send-course{margin-top:10px}
+.send-ch{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;background:var(--tint);border-bottom:1.5px solid var(--line);font-size:13.5px;font-weight:600}
+.send-ch small{font-weight:500;color:var(--soft)}
+.send-list{display:flex;flex-direction:column;padding:4px}
+.send-list .chk{padding:8px 10px;border-radius:10px;font-size:14px}
+.send-list .chk:hover{background:var(--tint)}
+.links{display:flex;flex-direction:column;border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden}
+.link-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px;border-bottom:1.5px solid var(--line)}
+.link-row:last-child{border-bottom:0}
+.link-row .nm{flex:1;min-width:150px;font-weight:600;font-size:14px}
+.link-row .nm small{display:block;font-weight:500;font-size:12px;color:var(--soft)}
+.link-row .acts{display:flex;gap:4px;flex-wrap:wrap}
+
+/* nəticə baxışı (müəllim və tələbə) */
+.rv{display:flex;flex-direction:column;gap:12px}
+.rv-q{border:1.5px solid var(--line);border-radius:var(--r);padding:14px}
+.rv-q.ok{border-color:var(--line-strong)}
+.rv-q.no{border-style:dashed;border-color:var(--line-strong)}
+.rv-q.wait{border-color:var(--or);box-shadow:inset 0 0 0 1px var(--or)}
+.rv-h{display:flex;gap:10px;align-items:flex-start}
+.rv-mark{width:28px;height:28px;flex:none;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:12.5px}
+.rv-q.ok .rv-mark{background:var(--or);color:var(--on-or)}
+.rv-q.no .rv-mark{border:1.5px dashed var(--or)}
+.rv-q.wait .rv-mark{background:var(--tint-2)}
+.rv-mark .i{width:16px;height:16px;stroke-width:2.6}
+.rv-t{flex:1;min-width:0;font-weight:600;font-size:14px;line-height:1.45;white-space:pre-wrap;word-break:break-word}
+.rv-pts{font-size:12.5px;font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rv-opts{display:flex;flex-direction:column;gap:5px;margin:10px 0 0 38px}
+.rv-opt{display:flex;align-items:flex-start;gap:8px;padding:7px 10px;border-radius:10px;border:1.5px solid var(--line);font-size:13.5px;line-height:1.4;word-break:break-word}
+.rv-opt .l{font-weight:700;font-size:12px;min-width:16px;padding-top:1px}
+.rv-opt .rtag{margin-left:auto;font-size:11px;font-weight:700;white-space:nowrap;padding-top:2px}
+.rv-opt.right{background:var(--or);border-color:var(--or);color:var(--on-or)}
+.rv-opt.wrong{border-style:dashed;border-color:var(--or);background:var(--tint)}
+.rv-ans{margin:10px 0 0 38px;padding:10px 12px;border-radius:10px;background:var(--tint);font-size:13.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word}
+.rv-ans.none{background:transparent;border:1.5px dashed var(--line-strong);color:var(--soft)}
+.rv-ans mark{background:var(--or);color:var(--on-or);border-radius:4px;padding:0 3px}
+.rv-extra{margin:8px 0 0 38px;font-size:12.5px;color:var(--soft);line-height:1.5}
+.rv-extra b{color:var(--or);font-weight:600}
+.rv-grade{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 0 38px}
+.rv-grade .stepper .input{width:78px;font-size:16px}
+.rv-grade .of{font-size:13px;font-weight:600;color:var(--soft)}
+.rv-quick{display:flex;gap:4px;flex-wrap:wrap}
+.rv-quick button{min-height:30px;padding:0 10px;border-radius:99px;border:1.5px solid var(--line);background:transparent;color:var(--or);font:600 12px Poppins,sans-serif;cursor:pointer}
+.rv-quick button:hover,.rv-quick button.on{background:var(--or);border-color:var(--or);color:var(--on-or)}
+.att-head{display:flex;gap:18px;align-items:center;flex-wrap:wrap;padding:16px;border:1.5px solid var(--line);border-radius:var(--r-lg)}
+.att-head .who{flex:1 1 200px;min-width:0}
+.att-head .kv{grid-template-columns:repeat(2,minmax(120px,1fr));flex:1 1 300px;gap:10px 18px}
+.att-head .kv b span{display:inline;font-size:inherit}
+.att-head h4{font-size:17px;font-weight:700}
+.att-head p{font-size:13px;color:var(--soft);margin-top:2px}
+.ring{position:relative;width:96px;height:96px;flex:none}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .tr{fill:none;stroke:var(--tint-2);stroke-width:9}
+.ring .vl{fill:none;stroke:var(--or);stroke-width:9;stroke-linecap:round;transition:stroke-dashoffset 1.2s var(--ease)}
+.ring .rt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05}
+.ring .rt b{font-size:22px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.ring .rt small{font-size:10.5px;font-weight:600;color:var(--soft)}
+.ring.lg{width:168px;height:168px}
+.ring.lg .tr,.ring.lg .vl{stroke-width:10}
+.ring.lg .rt b{font-size:40px}
+.ring.lg .rt small{font-size:12.5px}
+.vlist{display:flex;flex-direction:column;gap:6px}
+.vrow{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45}
+.vrow .n{width:22px;height:22px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;border:1.5px solid var(--or)}
+.vrow.last .n{background:var(--or);color:var(--on-or)}
+.vrow small{color:var(--soft)}
+.stat-q{display:grid;grid-template-columns:34px minmax(0,1fr) 140px;gap:6px 12px;align-items:center;padding:10px 0;border-bottom:1.5px solid var(--line)}
+.stat-q:last-child{border-bottom:0}
+.stat-q .t{font-size:13.5px;font-weight:500;line-height:1.4;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.meter{position:relative;height:10px;border-radius:99px;background:var(--tint-2);overflow:hidden}
+.meter i{position:absolute;inset:0 auto 0 0;border-radius:99px;background:var(--or);animation:grow2 .8s var(--ease) both}
+@keyframes grow2{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1)}}
+.stat-q .v{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;text-align:right}
+.dist{grid-column:2/4;display:flex;gap:6px;flex-wrap:wrap}
+.dist span{font-size:11.5px;padding:2px 8px;border-radius:99px;border:1.5px solid var(--line);font-weight:600}
+.dist span.c{background:var(--or);border-color:var(--or);color:var(--on-or)}
+.bands{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.band{padding:12px;border-radius:var(--r);border:1.5px solid var(--line);text-align:center}
+.band b{display:block;font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.band span{font-size:11.5px;color:var(--soft);font-weight:600}
+.cex-row{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;border:0;border-bottom:1.5px solid var(--line);background:transparent;color:var(--or);text-align:left;font:inherit;cursor:pointer;transition:background-color .15s}
+.cex-row:last-child{border-bottom:0}
+.cex-row:hover{background:var(--tint)}
+.cex-row .tx{flex:1;min-width:0}
+.cex-row .tx b{display:block;font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cex-row .tx small{font-size:12px;color:var(--soft)}
+.cex-list{border:1.5px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--surface)}
+.cex-top{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+
+/* ===================== İMTAHAN (tələbə səhifəsi) ===================== */
+.public.exam-mode{overflow:hidden}
+.xs{min-height:100%;display:flex;flex-direction:column}
+.xs-bar{position:sticky;top:0;z-index:6;display:flex;align-items:center;gap:12px;padding:10px clamp(14px,3vw,28px);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1.5px solid var(--line)}
+.xs-bar .ttl{flex:1;min-width:0}
+.xs-bar .ttl b{display:block;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.xs-bar .ttl small{font-size:12px;color:var(--soft);white-space:nowrap}
+.timer{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:14px;background:var(--or);color:var(--on-or);font-weight:700;font-size:20px;font-variant-numeric:tabular-nums;letter-spacing:.02em;box-shadow:var(--shadow);flex:none}
+.timer .i{width:19px;height:19px}
+.timer.free{background:var(--tint);color:var(--or);box-shadow:none;font-size:14px}
+.timer.low{animation:tick 1s steps(2,jump-none) infinite}
+@keyframes tick{50%{background:var(--surface);color:var(--or);box-shadow:inset 0 0 0 2px var(--or)}}
+.xs-save{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--soft);white-space:nowrap}
+.xs-save .i{width:15px;height:15px}
+.xs-save.err{color:var(--or)}
+.xs-main{flex:1;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;width:100%;max-width:1120px;margin:0 auto;padding:24px clamp(14px,3vw,28px) 120px;align-items:start}
+.xq{background:var(--surface);border:1.5px solid var(--line);border-radius:26px;padding:clamp(18px,3vw,30px);animation:qIn .32s var(--ease)}
+.xq.rev{animation-name:qInBack}
+@keyframes qIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+@keyframes qInBack{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+.xq-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.xq-no{font-size:13px;font-weight:700;color:var(--soft)}
+.xq-no b{color:var(--or);font-size:15px}
+.xq-top .tag{margin-left:auto}
+.xq-t{font-size:clamp(17px,2.2vw,21px);font-weight:600;line-height:1.45;letter-spacing:-.01em;white-space:pre-wrap;word-break:break-word}
+.xopts{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.xopt{display:flex;align-items:center;gap:14px;width:100%;min-height:58px;padding:10px 16px 10px 10px;border:1.5px solid var(--line);border-radius:16px;background:var(--bg);color:var(--or);text-align:left;font:500 15.5px/1.4 Poppins,sans-serif;cursor:pointer;transition:border-color .18s,background-color .18s,transform .15s var(--ease)}
+.xopt:hover{border-color:var(--or);background:var(--tint)}
+.xopt:active{transform:scale(.985)}
+.xopt .l{width:38px;height:38px;flex:none;border-radius:12px;display:grid;place-items:center;background:var(--tint);font-weight:700;font-size:15px;transition:background-color .18s,color .18s}
+.xopt .tx{flex:1;min-width:0;word-break:break-word}
+.xopt.on{background:var(--or);border-color:var(--or);color:var(--on-or)}
+.xopt.on .l{background:var(--on-or);color:var(--or)}
+.xopen{margin-top:20px}
+.xopen .textarea{min-height:190px;font-size:15px;line-height:1.6}
+.xopen-foot{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:12px;color:var(--soft)}
+.xq-nav{display:flex;align-items:center;gap:10px;margin-top:24px;padding-top:18px;border-top:1.5px dashed var(--line)}
+.xq-nav .sp{flex:1}
+.xside{position:sticky;top:86px;display:flex;flex-direction:column;gap:14px}
+.xcard{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-lg);padding:16px}
+.xprog{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:10px}
+.xprog b{font-size:15px;font-weight:700}
+.xprog span{font-size:12.5px;color:var(--soft)}
+.xbar{height:8px;border-radius:99px;background:var(--tint-2);overflow:hidden;margin-bottom:14px}
+.xbar i{display:block;height:100%;border-radius:99px;background:var(--or);transition:width .4s var(--ease)}
+.xgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:6px}
+.xdot{height:38px;border-radius:11px;border:1.5px solid var(--line-strong);background:transparent;color:var(--or);font:700 13px Poppins,sans-serif;cursor:pointer;transition:background-color .15s,transform .15s var(--ease)}
+.xdot:hover{transform:translateY(-1px);background:var(--tint)}
+.xdot.done{background:var(--tint-2);border-color:transparent}
+.xdot.cur{background:var(--or);border-color:var(--or);color:var(--on-or)}
+.xwarn-mini{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600}
+.xwarn-mini .pips2{display:flex;gap:4px}
+.xwarn-mini .pips2 i{width:12px;height:12px;border-radius:50%;border:2px solid var(--or)}
+.xwarn-mini .pips2 i.on{background:var(--or)}
+.xs-mfoot{display:none}
+.xs-cover{position:fixed;inset:0;z-index:20;display:none;place-items:center;background:color-mix(in srgb,var(--bg) 40%,transparent);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.public.blurred .xs-cover{display:grid}
+.public.blurred .xs-main{filter:blur(16px)}
+.xs-cover .c{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;font-weight:700;font-size:17px}
+.xs-cover .c .i{width:40px;height:40px}
+.xwarn{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:20px;background:var(--scrim);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);animation:fade .2s ease}
+.xwarn-card{width:100%;max-width:420px;background:var(--surface);border:2px solid var(--or);border-radius:26px;padding:26px 24px 22px;text-align:center;box-shadow:var(--shadow-lg);animation:mIn .35s var(--ease)}
+.xwarn-n{display:inline-flex;align-items:baseline;gap:2px;font-size:56px;font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.xwarn-n small{font-size:22px;font-weight:700;color:var(--soft)}
+.xwarn-card h3{font-size:20px;font-weight:700;margin-top:10px}
+.xwarn-card p{font-size:14px;color:var(--soft);line-height:1.55;margin-top:8px}
+.xwarn-card .why{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:6px 12px;border-radius:99px;background:var(--tint);font-size:12.5px;font-weight:600}
+.xwarn-card .btn{margin-top:18px}
+.xs-intro{max-width:760px;margin:0 auto;width:100%}
+.xfacts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.xfact{padding:14px 16px;border:1.5px solid var(--line);border-radius:var(--r-lg);background:var(--surface)}
+.xfact b{display:block;font-size:24px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.15}
+.xfact span{font-size:12.5px;color:var(--soft)}
+.xrules{display:flex;flex-direction:column;gap:10px}
+.xrule{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5}
+.xrule .ic2{width:32px;height:32px;flex:none;border-radius:10px;display:grid;place-items:center;background:var(--tint)}
+.xrule .ic2 .i{width:17px;height:17px}
+.xrule.key .ic2{background:var(--or);color:var(--on-or)}
+.xaccept{display:flex;flex-direction:column;gap:14px;margin-top:16px}
+.xaccept .chk{font-weight:600;font-size:14.5px;align-items:flex-start}
+.xaccept .chk .box{margin-top:1px}
+.xs-prev{display:flex;flex-direction:column}
+.xs-prev a{display:flex;align-items:center;gap:12px;padding:12px 2px;border-bottom:1.5px solid var(--line);text-decoration:none}
+.xs-prev a:last-child{border-bottom:0}
+.xs-prev .tx{flex:1;min-width:0;font-size:13.5px}
+.xs-prev .tx b{display:block;font-weight:600}
+.xs-prev .tx small{color:var(--soft);font-size:12px}
+.res-hero{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.res-hero .txt{flex:1;min-width:220px}
+.res-msg{font-size:15px;line-height:1.55;margin-top:10px;max-width:46ch}
+.pub-hero .ring .tr{stroke:rgba(255,255,255,.28)}
+.pub-hero .ring .vl{stroke:#fff}
+.pub-hero .ring .rt small{color:rgba(255,255,255,.85)}
+.res-tag{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 14px;border-radius:99px;background:#fff;color:#FF7A00;font-weight:700;font-size:13px;margin-top:12px}
+.res-tag.line{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.75)}
+.res-tag .i{width:16px;height:16px}
+.res-stop{display:flex;gap:12px;align-items:flex-start;padding:16px 18px;border-radius:var(--r-lg);border:1.5px solid var(--or);background:var(--tint);margin-top:16px}
+.res-stop>.i{width:22px;height:22px;flex:none;margin-top:1px}
+.res-stop>div>b{font-weight:700;display:block}
+.res-stop p b{font-weight:700}
+.res-stop p{font-size:13.5px;color:var(--soft);margin-top:2px;line-height:1.5}
+
+/* ===================== İLK GİRİŞ: ŞİFRƏ ===================== */
+.pwgate{position:fixed;inset:0;z-index:72;overflow-y:auto;background:var(--bg);display:grid;place-items:center;padding:24px}
+.pwg{width:100%;max-width:440px;display:flex;flex-direction:column;gap:18px}
+.pwg-mark{width:72px;height:72px;border-radius:22px;background:var(--or);display:grid;place-items:center;box-shadow:var(--shadow-lg)}
+.pwg-mark .i{width:36px;height:36px;stroke:var(--on-or);stroke-width:1.8}
+.pwg h1{font-size:28px;font-weight:700;letter-spacing:-.025em;line-height:1.15}
+.pwg .lead{color:var(--soft);font-size:15px;line-height:1.55;margin-top:-6px}
+.pwg-steps{display:flex;gap:6px}
+.pwg-steps i{flex:1;height:5px;border-radius:99px;background:var(--tint-2)}
+.pwg-steps i.on{background:var(--or)}
+.pw-meter{display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600}
+.pw-meter .bars2{display:flex;gap:4px;flex:1}
+.pw-meter .bars2 i{flex:1;height:6px;border-radius:99px;background:var(--tint-2);transition:background-color .2s}
+.pw-meter .bars2 i.on{background:var(--or)}
+.pwg-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.tag.pwtag{background:transparent;border:1.5px dashed var(--or)}
+
+/* ===================== TOPLU İDXAL (dev) ===================== */
+.imp{display:flex;flex-direction:column;gap:14px;padding:20px;border:1.5px solid var(--line);border-radius:var(--r-lg);background:var(--surface)}
+.imp .paste{min-height:280px}
+.imp-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.imp-sum div{padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--r)}
+.imp-sum b{display:block;font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.imp-sum span{font-size:12px;color:var(--soft)}
+.imp-sum div.bad{background:var(--or);border-color:var(--or);color:var(--on-or)}
+.imp-sum div.bad span{color:var(--on-or);opacity:.9}
+.imp-msgs{display:flex;flex-direction:column;gap:6px;max-height:260px;overflow-y:auto;padding:12px 14px;border:1.5px dashed var(--or);border-radius:var(--r)}
+.imp-msgs.w{border-color:var(--line-strong)}
+.imp-msg{display:flex;gap:8px;font-size:13px;line-height:1.45;align-items:flex-start}
+.imp-msg .ln{flex:none;min-width:62px;font-weight:700;background:none;border:0;padding:0;color:inherit;font:inherit;font-weight:700;text-align:left;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.imp-res{display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:var(--r);background:var(--tint)}
+.imp-res code{font:600 13px/1 ui-monospace,Menlo,Consolas,monospace}
+
+@media (max-width:1060px){
+  .exed{grid-template-columns:1fr}
+  .exprev{position:static;max-height:none}
+  .exprev-body{max-height:none}
+}
+@media (max-width:900px){
+  .xs-main{grid-template-columns:1fr;padding-bottom:110px}
+  .xside{display:none}
+  .xs-mfoot{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:7;gap:8px;align-items:center;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--surface) 94%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1.5px solid var(--line)}
+  .xs-mfoot .btn{flex:1;min-height:48px}
+  .xs-mfoot .ibtn{width:48px;height:48px;border:1.5px solid var(--line)}
+  .xq-nav{display:none}
+  .xfacts{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .ex-filter .search,.ex-filter .select{max-width:none;flex:1 1 100%}
+  .help-grid{grid-template-columns:1fr}
+  .bands{grid-template-columns:1fr 1fr}
+  .stat-q{grid-template-columns:30px minmax(0,1fr)}
+  .stat-q .v{grid-column:2;text-align:left;flex-direction:row;align-items:center;gap:10px}
+  .stat-q .v .meter{flex:1}
+  .dist{grid-column:2}
+  .timer{height:40px;padding:0 12px;font-size:17px}
+  .xs-bar{gap:8px}
+  .xs-save span{display:none}
+  .xq{border-radius:20px}
+  .xopt{min-height:54px;font-size:15px}
+  .ring.lg{width:140px;height:140px}
+  .ring.lg .rt b{font-size:34px}
+  .exprev{border-radius:var(--r-lg)}
+}
+@media (prefers-reduced-motion:reduce){
+  .timer.low,.xq,.pv-q{animation:none!important}
+}
+
+/* girişsiz səhifələrdə (imtahan) pəncərələr səhifənin üstündə açılsın */
+#public:not([hidden]) ~ #modalRoot .mback{z-index:80}
 </style>
 </head>
 <body>
@@ -1203,7 +1586,7 @@ kbd{display:inline-grid;place-items:center;min-width:20px;height:21px;padding:0 
  *  1) Google Apps Script veb tətbiqinin linkini buraya yazın:
  *     (Yerləşdir → Veb tətbiq → URL, sonu /exec ilə bitir)
  * ============================================================ */
-const API_URL = 'https://script.google.com/macros/s/AKfycbyU4lArrnZF4A2rCMj6Fi0OjKdaY0JA1Ke4aqXvrNG59IG1NYPQXw-dANdA-RynNR7d/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycby5v2USRST8BbACRJlgXZyytjS9q701csnUHt5zFMTQ-nvhRRVHlVAjUd2frsup-FxU/exec';
 
 /* ===================== ICONS ===================== */
 const ICONS = {
@@ -1265,7 +1648,17 @@ const ICONS = {
   bolt:'<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
   share:'<path d="M12 3v12M8 7l4-4 4 4"/><path d="M7 10H5.5A1.5 1.5 0 0 0 4 11.5v8A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5v-8a1.5 1.5 0 0 0-1.5-1.5H17"/>',
   addsq:'<rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8.5v7M8.5 12h7"/>',
-  hourglass:'<path d="M6.5 3h11M6.5 21h11"/><path d="M7.5 3c0 4.5 4.5 5.5 4.5 9s-4.5 4.5-4.5 9M16.5 3c0 4.5-4.5 5.5-4.5 9s4.5 4.5 4.5 9"/>'
+  hourglass:'<path d="M6.5 3h11M6.5 21h11"/><path d="M7.5 3c0 4.5 4.5 5.5 4.5 9s-4.5 4.5-4.5 9M16.5 3c0 4.5-4.5 5.5-4.5 9s4.5 4.5 4.5 9"/>',
+  exam:'<rect x="5" y="3.5" width="14" height="18" rx="2.5"/><path d="M9 3.5V2.5h6v1"/><path d="m8.5 10 1.5 1.5 3-3M8.5 16h7M14.5 11h1"/>',
+  help:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.3a2.6 2.6 0 0 1 5 .9c0 1.8-2.5 2.2-2.5 3.8M12 17.2h.01"/>',
+  timer:'<circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 1.5M9.5 2.5h5M12 2.5V6M18.5 6.5l1.5-1.5"/>',
+  star:'<path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/>',
+  unlock:'<rect x="4.5" y="10.5" width="15" height="10.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 7.7-1.5"/>',
+  link:'<path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/>',
+  clip:'<rect x="5.5" y="4" width="13" height="17" rx="2.5"/><path d="M9 4V3h6v1.5a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"/><path d="M9 11h6M9 15h4"/>',
+  settings:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2.2"/><circle cx="8" cy="17" r="2.2"/>',
+  play:'<path d="M7 4.5v15l12.5-7.5z"/>',
+  upload:'<path d="M12 15V3.5M7.5 8 12 3.5 16.5 8"/><path d="M4 14.5V19a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 20 19v-4.5"/>'
 };
 function ic(name, cls){ return `<svg class="i${cls?' '+cls:''}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name]||''}</svg>`; }
 const LOGO_SVG = (bg) => `<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 13 56 24 32 35 8 24z" fill="${bg}"/><path d="M19 29.5v9.5c0 3.4 5.8 6.5 13 6.5s13-3.1 13-6.5v-9.5" fill="none" stroke="${bg}" stroke-width="4"/><path d="M52 26v12.5" stroke="${bg}" stroke-width="3" stroke-linecap="round"/><circle cx="52" cy="41.5" r="3" fill="${bg}"/></svg>`;
@@ -1387,6 +1780,7 @@ async function api(action, payload = {}, opts = {}){
     if (!json.ok) {
       if (json.code === 'AUTH' && action !== 'login') { forceLogout(json.error); throw new ApiError(json.error, 'AUTH'); }
       if (json.code === 'MAINT' && action !== 'login') { showMaintenance({ maintenance: json.maintenance, me: json.me }); throw new ApiError(json.error, 'MAINT'); }
+      if (json.code === 'PWCHANGE' && action !== 'login') { showPwGate(json.me); throw new ApiError(json.error, 'PWCHANGE'); }
       if (json.code === 'PERM') setTimeout(() => syncData(true), 50);
       throw new ApiError(json.error || 'Naməlum xəta baş verdi.', json.code);
     }
@@ -1408,7 +1802,7 @@ async function run(btn, fn){
   }
   try { return await fn(); }
   catch (e) {
-    if (e.code !== 'AUTH' && e.code !== 'MAINT') toast(e.message || String(e), 'err');
+    if (e.code !== 'AUTH' && e.code !== 'MAINT' && e.code !== 'PWCHANGE') toast(e.message || String(e), 'err');
     return undefined;
   }
   finally {
@@ -1435,7 +1829,7 @@ function applyData(d, opts = {}){
     renderAnnBar();
     maybePopup();
     if (!pageAllowed(S.page)) { go(defaultPage(), null, true); return; }
-    if (!opts.noRender) renderPage(true);
+    if (!opts.noRender && !(PAGES[S.page] || {}).noAutoRender) renderPage(true);
   }
 }
 async function syncData(silent){
@@ -1540,6 +1934,7 @@ document.addEventListener('pointerdown', e => {
 
 /* ===================== LOGIN ===================== */
 function showLogin(msg){
+  const pg = $('#pwgate'); if (pg){ pg.hidden = true; pg.innerHTML = ''; }
   $('#shell').hidden = true;
   $('#boot').hidden = true;
   $('#login').hidden = false;
@@ -1597,6 +1992,13 @@ $('#loginForm').addEventListener('submit', async e => {
         showMaintenance({ maintenance: res.maintenance, me: res.me });
         return;
       }
+      if (res.mustChangePw && !res.data){
+        // İlk giriş: sayt şifrə dəyişənə qədər bağlıdır
+        if (res.me && res.me.theme) setTheme(res.me.theme, false);
+        await hideSplash(started);
+        showPwGate(res.me, password);
+        return;
+      }
       await hideSplash(started);
       enterApp();
     } catch (ex) {
@@ -1624,6 +2026,7 @@ function enterApp(){
   $('#login').hidden = true;
   $('#maint').hidden = true; $('#maint').dataset.role = ''; stopMaintPoll();
   $('#public').hidden = true;
+  const pg = $('#pwgate'); if (pg){ pg.hidden = true; pg.innerHTML = ''; }
   $('#shell').hidden = false;
   S.ui = {}; S.viewAs = null; S.maintMe = null; popupShown = false;
   renderChrome();
@@ -1661,6 +2064,9 @@ const PAGES = {
   tools:    { title: 'Admin alətləri', icon: 'tools', nav: true, allow: () => toolsAllowed() },
   logs:     { title: 'Jurnal', icon: 'clock', nav: true, allow: () => can('logs.view') },
   perms:    { title: 'İcazələr', icon: 'shield', nav: true, allow: () => me().isSuper },
+  // «Müəllim gözü ilə bax» (yalnız oxu) rejimində imtahanlar açılmır — onlar ayrıca sorğu ilə yüklənir
+  exams:    { title: 'İmtahanlar', icon: 'exam', nav: true, allow: () => !me().isDev && !me().readOnly && !!(S.d.flags && S.d.flags.exams) },
+  examEdit: { title: 'İmtahan', icon: 'exam', nav: false, parent: 'exams', noAutoRender: true, allow: () => !me().isDev && !me().readOnly && !!(S.d.flags && S.d.flags.exams) },
   news:     { title: 'Yeniliklər', icon: 'rocket', nav: true, allow: () => true },
   dev:      { title: 'Developer paneli', icon: 'code', nav: true, allow: () => me().isDev },
   none:     { title: 'Xoş gəldiniz', icon: 'home', nav: false, allow: () => true }
@@ -1672,7 +2078,7 @@ function defaultPage(){
   if (me().isDev) return 'dev';
   if (isAdminish()) return 'home';
   if (isTeacherish()) return 'mine';
-  for (const k of ['history','tools','logs','perms','news']) if (pageAllowed(k)) return k;
+  for (const k of ['exams','history','tools','logs','perms','news']) if (pageAllowed(k)) return k;
   return 'none';
 }
 function parseHash(){
@@ -1681,6 +2087,13 @@ function parseHash(){
   return { page: page || null, param: param ? decodeURIComponent(param) : null };
 }
 function go(page, param, replace){
+  // İmtahan redaktorundan yadda saxlanmamış dəyişikliklərlə çıxış
+  if (S.page === 'examEdit' && page !== 'examEdit' && S.ui.ex && S.ui.ex.dirty){
+    confirmBox({ title: 'Dəyişikliklər yadda saxlanmayıb', text: 'Çıxsanız, imtahanda etdiyiniz dəyişikliklər itəcək.', ok: 'Çıx', danger: true })
+      .then(ok => { if (ok){ S.ui.ex = null; go(page, param, replace); } });
+    return;
+  }
+  if (page === 'examEdit' && S.page !== 'examEdit') S.ui.ex = null;
   if (!pageAllowed(page)) page = defaultPage();
   S.page = page; S.param = param || null;
   const hash = '#/' + page + (param ? '/' + encodeURIComponent(param) : '');
@@ -1711,16 +2124,17 @@ function renderChrome(){
   const active = PAGES[S.page] && PAGES[S.page].parent ? PAGES[S.page].parent : S.page;
   const link = ([k, p]) => {
     let badge = '';
-    const n = k === 'courses' ? done : k === 'mine' ? mineDone : k === 'news' ? (d.newsUnread || 0) : 0;
-    if (n) badge = `<span class="badge" title="${k === 'news' ? 'Oxunmamış yeniliklər' : 'Ayı tamamlanan məşğələlər'}">${n > 99 ? '99+' : n}</span>`;
+    const n = k === 'courses' ? done : k === 'mine' ? mineDone : k === 'news' ? (d.newsUnread || 0) : k === 'exams' ? (d.examPending || 0) : 0;
+    if (n) badge = `<span class="badge" title="${k === 'news' ? 'Oxunmamış yeniliklər' : k === 'exams' ? 'Yoxlanılmalı imtahan cavabları' : 'Ayı tamamlanan məşğələlər'}">${n > 99 ? '99+' : n}</span>`;
     return `<a href="#/${k}" data-go="${k}" class="${active === k ? 'on' : ''}">${ic(p.icon)}<span>${p.title}</span>${badge}</a>`;
   };
   let html = '';
   if (d.me.isDev){
     html = items.filter(([k]) => k === 'dev' || k === 'news').map(link).join('');
   } else {
-    const teacherPart = items.filter(([k]) => k === 'mine');
-    const adminPart = items.filter(([k]) => ['home','courses','students','staff','history','tools'].includes(k));
+    const teachy = isTeacherish();
+    const teacherPart = items.filter(([k]) => k === 'mine' || (teachy && k === 'exams'));
+    const adminPart = items.filter(([k]) => ['home','courses','students','staff','history','tools'].includes(k) || (!teachy && k === 'exams'));
     const superPart = items.filter(([k]) => k === 'perms' || k === 'logs');
     const extra = items.filter(([k]) => k === 'news');
     if (teacherPart.length && adminPart.length) html += '<div class="nav-sec">Müəllim</div>';
@@ -1869,7 +2283,7 @@ ACT.userMenu = () => {
 function closeUserMenu(){ const p = $('#umenu .umenu-pop'); if (p) p.remove(); }
 
 /* ===================== NOTIFICATIONS ===================== */
-const NOTIF_ICON = { course:'layers', lesson:'edit', month:'calplus', complete:'check', transfer:'swap', perm:'shield', survey:'poll', system:'info' };
+const NOTIF_ICON = { course:'layers', lesson:'edit', month:'calplus', complete:'check', transfer:'swap', perm:'shield', survey:'poll', system:'info', exam:'exam' };
 ACT.notifMenu = () => {
   const box = $('#bell');
   if (box.querySelector('.umenu-pop')) return closeNotif();
@@ -2291,6 +2705,9 @@ function attentionItems(){
         act: `<button class="btn btn-sm btn-soft" data-act="courseDetail" data-id="${c.id}">Ətraflı</button>` });
     });
   }
+  if (d.examPending && d.flags && d.flags.exams && !ro()) out.push({ sev: 1, glyph: `<span class="st-ic">${ic('exam')}</span>`, key: '~exam',
+    title: `${d.examPending} imtahan cavabı yoxlanılmalıdır`, meta: 'Açıq suallara bal verin — yekun nəticə avtomatik hesablanacaq.',
+    act: `<button class="btn btn-sm btn-primary" data-go="exams" data-param="review">${ic('edit')}Yoxla</button>` });
   const sa = d.surveyAlerts;
   if (sa && sa.low) out.push({ sev: 0, glyph: `<span class="st-ic">${ic('poll')}</span>`, key: '~',
     title: `${sa.low} aşağı qiymətli sorğu cavabına baxılmayıb`, meta: 'Valideynlə əlaqə saxlamaq lazım ola bilər.',
@@ -2340,7 +2757,7 @@ RENDER.home = () => {
         const tag = attr ? 'button' : 'div';
         return `<${tag} class="kpi-t${t.hot ? ' hot' : ''}" ${attr}><b>${t.n}</b><span>${t.label}</span><small>${t.sub}</small></${tag}>`;
       }).join('')}</div>` : ''}
-    ${(can('courses.view') || d.pay || d.surveyAlerts) ? `<div class="section"><div class="section-head"><h3>Diqqət tələb edir</h3>
+    ${(can('courses.view') || d.pay || d.surveyAlerts || d.examPending) ? `<div class="section"><div class="section-head"><h3>Diqqət tələb edir</h3>
         <div class="st-legend" aria-hidden="true">${d.pay ? `<span>${stDot('debt')}borc</span><span>${stDot('wait')}gözlənilir</span>` : ''}${can('courses.view') ? `<span>${stDot('done')}ay bitdi</span><span>${stDot('stale')}dərs yoxdur</span>` : ''}</div></div>
       <div id="attBox">${attentionHtml()}</div></div>` : ''}
     ${can('courses.view') ? `<div class="section"><div class="section-head"><h3>Gedişat</h3>
@@ -2509,6 +2926,7 @@ RENDER.mine = () => {
   const done = mine.filter(c => c.complete).length;
   const sorted = mine.slice().sort((a, b) => (a.complete - b.complete) || courseTitle(a).localeCompare(courseTitle(b), 'az'));
   return `<div class="page-head"><div><h2>Məşğələlərim</h2><p>Dərsdən sonra uyğun düyməni basın. Səhv qeydi ${S.d.editWindowHours} saat ərzində özünüz düzəldə bilərsiniz.</p></div></div>
+    ${S.d.examPending && !ro() ? `<button class="ex-pend" data-go="exams" data-param="review" style="width:100%;margin-bottom:16px">${ic('exam')}<span>${S.d.examPending} imtahan cavabı yoxlanılmalıdır — bal vermək üçün toxunun</span></button>` : ''}
     ${mine.length ? `${done ? `<div class="done-note" style="margin-bottom:16px">${ic('info')}<span>${done} məşğələdə ayın bütün dərsləri keçilib. Yeni ayı admin başladacaq.</span></div>` : ''}
       <div class="cgrid">${sorted.map(c => courseCard(c, 'mine')).join('')}</div>`
     : emptyBox('Sizin məşğələniz yoxdur', 'Admin sizə məşğələ təyin edəndə o, burada görünəcək.')}`;
@@ -2766,7 +3184,7 @@ const loaderObserver = new MutationObserver(muts => {
     if (n.querySelectorAll) n.querySelectorAll('.loader[data-staged]').forEach(initLoader);
   }));
 });
-AFTER.student = (root, isRefresh) => { if (!isRefresh || !S.ui.card || S.ui.card.student.id !== S.param) loadCard(); };
+AFTER.student = (root, isRefresh) => { if (!isRefresh || !S.ui.card || S.ui.card.student.id !== S.param) loadCard(); else animateRings(root); };
 async function loadCard(){
   const id = S.param;
   try {
@@ -2774,7 +3192,7 @@ async function loadCard(){
     if (S.page !== 'student' || S.param !== id) return;
     S.ui.card = res.card;
     const box = $('#cardBody');
-    if (box){ box.innerHTML = cardHtml(res.card); hydrateIcons(box); }
+    if (box){ box.innerHTML = cardHtml(res.card); hydrateIcons(box); animateRings(box); }
   } catch (e) {
     if (e.code === 'AUTH') return;
     const box = $('#cardBody');
@@ -2840,6 +3258,8 @@ function cardHtml(k){
     </article>`).join('')}</div>` : emptyBox('Məşğələ yoxdur', 'Bu tələbə hazırda heç bir məşğələdə iştirak etmir.')}
   </div>
 
+  ${cardExamsHtml(k, false)}
+
   ${k.transfers && k.transfers.length ? `<div class="section"><div class="section-head"><h3>Köçürmə tarixçəsi<span class="count">${k.transfers.length}</span></h3></div>
     <div class="timeline">${k.transfers.map(t => `<div class="tl-item">
       <div><b>${esc(t.from)}</b> <span class="muted">→</span> <b>${esc(t.to)}</b></div>
@@ -2891,7 +3311,7 @@ function staffList(){
   const list = S.d.users.filter(u => {
     if (u.role === 'superadmin' && !me().isSuper) return false;
     if (r !== 'all' && u.role !== r) return false;
-    if (q && !fold([u.name, u.login, u.phone].join(' ')).includes(q)) return false;
+    if (q && !fold([u.name, u.login, u.phone, u.subject].join(' ')).includes(q)) return false;
     return true;
   }).sort((a, b) => (a.role === 'superadmin' ? -1 : b.role === 'superadmin' ? 1 : a.name.localeCompare(b.name, 'az')));
   if (!list.length) return emptyBox('Heç nə tapılmadı', 'Axtarışı və ya filtri dəyişin.');
@@ -2906,11 +3326,12 @@ function staffList(){
         ? `<span class="pw"><code id="pw_${u.id}">••••••</code><button class="ibtn sm" data-act="revealPw" data-id="${u.id}" title="Şifrəni göstər" aria-label="Şifrəni göstər">${ic('eye')}</button></span>`
         : '<span class="faint">Gizli</span>';
       return `<tr>
-        <td data-label="Ad Soyad" class="full"><div class="person"><span class="ava">${esc(initials(u.name))}</span><div><b>${esc(u.name)}${isSelf ? ' <span class="faint" style="font-weight:400">(siz)</span>' : ''}</b><span class="tag${u.role === 'superadmin' ? ' solid' : u.role === 'helper' ? ' line' : ''}" style="margin-top:4px">${roleLabel(u.role)}</span></div></div></td>
+        <td data-label="Ad Soyad" class="full"><div class="person"><span class="ava">${esc(initials(u.name))}</span><div><b>${esc(u.name)}${isSelf ? ' <span class="faint" style="font-weight:400">(siz)</span>' : ''}</b>
+          <div class="row" style="gap:4px;margin-top:4px"><span class="tag${u.role === 'superadmin' ? ' solid' : u.role === 'helper' ? ' line' : ''}">${roleLabel(u.role)}</span>${u.subject ? `<span class="tag line">${esc(u.subject)}</span>` : ''}${u.mustChangePw ? '<span class="tag pwtag" title="Hələ daxil olub öz şifrəsini təyin etməyib">Şifrəni dəyişməyib</span>' : ''}</div></div></div></td>
         <td data-label="Login">${esc(u.login || '—')}</td>
         <td data-label="Şifrə">${pw}</td>
         <td data-label="Telefon">${u.phone ? esc(u.phone) : '<span class="faint">—</span>'}</td>
-        <td data-label="Məşğələlər">${cs.length ? `<div class="chips">${cs.map(c => `<span class="cchip"><b>${esc(courseTitle(c))}</b><span>${typeLabel(c.type)}, ${c.held}/${c.lessonsPerMonth}</span></span>`).join('')}</div>` : `<span class="faint">${u.role === 'helper' ? 'Dərs keçmir' : 'Məşğələ yoxdur'}</span>`}</td>
+        <td data-label="Məşğələlər">${cs.length ? `<div class="chips">${cs.map(c => `<span class="cchip"><b>${esc(courseTitle(c))}</b><span>${typeLabel(c.type)}, ${c.held}/${c.lessonsPerMonth}</span></span>`).join('')}</div>` : `<span class="faint">${u.role === 'helper' ? 'Dərs keçmir' : 'Məşğələ yoxdur'}</span>`}${u.exams ? `<br><small class="muted">${u.exams} imtahan</small>` : ''}</td>
         <td class="actions">
           ${canEdit ? `<button class="ibtn sm" data-act="userForm" data-id="${u.id}" title="Redaktə et" aria-label="Redaktə et">${ic('edit')}</button>` : ''}
           ${canDel ? `<button class="ibtn sm" data-act="deleteUser" data-id="${u.id}" title="Sil" aria-label="Sil">${ic('trash')}</button>` : ''}
@@ -2983,7 +3404,7 @@ function drawHistory(){
 }
 
 /* ---------- LOGS ---------- */
-const LOG_TYPES = [['','Bütün növlər'],['auth','Giriş və çıxış'],['lesson','Dərs qeydləri'],['course','Məşğələlər'],['month','Yeni ay'],['student','Tələbələr'],['teacher','Müəllimlər'],['payment','Ödənişlər'],['permission','İcazələr'],['security','Təhlükəsizlik'],['profile','Profil'],['view','Baxışlar'],['transfer','Köçürmələr'],['announce','Elanlar'],['survey','Sorğular'],['trash','Zibil qutusu'],['tools','Admin alətləri'],['system','Sistem']];
+const LOG_TYPES = [['','Bütün növlər'],['auth','Giriş və çıxış'],['lesson','Dərs qeydləri'],['course','Məşğələlər'],['month','Yeni ay'],['student','Tələbələr'],['teacher','Müəllimlər'],['payment','Ödənişlər'],['permission','İcazələr'],['security','Təhlükəsizlik'],['profile','Profil'],['view','Baxışlar'],['transfer','Köçürmələr'],['announce','Elanlar'],['survey','Sorğular'],['exam','İmtahanlar'],['trash','Zibil qutusu'],['tools','Admin alətləri'],['system','Sistem']];
 const LOG_PAGE = 20;
 function monthsAgoStr(n){
   const [y, m, d] = String(today()).split('-').map(Number);
@@ -3295,7 +3716,12 @@ ACT.userForm = (b) => {
           <button type="button" class="ibtn sm" data-act="genPw" title="Şifrə yarat" aria-label="Şifrə yarat">${ic('dice')}</button></span>
           ${u ? '<small>Dəyişmək istəmirsinizsə, boş saxlayın.</small>' : ''}</label>
       </div>
-      <label class="field"><span>Telefon</span><input class="input" name="phone" inputmode="tel" maxlength="25" value="${esc(u ? u.phone || '' : '')}" placeholder="İstəyə bağlı"></label>
+      <div class="grid2">
+        <label class="field"><span>Telefon</span><input class="input" name="phone" inputmode="tel" maxlength="25" value="${esc(u ? u.phone || '' : '')}" placeholder="İstəyə bağlı"></label>
+        <label class="field"><span>Fənn</span><input class="input" name="subject" maxlength="60" value="${esc(u ? u.subject || '' : '')}" placeholder="${isSuperT ? 'İstəyə bağlı' : 'məsələn: Riyaziyyat'}"></label>
+      </div>
+      ${isSuperT || (u && u.role === 'developer') ? '' : `<label class="chk"><input type="checkbox" name="mustChangePw" ${u ? (u.mustChangePw ? 'checked' : '') : 'checked'}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span>İlk girişdə şifrəni dəyişsin</span></label>
+        <small class="hint" style="margin-top:-8px">Açıq olsa, istifadəçi daxil olan kimi öz şifrəsini təyin etməlidir — o vaxta qədər sayt onun üçün bağlıdır.</small>`}
     </form>`,
     foot: `<button class="btn btn-ghost" data-close>Ləğv et</button><button class="btn btn-primary" form="usForm" type="submit">${ic('check')}Yadda saxla</button>`,
     onMount: (el, close) => {
@@ -3303,6 +3729,8 @@ ACT.userForm = (b) => {
       f.addEventListener('submit', e => {
         e.preventDefault();
         const data = Object.fromEntries(new FormData(f));
+        const mc = f.querySelector('[name=mustChangePw]');
+        if (mc) data.mustChangePw = mc.checked; else delete data.mustChangePw;
         if (data.name.trim().length < 2) return fieldErr(f, '«Ad Soyad» sahəsini doldurun (ən azı 2 simvol).');
         if (!/^[A-Za-z0-9._-]{3,30}$/.test(data.login.trim())) return fieldErr(f, 'Login 3–30 simvol olmalı və yalnız latın hərfləri, rəqəmlər, nöqtə, alt xətt və ya tire daxil etməlidir.');
         if ((!u || data.password) && (data.password.length < 4 || /\s/.test(data.password))) return fieldErr(f, 'Şifrə ən azı 4 simvoldan ibarət olmalı və boşluqsuz yazılmalıdır.');
@@ -3327,6 +3755,10 @@ ACT.deleteUser = async (b) => {
   const cs = S.d.courses.filter(c => c.teacherId === u.id);
   if (cs.length){
     toast(`${u.name} müəllimin ${cs.length} məşğələsi var. Əvvəlcə məşğələləri başqa müəllimə verin və ya silin.`, 'err');
+    return;
+  }
+  if (u.exams){
+    toast(`${u.name} müəllimin ${u.exams} imtahanı var. Əvvəlcə «Admin alətləri» → «Toplu əməliyyatlar» → «Müəllim dəyişmə» ilə onları başqa müəllimə verin.`, 'err');
     return;
   }
   const ok = await confirmBox({ title: 'İstifadəçini sil', text: `<b>${esc(u.name)}</b> (${roleLabel(u.role)}) silinsin? O, artıq sistemə daxil ola bilməyəcək.`, ok: 'Sil', danger: true });
@@ -3846,8 +4278,13 @@ RENDER.dev = () => {
         <span class="btn btn-sm btn-soft" style="margin-top:8px;align-self:flex-start">${ic('eyeview')}Gözü ilə bax</span></button>`).join('')}</div>` : emptyBox('İstifadəçi yoxdur', 'Hələ müəllim və ya admin yoxdur.')}
     </div>
 
+    <div class="section"><div class="section-head"><h3>Toplu idxal: boş sistemi doldurmaq</h3></div>
+      <p class="hint" style="margin-bottom:12px">Kurs rəhbərinin göndərdiyi siyahını (müəllimlər, qruplar, tələbələr) buraya yapışdırın. «Yoxla» heç nə yazmır — yalnız nəyin yaradılacağını göstərir. Mövcud qeydlər təkrar yaradılmır, cədvəlin sütunlarına toxunulmur.</p>
+      ${importHtml()}
+    </div>
+
     <div class="section"><div class="section-head"><h3>Test məlumatları</h3></div>
-      <p class="hint" style="margin-bottom:14px">Yoxlamaq üçün saxta müəllim, tələbə, məşğələ və dərslər bir kliklə yaradılır. Hamısının adı «Test» sözü ilə başlayır, telefon nömrəsi yazılmır və aşağıdakı düymə ilə tam silinir.</p>
+      <p class="hint" style="margin-bottom:14px">Yoxlamaq üçün saxta müəllim, tələbə, məşğələ, dərs və imtahanlar bir kliklə yaradılır. Hamısının adı «Test» sözü ilə başlayır, telefon nömrəsi yazılmır və aşağıdakı düymə ilə tam silinir.</p>
       ${testGenHtml()}
       <div id="tgInfo" style="margin-top:16px">${loadingBox('none')}</div>
     </div>
@@ -3868,19 +4305,20 @@ AFTER.dev = (root, isRefresh) => {
   if (mm) mm.addEventListener('change', e => { S.ui.mtMin = e.target.value; });
   loadArchivePanel(isRefresh);   // avtomatik yeniləmədə seçimlər itməsin
   bindTestGen(root);
+  bindImport(root);
   loadTestInfo();
 };
 
 /* ---------- Test məlumatları generatoru ---------- */
-const TG_PRESETS = { small: ['Kiçik', 2, 8, 4, 4], mid: ['Orta', 4, 30, 12, 6], big: ['Böyük', 10, 120, 40, 8] };
-const TG_FIELDS = [['teachers', 'Müəllim'], ['students', 'Tələbə'], ['courses', 'Məşğələ'], ['lessons', 'Hər məşğələyə dərs']];
-const TG_MAX = { teachers: 20, students: 200, courses: 60, lessons: 12 };
-function tgState(){ return S.ui.tg || (S.ui.tg = { teachers: 2, students: 8, courses: 4, lessons: 4, mix: 'mixed', payments: true, pastMonth: true }); }
+const TG_PRESETS = { small: ['Kiçik', 2, 8, 4, 4, 2], mid: ['Orta', 4, 30, 12, 6, 5], big: ['Böyük', 10, 120, 40, 8, 12] };
+const TG_FIELDS = [['teachers', 'Müəllim'], ['students', 'Tələbə'], ['courses', 'Məşğələ'], ['lessons', 'Hər məşğələyə dərs'], ['exams', 'İmtahan']];
+const TG_MAX = { teachers: 20, students: 200, courses: 60, lessons: 12, exams: 20 };
+function tgState(){ const t = S.ui.tg || (S.ui.tg = { teachers: 2, students: 8, courses: 4, lessons: 4, exams: 2, mix: 'mixed', payments: true, pastMonth: true }); if (t.exams === undefined) t.exams = 0; return t; }
 function testGenHtml(){
   const t = tgState();
   return `<div class="tg">
     <div class="tg-presets"><span class="lbl">Hazır dəst:</span>${Object.entries(TG_PRESETS).map(([k, p]) =>
-      `<button class="btn btn-sm btn-soft" data-act="tgPreset" data-k="${k}">${p[0]} <span class="muted">${p[1]}/${p[2]}/${p[3]}</span></button>`).join('')}</div>
+      `<button class="btn btn-sm btn-soft" data-act="tgPreset" data-k="${k}">${p[0]} <span class="muted">${p[1]}/${p[2]}/${p[3]}/${p[5]}</span></button>`).join('')}</div>
     <div class="tg-grid">${TG_FIELDS.map(([k, l]) => `<label class="field tg-num"><span>${l}</span>
       <div class="stepper"><button type="button" class="ibtn sm" data-step="${k}" data-d="-1" aria-label="Azalt">−</button>
         <input class="input" type="number" inputmode="numeric" min="0" max="${TG_MAX[k]}" id="tg-${k}" value="${t[k]}">
@@ -3915,16 +4353,16 @@ function bindTestGen(root){
 }
 ACT.tgPreset = (b) => {
   const p = TG_PRESETS[b.dataset.k], t = tgState();
-  [t.teachers, t.students, t.courses, t.lessons] = p.slice(1);
+  [t.teachers, t.students, t.courses, t.lessons, t.exams] = p.slice(1);
   TG_FIELDS.forEach(([k]) => { const i = $('#tg-' + k); if (i){ i.value = t[k]; i.classList.remove('flash'); void i.offsetWidth; i.classList.add('flash'); } });
 };
 ACT.tgRun = (b) => run(b, async () => {
   const t = tgState();
-  if (!t.teachers && !t.students && !t.courses) return toast('Heç olmasa bir rəqəm daxil edin.', 'err');
-  const r = await api('genTestData', { teachers: t.teachers, students: t.students, courses: t.courses, lessons: t.lessons, mix: t.mix, payments: t.payments, pastMonth: t.pastMonth }, { noRender: true });
+  if (!t.teachers && !t.students && !t.courses && !t.exams) return toast('Heç olmasa bir rəqəm daxil edin.', 'err');
+  const r = await api('genTestData', { teachers: t.teachers, students: t.students, courses: t.courses, lessons: t.lessons, exams: t.exams, mix: t.mix, payments: t.payments, pastMonth: t.pastMonth }, { noRender: true });
   const box = $('#tgResult');
   if (box){
-    box.innerHTML = `<div class="tg-done">${ic('checkcircle')}<div><b>Yaradıldı: ${r.teachers} müəllim, ${r.students} tələbə, ${r.courses} məşğələ, ${r.lessons} dərs${r.payments ? `, ${r.payments} ödəniş` : ''}.</b>
+    box.innerHTML = `<div class="tg-done">${ic('checkcircle')}<div><b>Yaradıldı: ${r.teachers} müəllim, ${r.students} tələbə, ${r.courses} məşğələ, ${r.lessons} dərs${r.payments ? `, ${r.payments} ödəniş` : ''}${r.exams ? `, ${r.exams} imtahan (${r.attempts} nəticə)` : ''}.</b>
       ${r.logins.length ? `<p>Müəllim girişləri: <code>${r.logins.map(esc).join('</code> <code>')}</code>, şifrə: <code>${esc(r.password)}</code></p>` : ''}
       ${r.autoTeachers || r.autoStudents ? `<p class="muted">Məşğələlər üçün əlavə yaradıldı: ${r.autoTeachers ? r.autoTeachers + ' müəllim' : ''}${r.autoTeachers && r.autoStudents ? ', ' : ''}${r.autoStudents ? r.autoStudents + ' tələbə' : ''}.</p>` : ''}</div></div>`;
     hydrateIcons(box);
@@ -3937,10 +4375,10 @@ async function loadTestInfo(){
   try {
     const r = await api('testDataInfo', {}, { noRender: true });
     if (S.page !== 'dev' || !box.isConnected) return;
-    const c = r.counts, any = c.teachers || c.students || c.courses;
+    const c = r.counts, any = c.teachers || c.students || c.courses || c.exams || c.attempts;
     box.innerHTML = any ? `<div class="tg-info">
         <div class="tg-now"><span class="lbl">Hazırda sistemdə test məlumatı:</span>
-          <div class="summary tg-sum">${[['teachers', 'müəllim'], ['students', 'tələbə'], ['courses', 'məşğələ'], ['lessons', 'dərs'], ['payments', 'ödəniş']].map(([k, l]) => `<div><b>${c[k]}</b><span>${l}</span></div>`).join('')}</div></div>
+          <div class="summary tg-sum">${[['teachers', 'müəllim'], ['students', 'tələbə'], ['courses', 'məşğələ'], ['lessons', 'dərs'], ['payments', 'ödəniş'], ['exams', 'imtahan'], ['attempts', 'imtahan nəticəsi']].map(([k, l]) => `<div><b>${c[k] || 0}</b><span>${l}</span></div>`).join('')}</div></div>
         ${r.conflicts.length ? `<div class="done-note" style="margin-top:12px">${ic('alert')}<span>Bu real məşğələlər test müəllimə bağlıdır və silinməyə mane olur: <b>${r.conflicts.map(esc).join(', ')}</b>. Əvvəlcə onlara başqa müəllim təyin edin.</span></div>` : ''}
         ${r.mixed ? `<p class="hint" style="margin-top:10px">${r.mixed} real məşğələdə test tələbəsi var — silinəndə yalnız test tələbələri çıxarılacaq.</p>` : ''}
         <div class="row" style="margin-top:12px"><button class="btn btn-soft" data-act="tgPurge" ${r.conflicts.length ? 'disabled' : ''}>${ic('trash')}Bütün test məlumatlarını sil</button></div></div>`
@@ -3953,7 +4391,7 @@ ACT.tgPurge = async (b) => {
   if (!r) return;
   const c = r.counts;
   const ok = await confirmBox({ title: 'Test məlumatlarını sil', danger: true, ok: 'Hamısını sil',
-    text: `<b>${c.teachers}</b> müəllim, <b>${c.students}</b> tələbə, <b>${c.courses}</b> məşğələ, <b>${c.lessons}</b> dərs və <b>${c.payments}</b> ödəniş birdəfəlik silinəcək (zibil qutusuna düşmür). Real məlumatlara toxunulmur.` });
+    text: `<b>${c.teachers}</b> müəllim, <b>${c.students}</b> tələbə, <b>${c.courses}</b> məşğələ, <b>${c.lessons}</b> dərs, <b>${c.payments}</b> ödəniş, <b>${c.exams || 0}</b> imtahan və <b>${c.attempts || 0}</b> imtahan nəticəsi birdəfəlik silinəcək (zibil qutusuna düşmür). Real məlumatlara toxunulmur.` });
   if (!ok) return;
   run(b, async () => {
     const res = await api('purgeTestData', {}, { noRender: true });
@@ -4442,12 +4880,14 @@ function drawTrash(res){
       <td class="full">${render(x)}<br><small class="muted">Silinib: ${fmtDT(x.deletedAt)} · ${esc(x.deletedBy)} · ${x.daysLeft} gün sonra həmişəlik silinəcək</small></td>
       <td class="actions"><button class="btn btn-sm btn-soft" data-act="restoreItem" data-kind="${kind}" data-id="${x.id}">${ic('restore')}Bərpa et</button>
         <button class="ibtn sm" data-act="purgeItem" data-kind="${kind}" data-id="${x.id}" aria-label="Həmişəlik sil">${ic('trash')}</button></td></tr>`).join('')}</tbody></table>` : `<p class="hint">Boşdur.</p>`}</div>`;
-  const total = res.students.length + res.users.length + res.courses.length;
-  box.innerHTML = `<p class="hint" style="margin-bottom:6px">Silinən tələbə, istifadəçi və məşğələlər burada ${res.purgeDays} gün saxlanılır və bərpa oluna bilər. Sonra avtomatik silinir.</p>
+  const exs = res.exams || [];
+  const total = res.students.length + res.users.length + res.courses.length + exs.length;
+  box.innerHTML = `<p class="hint" style="margin-bottom:6px">Silinən tələbə, istifadəçi, məşğələ və imtahanlar burada ${res.purgeDays} gün saxlanılır və bərpa oluna bilər. Sonra avtomatik silinir.</p>
     ${total === 0 ? emptyBox('Zibil qutusu boşdur', 'Silinmiş heç nə yoxdur.') :
       sec('Tələbələr', res.students, 'student', x => `<b>${esc(x.name)}</b>${x.phone?' · '+esc(x.phone):''}`) +
       sec('İstifadəçilər', res.users, 'user', x => `<b>${esc(x.name)}</b> · ${roleLabel(x.role)}${x.login?' · '+esc(x.login):''}`) +
-      sec('Məşğələlər', res.courses, 'course', x => `<b>${esc(x.title)}</b> · ${typeLabel(x.type)} · ${esc(x.teacherName)}`)}`;
+      sec('Məşğələlər', res.courses, 'course', x => `<b>${esc(x.title)}</b> · ${typeLabel(x.type)} · ${esc(x.teacherName)}`) +
+      (exs.length ? sec('İmtahanlar', exs, 'exam', x => `<b>${esc(x.title)}</b> · ${x.qCount} sual · ${esc(x.teacherName)}`) : '')}`;
   hydrateIcons(box);
 }
 ACT.restoreItem = (b) => run(b, async () => { await api('restoreItem', { kind: b.dataset.kind, id: b.dataset.id }); toast('Bərpa edildi.'); loadTool('trash'); });
@@ -4460,7 +4900,7 @@ ACT.purgeItem = async (b) => {
 function drawBulk(){
   const box = toolBox(); if (!box) return;
   box.innerHTML = `<div class="tile-grid">
-    <div class="tile">${ic('teacher')}<b>Müəllim dəyişmə</b><p>Bir müəllimin bütün məşğələlərini bir əməliyyatla başqa müəllimə verin (müəllim işdən çıxanda).</p>
+    <div class="tile">${ic('teacher')}<b>Müəllim dəyişmə</b><p>Bir müəllimin bütün məşğələlərini və imtahanlarını bir əməliyyatla başqa müəllimə verin (müəllim işdən çıxanda).</p>
       <button class="btn btn-primary btn-sm" data-act="teacherLeaveForm" style="align-self:flex-start;margin-top:8px">${ic('swap')}Başla</button></div>
     <div class="tile">${ic('users')}<b>Tələbələri köçür</b><p>Bir qrupdan seçilmiş tələbələri başqa qrupa köçürün. Köçürmə tarixçədə qeyd olunur.</p>
       <button class="btn btn-primary btn-sm" data-act="moveStudentsForm" style="align-self:flex-start;margin-top:8px">${ic('swap')}Başla</button></div>
@@ -4473,14 +4913,14 @@ function teacherOptions(exceptId){
 }
 ACT.teacherLeaveForm = () => {
   const teachers = (S.d.users||[]).filter(u => u.role === 'teacher').sort((a,b)=>a.name.localeCompare(b.name,'az'));
-  const withCourses = teachers.map(t => ({ t, n: (S.d.courses||[]).filter(c => c.teacherId === t.id).length })).filter(x => x.n > 0);
+  const withCourses = teachers.map(t => ({ t, n: (S.d.courses||[]).filter(c => c.teacherId === t.id).length, e: t.exams || 0 })).filter(x => x.n > 0 || x.e > 0);
   openModal({ title: 'Müəllimin məşğələlərini köçür', size: 'sm',
     body: `<form class="stack" id="tlForm">
       <label class="field"><span>Hansı müəllim?</span><select class="select" name="teacherId" required><option value="">Seçin</option>
-        ${withCourses.map(x => `<option value="${x.t.id}">${esc(x.t.name)} (${x.n} məşğələ)</option>`).join('')}</select>
+        ${withCourses.map(x => `<option value="${x.t.id}">${esc(x.t.name)} (${x.n} məşğələ${x.e ? ', ' + x.e + ' imtahan' : ''})</option>`).join('')}</select>
         ${withCourses.length?'':'<small>Məşğələsi olan müəllim yoxdur.</small>'}</label>
       <label class="field"><span>Kimə verilsin?</span><select class="select" name="toTeacherId" required><option value="">Seçin</option>${teacherOptions('')}</select></label>
-      <p class="hint">Seçilmiş müəllimin bütün məşğələləri hədəf müəlliməyə keçəcək. Dərs tarixçəsi dəyişməz qalır.</p>
+      <p class="hint">Seçilmiş müəllimin bütün məşğələləri və imtahanları hədəf müəllimə keçəcək. Dərs tarixçəsi və imtahan nəticələri dəyişməz qalır.</p>
     </form>`,
     foot: `<button class="btn btn-ghost" data-close>Ləğv et</button><button class="btn btn-primary" form="tlForm" type="submit">${ic('swap')}Köçür</button>`,
     onMount: (el, close) => el.querySelector('#tlForm').addEventListener('submit', ev => {
@@ -4489,7 +4929,7 @@ ACT.teacherLeaveForm = () => {
       if (!fd.get('teacherId') || !fd.get('toTeacherId')) return fieldErr(el.querySelector('#tlForm'), 'Hər iki müəllimi seçin.');
       if (fd.get('teacherId') === fd.get('toTeacherId')) return fieldErr(el.querySelector('#tlForm'), 'Fərqli müəllim seçin.');
       run(el.querySelector('[type=submit]'), async () => {
-        try { const r = await api('teacherLeave', Object.fromEntries(fd)); close(); toast(r.moved + ' məşğələ köçürüldü.'); }
+        try { const r = await api('teacherLeave', Object.fromEntries(fd)); close(); toast(`${r.moved} məşğələ${r.exams ? ` və ${r.exams} imtahan` : ''} köçürüldü.`); }
         catch (ex) { if (ex.code !== 'AUTH') fieldErr(el.querySelector('#tlForm'), ex.message); }
       });
     })
@@ -4577,21 +5017,1126 @@ ACT.transferForm = (b) => {
   });
 };
 
+/* ===================== İMTAHAN MƏTNİ ANALİZATORU ===================== */
+/* ---------- İmtahan mətnini suallara çevirən analizator ----------
+ * Qaydalar (Kömək pəncərəsində də izah olunur):
+ *  · Sual nömrə ilə başlayır: «1.» və ya «1)».
+ *  · Variantlar hərflə: A) B) C) … (kiril А) Б) В) … də olar) və ya «-» / «•» ilə.
+ *  · Düzgün variantın qarşısına və ya sonuna «+» qoyulur: «+B) Bakı», «B) Bakı +».
+ *    Və ya sualın altında «Cavab: B» yazılır.
+ *  · Variantı olmayan sual — açıq sualdır (tələbə cavabı özü yazır).
+ *  · «(2 bal)» və ya «Bal: 2» — sualın balı. Yazılmayıbsa, standart bal götürülür.
+ *  · Açıq sual üçün «Açar sözlər: …» və «Cavab: …» (nümunə cavab) — yalnız müəllim görür.
+ */
+const EXP_LIM = { questions: 100, text: 1500, option: 400, options: 8 };
+const CYR_LET = 'АБВГДЕЖЗ';
+const LAT_LET = 'ABCDEFGH';
+function exLetter(i){ return LAT_LET.charAt(i) || String(i + 1); }
+function parseExamText(text, defPts){
+  defPts = Number(defPts) > 0 ? Number(defPts) : 1;
+  const lines = String(text || '').replace(/\r\n?/g, '\n').replace(/ /g, ' ').replace(/\t/g, ' ').split('\n');
+  const RX_Q = /^\s*(\+\s*)?(\d{1,3})\s*([.)])\s*(.*)$/;
+  const RX_OPT = /^\s*(\+\s*)?([A-Ha-hА-Иа-и])\s*[).]\s*(.*)$/;
+  const RX_BUL = /^\s*(\+\s*)?[-•*–—]\s+(.*)$/;
+  const RX_ANS = /^\s*(?:düzgün cavab|doğru cavab|cavab|правильный ответ|ответ|correct answer|answer)\s*[:：\-–—]\s*(.+)$/i;
+  const RX_KW = /^\s*(?:açar sözlər|açar sözler|açar söz|ключевые слова|keywords?)\s*[:：\-–—]\s*(.+)$/i;
+  const RX_PTS = /^\s*(?:bal|ball|балл(?:ы|а|ов)?|points?)\s*[:：\-–—]\s*(\d+(?:[.,]\d+)?)\s*$/i;
+  const RX_PTS_TAIL = /\s*[(\[]\s*(\d+(?:[.,]\d+)?)\s*(?:bal|ball|b\.|балл(?:а|ов)?|б\.|points?|pts?)\s*[)\]]\s*$/i;
+  const errors = [], warnings = [];
+  const qs = [];
+  let cur = null, pre = 0;
+  // Nömrəli sual yoxdursa, boş sətirlə ayrılan bloklar sual sayılır
+  const numbered = lines.some(l => { const x = l.match(RX_Q); return x && !x[1]; });
+  let qStyle = null;
+  const startQ = (num, body, ln) => {
+    cur = { num, line: ln, textParts: [], opts: [], correct: [], ansLine: null, kw: [], pts: null, model: '', errs: [], warns: [] };
+    if (body) cur.textParts.push(body);
+    qs.push(cur);
+  };
+  const addOpt = (raw, plus, label, ln) => {
+    let t = raw.trim(), mark = !!plus;
+    if (/(\s\+|\(\+\))$/.test(t)) { t = t.replace(/\s*(\(\+\)|\+)$/, '').trim(); mark = true; }
+    if (/^\+\s*[^\d\s+]/.test(t)) { t = t.replace(/^\+\s*/, ''); mark = true; }
+    cur.opts.push({ text: t, label: label || '', line: ln });
+    if (mark) cur.correct.push(cur.opts.length - 1);
+  };
+  lines.forEach((raw, i) => {
+    const ln = i + 1;
+    const line = raw.replace(/\s+$/, '');
+    if (!line.trim()){ if (!numbered && cur && (cur.textParts.length || cur.opts.length)) cur = null; return; }
+    let m;
+    // Sual başlığı
+    if (numbered && (m = line.match(RX_Q))){
+      const num = Number(m[2]), style = m[3];
+      // Rəqəmli variant: sual başqa üslubda nömrələnib («1.» və variantlar «1)»), variantlar ardıcıl gedir
+      const numericOpts = cur && cur.textParts.length && cur.opts.every(o => /^\d+$/.test(o.label));
+      const asOption = cur && numericOpts && (m[1] || (qStyle && style !== qStyle && num === cur.opts.length + 1));
+      if (asOption){ addOpt(m[4], m[1], String(num), ln); return; }
+      if (!qStyle) qStyle = style;
+      startQ(num, m[4].trim(), ln); return;
+    }
+    if (!cur){
+      if (!numbered){ startQ(qs.length + 1, '', ln); }
+      else { pre++; return; }
+    }
+    if ((m = line.match(RX_PTS))){ cur.pts = Number(m[1].replace(',', '.')); return; }
+    if ((m = line.match(RX_KW))){ cur.kw = m[1].split(/[,;،]/).map(x => x.trim()).filter(Boolean); return; }
+    if ((m = line.match(RX_ANS))){ cur.ansLine = { v: m[1].trim(), line: ln }; return; }
+    if ((m = line.match(RX_OPT)) && (cur.textParts.length || cur.opts.length)){ addOpt(m[3], m[1], m[2], ln); return; }
+    if ((m = line.match(RX_BUL)) && (cur.textParts.length || cur.opts.length)){ addOpt(m[2], m[1], '', ln); return; }
+    if (cur.opts.length){
+      const last = cur.opts[cur.opts.length - 1];
+      last.text = (last.text + ' ' + line.trim()).trim();
+      cur.warns.push(`Sətir ${ln} əvvəlki varianta birləşdirildi. Yeni sualdırsa, əvvəlinə nömrə yazın.`);
+      return;
+    }
+    cur.textParts.push(line.trim());
+  });
+  if (pre) warnings.push({ line: 1, text: `İlk sualdan əvvəlki ${pre} sətir nəzərə alınmadı (sual nömrə ilə başlamalıdır: «1.» və ya «1)»).` });
+
+  const out = qs.map((q, idx) => {
+    let text = q.textParts.join('\n').trim();
+    const tm = text.match(RX_PTS_TAIL);
+    if (tm){ if (q.pts == null) q.pts = Number(tm[1].replace(',', '.')); text = text.replace(RX_PTS_TAIL, '').trim(); }
+    const type = q.opts.length ? 'test' : 'open';
+    let correct = q.correct.slice();
+    if (type === 'test' && q.ansLine){
+      const v = q.ansLine.v.replace(/[).\s]+$/, '').trim();
+      let k = -1;
+      if (/^[A-Ha-hА-Иа-и]$/.test(v)){
+        const up = v.toUpperCase();
+        k = q.opts.findIndex(o => o.label && o.label.toUpperCase() === up);
+        if (k === -1){ const li = LAT_LET.indexOf(up) !== -1 ? LAT_LET.indexOf(up) : CYR_LET.indexOf(up); if (li !== -1 && li < q.opts.length && !q.opts.some(o => o.label)) k = li; }
+      } else if (/^\d{1,2}$/.test(v)){
+        k = q.opts.findIndex(o => o.label === v);
+        if (k === -1 && Number(v) >= 1 && Number(v) <= q.opts.length && !q.opts.some(o => o.label)) k = Number(v) - 1;
+      }
+      if (k === -1){ const f = fold(v); k = q.opts.findIndex(o => fold(o.text) === f); }
+      if (k === -1) q.errs.push(`«Cavab: ${v}» — belə variant tapılmadı.`);
+      else if (!correct.includes(k)) correct.push(k);
+    }
+    if (type === 'open' && q.ansLine) q.model = q.ansLine.v;
+    const pts = q.pts != null ? q.pts : defPts;
+    if (!text) q.errs.push('Sualın mətni yoxdur.');
+    if (text.length > EXP_LIM.text) q.errs.push(`Sualın mətni çox uzundur (${text.length}/${EXP_LIM.text}).`);
+    if (!(pts > 0 && pts <= 100)) q.errs.push('Bal 0-dan böyük, 100-dən kiçik olmalıdır.');
+    if (type === 'test'){
+      if (q.opts.length === 1) q.errs.push('Yalnız 1 variant var — ən azı 2 olmalıdır. Açıq sualdırsa, variantı silin.');
+      if (q.opts.length > EXP_LIM.options) q.errs.push(`Variant çoxdur (${q.opts.length}) — ən çox ${EXP_LIM.options}.`);
+      q.opts.forEach((o, j) => {
+        if (!o.text) q.errs.push(`«${exLetter(j)}» variantının mətni boşdur.`);
+        else if (o.text.length > EXP_LIM.option) q.errs.push(`«${exLetter(j)}» variantı çox uzundur.`);
+      });
+      if (!correct.length) q.errs.push('Düzgün cavab qeyd olunmayıb — düzgün variantın qarşısına «+» qoyun.');
+      if (correct.length > 1) q.errs.push(`${correct.length} düzgün cavab qeyd olunub — yalnız biri düzgün olmalıdır.`);
+      const seen = {};
+      q.opts.forEach((o, j) => { const f = fold(o.text); if (f && seen[f] !== undefined) q.warns.push(`«${exLetter(seen[f])}» və «${exLetter(j)}» variantları eynidir.`); else seen[f] = j; });
+      if (q.kw.length) q.warns.push('Açar sözlər yalnız açıq suallarda istifadə olunur.');
+    }
+    if (numbered && idx > 0 && q.num !== qs[idx - 1].num + 1) q.warns.push(`Nömrələmə: ${qs[idx - 1].num}-dən sonra ${q.num} gəlir.`);
+    return {
+      n: idx + 1, num: q.num, line: q.line, type, text, pts,
+      options: q.opts.map(o => o.text), correct: correct.length === 1 ? correct[0] : (correct.length ? correct : null),
+      kw: q.kw, model: q.model, errs: q.errs, warns: q.warns
+    };
+  });
+  if (out.length > EXP_LIM.questions) errors.push({ line: out[EXP_LIM.questions].line, text: `Sual çoxdur (${out.length}) — bir imtahanda ən çox ${EXP_LIM.questions} sual ola bilər.` });
+  out.forEach(q => {
+    q.errs.forEach(t => errors.push({ line: q.line, n: q.n, text: t }));
+    q.warns.forEach(t => warnings.push({ line: q.line, n: q.n, text: t }));
+  });
+  return { items: out, errors, warnings };
+}
+/** Yoxlanmış nəticəni serverə göndəriləcək formaya salır. */
+function examPayloadQs(items){
+  return items.map(q => {
+    const o = { type: q.type, text: q.text, pts: q.pts };
+    if (q.type === 'test'){ o.options = q.options; o.correct = q.correct; }
+    else { if (q.kw && q.kw.length) o.kw = q.kw; if (q.model) o.ans = q.model; }
+    return o;
+  });
+}
+/** Saxlanmış suallardan yenidən mətn yaradır (mənbə mətni olmayan imtahanlar üçün). */
+function qsToText(qs){
+  return qs.map((q, i) => {
+    const head = `${i + 1}. ${q.text}${q.pts && q.pts !== 1 ? ` (${q.pts} bal)` : ''}`;
+    if (q.type === 'test') return [head].concat(q.options.map((o, j) => `${j === q.correct ? '+' : ''}${exLetter(j)}) ${o}`)).join('\n');
+    const extra = [];
+    if (q.kw && q.kw.length) extra.push('Açar sözlər: ' + q.kw.join(', '));
+    if (q.ans) extra.push('Cavab: ' + q.ans);
+    return [head].concat(extra).join('\n');
+  }).join('\n\n');
+}
+
+/* ============================================================
+ *  İMTAHANLAR — müəllim / admin tərəfi
+ * ============================================================ */
+const EX_STATUS = { graded: ['Yoxlanılıb', 'ok'], pending: ['Yoxlanılmalı', 'wait'], annulled: ['Ləğv olunub', 'debt'], progress: ['Davam edir', 'stale'] };
+const EX_VK = { leave: 'Səhifədən çıxdı', fullscreen: 'Tam ekrandan çıxdı', copy: 'Kopyalama cəhdi', cut: 'Kəsmə cəhdi', paste: 'Yapışdırma cəhdi',
+  screenshot: 'Ekran şəkli düyməsi', print: 'Çap cəhdi', reload: 'Səhifə yenidən açıldı', teacher: 'Müəllim ləğv etdi' };
+function exStatusTag(a){ const s = EX_STATUS[a.status] || [a.status, 'stale']; return stTag(s[1], s[0]); }
+function pctTag(p, st){
+  if (st === 'pending' || p == null) return '<span class="pct">—</span>';
+  const n = Number(p);
+  return `<span class="pct ${n >= 75 ? 'hi' : n >= 50 ? 'mid' : n === 0 ? 'zero' : ''}">${n}%</span>`;
+}
+function ringSvg(pct, label, lg){
+  const r = 42, c = 2 * Math.PI * r, v = pct == null ? 0 : Math.max(0, Math.min(100, Number(pct)));
+  return `<div class="ring${lg ? ' lg' : ''}"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="tr" cx="50" cy="50" r="${r}"/>
+    <circle class="vl" cx="50" cy="50" r="${r}" stroke-dasharray="${c.toFixed(2)}" stroke-dashoffset="${c.toFixed(2)}" data-off="${(c * (1 - v / 100)).toFixed(2)}"/></svg>
+    <div class="rt"><b>${pct == null ? '—' : Math.round(v) + '%'}</b><small>${esc(label || '')}</small></div></div>`;
+}
+function animateRings(root){ requestAnimationFrame(() => requestAnimationFrame(() => $$('.ring .vl[data-off]', root).forEach(c => c.style.strokeDashoffset = c.dataset.off))); }
+function exLinkUrl(token){ return location.origin + location.pathname + '#/e/' + token; }
+function resLinkUrl(rt){ return location.origin + location.pathname + '#/r/' + rt; }
+function fmtDur(sec){
+  if (sec == null) return '—';
+  const m = Math.floor(sec / 60), s = sec % 60;
+  if (m >= 60) return `${Math.floor(m / 60)} saat ${m % 60} dəq`;
+  return m ? `${m} dəq ${s ? s + ' san' : ''}`.trim() : `${s} san`;
+}
+function fmtPts(n){ return (Math.round(Number(n || 0) * 100) / 100).toString().replace('.', ','); }
+function timeText(min){ return min ? `${min} dəq` : 'Vaxtsız'; }
+function copyText(text, msg){
+  const done = () => toast(msg || 'Kopyalandı.');
+  const fallback = () => {
+    const t = document.createElement('textarea'); t.value = text; t.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
+    document.body.appendChild(t); t.select();
+    try { document.execCommand('copy'); done(); } catch (e) { toast('Kopyalamaq alınmadı — mətni əl ilə seçin.', 'err'); }
+    t.remove();
+  };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
+}
+function canSeeAttempt(item){ return can('exams.view') || can('exams.manage') || me().isSuper || item.teacherId === me().id; }
+
+/* ---------- Siyahı səhifəsi ---------- */
+const EX_TABS = [['list', 'İmtahanlar', 'exam'], ['results', 'Nəticələr', 'chart'], ['review', 'Yoxlanılmalı', 'edit']];
+RENDER.exams = () => {
+  const p = S.param || '';
+  if (p === 'review' || p === 'results') S.ui.exTab = p;
+  const tab = S.ui.exTab || 'list';
+  const pend = S.d.examPending || 0;
+  return `<div class="page-head"><div><h2>İmtahanlar</h2><p>Sualları mətn kimi yapışdırın — sistem testi özü qurur, test cavablarını özü yoxlayır.</p></div>
+    <div class="ex-head-acts"><button class="btn btn-soft" data-act="examHelp">${ic('help')}Necə işləyir?</button>
+    ${S.d.flags.examsCreate && !ro() ? `<button class="btn btn-primary" data-act="newExam">${ic('plus')}Yeni imtahan</button>` : ''}</div></div>
+    <div class="tabs" role="tablist">${EX_TABS.map(([k, l, i]) => `<button role="tab" data-extab="${k}" class="${tab === k ? 'on' : ''}">${ic(i)}${l}${k === 'review' && pend ? `<span class="tbadge">${pend}</span>` : ''}</button>`).join('')}</div>
+    <div id="exBody">${loadingBox()}</div>`;
+};
+AFTER.exams = (root, isRefresh) => {
+  $$('[data-extab]', root).forEach(b => b.addEventListener('click', () => { S.ui.exTab = b.dataset.extab; if (S.param) history.replaceState(null, '', '#/exams'); S.param = null; renderPage(true); }));
+  const p = S.param || '';
+  if (/^r:/.test(p)){ history.replaceState(null, '', '#/exams'); S.param = null; setTimeout(() => openAttempt(p.slice(2)), 50); }
+  if (/^e:/.test(p)){ history.replaceState(null, '', '#/exams'); S.param = null; return go('examEdit', p.slice(2), true); }
+  if (p === 'review' || p === 'results'){ history.replaceState(null, '', '#/exams'); S.param = null; }
+  loadExTab(isRefresh);
+};
+async function loadExTab(keep){
+  const tab = S.ui.exTab || 'list', box = $('#exBody'); if (!box) return;
+  // avtomatik yeniləmədə köhnə məlumatı dərhal göstər, arxada yenilə
+  if (keep && tab === 'list' && S.ui.exList) drawExList();
+  if (keep && tab !== 'list' && S.ui.exRes) drawExResults();
+  try {
+    if (tab === 'list'){
+      const r = await api('listExams', {}, { noRender: true, silent: !!keep });
+      S.ui.exList = r;
+      if (S.page === 'exams' && (S.ui.exTab || 'list') === 'list') drawExList();
+    } else {
+      const f = tab === 'review' ? { status: 'pending' } : {};
+      const r = await api('examResults', f, { noRender: true, silent: !!keep });
+      S.ui.exRes = Object.assign(r, { tab });
+      if (S.page === 'exams' && (S.ui.exTab || 'list') === tab) drawExResults();
+    }
+  } catch (e) {
+    if (e.code === 'AUTH' || e.code === 'MAINT' || e.code === 'PWCHANGE') return;
+    if (box.isConnected) box.innerHTML = emptyBox('Yüklənmədi', esc(e.message), `<button class="btn btn-primary" data-act="reloadEx">${ic('refresh')}Yenidən cəhd et</button>`);
+  }
+}
+ACT.reloadEx = () => loadExTab(false);
+function exFilterBar(r){
+  const teachers = (r.teachers || []).filter(t => r.exams.some(e => e.teacherId === t.id));
+  return `<div class="ex-filter">
+    <div class="input-wrap search">${ic('search', 'lead')}<input class="input has-lead" id="exQ" placeholder="İmtahanın adı və ya fənn" value="${esc(S.ui.exq || '')}"></div>
+    ${r.all && teachers.length > 1 ? `<select class="select" id="exT"><option value="">Bütün müəllimlər</option>${teachers.map(t => `<option value="${t.id}" ${S.ui.exT === t.id ? 'selected' : ''}>${esc(t.name)}</option>`).join('')}</select>` : ''}
+    <div class="seg">${[['all', 'Hamısı'], ['active', 'Aktiv'], ['closed', 'Bağlı']].map(([k, l]) => `<label><input type="radio" name="exS" value="${k}" ${(S.ui.exS || 'all') === k ? 'checked' : ''}><span>${l}</span></label>`).join('')}</div>
+  </div>`;
+}
+function drawExList(){
+  const box = $('#exBody'), r = S.ui.exList; if (!box || !r) return;
+  if (!r.exams.length){
+    box.innerHTML = `<div class="empty">${ic('exam')}<h4>Hələ imtahan yoxdur</h4><p>Sualları Word-dən və ya WhatsApp-dan köçürüb bir sahəyə yapışdırın — sistem onları testə çevirəcək.</p>
+      <div class="row" style="justify-content:center">${r.canCreate && !ro() ? `<button class="btn btn-primary" data-act="newExam">${ic('plus')}İlk imtahanı yarat</button>` : ''}<button class="btn btn-soft" data-act="examHelp">${ic('help')}Necə işləyir?</button></div></div>`;
+    hydrateIcons(box); return;
+  }
+  box.innerHTML = exFilterBar(r) + `<div id="exGrid"></div>`;
+  hydrateIcons(box);
+  const redraw = () => { const g = $('#exGrid'); g.innerHTML = exGridHtml(); hydrateIcons(g); };
+  $('#exQ').addEventListener('input', e => { S.ui.exq = e.target.value; redraw(); });
+  const t = $('#exT'); if (t) t.addEventListener('change', e => { S.ui.exT = e.target.value; redraw(); });
+  $$('input[name=exS]', box).forEach(x => x.addEventListener('change', e => { S.ui.exS = e.target.value; redraw(); }));
+  redraw();
+}
+function exGridHtml(){
+  const r = S.ui.exList, q = fold(S.ui.exq || ''), st = S.ui.exS || 'all', tf = S.ui.exT || '';
+  const list = r.exams.filter(e => (!q || fold(e.title + ' ' + e.subject + ' ' + e.teacherName).includes(q)) && (st === 'all' || e.status === st) && (!tf || e.teacherId === tf));
+  if (!list.length) return emptyBox('Heç nə tapılmadı', 'Axtarışı və ya filtri dəyişin.');
+  return `<div class="cgrid">${list.map(e => exCard(e, r)).join('')}</div>`;
+}
+function exCard(e, r){
+  const active = e.status === 'active';
+  const man = e.canManage && !ro();
+  return `<article class="excard${active ? '' : ' closed'}${e.pending && e.canManage ? ' needs' : ''}">
+    <div class="ex-top"><span class="tag${active ? ' solid' : ' line'}">${active ? 'Aktiv' : 'Bağlı'}</span>${e.subject ? `<span class="tag">${esc(e.subject)}</span>` : ''}${e.isTest ? '<span class="tag line">Test</span>' : ''}
+      ${e.locked ? `<span class="lockic" title="Nəticə olduğu üçün suallar dəyişdirilə bilməz">${ic('lock')}Suallar kilidli</span>` : ''}</div>
+    <div><h3>${esc(e.title)}</h3><p class="who">${r.all ? `Müəllim: <b style="font-weight:600;color:var(--or)">${esc(e.teacherName)}</b> · ` : ''}${fmtDate(e.createdAt)}</p></div>
+    <div class="ex-facts"><span class="ex-fact">${ic('list')}${e.qCount} sual</span><span class="ex-fact">${ic('star')}${fmtPts(e.maxScore)} bal</span>
+      <span class="ex-fact">${ic('timer')}${timeText(e.timeMin)}</span>${e.passMin ? `<span class="ex-fact">${ic('flag')}Keçid ${e.passMin}%</span>` : ''}${e.strict ? `<span class="ex-fact">${ic('shield')}Qadağalar</span>` : ''}</div>
+    <button class="ex-stats" data-act="exResultsOf" data-id="${e.id}" title="Nəticələrə bax">
+      <span><b>${e.attempts}</b><small>${e.students && e.students !== e.attempts ? `cəhd, ${e.students} tələbə` : 'cəhd'}</small></span>
+      <span><b>${e.avg == null ? '—' : e.avg + '%'}</b><small>orta nəticə</small></span>
+      <span><b>${e.passRate == null ? '—' : e.passRate + '%'}</b><small>keçən</small></span></button>
+    ${e.pending && e.canManage ? `<button class="ex-pend" data-act="exReviewOf" data-id="${e.id}">${ic('edit')}${e.pending} cavab yoxlanılmalıdır</button>` : ''}
+    ${e.progress ? `<p class="ccard-meta">${e.progress} tələbə hazırda imtahandadır.</p>` : ''}
+    <div class="ex-acts">
+      ${man && active ? `<button class="btn btn-primary btn-sm" data-act="exSend" data-id="${e.id}">${ic('send')}Göndər</button>` : ''}
+      <button class="btn btn-soft btn-sm" data-act="exStats" data-id="${e.id}">${ic('chart')}Statistika</button>
+      <span class="push">
+        <button class="ibtn sm" data-go="examEdit" data-param="${e.id}" title="${man ? 'Redaktə et' : 'Bax'}" aria-label="${man ? 'Redaktə et' : 'Bax'}">${ic(man ? 'edit' : 'eye')}</button>
+        ${r.canCreate && !ro() ? `<button class="ibtn sm" data-act="exCopy" data-id="${e.id}" title="Surət çıxar" aria-label="Surət çıxar">${ic('copy')}</button>` : ''}
+        ${man ? `<button class="ibtn sm" data-act="exToggle" data-id="${e.id}" title="${active ? 'Bağla' : 'Aç'}" aria-label="${active ? 'Bağla' : 'Aç'}">${ic(active ? 'lock' : 'unlock')}</button>` : ''}
+        ${man && !e.attempts ? `<button class="ibtn sm" data-act="exDelete" data-id="${e.id}" title="Sil" aria-label="Sil">${ic('trash')}</button>` : ''}
+      </span></div>
+  </article>`;
+}
+function exById(id){ return S.ui.exList ? S.ui.exList.exams.find(e => e.id === id) : null; }
+ACT.newExam = () => { S.ui.ex = null; go('examEdit', 'new'); };
+ACT.exResultsOf = (b) => { S.ui.exTab = 'results'; S.ui.exRF = { exam: b.dataset.id }; renderPage(true); };
+ACT.exReviewOf = (b) => { S.ui.exTab = 'review'; S.ui.exRF = { exam: b.dataset.id }; renderPage(true); };
+ACT.exCopy = (b) => run(b, async () => {
+  const r = await api('copyExam', { id: b.dataset.id }, { noRender: true });
+  toast('Surət yaradıldı — indi onu redaktə edə bilərsiniz.');
+  S.ui.ex = null; go('examEdit', r.id);
+});
+ACT.exToggle = async (b) => {
+  const e = exById(b.dataset.id); if (!e) return;
+  const closing = e.status === 'active';
+  const ok = await confirmBox({ title: closing ? 'İmtahanı bağla' : 'İmtahanı aç', ok: closing ? 'Bağla' : 'Aç',
+    text: closing ? `<b>${esc(e.title)}</b> bağlansın? Linki olan tələbələr artıq yeni cəhdə başlaya bilməyəcək. Hazırda yazanlar bitirə bilər. Nəticələr qalır.`
+      : `<b>${esc(e.title)}</b> yenidən açılsın? Linki olan tələbələr imtahana başlaya biləcək.` });
+  if (!ok) return;
+  run(b, async () => { await api('setExamStatus', { id: e.id, status: closing ? 'closed' : 'active' }, { noRender: true }); toast(closing ? 'İmtahan bağlandı.' : 'İmtahan açıldı.'); loadExTab(false); });
+};
+ACT.exDelete = async (b) => {
+  const e = exById(b.dataset.id); if (!e) return;
+  const ok = await confirmBox({ title: 'İmtahanı sil', danger: true, ok: 'Sil',
+    text: `<b>${esc(e.title)}</b> silinsin? Zibil qutusuna köçürüləcək və ${30} gün ərzində admin onu bərpa edə bilər.` });
+  if (!ok) return;
+  run(b, async () => { await api('deleteExam', { id: e.id }, { noRender: true }); toast('İmtahan silindi.'); loadExTab(false); });
+};
+
+/* ---------- Nəticələr / Yoxlanılmalı ---------- */
+function drawExResults(){
+  const box = $('#exBody'), r = S.ui.exRes; if (!box || !r) return;
+  const tab = S.ui.exTab || 'results';
+  if (r.tab !== tab) return;
+  const exams = {}; r.results.forEach(x => { exams[x.examId] = x.examTitle; });
+  const f = S.ui.exRF || {};
+  if (!r.results.length){
+    box.innerHTML = tab === 'review'
+      ? `<div class="attn-ok">${ic('checkcircle')}<div><b>Yoxlanılmalı cavab yoxdur</b><p>Tələbə açıq suala cavab yazanda o, burada görünəcək. Test sualları avtomatik yoxlanılır.</p></div></div>`
+      : emptyBox('Hələ nəticə yoxdur', 'İmtahanı tələbələrə göndərin — onlar bitirən kimi nəticələr burada görünəcək.');
+    hydrateIcons(box); return;
+  }
+  box.innerHTML = `${tab === 'review' ? `<p class="hint" style="margin-bottom:14px">Açıq suallara cavab yazılmış işlər. Hər cavaba bal verin — yekun nəticə avtomatik hesablanacaq və tələbənin kartında görünəcək.</p>` : ''}
+    <div class="ex-filter">
+      <div class="input-wrap search">${ic('search', 'lead')}<input class="input has-lead" id="exRQ" placeholder="Tələbənin adı" value="${esc(f.q || '')}"></div>
+      <select class="select" id="exRE"><option value="">Bütün imtahanlar</option>${Object.entries(exams).sort((a, b) => a[1].localeCompare(b[1], 'az')).map(([id, t]) => `<option value="${id}" ${f.exam === id ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>
+      ${tab === 'results' ? `<select class="select" id="exRS"><option value="">Bütün statuslar</option>${Object.entries(EX_STATUS).map(([k, v]) => `<option value="${k}" ${f.status === k ? 'selected' : ''}>${v[0]}</option>`).join('')}</select>` : ''}
+    </div><div id="exRList"></div>
+    ${r.total > r.results.length ? `<p class="hint" style="margin-top:10px">Son ${r.results.length} nəticə göstərilir (cəmi ${r.total}).</p>` : ''}`;
+  hydrateIcons(box);
+  const redraw = () => { const l = $('#exRList'); l.innerHTML = exResultsTable(); hydrateIcons(l); };
+  $('#exRQ').addEventListener('input', e => { (S.ui.exRF = S.ui.exRF || {}).q = e.target.value; redraw(); });
+  $('#exRE').addEventListener('change', e => { (S.ui.exRF = S.ui.exRF || {}).exam = e.target.value; redraw(); });
+  const rs = $('#exRS'); if (rs) rs.addEventListener('change', e => { (S.ui.exRF = S.ui.exRF || {}).status = e.target.value; redraw(); });
+  redraw();
+}
+function exResultsTable(){
+  const r = S.ui.exRes, f = S.ui.exRF || {}, q = fold(f.q || '');
+  const list = r.results.filter(x => (!q || fold(x.studentName).includes(q)) && (!f.exam || x.examId === f.exam) && (!f.status || x.status === f.status));
+  if (!list.length) return emptyBox('Heç nə tapılmadı', 'Filtri dəyişin.');
+  return `<table class="ledger"><thead><tr><th>Tələbə</th><th>İmtahan</th><th>Tarix</th><th>Nəticə</th><th>Status</th><th></th></tr></thead><tbody>
+    ${list.map(x => `<tr>
+      <td data-label="Tələbə" class="full"><div class="person"><span class="ava">${esc(initials(x.studentName))}</span><div><b>${esc(x.studentName)}</b>${x.vCount ? `<small>${x.vCount} pozuntu</small>` : ''}</div></div></td>
+      <td data-label="İmtahan">${esc(x.examTitle)}</td>
+      <td data-label="Tarix" class="nowrap">${fmtDate(x.startedAt)}<br><small class="muted">${String(x.startedAt).slice(11, 16)}</small></td>
+      <td data-label="Nəticə"><div class="row" style="gap:8px;flex-wrap:nowrap">${pctTag(x.percent, x.status)}<span class="res-score">${x.status === 'progress' ? '—' : `${fmtPts(x.status === 'annulled' ? x.rawScore : x.score)} / ${fmtPts(x.maxScore)}`}</span></div></td>
+      <td data-label="Status">${exStatusTag(x)}${x.restored ? '<br><small class="muted">bərpa olunub</small>' : ''}</td>
+      <td class="actions">${x.status !== 'progress' ? `<button class="btn btn-sm ${x.status === 'pending' && x.canManage ? 'btn-primary' : 'btn-soft'}" data-act="openAttempt" data-rt="${x.rt}">${x.status === 'pending' && x.canManage ? `${ic('edit')}Yoxla` : 'Bax'}</button>` : ''}</td>
+    </tr>`).join('')}</tbody></table>`;
+}
+
+/* ---------- Cəhdə baxış və yoxlama ---------- */
+ACT.openAttempt = (b) => {
+  const rt = b.dataset.rt;
+  const item = b.dataset.public ? { teacherId: b.dataset.teacher } : null;
+  if (item && !canSeeAttempt(item)) return window.open(resLinkUrl(rt), '_blank', 'noopener');
+  openAttempt(rt);
+};
+function hlKeywords(text, kws){
+  let html = esc(text);
+  (kws || []).filter(k => k && k.length > 1).forEach(k => {
+    const rx = new RegExp('(' + esc(k).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    html = html.replace(rx, '<mark>$1</mark>');
+  });
+  return html;
+}
+function attemptBody(x, man){
+  const stopBox = x.status === 'annulled' || x.stopReason
+    ? `<div class="res-stop">${ic(x.status === 'annulled' ? 'alert' : 'timer')}<div><b>${esc(x.stopText || 'Dayandırıldı')}</b>
+        <p>${x.status === 'annulled' ? `Nəticə 0 sayılır. Ləğv anına qədər: <b>${fmtPts(x.rawScore)} / ${fmtPts(x.maxScore)}</b> bal.${man ? ' Səhv olubsa, «Bərpa et» düyməsi ilə nəticəni qaytara bilərsiniz.' : ''}`
+          : x.stopReason === 'time' ? 'Vaxt bitəndə sistem cavabları avtomatik göndərdi.' : (x.restored ? `Nəticə bərpa olunub${x.restoredBy ? ' (' + esc(x.restoredBy) + ')' : ''}.` : '')}</p></div></div>` : '';
+  const viol = x.violations.length ? `<div class="section" style="margin-top:18px"><div class="section-head" style="margin-bottom:10px"><h3 style="font-size:15px">Pozuntular<span class="count">${x.violations.length}</span></h3></div>
+      <div class="vlist">${x.violations.map((v, i) => `<div class="vrow${i === x.violations.length - 1 && x.status === 'annulled' ? ' last' : ''}"><span class="n">${i + 1}</span><div><b>${esc(EX_VK[v.k] || v.label)}</b>${v.note ? `: ${esc(v.note)}` : ''}<br><small>${fmtDT(v.t)}</small></div></div>`).join('')}</div></div>` : '';
+  const qs = x.review.map(q => {
+    if (q.type === 'test'){
+      const cls = q.chosen == null ? 'no' : (q.ok ? 'ok' : 'no');
+      return `<div class="rv-q ${cls}"><div class="rv-h"><span class="rv-mark">${q.ok ? ic('check') : q.n}</span><div class="rv-t">${esc(q.text)}</div><span class="rv-pts">${fmtPts(q.got)} / ${fmtPts(q.pts)}</span></div>
+        <div class="rv-opts">${q.options.map((o, j) => `<div class="rv-opt${j === q.correct ? ' right' : (j === q.chosen ? ' wrong' : '')}"><span class="l">${exLetter(j)}</span><span>${esc(o)}</span>
+          ${j === q.chosen ? `<span class="rtag">${j === q.correct ? 'seçdi ✓' : 'seçdi'}</span>` : (j === q.correct ? '<span class="rtag">düzgün</span>' : '')}</div>`).join('')}</div>
+        ${q.chosen == null ? '<p class="rv-extra">Cavab verilməyib.</p>' : ''}</div>`;
+    }
+    const answered = !!String(q.answer || '').trim();
+    const cls = !answered ? 'no' : (q.got == null ? 'wait' : (q.got > 0 ? 'ok' : 'no'));
+    return `<div class="rv-q ${cls}" data-q="${q.id}"><div class="rv-h"><span class="rv-mark">${q.got != null && q.got > 0 ? ic('check') : q.n}</span><div class="rv-t">${esc(q.text)}</div>
+        <span class="rv-pts">${q.got == null ? '?' : fmtPts(q.got)} / ${fmtPts(q.pts)}</span></div>
+      <div class="rv-ans${answered ? '' : ' none'}">${answered ? hlKeywords(q.answer, q.kw) : 'Cavab yazılmayıb — 0 bal.'}</div>
+      ${q.kw && q.kw.length ? `<p class="rv-extra">Açar sözlər: <b>${q.kw.map(esc).join(', ')}</b></p>` : ''}
+      ${q.model ? `<p class="rv-extra">Nümunə cavab: <b>${esc(q.model)}</b></p>` : ''}
+      ${man && answered ? `<div class="rv-grade"><div class="stepper"><button type="button" class="ibtn sm" data-gstep="-0.5" aria-label="Azalt">−</button>
+          <input class="input" type="number" inputmode="decimal" min="0" max="${q.pts}" step="0.5" data-grade="${q.id}" value="${q.got == null ? '' : q.got}" placeholder="?">
+          <button type="button" class="ibtn sm" data-gstep="0.5" aria-label="Artır">${ic('plus')}</button></div><span class="of">/ ${fmtPts(q.pts)} bal</span>
+        <div class="rv-quick">${[0, q.pts / 2, q.pts].filter((v, i, a) => a.indexOf(v) === i).map(v => `<button type="button" data-gset="${v}">${v === 0 ? '0' : v === q.pts ? 'Tam bal' : 'Yarısı'}</button>`).join('')}</div></div>` : ''}
+    </div>`;
+  }).join('');
+  return `<span tabindex="-1" autofocus style="position:absolute;outline:0"></span><div class="att-head">${ringSvg(x.status === 'pending' ? null : x.percent, x.status === 'pending' ? 'yoxlanılır' : 'nəticə')}
+      <div class="who"><h4>${esc(x.studentName)}</h4><p>${esc(x.title)}${x.title !== x.examTitleNow ? ` <span class="faint">(indi: ${esc(x.examTitleNow)})</span>` : ''}</p>
+        <div class="row" style="margin-top:8px;gap:6px">${exStatusTag(x)}${x.passed === true ? stTag('ok', 'Keçdi') : x.passed === false && x.status === 'graded' ? stTag('stale', 'Keçmədi') : ''}</div></div>
+      <div class="kv" style="margin:0">
+        <div><span>Bal</span><b>${x.status === 'annulled' ? `0 <span class="faint">(${fmtPts(x.rawScore)})</span>` : fmtPts(x.score)} / ${fmtPts(x.maxScore)}</b></div>
+        <div><span>Tarix</span><b>${fmtDT(x.startedAt)}</b></div>
+        <div><span>Müddət</span><b>${fmtDur(x.durationSec)}${x.timeMin ? ` <span class="faint">/ ${x.timeMin} dəq</span>` : ''}</b></div>
+        <div><span>Test hissəsi</span><b>${fmtPts(x.testScore)} / ${fmtPts(x.testMax)}</b></div>
+      </div></div>
+    ${stopBox}${viol}
+    ${x.reviewedBy ? `<p class="hint" style="margin-top:12px">Son yoxlama: ${esc(x.reviewedBy)}, ${fmtDT(x.reviewedAt)}</p>` : ''}
+    <div class="section" style="margin-top:18px"><div class="section-head" style="margin-bottom:10px"><h3 style="font-size:15px">Cavablar<span class="count">${x.review.length}</span></h3></div>
+      <div class="rv">${qs}</div></div>`;
+}
+async function openAttempt(rt){
+  let res;
+  try { res = await api('examAttempt', { rt }, { noRender: true }); }
+  catch (e) { if (!['AUTH', 'MAINT', 'PWCHANGE'].includes(e.code)) toast(e.message, 'err'); return; }
+  const x = res.result, man = res.canManage && !ro();
+  const hasGrade = man && x.review.some(q => q.type === 'open' && String(q.answer || '').trim());
+  const parentMsg = `Salam! ${x.studentName} «${x.title}» imtahanının nəticəsi:\n${resLinkUrl(x.rt)}`;
+  openModal({ title: 'İmtahan nəticəsi', size: 'wide', sub: esc(x.subject || ''),
+    body: `<div id="attBody">${attemptBody(x, man)}</div>`,
+    foot: `${man ? (x.status === 'annulled' ? `<button class="btn btn-soft" data-att="restore">${ic('restore')}Bərpa et</button>` : `<button class="btn btn-ghost" data-att="annul">${ic('xcircle')}Ləğv et</button>`) : ''}
+      <button class="btn btn-soft" data-att="copy">${ic('copy')}Nəticə linki</button>
+      <a class="btn btn-soft" href="${esc(waLink((S.sMap[x.studentId] || {}).parentPhone || '', parentMsg))}" target="_blank" rel="noopener">${ic('wa')}Valideynə</a>
+      ${hasGrade ? `<button class="btn btn-primary" data-att="save">${ic('check')}Balları yadda saxla</button>` : `<button class="btn btn-primary" data-close>Bağla</button>`}`,
+    onMount: (el, close) => {
+      const body = el.querySelector('#attBody');
+      animateRings(body);
+      body.addEventListener('click', e => {
+        const st = e.target.closest('[data-gstep]'), gs = e.target.closest('[data-gset]');
+        const wrap = (st || gs) && (st || gs).closest('.rv-grade'); if (!wrap) return;
+        const inp = wrap.querySelector('[data-grade]'), max = Number(inp.max);
+        const v = gs ? Number(gs.dataset.gset) : Math.max(0, Math.min(max, (Number(inp.value) || 0) + Number(st.dataset.gstep)));
+        inp.value = v; inp.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+      body.addEventListener('input', e => {
+        const inp = e.target.closest('[data-grade]'); if (!inp) return;
+        const wrap = inp.closest('.rv-grade');
+        $$('[data-gset]', wrap).forEach(b => b.classList.toggle('on', inp.value !== '' && Number(b.dataset.gset) === Number(inp.value)));
+      });
+      $$('[data-grade]', body).forEach(i => i.dispatchEvent(new Event('input', { bubbles: true })));
+      el.addEventListener('click', async e => {
+        const b = e.target.closest('[data-att]'); if (!b) return;
+        const k = b.dataset.att;
+        if (k === 'copy') return copyText(resLinkUrl(x.rt), 'Nəticə linki kopyalandı.');
+        if (k === 'save'){
+          const points = {}; let bad = '';
+          $$('[data-grade]', body).forEach(i => {
+            if (i.value === '') { points[i.dataset.grade] = ''; return; }
+            const n = Number(String(i.value).replace(',', '.'));
+            if (!(n >= 0 && n <= Number(i.max))) bad = `Bal 0 ilə ${fmtPts(i.max)} arasında olmalıdır.`;
+            points[i.dataset.grade] = n;
+          });
+          if (bad) return toast(bad, 'err');
+          return run(b, async () => {
+            const r = await api('examReview', { rt: x.rt, points }, { noRender: true });
+            Object.assign(x, r.result);
+            body.innerHTML = attemptBody(x, man); hydrateIcons(body); animateRings(body);
+            $$('[data-grade]', body).forEach(i => i.dispatchEvent(new Event('input', { bubbles: true })));
+            toast(r.result.status === 'graded' ? `Yoxlandı: ${fmtPts(r.result.score)} / ${fmtPts(r.result.maxScore)} bal (${r.result.percent}%).` : 'Ballar yadda saxlanıldı.');
+            exAfterChange();
+          });
+        }
+        if (k === 'restore'){
+          const ok = await confirmBox({ title: 'Nəticəni bərpa et', ok: 'Bərpa et', text: `<b>${esc(x.studentName)}</b> üçün ləğv olunmuş nəticə bərpa olunsun? Ləğv anına qədər verilmiş cavablar sayılacaq: <b>${fmtPts(x.rawScore)} / ${fmtPts(x.maxScore)}</b> bal. Pozuntular tarixçədə qalır.` });
+          if (!ok) return;
+          return run(b, async () => { await api('examRestore', { rt: x.rt }, { noRender: true }); close(); toast('Nəticə bərpa olundu.'); exAfterChange(); openAttempt(x.rt); });
+        }
+        if (k === 'annul'){
+          openModal({ title: 'Nəticəni ləğv et', size: 'sm',
+            body: `<form class="stack" id="anForm"><p class="confirm-text"><b>${esc(x.studentName)}</b> üçün nəticə 0 sayılacaq. Tələbə və valideyn səbəbi görəcək. Sonra bərpa etmək olar.</p>
+              <label class="field"><span>Səbəb</span><input class="input" name="reason" maxlength="200" placeholder="məsələn: telefondan köçürürdü"></label></form>`,
+            foot: `<button class="btn btn-ghost" data-close>İmtina</button><button class="btn btn-primary" form="anForm" type="submit">${ic('xcircle')}Ləğv et</button>`,
+            onMount: (el2, close2) => el2.querySelector('#anForm').addEventListener('submit', ev => {
+              ev.preventDefault();
+              const reason = el2.querySelector('[name=reason]').value.trim();
+              if (reason.length < 3) return fieldErr(el2.querySelector('#anForm'), 'Səbəbi yazın (ən azı 3 simvol).');
+              run(el2.querySelector('[type=submit]'), async () => {
+                try { await api('examAnnul', { rt: x.rt, reason }, { noRender: true }); close2(); close(); toast('Nəticə ləğv olundu.'); exAfterChange(); openAttempt(x.rt); }
+                catch (ex) { if (ex.code !== 'AUTH') fieldErr(el2.querySelector('#anForm'), ex.message); }
+              });
+            }) });
+        }
+      });
+    } });
+}
+function exAfterChange(){
+  syncData(true);
+  if (S.page === 'exams') loadExTab(true);
+  if (S.page === 'student') loadCard();
+}
+
+/* ---------- Statistika ---------- */
+ACT.exStats = (b) => run(b, async () => {
+  const r = await api('examStats', { id: b.dataset.id }, { noRender: true });
+  const s = r.stats;
+  const body = !s.attempts ? emptyBox('Hələ nəticə yoxdur', 'Tələbələr imtahanı bitirəndən sonra burada hər sual üzrə statistika görünəcək.')
+    : `<div class="summary">${[[s.attempts, 'cəhd'], [s.students, 'tələbə'], [s.avg == null ? '—' : s.avg + '%', 'orta nəticə'], [s.passRate == null ? '—' : s.passRate + '%', 'keçən'], [s.pending, 'yoxlanılmalı'], [s.annulled, 'ləğv olunub']]
+        .map(([v, l]) => `<div><b>${v}</b><span>${l}</span></div>`).join('')}</div>
+      ${s.graded ? `<div class="section" style="margin-top:20px"><div class="section-head" style="margin-bottom:10px"><h3 style="font-size:15px">Nəticələrin bölgüsü</h3>
+        <span class="hint">Ən yüksək: ${s.best}%, ən aşağı: ${s.worst}%</span></div>
+        <div class="bands">${s.bands.map(x => `<div class="band"><b>${x.count}</b><span>${x.lo === 90 ? '90–100%' : `${x.lo}–${x.hi - 1}%`}</span></div>`).join('')}</div></div>` : ''}
+      <div class="section" style="margin-top:20px"><div class="section-head" style="margin-bottom:6px"><h3 style="font-size:15px">Suallar üzrə</h3><span class="hint">Ən çətin suallar — ən aşağı faizlə</span></div>
+        ${s.questions.map(q => `<div class="stat-q"><span class="pv-n" style="width:30px;height:30px">${q.n}</span><div class="t">${esc(q.text)}</div>
+          <div class="v"><span>${q.rate == null ? 'yoxlanılmayıb' : q.rate + '%'}${q.type === 'open' ? ' · açıq' : ''}</span><div class="meter"><i style="width:${q.rate || 0}%"></i></div></div>
+          ${q.type === 'test' ? `<div class="dist">${q.options.map((o, j) => `<span class="${j === q.correctIdx ? 'c' : ''}" title="${esc(o)}">${exLetter(j)}: ${q.dist[j]}</span>`).join('')}<span class="faint" style="border:0">cavabsız: ${s.attempts - q.answered}</span></div>` : ''}
+        </div>`).join('')}</div>`;
+  openModal({ title: 'Statistika', sub: esc(s.title), size: 'wide', body, foot: `<button class="btn btn-primary" data-close>Bağla</button>` });
+});
+
+/* ---------- Göndər ---------- */
+ACT.exSend = (b) => {
+  const e = exById(b.dataset.id) || { id: b.dataset.id, title: b.dataset.title || 'İmtahan', timeMin: 0 };
+  const anyStudent = me().isSuper || can('exams.manage') || can('students.view');
+  const courses = S.d.courses.filter(c => anyStudent || c.teacherId === me().id)
+    .sort((a, c) => (a.teacherId === me().id ? -1 : 0) - (c.teacherId === me().id ? -1 : 0) || courseTitle(a).localeCompare(courseTitle(c), 'az'));
+  const inCourse = new Set(courses.flatMap(c => c.studentIds));
+  const loose = anyStudent ? S.d.students.filter(s => !inCourse.has(s.id)) : [];
+  const sel = new Set();
+  let q = '';
+  const groups = () => {
+    const f = fold(q.trim());
+    const gs = courses.map(c => ({ id: c.id, title: courseTitle(c), sub: `${typeLabel(c.type)}${c.teacherId !== me().id ? ', ' + c.teacherName : ''}`, ids: c.studentIds.filter(id => S.sMap[id]) }));
+    if (loose.length) gs.push({ id: '_', title: 'Məşğələsiz tələbələr', sub: '', ids: loose.map(s => s.id) });
+    return gs.map(g => Object.assign(g, { ids: f && !fold(g.title).includes(f) ? g.ids.filter(id => fold(stuName(id)).includes(f)) : g.ids })).filter(g => g.ids.length);
+  };
+  const box = (on) => `<span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>`;
+  openModal({ title: 'İmtahanı göndər', sub: esc(e.title), size: 'wide',
+    body: `<div id="sendBody"><div class="input-wrap search" style="margin-bottom:12px">${ic('search', 'lead')}<input class="input has-lead" id="sendQ" placeholder="Qrup və ya tələbə adı"></div><div id="sendList"></div></div>`,
+    foot: `<span class="hint" id="sendCnt" style="margin-right:auto">Tələbə seçin</span><button class="btn btn-ghost" data-close>Ləğv et</button><button class="btn btn-primary" id="sendGo" disabled>${ic('link')}Linkləri hazırla</button>`,
+    onMount: (el, close) => {
+      const list = el.querySelector('#sendList'), cnt = el.querySelector('#sendCnt'), goBtn = el.querySelector('#sendGo');
+      const draw = () => {
+        const gs = groups();
+        list.innerHTML = gs.length ? gs.map(g => {
+          const all = g.ids.every(id => sel.has(id)), some = g.ids.some(id => sel.has(id));
+          return `<div class="send-course"><div class="send-ch"><label class="chk"><input type="checkbox" data-grp="${g.id}" ${all ? 'checked' : ''} ${!all && some ? 'data-ind="1"' : ''}>${box()}<span>${esc(g.title)} <small>${esc(g.sub)}</small></span></label><small>${g.ids.length} tələbə</small></div>
+            <div class="send-list">${g.ids.map(id => `<label class="chk"><input type="checkbox" data-sid="${id}" ${sel.has(id) ? 'checked' : ''}>${box()}<span>${esc(stuName(id))}</span></label>`).join('')}</div></div>`;
+        }).join('') : `<p class="hint">${courses.length || loose.length ? 'Heç nə tapılmadı.' : 'Sizin məşğələnizdə tələbə yoxdur.'}</p>`;
+        $$('[data-ind="1"]', list).forEach(c => c.indeterminate = true);
+        cnt.textContent = sel.size ? `${sel.size} tələbə seçilib` : 'Tələbə seçin';
+        goBtn.disabled = !sel.size;
+      };
+      el.querySelector('#sendQ').addEventListener('input', ev => { q = ev.target.value; draw(); });
+      list.addEventListener('change', ev => {
+        const t = ev.target;
+        if (t.dataset.sid){ t.checked ? sel.add(t.dataset.sid) : sel.delete(t.dataset.sid); }
+        if (t.dataset.grp){ const g = groups().find(x => x.id === t.dataset.grp); if (g) g.ids.forEach(id => t.checked ? sel.add(id) : sel.delete(id)); }
+        draw();
+      });
+      goBtn.addEventListener('click', () => run(goBtn, async () => {
+        const r = await api('examLinks', { examId: e.id, studentIds: Array.from(sel) }, { noRender: true });
+        const msg = (l) => `Salam! «${r.exam.title}» imtahanı üçün ${l.name} adına şəxsi link:\n${exLinkUrl(l.token)}\n${r.exam.timeMin ? `Vaxt: ${r.exam.timeMin} dəqiqə. ` : ''}Başlamazdan əvvəl qaydaları diqqətlə oxuyun. Uğurlar!`;
+        el.querySelector('.mhead h3').textContent = 'Linklər hazırdır';
+        el.querySelector('#sendBody').innerHTML = `<p class="hint" style="margin-bottom:12px">Hər tələbənin öz linki var — nəticə avtomatik onun kartına düşür. Linki tələbəyə və ya valideynə göndərin. Link sizdə həmişə qalır: lazım olsa, yenidən buradan götürə bilərsiniz.</p>
+          <div class="links">${r.links.map((l, i) => `<div class="link-row"><div class="nm">${esc(l.name)}<small>${esc([l.phone, l.parentPhone ? 'valideyn: ' + l.parentPhone : ''].filter(Boolean).join(' · ') || 'telefon yazılmayıb')}</small></div>
+            <div class="acts"><button class="btn btn-sm btn-soft" data-copy="${i}">${ic('copy')}Kopyala</button>
+              ${l.phone ? `<a class="btn btn-sm btn-soft" href="${esc(waLink(l.phone, msg(l)))}" target="_blank" rel="noopener">${ic('wa')}Tələbəyə</a>` : ''}
+              ${l.parentPhone ? `<a class="btn btn-sm btn-soft" href="${esc(waLink(l.parentPhone, msg(l)))}" target="_blank" rel="noopener">${ic('wa')}Valideynə</a>` : ''}
+              ${!l.phone && !l.parentPhone ? `<a class="btn btn-sm btn-soft" href="${esc(waLink('', msg(l)))}" target="_blank" rel="noopener">${ic('wa')}WhatsApp</a>` : ''}</div></div>`).join('')}</div>`;
+        el.querySelector('.mfoot').innerHTML = `<button class="btn btn-soft" id="copyAll">${ic('copy')}Hamısını kopyala</button><button class="btn btn-primary" data-close>Hazırdır</button>`;
+        hydrateIcons(el);
+        el.querySelector('#sendBody').addEventListener('click', ev => { const c = ev.target.closest('[data-copy]'); if (c) copyText(msg(r.links[Number(c.dataset.copy)]), 'Mesaj və link kopyalandı.'); });
+        el.querySelector('#copyAll').addEventListener('click', () => copyText(`«${r.exam.title}» imtahanı — şəxsi linklər:\n\n` + r.links.map(l => `${l.name}: ${exLinkUrl(l.token)}`).join('\n'), `${r.links.length} link kopyalandı.`));
+        toast(`${r.links.length} link hazırlandı.`);
+      }));
+      draw();
+    } });
+};
+
+/* ---------- Kömək ---------- */
+const EX_SAMPLE = `1. Azərbaycanın paytaxtı hansı şəhərdir?
+A) Gəncə
++B) Bakı
+C) Şəki
+D) Lənkəran
+
+2. 12 × 3 neçədir? (2 bal)
+A) 32
+B) 36 +
+C) 38
+
+3. «Book» sözünün tərcüməsi hansıdır?
+A) qələm
+B) kitab
+C) dəftər
+Cavab: B
+
+4. Fotosintez nədir? Qısa izah edin. (3 bal)
+Açar sözlər: işıq, karbon qazı, oksigen
+
+5. Özünüz haqqında 3–4 cümlə yazın.`;
+function sampleHtml(){
+  return esc(EX_SAMPLE).replace(/^(\+)/gm, '<mark>+</mark>').replace(/ \+$/gm, ' <mark>+</mark>')
+    .replace(/(\(\d+ bal\))/g, '<mark>$1</mark>').replace(/^(Cavab:|Açar sözlər:)/gm, '<mark>$1</mark>');
+}
+ACT.examHelp = (b) => {
+  const inEditor = S.page === 'examEdit' && S.ui.ex && !S.ui.ex.locked && !ro();
+  openModal({ title: 'İmtahanlar: necə işləyir?', size: 'wide',
+    body: `<div class="help">
+      <div><h4>${ic('sparkle')}Qısaca</h4>
+        <ol class="help-steps">
+          <li><span><b>Yeni imtahan</b> düyməsini basın, adını yazın.</span></li>
+          <li><span>Bütün sualları <b>bir sahəyə yapışdırın</b> — Word, WhatsApp və ya Google Docs-dan. Sağda sualların necə görünəcəyi dərhal görünür.</span></li>
+          <li><span><b>Şərtləri</b> seçin: vaxt, keçid həddi, qadağalar. <b>Yadda saxla</b> basın.</span></li>
+          <li><span><b>Göndər</b> → tələbələri seçin → hər tələbənin şəxsi linkini WhatsApp ilə göndərin.</span></li>
+          <li><span>Test sualları <b>avtomatik</b> yoxlanılır. Açıq suallara siz bal verirsiniz — «Yoxlanılmalı» bölməsində.</span></li>
+        </ol></div>
+      <div><h4>${ic('list')}Sualları necə yazmalı</h4>
+        <pre class="ex-sample">${sampleHtml()}</pre>
+        <div class="help-grid" style="margin-top:12px">
+          <div class="help-card"><b>Sual — nömrə ilə</b>«1.» və ya «1)». Sual bir neçə sətir ola bilər.</div>
+          <div class="help-card"><b>Variantlar — hərflə</b>A) B) C) … (kiril А) Б) В) də olar) və ya «-» ilə. Ən çox 8 variant.</div>
+          <div class="help-card"><b>Düzgün cavab — «+»</b>Variantın əvvəlinə («+B)») və ya sonuna («Bakı +») qoyun. Və ya sualın altında «Cavab: B» yazın. Hər testdə yalnız <b>bir</b> düzgün cavab olur.</div>
+          <div class="help-card"><b>Açıq sual — variantsız</b>Variantı olmayan sual açıq sual sayılır: tələbə cavabı özü yazır, siz bal verirsiniz.</div>
+          <div class="help-card"><b>Bal</b>Sualın sonunda «(2 bal)» yazın. Yazılmayıbsa, «Şərtlər»dəki standart bal götürülür.</div>
+          <div class="help-card"><b>Açar sözlər, nümunə cavab</b>Açıq sual üçün «Açar sözlər: …» və «Cavab: …» yalnız sizə görünür — yoxlayanda cavabda vurğulanır.</div>
+        </div>
+        <p class="hint" style="margin-top:10px">Rus dilində də yazmaq olar: «Ответ: Б», «Ключевые слова: …». Səhv olan sual sağda qırmızı yox, <b>qırıq xətlə</b> göstərilir və səbəbi yazılır — düzəldənə qədər yadda saxlamaq olmur.</p></div>
+      <div><h4>${ic('shield')}Qadağalar və pozuntular</h4>
+        <ul>
+          <li>Qadağalar açıq olanda imtahan səhifəsində <b>kopyalama, yapışdırma və sağ klik</b> bağlanır, kompüterdə tam ekran açılır.</li>
+          <li>Tələbə <b>başqa tətbiqə və ya taba keçəndə</b> ekran bulanır və bu, pozuntu sayılır. Səhifəni yeniləmək də pozuntudur.</li>
+          <li>3 xəbərdarlıq verilir. «3 xəbərdarlıqdan sonra dayandır» açıqdırsa, <b>4-cü pozuntuda</b> imtahan bitir, nəticə 0 olur. Tələbə və valideyn səbəbi görür.</li>
+          <li>Səhvən dayandırılıbsa, nəticəni açıb <b>«Bərpa et»</b> basın — o ana qədərki cavablar sayılacaq. Özünüz də istənilən nəticəni səbəb yazaraq ləğv edə bilərsiniz.</li>
+        </ul>
+        <div class="help-note" style="margin-top:10px">${ic('info')}<span>Dürüst qeyd: veb səhifə telefonun <b>ekran şəklini (screenshot) tam bloklaya bilməz</b> və başqa cihazdan baxmağın qarşısını ala bilməz. Sinifdə imtahan sizin nəzarətinizlə keçirilsə, ən etibarlı nəticə olur.</span></div></div>
+      <div><h4>${ic('lock')}Redaktə qaydası</h4>
+        <ul>
+          <li>Heç kim başlamayıbsa — <b>hər şeyi</b> dəyişmək olar.</li>
+          <li>İlk tələbə başlayan kimi <b>suallar, ballar və keçid həddi kilidlənir</b> ki, nəticələr ədalətli qalsın. Vaxt, qadağalar və digər şərtlər dəyişə bilər.</li>
+          <li>Yeni suallar lazımdırsa — <b>«Surət çıxar»</b>: eyni imtahanın redaktə oluna bilən kopyası yaranır.</li>
+          <li>Cəhd sayı məhdud deyil: tələbə linki yenidən açıb təkrar yaza bilər. Hər cəhd ayrıca saxlanılır, kartda <b>orta faiz</b> göstərilir.</li>
+        </ul></div>
+      <div><h4>${ic('chart')}Nəticələr</h4>
+        <ul>
+          <li>Tələbə bitirən kimi nəticəsini görür. «Nəticədə cavabları göstər» açıqdırsa, hansı cavabın düzgün olduğunu da görür.</li>
+          <li>Hər nəticənin <b>öz linki</b> var — valideynə göndərmək olar. Bütün nəticələr tələbənin kartında və valideyn linkində də görünür.</li>
+          <li>«Statistika» hər sual üzrə neçə faizin düz cavab verdiyini göstərir — ən çətin mövzunu tapmaq asandır.</li>
+          <li>Nəticələr silinmir, həmişəlik saxlanılır.</li>
+        </ul></div>
+    </div>`,
+    foot: `${inEditor ? `<button class="btn btn-soft" data-help="paste">${ic('clip')}Nümunəni sahəyə yapışdır</button>` : ''}<button class="btn btn-primary" data-close>Anladım</button>`,
+    onMount: (el, close) => {
+      const p = el.querySelector('[data-help=paste]');
+      if (p) p.addEventListener('click', () => { close(); exInsertSample(); });
+    } });
+};
+
+/* ---------- Redaktor ---------- */
+const EX_DEF_SET = { timeMin: 30, pts: 1, passMin: 50, strict: true, endOnViolations: true, shuffle: false, showAnswers: true };
+RENDER.examEdit = () => {
+  const x = S.ui.ex;
+  if (!x || x.key !== S.param) return `<button class="back" data-go="exams">${ic('back')}İmtahanlar</button><div id="exEd">${loadingBox()}</div>`;
+  return `<button class="back" data-go="exams">${ic('back')}İmtahanlar</button><div id="exEd">${exEditorHtml()}</div>`;
+};
+AFTER.examEdit = async (root) => {
+  const key = S.param || 'new';
+  if (S.ui.ex && S.ui.ex.key === key){ bindExEditor(root); return; }
+  if (key === 'new'){
+    if (!S.d.flags.examsCreate){ go('exams', null, true); return; }
+    S.ui.ex = { key, id: '', title: '', subject: me().subject || '', teacherId: me().id, source: '', settings: Object.assign({}, EX_DEF_SET),
+      locked: false, attempts: 0, canManage: true, teachers: [], dirty: false };
+    const box = $('#exEd'); if (box){ box.innerHTML = exEditorHtml(); hydrateIcons(box); bindExEditor(root); }
+    return;
+  }
+  try {
+    const r = await api('getExam', { id: key }, { noRender: true });
+    if (S.page !== 'examEdit' || S.param !== key) return;
+    const e = r.exam;
+    S.ui.ex = { key, id: e.id, title: e.title, subject: e.subject, teacherId: e.teacherId, teacherName: e.teacherName,
+      source: e.source || qsToText(e.questions), settings: Object.assign({}, EX_DEF_SET, e.settings), status: e.status,
+      locked: e.locked, attempts: e.attempts, canManage: e.canManage && !ro(), teachers: r.teachers || [], dirty: false, origQs: e.questions };
+    const box = $('#exEd'); if (box){ box.innerHTML = exEditorHtml(); hydrateIcons(box); bindExEditor(root); }
+  } catch (e) {
+    if (['AUTH', 'MAINT', 'PWCHANGE'].includes(e.code)) return;
+    const box = $('#exEd'); if (box) box.innerHTML = emptyBox('İmtahan açılmadı', esc(e.message), `<button class="btn btn-primary" data-go="exams">${ic('back')}Siyahıya qayıt</button>`);
+  }
+};
+function exSetRow(key, title, sub, control, cls){
+  return `<div class="exset-row ${cls || ''}" data-row="${key}"><div class="lbl2"><b>${title}</b>${sub ? `<small>${sub}</small>` : ''}</div>${control}</div>`;
+}
+function exStepper(key, val, min, max, step, unit, disabled){
+  return `<div class="row" style="gap:6px;flex-wrap:nowrap"><div class="stepper"><button type="button" class="ibtn sm" data-xs="${key}" data-d="-${step}" aria-label="Azalt" ${disabled ? 'disabled' : ''}>−</button>
+    <input class="input" type="number" inputmode="decimal" id="xs-${key}" min="${min}" max="${max}" step="${step}" value="${val}" ${disabled ? 'disabled' : ''}>
+    <button type="button" class="ibtn sm" data-xs="${key}" data-d="${step}" aria-label="Artır" ${disabled ? 'disabled' : ''}>${ic('plus')}</button></div><span class="unit">${unit}</span></div>`;
+}
+function exSwitch(key, on, disabled){
+  return `<label class="sw"><input type="checkbox" id="xs-${key}" ${on ? 'checked' : ''} ${disabled ? 'disabled' : ''}><i></i></label>`;
+}
+function exEditorHtml(){
+  const x = S.ui.ex, st = x.settings, lockQ = x.locked || !x.canManage, ro2 = !x.canManage;
+  const isNew = !x.id;
+  return `<div class="page-head"><div><h2>${isNew ? 'Yeni imtahan' : (ro2 ? 'İmtahan' : 'İmtahanı redaktə et')}</h2>
+      <p>${isNew ? 'Sualları aşağıdakı sahəyə yapışdırın — sağda testin necə görünəcəyini dərhal görəcəksiniz.' : `${x.attempts ? x.attempts + ' cəhd' : 'Hələ heç kim başlamayıb'}${x.teacherName ? ' · Müəllim: ' + esc(x.teacherName) : ''}`}</p></div>
+      <div class="ex-head-acts"><button class="btn btn-soft" data-act="examHelp">${ic('help')}Necə yazmalı?</button></div></div>
+    <div class="exed">
+      <div class="exed-col">
+        ${x.locked ? `<div class="lockbar">${ic('lock')}<div><b>Suallar kilidlidir.</b> Bu imtahana artıq ${x.attempts} cəhd var — nəticələr ədalətli qalsın deyə suallar, ballar və keçid həddi dəyişmir. Vaxt və digər şərtləri dəyişə bilərsiniz.
+          ${S.d.flags.examsCreate && !ro() ? `<br><button class="btn btn-sm btn-soft" data-act="exCopy" data-id="${x.id}">${ic('copy')}Surət çıxar və yeni suallar yaz</button>` : ''}</div></div>` : ''}
+        <div class="exbox"><div class="stack">
+          <label class="field"><span>İmtahanın adı</span><input class="input" id="exTitle" maxlength="120" placeholder="məsələn: Riyaziyyat — 1-ci yarımil" value="${esc(x.title)}" ${ro2 ? 'disabled' : ''}></label>
+          ${x.teachers && x.teachers.length && !ro2 ? `<div class="grid2">` : ''}
+            <label class="field"><span>Fənn</span><input class="input" id="exSubject" maxlength="60" placeholder="İstəyə bağlı" value="${esc(x.subject)}" ${ro2 ? 'disabled' : ''}></label>
+            ${x.teachers && x.teachers.length && !ro2 ? `<label class="field"><span>Müəllim</span><select class="select" id="exTeacher">${x.teachers.map(t => `<option value="${t.id}" ${t.id === x.teacherId ? 'selected' : ''}>${esc(t.name)}</option>`).join('')}</select></label></div>` : ''}
+          </div></div>
+        <div class="exbox">
+          <div class="paste-head"><h3>${ic('list')}Suallar</h3>
+            ${!lockQ ? `<button class="btn btn-sm btn-soft" data-act="exPasteClip" title="Buferdəki mətni yapışdır">${ic('clip')}Yapışdır</button><button class="btn btn-sm btn-ghost" data-act="exSample">${ic('sparkle')}Nümunə</button>` : ''}</div>
+          <textarea class="textarea paste" id="exText" spellcheck="false" ${lockQ ? 'readonly' : ''} placeholder="${esc('1. Sualın mətni?\nA) birinci variant\n+B) düzgün variant\nC) üçüncü variant\n\n2. Açıq sual (variantsız) — tələbə cavabı özü yazır.')}">${esc(x.source)}</textarea>
+          <div class="paste-foot"><span>«+» — düzgün cavab · variantsız sual — açıq sual · «(2 bal)» — sualın balı</span><span id="exChars"></span></div>
+        </div>
+        <div class="exbox"><h3>${ic('settings')}Şərtlər</h3><div class="exset">
+          ${exSetRow('timeMin', 'Vaxt', '0 yazsanız, vaxt məhdudiyyəti olmur.', exStepper('timeMin', st.timeMin, 0, 300, 5, 'dəq', ro2))}
+          ${exSetRow('pts', 'Hər sual üçün bal', 'Balı yazılmayan suallara verilir.', exStepper('pts', st.pts, 0.5, 100, 1, 'bal', lockQ), lockQ ? 'locked' : '')}
+          ${exSetRow('passMin', 'Keçid həddi', `<span id="xsPassHint"></span>`, exStepper('passMin', st.passMin, 0, 100, 5, '%', lockQ), lockQ ? 'locked' : '')}
+          ${exSetRow('strict', 'Qadağalar', 'Kopyalama, yapışdırma, sağ klik bağlanır. Başqa tətbiqə keçmək pozuntu sayılır.', exSwitch('strict', st.strict, ro2))}
+          ${exSetRow('endOnViolations', '3 xəbərdarlıqdan sonra dayandır', '4-cü pozuntuda imtahan bitir və nəticə 0 olur. Sonra bərpa etmək olar.', exSwitch('endOnViolations', st.endOnViolations, ro2), st.strict ? '' : 'off')}
+          ${exSetRow('shuffle', 'Sualları qarışdır', 'Hər tələbədə sualların və variantların sırası fərqli olur.', exSwitch('shuffle', st.shuffle, ro2))}
+          ${exSetRow('showAnswers', 'Nəticədə cavabları göstər', 'Bitirəndən sonra tələbə hansı cavabın düzgün olduğunu görür.', exSwitch('showAnswers', st.showAnswers, ro2))}
+        </div></div>
+      </div>
+      <aside class="exprev" aria-label="Önizləmə"><div class="exprev-head"><h3>${ic('eye')}Önizləmə</h3><div class="pv-sum" id="pvSum"></div></div><div class="exprev-body" id="pvBody"></div></aside>
+    </div>
+    ${ro2 ? '' : `<div class="savebar"><div class="msg" id="exMsg"></div>
+      <button class="btn btn-soft" data-act="exPreviewStudent">${ic('eyeview')}Tələbə kimi bax</button>
+      <button class="btn btn-primary" data-act="exSave">${ic('check')}Yadda saxla</button></div>`}`;
+}
+function exParse(){
+  const x = S.ui.ex;
+  if (x.locked && x.origQs) return { items: x.origQs.map((q, i) => ({ n: i + 1, line: 0, type: q.type, text: q.text, pts: q.pts, options: q.options || [], correct: q.correct, kw: q.kw || [], model: q.ans || '', errs: [], warns: [] })), errors: [], warnings: [] };
+  return parseExamText(x.source, x.settings.pts);
+}
+function bindExEditor(root){
+  const x = S.ui.ex; if (!x) return;
+  const ta = $('#exText'), title = $('#exTitle'), subj = $('#exSubject'), tsel = $('#exTeacher');
+  const mark = () => { x.dirty = true; };
+  if (title) title.addEventListener('input', e => { x.title = e.target.value; mark(); exMsg(); });
+  if (subj) subj.addEventListener('input', e => { x.subject = e.target.value; mark(); });
+  if (tsel) tsel.addEventListener('change', e => { x.teacherId = e.target.value; mark(); });
+  const upd = debounce(() => drawExPreview(), 140);
+  if (ta && !ta.readOnly) ta.addEventListener('input', e => { x.source = e.target.value; mark(); upd(); });
+  const clamp = (k, v) => {
+    const lim = { timeMin: [0, 300], pts: [0.5, 100], passMin: [0, 100] }[k];
+    v = Number(String(v).replace(',', '.'));
+    if (isNaN(v)) v = EX_DEF_SET[k];
+    v = Math.max(lim[0], Math.min(lim[1], v));
+    return k === 'pts' ? Math.round(v * 2) / 2 : Math.round(v);
+  };
+  ['timeMin', 'pts', 'passMin'].forEach(k => {
+    const inp = $('#xs-' + k); if (!inp) return;
+    inp.addEventListener('input', () => { if (inp.value === '') return; x.settings[k] = clamp(k, inp.value); mark(); if (k !== 'timeMin') upd(); exPassHint(); });
+    inp.addEventListener('blur', () => { inp.value = x.settings[k]; });
+  });
+  $$('[data-xs]', root).forEach(b => b.addEventListener('click', () => {
+    const k = b.dataset.xs, inp = $('#xs-' + k);
+    x.settings[k] = clamp(k, (Number(inp.value) || 0) + Number(b.dataset.d)); inp.value = x.settings[k]; mark();
+    if (k !== 'timeMin') upd(); exPassHint();
+  }));
+  ['strict', 'endOnViolations', 'shuffle', 'showAnswers'].forEach(k => {
+    const inp = $('#xs-' + k); if (!inp) return;
+    inp.addEventListener('change', () => {
+      x.settings[k] = inp.checked; mark();
+      if (k === 'strict') $('[data-row=endOnViolations]').classList.toggle('off', !inp.checked);
+    });
+  });
+  drawExPreview();
+}
+function exPassHint(){
+  const el = $('#xsPassHint'); if (!el || !S.ui.ex) return;
+  const p = S.ui.ex.lastParse; const max = p ? p.items.reduce((s, q) => s + (Number(q.pts) || 0), 0) : 0;
+  const need = Math.round(max * S.ui.ex.settings.passMin) / 100;
+  el.textContent = S.ui.ex.settings.passMin ? `Keçmək üçün ən azı ${fmtPts(need)} / ${fmtPts(max)} bal.` : 'Keçid həddi yoxdur — yalnız bal göstərilir.';
+}
+function drawExPreview(){
+  const x = S.ui.ex, body = $('#pvBody'), sum = $('#pvSum'); if (!body || !x) return;
+  const p = exParse(); x.lastParse = p;
+  const chars = $('#exChars'); if (chars) chars.textContent = x.source.length ? `${x.source.length.toLocaleString('az')} simvol` : '';
+  const tests = p.items.filter(q => q.type === 'test').length, opens = p.items.length - tests;
+  const max = p.items.reduce((s, q) => s + (Number(q.pts) || 0), 0);
+  sum.innerHTML = p.items.length ? `<span class="pv-chip">${ic('list')}${p.items.length} sual</span>${tests ? `<span class="pv-chip">${tests} test</span>` : ''}${opens ? `<span class="pv-chip">${opens} açıq</span>` : ''}
+      <span class="pv-chip">${ic('star')}${fmtPts(max)} bal</span>
+      ${p.errors.length ? `<span class="pv-chip bad">${ic('alert')}${p.errors.length} səhv</span>` : `<span class="pv-chip">${ic('check')}Səhv yoxdur</span>`}
+      ${p.warnings.length ? `<span class="pv-chip warn">${p.warnings.length} qeyd</span>` : ''}` : '';
+  body.innerHTML = p.items.length ? p.items.map(q => {
+    const bad = q.errs.length > 0;
+    return `<div class="pv-q${bad ? ' bad' : ''}"><div class="pv-qh"><span class="pv-n">${q.n}</span><div class="pv-t">${esc(q.text) || '<span class="faint">(mətn yoxdur)</span>'}</div></div>
+      <div class="pv-meta"><span class="tag${q.type === 'test' ? '' : ' line'}">${q.type === 'test' ? 'Test' : 'Açıq sual'}</span><span class="tag line">${fmtPts(q.pts)} bal</span></div>
+      ${q.type === 'test' ? `<div class="pv-opts">${q.options.map((o, j) => { const ok = Array.isArray(q.correct) ? q.correct.includes(j) : q.correct === j;
+          return `<div class="pv-opt${ok ? ' ok' : ''}"><span class="l">${exLetter(j)}</span><span>${esc(o) || '<i>(boş)</i>'}</span>${ok ? ic('check') : ''}</div>`; }).join('')}</div>`
+        : `<div class="pv-open"><span>${ic('edit')} Tələbə üçün cavab sahəsi</span>${q.kw.length ? `<span>Açar sözlər: <b>${q.kw.map(esc).join(', ')}</b></span>` : ''}${q.model ? `<span>Nümunə cavab: <b>${esc(q.model)}</b></span>` : ''}</div>`}
+      ${q.errs.length || q.warns.length ? `<div class="pv-msgs">${q.errs.map(t => `<div class="pv-err">${ic('alert')}<span>${esc(t)}${q.line ? `<button class="pv-goto" data-line="${q.line}">sətir ${q.line}</button>` : ''}</span></div>`).join('')}
+        ${q.warns.map(t => `<div class="pv-warn">${ic('info')}<span>${esc(t)}</span></div>`).join('')}</div>` : ''}
+    </div>`;
+  }).join('') + p.warnings.filter(w => !w.n).map(w => `<div class="pv-warn">${ic('info')}<span>${esc(w.text)}</span></div>`).join('') + p.errors.filter(w => !w.n).map(w => `<div class="pv-err">${ic('alert')}<span>${esc(w.text)}</span></div>`).join('')
+    : `<div class="pv-empty">${ic('clip')}<b>Suallar burada görünəcək</b><span>Sualları soldakı sahəyə yapışdırın. Necə yazmağı bilmirsinizsə, «Nümunə» düyməsini basın.</span></div>`;
+  hydrateIcons(sum); hydrateIcons(body);
+  exPassHint(); exMsg();
+}
+function exMsg(){
+  const el = $('#exMsg'), x = S.ui.ex; if (!el || !x) return;
+  const p = x.lastParse || { items: [], errors: [] };
+  let t, icn = 'info';
+  if (!x.title.trim()) t = 'İmtahanın adını yazın.';
+  else if (!p.items.length) t = 'Sualları yapışdırın.';
+  else if (p.errors.length && !x.locked){ t = `${p.errors.length} səhv var — sağdakı önizləmədə qırıq xətli sualları düzəldin.`; icn = 'alert'; }
+  else { t = `Hazırdır: ${p.items.length} sual. ${x.dirty ? 'Dəyişikliklər hələ yadda saxlanmayıb.' : ''}`; icn = 'checkcircle'; }
+  el.innerHTML = ic(icn) + `<span>${esc(t)}</span>`;
+}
+document.addEventListener('click', e => {
+  const g = e.target.closest('.pv-goto'); if (!g) return;
+  const ta = $('#exText'); if (!ta) return;
+  const ln = Number(g.dataset.line), lines = ta.value.split('\n');
+  let start = 0; for (let i = 0; i < ln - 1 && i < lines.length; i++) start += lines[i].length + 1;
+  const end = start + (lines[ln - 1] || '').length;
+  ta.focus(); ta.setSelectionRange(start, end);
+  const lh = parseFloat(getComputedStyle(ta).lineHeight) || 22; ta.scrollTop = Math.max(0, (ln - 3) * lh);
+  ta.scrollIntoView({ block: 'center', behavior: 'smooth' });
+});
+function exSetSource(text){
+  const x = S.ui.ex, ta = $('#exText'); if (!x || !ta || ta.readOnly) return;
+  x.source = text; ta.value = text; x.dirty = true; drawExPreview();
+}
+function exInsertSample(){
+  const x = S.ui.ex; if (!x) return;
+  if (x.source.trim()) return confirmBox({ title: 'Nümunəni yapışdır', text: 'Sahədəki mətn nümunə ilə əvəz olunsun?', ok: 'Əvəz et' }).then(ok => ok && exSetSource(EX_SAMPLE));
+  exSetSource(EX_SAMPLE);
+}
+ACT.exSample = () => exInsertSample();
+ACT.exPasteClip = async () => {
+  try {
+    const t = await navigator.clipboard.readText();
+    if (!t.trim()) return toast('Buferdə mətn yoxdur.', 'info');
+    const x = S.ui.ex;
+    exSetSource(x.source.trim() ? x.source.replace(/\s*$/, '') + '\n\n' + t : t);
+    toast('Mətn yapışdırıldı.');
+  } catch (e) { toast('Brauzer buferə icazə vermədi. Sahəyə klikləyib Ctrl+V (telefonda «Yapışdır») edin.', 'info'); $('#exText') && $('#exText').focus(); }
+};
+ACT.exSave = (b) => {
+  const x = S.ui.ex; if (!x) return;
+  const p = x.lastParse || exParse();
+  if (x.title.trim().length < 2) { toast('İmtahanın adını yazın.', 'err'); $('#exTitle').focus(); return; }
+  if (!x.locked){
+    if (!p.items.length) { toast('Heç olmasa bir sual yazın.', 'err'); $('#exText').focus(); return; }
+    if (p.errors.length) { toast(`${p.errors.length} səhv var. Önizləmədə qırıq xətli sualları düzəldin.`, 'err'); const f = $('.pv-q.bad'); if (f) f.scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+  }
+  const payload = { id: x.id, title: x.title.trim(), subject: x.subject.trim(), teacherId: x.teacherId, settings: x.settings };
+  if (!x.locked){ payload.questions = examPayloadQs(p.items); payload.source = x.source; }
+  run(b, async () => {
+    const r = await api('saveExam', payload, { noRender: true });
+    const isNew = !x.id;
+    x.dirty = false;
+    S.ui.ex = null; S.ui.exTab = 'list';
+    go('exams');
+    if (isNew){
+      openModal({ title: 'İmtahan hazırdır', size: 'sm',
+        body: `<p class="confirm-text"><b>${esc(payload.title)}</b> yadda saxlanıldı: ${p.items.length} sual. İndi tələbələrə göndərək?</p>`,
+        foot: `<button class="btn btn-ghost" data-close>Sonra</button><button class="btn btn-primary" data-send="${r.id}">${ic('send')}Göndər</button>`,
+        onMount: (el, close) => el.querySelector('[data-send]').addEventListener('click', () => { close(); setTimeout(() => ACT.exSend({ dataset: { id: r.id, title: payload.title } }), 220); }) });
+    } else toast(r.unchanged ? 'Dəyişiklik yox idi.' : 'İmtahan yeniləndi.');
+  });
+};
+ACT.exPreviewStudent = () => {
+  const x = S.ui.ex; if (!x) return;
+  const p = x.lastParse || exParse();
+  if (!p.items.length) return toast('Əvvəlcə sualları yazın.', 'info');
+  const st = x.settings, max = p.items.reduce((s, q) => s + (Number(q.pts) || 0), 0);
+  const chosen = {};
+  openModal({ title: 'Tələbə kimi önizləmə', size: 'wide', sub: 'Cavablar yadda saxlanmır — sadəcə görünüşü yoxlayın.',
+    body: `<div class="xfacts" style="margin-top:0">${[[p.items.length, 'sual'], [fmtPts(max), 'bal'], [st.timeMin ? st.timeMin + ' dəq' : '∞', 'vaxt'], [st.passMin + '%', 'keçid həddi']].map(([b, s]) => `<div class="xfact"><b>${b}</b><span>${s}</span></div>`).join('')}</div>
+      <div class="stack" style="margin-top:16px" id="pvStu">${p.items.map(q => `<div class="xq" style="animation:none"><div class="xq-top"><span class="xq-no">Sual <b>${q.n}</b> / ${p.items.length}</span><span class="tag line">${fmtPts(q.pts)} bal</span></div>
+        <div class="xq-t">${esc(q.text)}</div>
+        ${q.type === 'test' ? `<div class="xopts">${q.options.map((o, j) => `<button type="button" class="xopt" data-pq="${q.n}" data-o="${j}"><span class="l">${exLetter(j)}</span><span class="tx">${esc(o)}</span></button>`).join('')}</div>`
+          : `<div class="xopen"><textarea class="textarea" placeholder="Cavabınızı bura yazın…"></textarea></div>`}</div>`).join('')}</div>`,
+    foot: `<button class="btn btn-primary" data-close>Bağla</button>`,
+    onMount: (el) => el.querySelector('#pvStu').addEventListener('click', e => {
+      const b = e.target.closest('[data-pq]'); if (!b) return;
+      chosen[b.dataset.pq] = b.dataset.o;
+      $$(`[data-pq="${b.dataset.pq}"]`, el).forEach(o => o.classList.toggle('on', o === b));
+    }) });
+};
+window.addEventListener('beforeunload', e => {
+  if (S.page === 'examEdit' && S.ui && S.ui.ex && S.ui.ex.dirty && !$('#shell').hidden){ e.preventDefault(); e.returnValue = ''; }
+});
+
+/* ---------- Tələbə kartında imtahanlar ---------- */
+function cardExamsHtml(k, isPublic){
+  const ex = k.exams; if (!ex || !ex.count) return '';
+  const rows = ex.list.map(x => {
+    const score = x.status === 'progress' ? 'davam edir' : x.status === 'pending' ? `${fmtPts(x.score)} / ${fmtPts(x.maxScore)} · yoxlanılır` : `${fmtPts(x.status === 'annulled' ? 0 : x.score)} / ${fmtPts(x.maxScore)} bal`;
+    const inner = `<span class="tx"><b>${esc(x.title)}</b><small>${fmtDate(x.startedAt)}${x.subject ? ' · ' + esc(x.subject) : ''} · ${score}</small></span>
+      ${x.status === 'annulled' ? stTag('debt', 'Ləğv') : x.status === 'pending' ? stTag('wait', 'Yoxlanılır') : ''}${pctTag(x.percent, x.status)}`;
+    if (isPublic) return `<a class="cex-row" href="#/r/${x.rt}">${inner}</a>`;
+    if (x.status === 'progress') return `<div class="cex-row" style="cursor:default">${inner}</div>`;
+    return `<button class="cex-row" data-act="openAttempt" data-rt="${x.rt}" data-public="1" data-teacher="${esc(x.teacherId || '')}">${inner}</button>`;
+  }).join('');
+  const head = `<div class="cex-top">${ringSvg(ex.avg, 'orta')}<div><b style="font-size:16px;font-weight:600">${ex.avg == null ? 'Hələ yekun nəticə yoxdur' : `Orta nəticə: ${ex.avg}%`}</b>
+    <p class="hint">${ex.count} cəhd. Ortalama bütün yoxlanılmış cəhdlərdən hesablanır; ləğv olunmuş cəhd 0% sayılır.</p></div></div>`;
+  if (isPublic) return `<div class="pub-card"><h3>İmtahanlar</h3>${head}<div class="cex-list">${rows}</div></div>`;
+  return `<div class="section"><div class="section-head"><h3>İmtahanlar<span class="count">${ex.count}</span></h3></div>${head}<div class="cex-list">${rows}</div></div>`;
+}
+
+/* ===================== İLK GİRİŞ: ŞİFRƏNİ DƏYİŞ ===================== */
+let pwGateOld = null;
+function pwStrength(p){
+  let n = 0;
+  if (p.length >= 6) n++;
+  if (p.length >= 9) n++;
+  if (/\d/.test(p) && /[^\d]/.test(p)) n++;
+  if (/[A-ZƏÖÜÇŞĞİ]/.test(p) && /[a-zəöüçşğı]/.test(p) || /[^A-Za-z0-9əöüçşğıƏÖÜÇŞĞİ]/.test(p)) n++;
+  return Math.min(4, n);
+}
+function showPwGate(meInfo, oldPw){
+  if (oldPw !== undefined) pwGateOld = oldPw;
+  closeAllModals(); stopMaintPoll(); hideInstallHint();
+  $('#login').hidden = true; $('#shell').hidden = true; $('#maint').hidden = true; $('#public').hidden = true; $('#boot').hidden = true;
+  let g = $('#pwgate');
+  if (!g){ g = document.createElement('div'); g.id = 'pwgate'; g.className = 'pwgate'; document.body.insertBefore(g, $('#modalRoot')); }
+  g.hidden = false;
+  const full = String(meInfo && meInfo.name || '').trim(), first = full.split(/\s+/)[0];
+  g.innerHTML = `<div class="pwg">
+    <div class="pwg-mark">${ic('key')}</div>
+    <div class="pwg-steps" aria-hidden="true"><i class="on"></i><i></i></div>
+    <h1>Xoş gəldiniz${first ? ', ' + esc(first) : ''}!</h1>
+    <p class="lead">Bu, sistemə ilk girişinizdir. Təhlükəsizlik üçün özünüzə yeni şifrə təyin edin — bundan sonra onu yalnız siz biləcəksiniz.</p>
+    <form class="stack" id="pwgForm" novalidate>
+      ${pwGateOld == null ? `<label class="field"><span>Hazırkı şifrə</span><span class="input-wrap"><input class="input has-trail" type="password" id="pwgOld" autocomplete="current-password"><button type="button" class="ibtn sm" data-act="togglePass" data-target="pwgOld" aria-label="Şifrəni göstər">${ic('eye')}</button></span></label>` : ''}
+      <label class="field"><span>Yeni şifrə</span><span class="input-wrap"><input class="input has-trail" type="password" id="pwgNew" autocomplete="new-password" maxlength="50"><button type="button" class="ibtn sm" data-act="togglePass" data-target="pwgNew" aria-label="Şifrəni göstər">${ic('eye')}</button></span></label>
+      <div class="pw-meter" id="pwgMeter" aria-live="polite"><div class="bars2"><i></i><i></i><i></i><i></i></div><span>Şifrəni yazın</span></div>
+      <label class="field"><span>Yeni şifrə təkrar</span><input class="input" type="password" id="pwgRep" autocomplete="new-password" maxlength="50"></label>
+      <div id="pwgErr" class="login-error" hidden></div>
+      <button class="btn btn-primary btn-lg btn-block" type="submit">${ic('check')}Şifrəni təyin et və daxil ol</button>
+    </form>
+    <div class="pwg-foot"><span class="hint">Ən azı 4 simvol, boşluqsuz. Köhnə şifrədən fərqli olmalıdır.</span><button class="linkish" type="button" data-act="pwgLogout">Çıxış</button></div>
+  </div>`;
+  hydrateIcons(g);
+  setTheme(S.theme, false);
+  const f = $('#pwgForm', g), nw = $('#pwgNew', g), rp = $('#pwgRep', g), err = $('#pwgErr', g), meter = $('#pwgMeter', g);
+  const fail = (m) => { err.innerHTML = ic('alert') + `<span>${esc(m)}</span>`; err.hidden = false; hydrateIcons(err); f.classList.remove('shake'); void f.offsetWidth; f.classList.add('shake'); };
+  nw.addEventListener('input', () => {
+    const v = nw.value, n = v ? Math.max(1, pwStrength(v)) : 0;
+    $$('.bars2 i', meter).forEach((b, i) => b.classList.toggle('on', i < n));
+    meter.querySelector('span').textContent = !v ? 'Şifrəni yazın' : v.length < 4 ? 'Çox qısadır' : ['Zəif', 'Zəif', 'Orta', 'Yaxşı', 'Güclü'][n];
+  });
+  setTimeout(() => (($('#pwgOld', g)) || nw).focus(), 80);
+  f.addEventListener('submit', e => {
+    e.preventDefault(); err.hidden = true;
+    const oldP = pwGateOld != null ? pwGateOld : $('#pwgOld', g).value;
+    const np = nw.value;
+    if (!oldP) return fail('Hazırkı şifrəni daxil edin.');
+    if (np.length < 4 || /\s/.test(np)) return fail('Yeni şifrə ən azı 4 simvoldan ibarət olmalı və boşluqsuz yazılmalıdır.');
+    if (np === oldP) return fail('Yeni şifrə köhnə şifrədən fərqli olmalıdır.');
+    if (np !== rp.value) return fail('Şifrələr üst-üstə düşmür.');
+    run(f.querySelector('[type=submit]'), async () => {
+      try {
+        const res = await api('changePassword', { oldPassword: oldP, newPassword: np }, { noRender: true });
+        pwGateOld = null; g.hidden = true; g.innerHTML = '';
+        if (res.maintenance && !res.data){ S.maint = res.maintenance; showMaintenance({ maintenance: res.maintenance, me: meInfo }); return; }
+        enterApp();
+        toast('Şifrəniz təyin edildi. Uğurlu iş!', 'ok');
+      } catch (ex) { if (ex.code !== 'AUTH') fail(ex.message); }
+    });
+  });
+}
+ACT.pwgLogout = async () => {
+  try { await api('logout', {}, { noRender: true, silent: true }); } catch (e) {}
+  pwGateOld = null;
+  const g = $('#pwgate'); if (g){ g.hidden = true; g.innerHTML = ''; }
+  S.token = null; S.d = null; S.permsSig = '';
+  showLogin();
+};
+
+/* ===================== TOPLU İDXAL (developer) ===================== */
+const IMP_SAMPLE = `# Müəllimlər: ad soyad | fənn | telefon (istəyə bağlı)
+MÜƏLLİM: Rena Əliyeva | Riyaziyyat | 050 000 00 01
+MÜƏLLİM: Ruslan Quliyev | Kimya
+MÜƏLLİM: Orxan Cəfərov | Tarix
+
+# Qrup: ad | müəllim | ayda neçə dərs (8 və ya 12) | başlama tarixi (istəyə bağlı)
+QRUP: Riyaziyyat 5A | Rena Əliyeva | 8 | 01.11.2026
+Əli Məmmədov | 050 000 00 02 | Səbinə Məmmədova | 055 000 00 03
+Leyla Quliyeva
+Kamal Nəsirov
+
+# Fərdi: hər sətir ayrıca fərdi məşğələdir
+FƏRDİ: Ruslan Quliyev | 12
+Leyla Quliyeva
+Nicat Babayev | 070 000 00 04`;
+function importHtml(){
+  return `<div class="imp">
+    <textarea class="textarea paste" id="impText" spellcheck="false" placeholder="${esc('MÜƏLLİM: Rena Əliyeva | Riyaziyyat\nQRUP: Riyaziyyat 5A | Rena Əliyeva | 8\nƏli Məmmədov | 050 000 00 00\n…')}">${esc(S.ui.impText || '')}</textarea>
+    <div class="row"><button class="btn btn-soft" data-act="impSample">${ic('sparkle')}Nümunə</button><button class="btn btn-ghost" data-act="impHelp">${ic('help')}Format</button>
+      <span style="flex:1"></span><button class="btn btn-primary" data-act="impPreview">${ic('eye')}Yoxla</button></div>
+    <div id="impOut"></div></div>`;
+}
+function bindImport(root){
+  const ta = $('#impText', root); if (!ta) return;
+  ta.addEventListener('input', e => { S.ui.impText = e.target.value; if (S.ui.impPrev){ S.ui.impPrev = null; S.ui.impStale = true; drawImport(); } });
+  drawImport();
+}
+function drawImport(){
+  const box = $('#impOut'); if (!box) return;
+  const p = S.ui.impPrev, res = S.ui.impRes;
+  if (res){
+    const site = location.origin + location.pathname;
+    box.innerHTML = `<div class="imp-res"><div class="row" style="gap:10px">${ic('checkcircle')}<b style="font-size:16px">İdxal tamamlandı: ${res.teachers} müəllim, ${res.students} tələbə, ${res.courses} məşğələ${res.merged ? `, ${res.merged} qrupa tələbə əlavə olundu` : ''}.</b></div>
+      ${res.logins.length ? `<table class="ledger"><thead><tr><th>Müəllim</th><th>Fənn</th><th>Login</th><th>Şifrə</th></tr></thead><tbody>${res.logins.map(l => `<tr>
+        <td data-label="Müəllim"><b style="font-weight:600">${esc(l.name)}</b></td><td data-label="Fənn">${esc(l.subject)}</td><td data-label="Login"><code>${esc(l.login)}</code></td><td data-label="Şifrə"><code>${esc(res.password)}</code></td></tr>`).join('')}</tbody></table>
+        <p class="hint">Hər müəllim ilk girişdə öz şifrəsini təyin etməlidir — o vaxta qədər sayt onun üçün bağlıdır.</p>
+        <div class="row"><button class="btn btn-primary" data-act="impCopy">${ic('copy')}Giriş məlumatlarını kopyala</button><button class="btn btn-ghost" data-act="impNew">Yeni idxal</button></div>` : `<div class="row"><button class="btn btn-ghost" data-act="impNew">Yeni idxal</button></div>`}</div>`;
+    hydrateIcons(box);
+    S.ui.impCopyText = `Aslan Lessons — giriş məlumatları\nSayt: ${site}\n\n` + res.logins.map(l => `${l.name} (${l.subject}): login ${l.login}, şifrə ${res.password}`).join('\n') + '\n\nİlk girişdə sistem öz şifrənizi təyin etməyi xahiş edəcək.';
+    return;
+  }
+  if (!p){ box.innerHTML = S.ui.impStale ? '<p class="hint">Mətn dəyişdi — yenidən «Yoxla» basın.</p>' : ''; return; }
+  const c = p.counts, msgs = (list, cls) => `<div class="imp-msgs${cls}">${list.map(m => `<div class="imp-msg">${m.line ? `<button class="ln" data-impline="${m.line}">Sətir ${m.line}</button>` : '<span class="ln" style="text-decoration:none">Ümumi</span>'}<span>${esc(m.text)}</span></div>`).join('')}</div>`;
+  const st = s => s === 'new' ? '<span class="tag solid">yeni</span>' : s === 'merge' ? '<span class="tag">əlavə</span>' : '<span class="tag line">artıq var</span>';
+  box.innerHTML = `<div class="imp-sum">
+      <div><b>${c.newTeachers}</b><span>yeni müəllim${c.oldTeachers ? ` (+${c.oldTeachers} mövcud)` : ''}</span></div>
+      <div><b>${c.newStudents}</b><span>yeni tələbə${c.oldStudents ? ` (+${c.oldStudents} mövcud)` : ''}</span></div>
+      <div><b>${c.newCourses}</b><span>yeni məşğələ${c.mergeCourses ? `, ${c.mergeCourses} qrupa əlavə` : ''}${c.sameCourses ? `, ${c.sameCourses} artıq var` : ''}</span></div>
+      <div><b>${c.multi}</b><span>tələbə bir neçə məşğələdə</span></div>
+      <div class="${p.errors.length ? 'bad' : ''}"><b>${p.errors.length}</b><span>səhv</span></div></div>
+    ${p.errors.length ? `<div><p class="lbl" style="margin-bottom:6px">Səhvlər — düzəldin, sonra yenidən yoxlayın:</p>${msgs(p.errors, '')}</div>` : ''}
+    ${p.warnings.length ? `<div><p class="lbl" style="margin-bottom:6px">Qeydlər (idxala mane olmur):</p>${msgs(p.warnings, ' w')}</div>` : ''}
+    ${p.teachers.length ? `<div><p class="lbl" style="margin-bottom:6px">Müəllimlər</p><table class="ledger"><thead><tr><th>Ad Soyad</th><th>Fənn</th><th>Login</th><th></th></tr></thead><tbody>${p.teachers.map(t => `<tr>
+      <td data-label="Ad Soyad"><b style="font-weight:600">${esc(t.name)}</b>${t.phone ? `<br><small class="muted">${esc(t.phone)}</small>` : ''}</td><td data-label="Fənn">${esc(t.subject)}</td><td data-label="Login"><code>${esc(t.login)}</code></td><td class="actions">${st(t.status)}</td></tr>`).join('')}</tbody></table></div>` : ''}
+    ${p.courses.length ? `<div><p class="lbl" style="margin-bottom:6px">Məşğələlər</p><table class="ledger"><thead><tr><th>Məşğələ</th><th>Müəllim</th><th>Tələbələr</th><th>Dərs</th><th></th></tr></thead><tbody>${p.courses.map(x => `<tr>
+      <td data-label="Məşğələ"><b style="font-weight:600">${esc(x.title)}</b><br><small class="muted">${typeLabel(x.type)}${x.start ? ', ' + fmtDate(x.start) : ''}</small></td>
+      <td data-label="Müəllim">${esc(x.teacher)}<br><small class="muted">${esc(x.teacherLogin)}</small></td>
+      <td data-label="Tələbələr">${x.type === 'group' ? `${x.students.length} nəfər: ${esc(x.students.join(', '))}` : esc(x.students[0])}${x.status === 'merge' ? `<br><small class="muted">${x.add} yeni tələbə əlavə olunacaq</small>` : ''}</td>
+      <td data-label="Dərs">${x.N}</td><td class="actions">${st(x.status)}</td></tr>`).join('')}</tbody></table></div>` : ''}
+    ${p.students.length ? `<details class="lesson-fold"><summary>${ic('chev')}Tələbələr (${p.students.length})</summary><table class="ledger" style="margin-top:8px"><tbody>${p.students.map(x => `<tr>
+      <td class="full"><b style="font-weight:600">${esc(x.name)}</b> ${st(x.status)}<br><small class="muted">${esc([x.phone, x.parentName, x.parentPhone].filter(Boolean).join(' · ') || 'əlaqə yazılmayıb')} · ${x.courses} məşğələ</small></td></tr>`).join('')}</tbody></table></details>` : ''}
+    <div class="row"><span class="hint" style="flex:1;min-width:220px">${p.errors.length ? 'Səhvlər düzələnə qədər idxal mümkün deyil.' : `Yeni müəllimlərin ilkin şifrəsi: <b>${esc(p.password)}</b>. İlk girişdə hər kəs öz şifrəsini təyin edəcək.`}</span>
+      <button class="btn btn-primary" data-act="impRun" ${p.errors.length || !(c.newTeachers || c.newStudents || c.newCourses || c.mergeCourses) ? 'disabled' : ''}>${ic('upload')}İdxal et</button></div>`;
+  hydrateIcons(box);
+}
+ACT.impSample = () => {
+  const ta = $('#impText'); if (!ta) return;
+  const put = () => { ta.value = IMP_SAMPLE; S.ui.impText = IMP_SAMPLE; S.ui.impPrev = null; S.ui.impRes = null; S.ui.impStale = false; drawImport(); ta.focus(); };
+  if (ta.value.trim()) confirmBox({ title: 'Nümunə', text: 'Sahədəki mətn nümunə ilə əvəz olunsun?', ok: 'Əvəz et' }).then(ok => ok && put()); else put();
+};
+ACT.impNew = () => { S.ui.impRes = null; S.ui.impPrev = null; S.ui.impText = ''; const ta = $('#impText'); if (ta){ ta.value = ''; ta.focus(); } drawImport(); };
+ACT.impCopy = () => copyText(S.ui.impCopyText || '', 'Giriş məlumatları kopyalandı.');
+ACT.impPreview = (b) => {
+  const text = ($('#impText') || {}).value || '';
+  if (!text.trim()) return toast('Əvvəlcə siyahını yapışdırın.', 'err');
+  S.ui.impText = text;
+  run(b, async () => {
+    const r = await api('importPreview', { text }, { noRender: true });
+    S.ui.impPrev = r.preview; S.ui.impRes = null; S.ui.impStale = false; drawImport();
+    toast(r.preview.errors.length ? `${r.preview.errors.length} səhv tapıldı.` : 'Yoxlandı — səhv yoxdur.', r.preview.errors.length ? 'err' : 'ok');
+  });
+};
+ACT.impRun = async (b) => {
+  const p = S.ui.impPrev; if (!p) return;
+  const c = p.counts;
+  const ok = await confirmBox({ title: 'Toplu idxal', ok: 'İdxal et',
+    text: `Sistemə <b>${c.newTeachers}</b> müəllim, <b>${c.newStudents}</b> tələbə və <b>${c.newCourses}</b> məşğələ əlavə olunacaq${c.mergeCourses ? `, ${c.mergeCourses} qrupa yeni tələbələr yazılacaq` : ''}. Mövcud qeydlərə toxunulmur. Davam edilsin?` });
+  if (!ok) return;
+  run(b, async () => {
+    const r = await api('importRun', { text: S.ui.impText }, { noRender: true });
+    S.ui.impRes = r.result; S.ui.impPrev = null; drawImport();
+    toast('İdxal tamamlandı.', 'ok');
+  });
+};
+ACT.impHelp = () => openModal({ title: 'İdxal formatı', size: 'wide',
+  body: `<div class="help">
+    <div><h4>${ic('list')}Başlıqlar</h4>
+      <div class="help-grid">
+        <div class="help-card"><b>MÜƏLLİM: ad | fənn | telefon</b>Hər müəllim ayrıca sətirdə. Login avtomatik yaranır: ad + fənn (renamath, ruslanchem). Öz loginini vermək üçün sonuna «| login: rena».</div>
+        <div class="help-card"><b>QRUP: ad | müəllim | 8 və ya 12 | tarix</b>Altındakı hər sətir — qrupun bir tələbəsidir. Qrupda ən azı 2 tələbə olmalıdır.</div>
+        <div class="help-card"><b>FƏRDİ: müəllim | 8 və ya 12 | tarix</b>Altındakı hər sətir ayrıca fərdi məşğələ yaradır.</div>
+        <div class="help-card"><b>TƏLƏBƏLƏR:</b>Hələ məşğələsi olmayan tələbələr üçün.</div>
+      </div></div>
+    <div><h4>${ic('user')}Tələbə sətri</h4><p>Ad Soyad | telefon | valideynin adı | valideynin telefonu | qeyd — yalnız ad məcburidir.</p></div>
+    <div><h4>${ic('sparkle')}Nümunə</h4><pre class="ex-sample">${esc(IMP_SAMPLE)}</pre></div>
+    <div><h4>${ic('shield')}Təkrarlar</h4><ul>
+      <li>Eyni adlı tələbə bir neçə məşğələdə yazılıbsa — <b>bir nəfər</b> sayılır. Telefonları fərqlidirsə — iki fərqli tələbə.</li>
+      <li>Eyni adlı iki müəllim varsa, qrupda fənni mötərizədə yazın: «Rena Əliyeva (Riyaziyyat)», ya da logini yazın.</li>
+      <li>Təkrar idxal təhlükəsizdir: mövcud müəllim, tələbə və məşğələ yenidən yaradılmır, qrupa yalnız yeni tələbələr əlavə olunur.</li>
+      <li>«#» ilə başlayan sətir — şərhdir. Rus dilində başlıqlar da olar: УЧИТЕЛЬ, ГРУППА, ИНДИВИДУАЛЬНО.</li></ul></div>
+  </div>`,
+  foot: `<button class="btn btn-primary" data-close>Anladım</button>` });
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-impline]'); if (!b) return;
+  const ta = $('#impText'); if (!ta) return;
+  const ln = Number(b.dataset.impline), lines = ta.value.split('\n');
+  let st = 0; for (let i = 0; i < ln - 1 && i < lines.length; i++) st += lines[i].length + 1;
+  ta.focus(); ta.setSelectionRange(st, st + (lines[ln - 1] || '').length);
+  const lh = parseFloat(getComputedStyle(ta).lineHeight) || 22; ta.scrollTop = Math.max(0, (ln - 3) * lh);
+  ta.scrollIntoView({ block: 'center', behavior: 'smooth' });
+});
+
 /* ============================================================
  *  PUBLIC (girişsiz) — valideyn linkləri
  * ============================================================ */
 function publicRoute(){
   const h = location.hash.replace(/^#\/?/, '');
-  const m = h.match(/^(v|s)\/(.+)$/);
+  const m = h.match(/^(v|s|e|r)\/(.+)$/);
   if (!m) return false;
+  exsStop();
   showPublic();
-  if (m[1] === 'v') renderPublicCard(decodeURIComponent(m[2]));
-  else renderPublicSurvey(decodeURIComponent(m[2]));
+  const t = decodeURIComponent(m[2]);
+  if (m[1] === 'v') renderPublicCard(t);
+  else if (m[1] === 's') renderPublicSurvey(t);
+  else if (m[1] === 'e') renderPublicExam(t);
+  else renderPublicResult(t);
   return true;
 }
 function showPublic(){
+  closeAllModals();
   $('#login').hidden = true; $('#shell').hidden = true; $('#boot').hidden = true; $('#maint').hidden = true;
+  const g = $('#pwgate'); if (g) g.hidden = true;
   $('#public').hidden = false;
+  $('#public').scrollTop = 0;
 }
 function pubShell(inner){
   return `<div class="pub-wrap"><div class="pub-top">
@@ -4624,6 +6169,7 @@ async function renderPublicCard(token){
         <div><h3>${esc(c.title || (c.type==='individual'? s.name : c.studentNames.slice(0,2).join(', ')))}</h3><p class="who">Müəllim: <b>${esc(c.teacherName)}</b></p></div>
         <div class="ccard-prog">${pips(c.held,c.lessonsPerMonth)}<span class="frac">${c.held}/${c.lessonsPerMonth}</span></div>
         <p class="ccard-meta">Bu ay ${c.mine.held} dərsdə iştirak${c.mine.absent?`, ${c.mine.absent} qayıb`:''}.</p></article>`).join('')}</div></div>` : ''}
+      ${cardExamsHtml(k, true)}
       ${total ? `<div class="pub-card"><h3>Davamiyyət</h3><div class="donut-wrap"><div class="donut-box">${donut(rate,'davamiyyət')}</div>
         <div class="legend"><div><i style="background:var(--or)"></i>Keçirilən dərs: <b>${k.stats.held}</b></div><div><i style="background:var(--tint-2)"></i>Qayıb: <b>${k.stats.absent}</b></div></div></div>
         ${k.monthly.length>1?`<div style="margin-top:18px">${barsChart(k.monthly)}</div>`:''}</div>` : ''}
@@ -4637,6 +6183,7 @@ async function renderPublicCard(token){
         ${k.payments.map(p => `<tr><td data-label="Tarix" class="nowrap">${fmtDate(p.date)}</td><td data-label="Məbləğ"><b>${fmtMoney(p.amount)}</b></td><td data-label="Qeyd">${esc(p.note||'—')}</td></tr>`).join('')}
         </tbody></table><p class="hint" style="margin-top:10px">Cəmi: <b>${fmtMoney(k.paymentsTotal)}</b></p></div>` : ''}
     `));
+    animateRings($('#public'));
   } catch (e) { pubError(e.code === 'NOTFOUND' ? 'Tələbə tapılmadı. Link yanlışdır.' : (e.message || 'Açılmadı.')); }
 }
 
@@ -4687,6 +6234,430 @@ function svField(q){
   if (q.type === 'nps') return `<div class="row" style="flex-wrap:wrap;gap:6px">${Array.from({length:11},(_,n) => `<button type="button" class="btn btn-soft btn-sm" data-opt data-q="${q.id}" data-val="${n}" style="min-width:40px">${n}</button>`).join('')}</div>`;
   if (q.type === 'choice') return `<div class="row" style="flex-wrap:wrap">${(q.options||[]).map(o => `<button type="button" class="btn btn-soft" data-opt data-q="${q.id}" data-val="${esc(o)}">${esc(o)}</button>`).join('')}</div>`;
   return `<textarea class="textarea" data-qt="${q.id}" maxlength="1000" placeholder="Cavabınız (istəyə bağlı)"></textarea>`;
+}
+
+
+/* ============================================================
+ *  İMTAHAN — tələbə səhifəsi (#/e/<link>) və nəticə (#/r/<nəticə>)
+ *  Heç nə brauzerdə saxlanılmır: cavablar serverə avtomatik yazılır.
+ * ============================================================ */
+const EXS = { t: null, info: null, run: null };
+const EXS_LS = [];
+const EXS_WHY = { leave: 'Siz imtahan səhifəsindən çıxdınız (başqa tətbiq və ya tab).', fullscreen: 'Siz tam ekran rejimindən çıxdınız.',
+  copy: 'Kopyalamaq olmaz.', cut: 'Kəsmək olmaz.', paste: 'Yapışdırmaq olmaz — cavabı özünüz yazın.', screenshot: 'Ekran şəkli çəkmək olmaz.',
+  print: 'Çap etmək olmaz.', reload: 'Səhifə yenidən açıldı.' };
+function exsOn(t, ev, fn, opt){ t.addEventListener(ev, fn, opt); EXS_LS.push([t, ev, fn, opt]); }
+function exsStop(){
+  const R = EXS.run;
+  if (R){ R.finished = true; clearInterval(R.tickT); clearInterval(R.hbT); clearTimeout(R.saveT); clearTimeout(R.retryT); }
+  while (EXS_LS.length){ const [t, ev, fn, opt] = EXS_LS.pop(); t.removeEventListener(ev, fn, opt); }
+  const pub = $('#public'); pub.classList.remove('exam-mode', 'blurred');
+  try { if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(() => {}); } catch (e) {}
+  EXS.run = null;
+}
+function exsPaint(html){ const el = $('#public'); el.innerHTML = html; hydrateIcons(el); $$('.logo-mark', el).forEach(m => { m.innerHTML = LOGO_SVG('#fff'); }); setTheme(S.theme, false); }
+function mmss(sec){
+  sec = Math.max(0, Math.ceil(sec));
+  const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60), s = sec % 60, p = n => String(n).padStart(2, '0');
+  return h ? `${h}:${p(m)}:${p(s)}` : `${p(m)}:${p(s)}`;
+}
+const CHK_BOX = '<span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>';
+
+async function renderPublicExam(token){
+  exsStop();
+  EXS.t = token; EXS.info = null;
+  pubLoading();
+  try {
+    EXS.info = await api('examOpen', { t: token }, { noRender: true, silent: true });
+    drawExamIntro();
+  } catch (e) { pubError(e.message || 'İmtahan açılmadı.'); }
+}
+function drawExamIntro(){
+  const r = EXS.info, x = r.exam;
+  const rule = (icon, html, key) => html ? `<div class="xrule${key ? ' key' : ''}"><span class="ic2">${ic(icon)}</span><span>${html}</span></div>` : '';
+  const rules = [
+    rule('timer', x.timeMin ? `Vaxt: <b>${x.timeMin} dəqiqə</b>. Taymer «Başla» düyməsini basanda işə düşür. Vaxt bitəndə cavablar avtomatik göndərilir.` : 'Vaxt məhdudiyyəti yoxdur — tələsmədən yazın.'),
+    rule('list', `<b>${x.qCount} sual</b>${x.testCount && x.openCount ? `: ${x.testCount} test, ${x.openCount} açıq sual` : x.openCount ? ' — hamısı açıq sualdır, cavabı özünüz yazırsınız' : ''}. Hər test sualının yalnız bir düzgün cavabı var.`),
+    rule('check', 'Cavablar avtomatik yadda saxlanılır. İnternet bir anlıq kəsilsə, narahat olmayın — yazmağa davam edin.'),
+    x.strict ? rule('shield', 'Kopyalama, yapışdırma və sağ klik <b>bağlıdır</b>.', true) : '',
+    x.strict ? rule('eyeoff', 'Başqa tətbiqə və ya taba keçmək, səhifəni yeniləmək <b>pozuntu sayılır</b>, ekran bulanır.', true) : '',
+    x.strict ? rule('alert', x.endOnViolations ? `<b>${x.maxWarn} xəbərdarlıq</b> verilir. ${x.maxWarn + 1}-cü pozuntuda imtahan dayandırılır və nəticə <b>0</b> olur.` : 'Hər pozuntu qeydə alınır və müəllim onu görür.', true) : '',
+    x.strict ? rule('grid', 'Kompüterdə imtahan tam ekranda açılır. Tam ekrandan çıxmaq da pozuntudur.') : '',
+    x.passMin ? rule('flag', `Keçmək üçün ən azı <b>${x.passMin}%</b> toplamaq lazımdır.`) : '',
+    rule('chart', x.showAnswers ? 'Bitirəndən sonra nəticənizi və düzgün cavabları görəcəksiniz.' : 'Bitirəndən sonra nəticənizi görəcəksiniz.')
+  ].join('');
+  let action;
+  if (r.progress){
+    action = `<div class="pub-card"><h3>İmtahan davam edir</h3><p class="muted">Siz bu imtahana ${fmtDT(r.progress.startedAt)} başlamısınız.${r.progress.remainingSec != null ? ` Qalan vaxt: <b>${mmss(r.progress.remainingSec)}</b>.` : ''}</p>
+      ${x.strict ? `<div class="help-note" style="margin-top:12px">${ic('alert')}<span>Qadağalar rejimində səhifəni yenidən açmaq pozuntu sayılır${r.progress.vCount ? ` (indiyədək pozuntu: ${r.progress.vCount})` : ''}.</span></div>` : ''}
+      <button class="btn btn-primary btn-lg btn-block" style="margin-top:16px" data-xs="resume">${ic('play')}Davam et</button></div>`;
+  } else if (x.closed){
+    action = `<div class="pub-card" style="text-align:center">${ic('lock')}<h3 style="margin-top:8px">İmtahan bağlıdır</h3><p class="muted">Müəllim yeni cəhdləri dayandırıb. Sualınız varsa, müəlliminizlə əlaqə saxlayın.</p></div>`;
+  } else {
+    action = `<div class="pub-card"><h3>İmtahan qaydaları</h3><div class="xrules">${rules}</div>
+      <div class="xaccept"><label class="chk"><input type="checkbox" id="xsAcc">${CHK_BOX}<span>Qaydaları oxudum və qəbul edirəm</span></label>
+      <button class="btn btn-primary btn-lg btn-block" data-xs="start" id="xsStart" disabled>${ic('play')}İmtahana başla</button></div></div>`;
+  }
+  const prev = r.attempts.length ? `<div class="pub-card"><h3>Əvvəlki cəhdləriniz</h3><div class="xs-prev">${r.attempts.map(a => `<a href="#/r/${a.rt}">
+      <span class="tx"><b>${fmtDT(a.startedAt)}</b><small>${a.status === 'annulled' ? 'Ləğv olunub' : a.status === 'pending' ? 'Açıq suallar yoxlanılır' : `${fmtPts(a.score)} / ${fmtPts(a.maxScore)} bal`}</small></span>
+      ${pctTag(a.percent, a.status)}${ic('chev')}</a>`).join('')}</div></div>` : '';
+  pubPaint(pubShell(`<div class="xs-intro">
+    <div class="pub-hero"><div class="brand-rings"></div><div class="eyebrow">İmtahan${x.subject ? ' · ' + esc(x.subject) : ''}</div><h1>${esc(x.title)}</h1>
+      <p class="sub">Tələbə: ${esc(r.student.name)} · Müəllim: ${esc(x.teacherName)}</p></div>
+    <div class="xfacts">${[[x.qCount, 'sual'], [fmtPts(x.maxScore), 'bal'], [x.timeMin ? x.timeMin + ' dəq' : '∞', x.timeMin ? 'vaxt' : 'vaxt məhdud deyil'], [x.passMin ? x.passMin + '%' : '—', 'keçid həddi']]
+      .map(([b, s]) => `<div class="xfact"><b>${b}</b><span>${s}</span></div>`).join('')}</div>
+    ${action}${prev}</div>`));
+  const pub = $('#public');
+  const acc = $('#xsAcc', pub), st = $('#xsStart', pub);
+  if (acc) acc.addEventListener('change', () => { st.disabled = !acc.checked; });
+  pub.onclick = (e) => {
+    const b = e.target.closest('[data-xs]'); if (!b) return;
+    if (b.dataset.xs === 'start') startExam(b, false);
+    if (b.dataset.xs === 'resume') startExam(b, true);
+  };
+}
+function exsFullscreen(){
+  const d = document.documentElement;
+  try { const p = d.requestFullscreen ? d.requestFullscreen({ navigationUI: 'hide' }) : null; if (p && p.catch) p.catch(() => {}); } catch (e) {}
+}
+async function startExam(btn, resume){
+  const strict = EXS.info && EXS.info.exam.strict;
+  if (strict) exsFullscreen();   // tam ekran yalnız istifadəçi toxunuşu ilə açılır
+  const ok = await run(btn, async () => {
+    const r = await api('examStart', resume ? { t: EXS.t, resume: true } : { t: EXS.t, accept: true }, { noRender: true, silent: true });
+    if (r.state === 'closed'){ EXS.info.exam.closed = true; drawExamIntro(); return 'x'; }
+    if (r.state === 'finished'){ location.replace('#/r/' + r.rt); return 'x'; }
+    beginExam(r, resume);
+    return 'ok';
+  });
+  if (ok !== 'ok' && document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) {} }
+}
+function beginExam(r, resumed){
+  const qs = r.questions;
+  const answered = q => r.answers[q.id] !== undefined && r.answers[q.id] !== '';
+  const first = Math.max(0, qs.findIndex(q => !answered(q)));
+  EXS.run = { a: r.a, exam: r.exam, student: r.student, qs, ans: Object.assign({}, r.answers), idx: first,
+    deadline: r.deadlineMs, offset: r.nowMs - Date.now(), vBase: r.vCount, pendV: [], lastV: 0,
+    saving: false, again: false, dirty: false, finished: false, strict: !!r.exam.strict, endOnV: !!r.exam.endOnViolations, maxWarn: r.exam.maxWarn || 3,
+    wasFs: !!document.fullscreenElement };
+  const R = EXS.run;
+  $('#public').classList.add('exam-mode');
+  $('#public').onclick = null;
+  exsPaint(`<div class="xs">
+    <div class="xs-bar"><span class="logo-mark" style="width:38px;height:38px;border-radius:12px;box-shadow:none"></span>
+      <div class="ttl"><b>${esc(R.exam.title)}</b><small>${esc(R.student.name)} · <span id="xsProgT"></span></small></div>
+      <span class="xs-save" id="xsSave" aria-live="polite"></span>
+      <div class="timer${R.deadline ? '' : ' free'}" id="xsTimer" role="timer" aria-label="Qalan vaxt">${ic('timer')}<span>${R.deadline ? '--:--' : 'Vaxtsız'}</span></div>
+    </div>
+    <div class="xs-main">
+      <div id="xsQ"></div>
+      <aside class="xside">
+        <div class="xcard"><div class="xprog"><b id="xsProgB"></b><span>cavablandı</span></div><div class="xbar"><i id="xsBar"></i></div><div class="xgrid" id="xsGrid"></div></div>
+        ${R.strict ? `<div class="xcard" id="xsVcard"></div>` : ''}
+        <button class="btn btn-primary btn-lg btn-block" data-x="finish">${ic('check')}İmtahanı bitir</button>
+      </aside>
+    </div>
+    <div class="xs-mfoot"><button class="ibtn" data-x="prev" aria-label="Əvvəlki sual">${ic('back')}</button>
+      <button class="btn btn-soft" data-x="grid">${ic('grid')}<span id="xsMProg"></span></button>
+      <button class="btn btn-primary" data-x="next" id="xsMNext"></button></div>
+    <div class="xs-cover" aria-hidden="true"><div class="c">${ic('eyeoff')}<span>İmtahan səhifəsinə qayıdın</span></div></div>
+  </div>`);
+  exsDrawQ(0); exsProgress(); exsDrawV(); exsSaveState('ok');
+  const pub = $('#public');
+  exsOn(pub, 'click', exsClick);
+  exsOn(pub, 'input', e => {
+    const t = e.target; if (t.id !== 'xsOpen') return;
+    const q = R.qs[R.idx];
+    if (t.value.trim()) R.ans[q.id] = t.value; else delete R.ans[q.id];
+    const c = $('#xsCnt'); if (c) c.textContent = `${t.value.length} / 4000`;
+    exsProgress(); exsQueue();
+  });
+  exsOn(document, 'keydown', exsKey, true);
+  exsOn(window, 'beforeunload', e => { if (EXS.run && !EXS.run.finished){ e.preventDefault(); e.returnValue = ''; } });
+  exsOn(window, 'pagehide', exsBeacon);
+  exsOn(document, 'visibilitychange', () => {
+    if (document.hidden){ if (R.strict){ pub.classList.add('blurred'); exsViolation('leave'); } else exsBeacon(); }
+    else { pub.classList.remove('blurred'); if (R.warnPending) exsShowWarn(); }
+  });
+  if (R.strict){
+    ['copy', 'cut', 'paste'].forEach(k => exsOn(document, k, e => { e.preventDefault(); exsViolation(k); }, true));
+    exsOn(document, 'contextmenu', e => e.preventDefault(), true);
+    exsOn(document, 'selectstart', e => { if (!e.target.closest || !e.target.closest('textarea')) e.preventDefault(); }, true);
+    exsOn(document, 'dragstart', e => e.preventDefault(), true);
+    exsOn(document, 'drop', e => e.preventDefault(), true);
+    exsOn(document, 'keyup', e => { if (e.key === 'PrintScreen') exsViolation('screenshot'); }, true);
+    exsOn(window, 'blur', () => { pub.classList.add('blurred'); exsViolation('leave'); });
+    exsOn(window, 'focus', () => { pub.classList.remove('blurred'); if (R.warnPending) exsShowWarn(); });
+    exsOn(document, 'fullscreenchange', () => {
+      if (document.fullscreenElement){ R.wasFs = true; return; }
+      if (R.wasFs){ R.wasFs = false; exsViolation('fullscreen'); }
+    });
+  }
+  R.tickT = setInterval(exsTick, 500); exsTick();
+  R.hbT = setInterval(() => { if (R.dirty || R.pendV.length) exsSave(); }, 30000);
+  if (resumed && R.strict && R.vBase > 0){ R.lastKind = 'reload'; exsShowWarn(); }
+}
+function exsAnswered(q){ const v = EXS.run.ans[q.id]; return v !== undefined && v !== null && v !== '' && !(typeof v === 'string' && !v.trim()); }
+function exsDrawQ(dir){
+  const R = EXS.run, q = R.qs[R.idx], n = R.qs.length, last = R.idx === n - 1;
+  const box = $('#xsQ'); if (!box) return;
+  const v = R.ans[q.id];
+  box.innerHTML = `<div class="xq${dir < 0 ? ' rev' : ''}">
+    <div class="xq-top"><span class="xq-no">Sual <b>${R.idx + 1}</b> / ${n}</span><span class="tag line">${fmtPts(q.pts)} bal</span>${q.type === 'open' ? '<span class="tag" style="margin-left:0">Açıq sual</span>' : ''}</div>
+    <div class="xq-t">${esc(q.text)}</div>
+    ${q.type === 'test' ? `<div class="xopts" role="radiogroup" aria-label="Variantlar">${q.options.map((o, k) => `<button type="button" class="xopt${v === o.i ? ' on' : ''}" data-opt="${o.i}" role="radio" aria-checked="${v === o.i}">
+        <span class="l">${exLetter(k)}</span><span class="tx">${esc(o.t)}</span></button>`).join('')}</div>`
+      : `<div class="xopen"><textarea class="textarea" id="xsOpen" maxlength="4000" placeholder="Cavabınızı bura yazın…">${esc(v || '')}</textarea>
+        <div class="xopen-foot"><span>Cavab avtomatik yadda saxlanılır.</span><span id="xsCnt">${String(v || '').length} / 4000</span></div></div>`}
+    <div class="xq-nav"><button class="btn btn-soft" data-x="prev" ${R.idx === 0 ? 'disabled' : ''}>${ic('back')}Əvvəlki</button><span class="sp"></span>
+      ${last ? `<button class="btn btn-primary" data-x="finish">${ic('check')}İmtahanı bitir</button>` : `<button class="btn btn-primary" data-x="next">Növbəti${ic('chev')}</button>`}</div>
+  </div>`;
+  hydrateIcons(box);
+  const mn = $('#xsMNext'); if (mn) mn.innerHTML = last ? `${ic('check')}Bitir` : `Növbəti${ic('chev')}`;
+  exsGrid();
+  if (dir) window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function exsGrid(){
+  const R = EXS.run, g = $('#xsGrid'); if (!g) return;
+  g.innerHTML = R.qs.map((q, i) => `<button type="button" class="xdot${i === R.idx ? ' cur' : exsAnswered(q) ? ' done' : ''}" data-go-q="${i}" aria-label="Sual ${i + 1}${exsAnswered(q) ? ', cavablandı' : ''}">${i + 1}</button>`).join('');
+}
+function exsProgress(){
+  const R = EXS.run, done = R.qs.filter(exsAnswered).length, n = R.qs.length;
+  const set = (id, t) => { const el = $('#' + id); if (el) el.textContent = t; };
+  set('xsProgB', `${done} / ${n}`); set('xsProgT', `${done}/${n} cavab`); set('xsMProg', `${done}/${n}`);
+  const bar = $('#xsBar'); if (bar) bar.style.width = (n ? done / n * 100 : 0) + '%';
+  exsGrid();
+}
+function exsDrawV(){
+  const R = EXS.run, el = $('#xsVcard'); if (!el) return;
+  const c = R.vBase + R.pendV.length;
+  el.innerHTML = `<div class="xwarn-mini">${R.endOnV ? `<span class="pips2">${Array.from({ length: R.maxWarn }, (_, i) => `<i class="${i < c ? 'on' : ''}"></i>`).join('')}</span>` : ic('shield')}
+    <span>${c ? (R.endOnV ? `Xəbərdarlıq: ${Math.min(c, R.maxWarn)}/${R.maxWarn}` : `Pozuntu: ${c}`) : 'Pozuntu yoxdur'}</span></div>`;
+  hydrateIcons(el);
+}
+function exsGo(i, dir){
+  const R = EXS.run; if (i < 0 || i >= R.qs.length || i === R.idx) return;
+  R.idx = i; exsDrawQ(dir || (i > R.idx ? 1 : -1));
+}
+function exsClick(e){
+  const R = EXS.run; if (!R || R.finished) return;
+  const o = e.target.closest('[data-opt]');
+  if (o){
+    const q = R.qs[R.idx], v = Number(o.dataset.opt);
+    if (R.ans[q.id] === v) return;          // təkrar toxunuş cavabı silmir (telefonda iki dəfə basmaq təhlükəsizdir)
+    R.ans[q.id] = v;
+    $$('.xopt', $('#xsQ')).forEach(b => { const on = Number(b.dataset.opt) === R.ans[q.id]; b.classList.toggle('on', on); b.setAttribute('aria-checked', String(on)); });
+    exsProgress(); exsQueue(); return;
+  }
+  const d = e.target.closest('[data-go-q]'); if (d){ const i = Number(d.dataset.goQ); exsGo(i, i > R.idx ? 1 : -1); return; }
+  const x = e.target.closest('[data-x]'); if (!x) return;
+  const k = x.dataset.x;
+  if (k === 'prev') exsGo(R.idx - 1, -1);
+  if (k === 'next'){ if (R.idx === R.qs.length - 1) exsSubmit(false); else exsGo(R.idx + 1, 1); }
+  if (k === 'finish') exsSubmit(false);
+  if (k === 'grid') openModal({ title: 'Suallar', size: 'sm', sub: `${R.qs.filter(exsAnswered).length} / ${R.qs.length} cavablandı`,
+    body: `<div class="xgrid">${R.qs.map((q, i) => `<button type="button" class="xdot${i === R.idx ? ' cur' : exsAnswered(q) ? ' done' : ''}" data-mq="${i}">${i + 1}</button>`).join('')}</div>`,
+    foot: `<button class="btn btn-primary btn-block" data-x2="finish">${ic('check')}İmtahanı bitir</button>`,
+    onMount: (el, close) => el.addEventListener('click', ev => {
+      const b = ev.target.closest('[data-mq]'); if (b){ close(); exsGo(Number(b.dataset.mq), Number(b.dataset.mq) > R.idx ? 1 : -1); }
+      if (ev.target.closest('[data-x2]')){ close(); setTimeout(() => exsSubmit(false), 220); }
+    }) });
+  if (k === 'resume'){ const w = $('#xsWarn'); if (w) w.remove(); R.warnPending = false; if (R.strict && !document.fullscreenElement) exsFullscreen(); }
+}
+function exsKey(e){
+  const R = EXS.run; if (!R || R.finished) return;
+  const k = e.key, mod = e.ctrlKey || e.metaKey;
+  if (R.strict){
+    if (mod && /^[cxv]$/i.test(k)){ e.preventDefault(); exsViolation(k.toLowerCase() === 'c' ? 'copy' : k.toLowerCase() === 'x' ? 'cut' : 'paste'); return; }
+    if (mod && /^[psu]$/i.test(k)){ e.preventDefault(); if (/^p$/i.test(k)) exsViolation('print'); return; }
+    if (k === 'F12' || (mod && e.shiftKey && /^[ijc]$/i.test(k))){ e.preventDefault(); return; }
+  }
+  if (modalStack.length || $('#xsWarn')) return;
+  const inText = e.target && e.target.closest && e.target.closest('textarea, input');
+  if (inText) return;
+  const q = R.qs[R.idx];
+  if (q.type === 'test' && !mod){
+    let pos = -1;
+    if (/^[1-8]$/.test(k)) pos = Number(k) - 1;
+    else if (/^[a-h]$/i.test(k)) pos = 'abcdefgh'.indexOf(k.toLowerCase());
+    if (pos >= 0 && pos < q.options.length){ e.preventDefault(); const b = $$('.xopt', $('#xsQ'))[pos]; if (b) b.click(); return; }
+  }
+  if (k === 'ArrowRight'){ e.preventDefault(); exsGo(R.idx + 1, 1); }
+  if (k === 'ArrowLeft'){ e.preventDefault(); exsGo(R.idx - 1, -1); }
+}
+function exsViolation(kind){
+  const R = EXS.run; if (!R || R.finished || !R.strict || R.submitting) return;
+  const now = Date.now();
+  if (now - R.lastV < 2500) return;     // bir hərəkət (məs. tətbiq dəyişmə: blur + gizlənmə) — bir pozuntu
+  R.lastV = now; R.lastKind = kind;
+  R.pendV.push(kind);
+  exsDrawV();
+  exsSave();
+  if (document.hidden || !document.hasFocus()) R.warnPending = true; else exsShowWarn();
+}
+function exsShowWarn(){
+  const R = EXS.run; if (!R || R.finished) return;
+  R.warnPending = false;
+  const c = R.vBase + R.pendV.length, over = R.endOnV && c > R.maxWarn;
+  const old = $('#xsWarn'); if (old) old.remove();
+  const el = document.createElement('div');
+  el.className = 'xwarn'; el.id = 'xsWarn'; el.setAttribute('role', 'alertdialog'); el.setAttribute('aria-label', 'Xəbərdarlıq');
+  el.innerHTML = `<div class="xwarn-card">
+    ${over ? `<div class="spin" style="width:42px;height:42px;margin:4px auto 0;border-width:4px"></div><h3>İmtahan dayandırılır…</h3><p>Pozuntu sayı həddi keçdi. Nəticə səhifəsi açılır.</p>`
+      : `<div class="xwarn-n">${c}${R.endOnV ? `<small>/${R.maxWarn}</small>` : ''}</div>
+      <h3>${R.endOnV && c >= R.maxWarn ? 'Son xəbərdarlıq!' : 'Xəbərdarlıq'}</h3>
+      <p>${esc(EXS_WHY[R.lastKind] || 'Qayda pozuldu.')} ${R.endOnV ? (c >= R.maxWarn ? 'Növbəti pozuntuda imtahan dayandırılacaq və nəticə 0 olacaq.' : `Daha ${R.maxWarn - c} xəbərdarlıq qalıb. ${R.maxWarn + 1}-cü pozuntuda imtahan dayandırılır.`) : 'Pozuntu qeydə alındı — müəllim bunu görəcək.'}</p>
+      <button class="btn btn-primary btn-lg btn-block" data-x="resume">${ic('play')}İmtahana qayıt</button>`}</div>`;
+  $('#public').appendChild(el); hydrateIcons(el);
+  const b = el.querySelector('[data-x=resume]'); if (b) setTimeout(() => b.focus(), 60);
+}
+function exsSaveState(s){
+  const el = $('#xsSave'); if (!el) return;
+  el.classList.toggle('err', s === 'err');
+  el.innerHTML = s === 'ok' ? `${ic('check')}<span>Yadda saxlanıldı</span>` : s === 'wait' ? `${ic('clock')}<span>Saxlanılır…</span>` : `${ic('alert')}<span>Əlaqə yoxdur — yenidən cəhd edilir</span>`;
+  hydrateIcons(el);
+}
+function exsQueue(){
+  const R = EXS.run; if (!R || R.finished) return;
+  R.dirty = true; exsSaveState('wait');
+  clearTimeout(R.saveT); R.saveT = setTimeout(exsSave, 3000);
+}
+async function exsSave(){
+  const R = EXS.run; if (!R || R.finished) return;
+  clearTimeout(R.saveT);
+  if (R.saving){ R.again = true; return; }
+  R.saving = true;
+  const sentV = R.pendV.slice(), wasDirty = R.dirty;
+  R.dirty = false;
+  try {
+    const r = await api('examSave', { a: R.a, answers: R.ans, v: sentV, vBase: R.vBase }, { noRender: true, silent: true });
+    if (EXS.run !== R) return;
+    R.pendV.splice(0, sentV.length);
+    if (r.state === 'finished'){ R.finished = true; exsDone(r.rt); return; }
+    R.vBase = r.vCount;
+    exsDrawV();
+    exsSaveState(R.dirty ? 'wait' : 'ok');
+  } catch (e) {
+    if (EXS.run !== R) return;
+    R.dirty = R.dirty || wasDirty;
+    exsSaveState('err');
+    clearTimeout(R.retryT); R.retryT = setTimeout(exsSave, 8000);
+  } finally {
+    R.saving = false;
+    if (R.again && EXS.run === R && !R.finished){ R.again = false; exsSave(); }
+  }
+}
+function exsBeacon(){
+  const R = EXS.run; if (!R || R.finished || (!R.dirty && !R.pendV.length)) return;
+  try { navigator.sendBeacon(API_URL, new Blob([JSON.stringify({ action: 'examSave', a: R.a, answers: R.ans, v: R.pendV, vBase: R.vBase })], { type: 'text/plain;charset=utf-8' })); } catch (e) {}
+}
+function exsTick(){
+  const R = EXS.run; if (!R || R.finished || !R.deadline) return;
+  const left = (R.deadline - (Date.now() + R.offset)) / 1000;
+  const t = $('#xsTimer'); if (!t) return;
+  t.querySelector('span').textContent = mmss(left);
+  t.classList.toggle('low', left <= 60);
+  if (left <= 300 && left > 60 && !R.w5){ R.w5 = true; toast('5 dəqiqə qaldı.', 'info'); }
+  if (left <= 60 && !R.w1){ R.w1 = true; toast('1 dəqiqə qaldı! Cavablarınızı yoxlayın.', 'info'); }
+  if (left <= 0 && !R.autoSent){ R.autoSent = true; exsSubmit(true); }
+}
+async function exsSubmit(auto){
+  const R = EXS.run; if (!R || R.finished || R.submitting) return;
+  if (!auto){
+    const un = R.qs.filter(q => !exsAnswered(q)).length;
+    const ok = await confirmBox({ title: 'İmtahanı bitir', ok: 'Bitir və göndər',
+      text: un ? `<b>${un}</b> suala cavab verməmisiniz. Yenə də bitirmək istəyirsiniz? Göndərəndən sonra cavabları dəyişmək olmayacaq.`
+        : 'Bütün suallara cavab verdiniz. Göndərəndən sonra cavabları dəyişmək olmayacaq.' });
+    if (!ok || EXS.run !== R || R.finished) return;
+  }
+  R.submitting = true;
+  clearTimeout(R.saveT);
+  const ov = document.createElement('div');
+  ov.className = 'xwarn'; ov.id = 'xsSending';
+  ov.innerHTML = `<div class="xwarn-card"><div class="spin" style="width:42px;height:42px;margin:4px auto 0;border-width:4px"></div><h3>${auto ? 'Vaxt bitdi — cavablar göndərilir…' : 'Cavablar göndərilir…'}</h3><p>Bir neçə saniyə gözləyin, səhifəni bağlamayın.</p></div>`;
+  $('#public').appendChild(ov);
+  for (let i = 0; i < 6; i++){
+    try {
+      const r = await api('examSubmit', { a: R.a, answers: R.ans, auto: !!auto }, { noRender: true, silent: true });
+      R.finished = true; exsDone(r.rt); return;
+    } catch (e) {
+      if (e.code === 'NOTFOUND'){ ov.remove(); R.submitting = false; toast(e.message, 'err'); return; }
+      const p = ov.querySelector('p'); if (p) p.textContent = 'İnternetlə əlaqə yoxdur. Yenidən cəhd edilir…';
+      await new Promise(res => setTimeout(res, 2500 + i * 2000));
+    }
+  }
+  ov.querySelector('.xwarn-card').innerHTML = `${ic('alert')}<h3>Göndərmək alınmadı</h3><p>İnternet bağlantısını yoxlayın. Cavablarınız serverdə saxlanılıb.</p><button class="btn btn-primary btn-lg btn-block" id="xsRetry">Yenidən göndər</button>`;
+  hydrateIcons(ov);
+  R.submitting = false;
+  ov.querySelector('#xsRetry').addEventListener('click', () => { ov.remove(); exsSubmit(true); });
+}
+function exsDone(rt){
+  exsStop();
+  location.replace('#/r/' + rt);
+}
+
+/* ---------- Nəticə səhifəsi ---------- */
+const RES_MSG = {
+  a: 'Əla nəticə! Zəhmətiniz öz bəhrəsini verdi.',
+  b: 'Çox yaxşı nəticədir! Bir az da səy göstərsəniz, zirvədəsiniz.',
+  c: 'Yaxşı nəticədir. Səhvlərin üzərində işləsəniz, növbəti dəfə daha yüksək olacaq.',
+  d: 'Bu dəfə alınmadı, amma hər imtahan bir dərsdir. Səhvlərə müəlliminizlə birlikdə baxın — növbəti dəfə mütləq daha yaxşı olacaq.',
+  annul: 'İmtahan qaydalar pozulduğu üçün dayandırıldı və nəticə 0 sayıldı. Sualınız varsa, müəlliminizlə danışın.',
+  teacher: 'Müəllim bu nəticəni ləğv edib. Səbəbi aşağıda yazılıb.',
+  pend: 'Test sualları yoxlanıldı. Açıq sualları müəllim yoxlayandan sonra yekun nəticə bu səhifədə görünəcək.'
+};
+async function renderPublicResult(rt){
+  exsStop();
+  pubLoading();
+  try {
+    const r = await api('examResult', { r: rt }, { noRender: true, silent: true });
+    if (r.state === 'progress') return pubPaint(pubShell(`<div class="pub-card" style="text-align:center">${ic('hourglass')}<h3 style="margin-top:8px">İmtahan hələ davam edir</h3>
+      <p class="muted">${esc(r.studentName)} «${esc(r.title)}» imtahanını bitirəndən sonra nəticə burada görünəcək.</p></div>`));
+    drawPublicResult(r.result);
+  } catch (e) { pubError(e.message || 'Nəticə açılmadı.'); }
+}
+function drawPublicResult(x){
+  const ann = x.status === 'annulled', pend = x.status === 'pending';
+  const pct = pend ? null : x.percent;
+  const key = ann ? (x.stopReason === 'teacher' ? 'teacher' : 'annul') : pend ? 'pend' : pct >= 90 ? 'a' : pct >= 75 ? 'b' : pct >= 50 ? 'c' : 'd';
+  const tag = ann ? `<span class="res-tag">${ic('xcircle')}Ləğv olunub</span>`
+    : pend ? `<span class="res-tag line">${ic('hourglass')}Açıq suallar yoxlanılır</span>`
+    : x.passMin ? (x.passed ? `<span class="res-tag">${ic('check')}İmtahandan keçdi</span>` : `<span class="res-tag line">${ic('flag')}Keçid həddinə çatmadı</span>`) : '';
+  const correct = x.review ? x.review.filter(q => q.ok).length : x.correctCount;
+  const testCount = x.review ? x.review.filter(q => q.type === 'test').length : x.testCount;
+  const stats = [
+    [ann ? `0 <small style="font-size:14px;font-weight:600" class="muted">(${fmtPts(x.rawScore)})</small>` : fmtPts(x.score), `/ ${fmtPts(x.maxScore)} bal`],
+    testCount ? [`${correct}/${testCount}`, 'düzgün test cavabı'] : null,
+    [fmtDur(x.durationSec), x.timeMin ? `${x.timeMin} dəqiqədən` : 'sərf olunan vaxt'],
+    x.passMin ? [x.passMin + '%', 'keçid həddi'] : null
+  ].filter(Boolean);
+  const stop = ann || x.stopReason === 'time' ? `<div class="res-stop">${ic(ann ? 'alert' : 'timer')}<div><b>${esc(x.stopText || 'Vaxt bitdi')}</b>
+      <p>${ann ? (x.stopReason === 'teacher' ? `Verilmiş cavablar: <b>${fmtPts(x.rawScore)} / ${fmtPts(x.maxScore)}</b> bal. Nəticə müəllim tərəfindən 0 sayılıb.` : `İmtahan dayandırılan ana qədər cavablar: <b>${fmtPts(x.rawScore)} / ${fmtPts(x.maxScore)}</b> bal. Qaydalara görə nəticə 0 sayılır.`) : 'Vaxt bitəndə cavablar avtomatik göndərildi.'}</p></div></div>` : '';
+  const viol = x.violations.length ? `<div class="pub-card"><h3>Qeydə alınmış pozuntular</h3><div class="vlist">${x.violations.map((v, i) =>
+      `<div class="vrow${ann && i === x.violations.length - 1 ? ' last' : ''}"><span class="n">${i + 1}</span><div><b>${esc(EX_VK[v.k] || v.label)}</b>${v.note ? `: ${esc(v.note)}` : ''}<br><small>${fmtDT(v.t)}</small></div></div>`).join('')}</div>
+      ${x.restored ? '<p class="hint" style="margin-top:10px">Müəllim bu nəticəni bərpa edib.</p>' : ''}</div>` : '';
+  const review = x.review ? `<div class="pub-card"><h3>Cavablarınız</h3><div class="rv">${x.review.map(q => {
+      if (q.type === 'test'){
+        const cls = q.chosen == null ? 'no' : (q.ok ? 'ok' : 'no');
+        return `<div class="rv-q ${cls}"><div class="rv-h"><span class="rv-mark">${q.ok ? ic('check') : q.n}</span><div class="rv-t">${esc(q.text)}</div><span class="rv-pts">${fmtPts(q.got)} / ${fmtPts(q.pts)}</span></div>
+          <div class="rv-opts">${q.options.map((o, j) => `<div class="rv-opt${j === q.correct ? ' right' : (j === q.chosen ? ' wrong' : '')}"><span class="l">${exLetter(j)}</span><span>${esc(o)}</span>
+            ${j === q.chosen ? `<span class="rtag">${j === q.correct ? 'sizin cavab ✓' : 'sizin cavab'}</span>` : (j === q.correct ? '<span class="rtag">düzgün</span>' : '')}</div>`).join('')}</div>
+          ${q.chosen == null ? '<p class="rv-extra">Cavab verilməyib.</p>' : ''}</div>`;
+      }
+      const answered = !!String(q.answer || '').trim();
+      return `<div class="rv-q ${!answered ? 'no' : q.got == null ? 'wait' : q.got > 0 ? 'ok' : 'no'}"><div class="rv-h"><span class="rv-mark">${q.got > 0 ? ic('check') : q.n}</span><div class="rv-t">${esc(q.text)}</div>
+          <span class="rv-pts">${q.got == null ? 'yoxlanılır' : fmtPts(q.got)} / ${fmtPts(q.pts)}</span></div>
+        <div class="rv-ans${answered ? '' : ' none'}">${answered ? esc(q.answer) : 'Cavab yazılmayıb.'}</div></div>`;
+    }).join('')}</div></div>`
+    : (!pend ? `<p class="hint" style="margin-top:14px;text-align:center">Müəllim düzgün cavabları göstərməyi bağlayıb — yalnız nəticə görünür.</p>` : '');
+  pubPaint(pubShell(`
+    <div class="pub-hero"><div class="brand-rings"></div><div class="res-hero">${ringSvg(pct, ann ? 'ləğv' : pend ? 'yoxlanılır' : 'nəticə', true)}
+      <div class="txt"><div class="eyebrow">İmtahan nəticəsi${x.subject ? ' · ' + esc(x.subject) : ''}</div><h1>${esc(x.studentName)}</h1><p class="sub">${esc(x.title)} · ${fmtDT(x.submittedAt || x.startedAt)}</p>
+        ${tag}<p class="res-msg">${RES_MSG[key]}</p></div></div></div>
+    <div class="pub-stats">${stats.map(([b, s]) => `<div class="pub-stat"><b>${b}</b><span>${s}</span></div>`).join('')}</div>
+    ${stop}${viol}${review}
+    <p class="hint" style="margin-top:16px;text-align:center">Müəllim: ${esc(x.teacherName)}</p>`));
+  animateRings($('#public'));
 }
 
 /* ===================== PWA (ana ekrana əlavə et) ===================== */
@@ -4837,7 +6808,18 @@ ACT.installApp = async () => {
   showLogin();
 })();
 window.addEventListener('hashchange', () => {
-  if (!S.token && /^#\/(v|s)\//.test(location.hash)) publicRoute();
+  if (/^#\/(v|s|e|r)\//.test(location.hash)) { publicRoute(); return; }
+  // girişsiz səhifədən tətbiqə qayıdış (məs. «Geri» düyməsi)
+  if (!$('#public').hidden){
+    exsStop();
+    $('#public').hidden = true; $('#public').innerHTML = '';
+    if (S.token && S.d && $('#maint').hidden){
+      $('#shell').hidden = false;
+      const h = parseHash();
+      S.page = pageAllowed(h.page) ? h.page : defaultPage(); S.param = h.param;
+      renderChrome(); renderPage(false);
+    } else if (!S.token) showLogin();
+  }
 });
 </script>
 </body>
