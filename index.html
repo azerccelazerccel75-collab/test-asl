@@ -279,7 +279,7 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
   background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-lg);
   transition:border-color .25s,box-shadow .25s,transform .25s var(--ease);
 }
-.ccard:hover{border-color:var(--line-strong)}
+button.ccard:hover{border-color:var(--line-strong)}
 .ccard.done{border-color:var(--or);box-shadow:inset 0 0 0 1px var(--or)}
 .ccard-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .ccard-top .month{margin-left:auto;font-size:13px;font-weight:600}
@@ -1519,7 +1519,7 @@ svg.tb{width:1.15em;height:1.15em;flex:none}
 .cgrid>*:nth-child(n+6),.bd-grid>*:nth-child(n+6){animation-delay:.2s}
 @keyframes riseIn{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
 .ccard,.cab-ex,.rule,.lv-step,.tile,.bd-chip,.qa>*{transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s}
-.ccard:hover,.cab-ex:hover,.rule:hover,.lv-step:hover,.tile:hover,.bd-chip:hover{transform:translateY(-3px);box-shadow:0 18px 36px -22px rgba(255,122,0,.55);border-color:color-mix(in srgb,var(--or) 40%,var(--line))}
+button.ccard:hover,button.cab-ex:hover,button.tile:hover,button.bd-chip:hover{transform:translateY(-3px);box-shadow:0 18px 36px -22px rgba(255,122,0,.55);border-color:color-mix(in srgb,var(--or) 40%,var(--line))}
 .btn{transition:transform .15s var(--ease),box-shadow .2s,background-color .2s,filter .2s}
 .btn:active:not(:disabled){transform:scale(.97)}
 .btn-primary{position:relative;overflow:hidden;background-image:linear-gradient(135deg,#FF9433,#FF7A00 55%,#F26B00)}
@@ -1597,6 +1597,307 @@ svg.tb{width:1.15em;height:1.15em;flex:none}
 .hd4{width:30px;height:30px;left:40%;bottom:12%;--r:0deg;animation-duration:6s}
 .hd5{width:46px;height:46px;left:3%;bottom:6%;--r:-8deg;animation-duration:10s}
 @media (max-width:760px){.hd1,.hd3{display:none}}
+.earn-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.earn-chip{display:inline-flex;align-items:center;gap:8px;padding:9px 14px 9px 10px;border-radius:999px;background:var(--tint);border:1.5px solid var(--line);font-size:13.5px;font-weight:500;cursor:default;user-select:none}
+.earn-chip svg.tb{width:18px;height:18px;flex:none;color:var(--or)}
+.grow-card{display:flex;align-items:center;gap:14px;margin-top:16px;padding:14px 16px;border-radius:var(--r-lg);border:1.5px solid color-mix(in srgb,#10B981 45%,var(--line));background:linear-gradient(120deg,color-mix(in srgb,#10B981 12%,var(--surface)),var(--surface))}
+.grow-card .grow-ic{width:54px;height:54px;flex:none}
+.grow-card .grow-ic svg{width:100%;height:100%}
+.grow-card .eyebrow{display:block;font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#059669}
+:root[data-theme="dark"] .grow-card .eyebrow{color:#34D399}
+.grow-card b,.grow-card .linkish{font-size:16px;font-weight:600}
+.grow-card small{display:block;color:var(--soft);font-size:12.5px}
+.st-ic.abs{color:#DC2626}
+.abs-box{border:1.5px solid color-mix(in srgb,#DC2626 40%,var(--line));background:color-mix(in srgb,#DC2626 6%,var(--surface));border-radius:var(--r-lg);padding:14px 16px;margin-bottom:16px}
+.abs-head{display:flex;align-items:center;gap:8px;color:#DC2626;margin-bottom:8px}
+:root[data-theme="dark"] .abs-head,:root[data-theme="dark"] .st-ic.abs{color:#F87171}
+.abs-head svg{width:20px;height:20px}
+.abs-row{display:flex;flex-wrap:wrap;gap:4px 10px;padding:6px 0;border-top:1px dashed var(--line);font-size:14px}
+.abs-row:first-of-type{border-top:0}
+.abs-row span{color:var(--soft);font-size:13px}
+.abs-box .hint{margin-top:6px}
+.ver-bar{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:80;display:flex;align-items:center;gap:12px;max-width:min(560px,calc(100vw - 32px));padding:10px 12px 10px 14px;border-radius:16px;background:var(--surface);border:1.5px solid var(--line-strong);box-shadow:var(--shadow-lg);font-size:13.5px}
+.ver-bar>svg{width:20px;height:20px;flex:none}
+.ver-bar span{flex:1;min-width:0}
+td.sel,th.sel{width:1%;padding-right:0!important}
+.sel-mob{display:none}
+.person>div>small{display:block}
+.person>div>.linkish{text-align:left}
+.sel-chk .box{width:20px;height:20px}
+.ledger tr.sel-on{background:color-mix(in srgb,var(--or) 8%,var(--surface))}
+.bulk-bar{position:sticky;bottom:12px;z-index:30;margin-top:14px}
+.bulk-in{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px;border-radius:18px;background:var(--surface);border:1.5px solid var(--or);box-shadow:var(--shadow-lg);animation:riseIn .25s var(--ease)}
+.bulk-n{font-size:14px;padding:0 4px}
+.bulk-acts{display:flex;flex-wrap:wrap;gap:6px;flex:1}
+.bulk-acts .btn svg.tb{width:16px;height:16px}
+.wa-text{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.5;min-height:180px;white-space:pre;overflow:auto}
+.fail-list{display:grid;gap:8px}
+.fail-list div{padding:10px 12px;border-radius:12px;background:var(--tint)}
+.fail-list small{display:block;color:var(--soft)}
+.bd-pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px;max-height:46vh;overflow:auto;padding:2px}
+.bd-pk{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 6px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);color:inherit;font:inherit;font-size:12px;text-align:center;cursor:pointer}
+.bd-pk svg{width:44px;height:44px}
+.bd-pk.on{border-color:var(--or);background:var(--tint);box-shadow:0 0 0 3px color-mix(in srgb,var(--or) 25%,transparent)}
+.ts-pct{display:flex;align-items:center;gap:8px;min-width:110px}
+.ts-pct .gm-bar{flex:1;margin:0}
+.hl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.hl-card{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:var(--r-lg);border:1.5px solid var(--line);background:var(--surface)}
+.hl-card>svg{width:22px;height:22px;flex:none;margin-top:2px}
+.hl-card>div{flex:1;min-width:0}
+.hl-card small{display:block;color:var(--soft);font-size:12.5px;margin-top:2px}
+.hl-card .gm-bar{margin-top:8px}
+.hl-card.ok>svg{color:#16A34A}
+.hl-card.warn{border-color:color-mix(in srgb,#F59E0B 55%,var(--line))}
+.hl-card.warn>svg{color:#D97706}
+.hl-card.bad{border-color:color-mix(in srgb,#DC2626 55%,var(--line));background:color-mix(in srgb,#DC2626 5%,var(--surface))}
+.hl-card.bad>svg{color:#DC2626}
+.err-msg{color:#DC2626}
+:root[data-theme="dark"] .err-msg{color:#F87171}
+.hl-sheets{margin-top:14px}
+.hl-sheets summary{cursor:pointer;font-weight:600;font-size:14px}
+.hl-sh{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px 18px;margin-top:10px}
+.hl-sh span{font-weight:500;font-size:13.5px}
+.hl-sh small{display:block;color:var(--soft);font-size:12px}
+.hl-sh .gm-bar{margin-top:4px;height:6px}
+.err-list{display:grid;gap:8px}
+.err-i{border:1.5px solid var(--line);border-radius:14px;background:var(--surface)}
+.err-i summary{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:10px 12px;cursor:pointer;list-style:none}
+.err-i summary::-webkit-details-marker{display:none}
+.err-i summary b{flex:1;min-width:160px;font-weight:500;font-size:13.5px;word-break:break-word}
+.err-i summary small{color:var(--soft);font-size:12px}
+.err-d{padding:0 12px 12px;display:grid;gap:6px;font-size:13px}
+.err-d>div{display:flex;gap:10px}
+.err-d span{width:90px;flex:none;color:var(--soft)}
+.err-d code,.err-d small{word-break:break-all}
+.err-d pre{margin:4px 0 0;padding:10px;border-radius:10px;background:var(--tint);font-size:11.5px;white-space:pre-wrap;word-break:break-all;max-height:220px;overflow:auto}
+.rp-bar{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 16px;margin-bottom:14px}
+.rp-bar .field{min-width:180px}
+.rp-bar .hint{flex:1;min-width:200px;margin:0}
+.rp-paper{border-radius:14px;border:1.5px solid var(--line);background:#fff;padding:22px;overflow:auto;box-shadow:inset 0 0 0 1px rgba(0,0,0,.02)}
+.rp{--rk:#2B1A0C;--ro:#E86F00;--rl:#F6D9BF;color:var(--rk);font-family:'Poppins',sans-serif;font-size:12.5px;line-height:1.5;background:#fff}
+.rp-top{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:2px solid var(--ro)}
+.rp-logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#FF9433,#E86F00);display:grid;place-items:center;flex:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.rp-logo svg{width:28px;height:28px}
+.rp-top b{display:block;font-size:15px;color:var(--ro)}
+.rp-top span{font-size:12px;color:#7A5A3E}
+.rp-month{margin-left:auto;font-weight:700;font-size:15px;text-transform:capitalize;color:var(--rk)}
+.rp-name{font-size:22px;margin:14px 0 0;color:var(--rk);-webkit-text-fill-color:var(--rk);background:none}
+.rp-sub{color:#7A5A3E;margin:2px 0 0;font-size:12px}
+.rp-kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:8px;margin:14px 0}
+.rp-kpi div{border:1.5px solid var(--rl);border-radius:12px;padding:8px 10px;background:#FFF8F1;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.rp-kpi b{display:block;font-size:18px;color:var(--ro)}
+.rp-kpi span{font-size:11px;color:#7A5A3E}
+.rp-sec{margin-top:14px;break-inside:avoid}
+.rp-sec h2{font-size:14px;margin:0;color:var(--rk)}
+.rp-t{width:100%;border-collapse:collapse;margin-top:6px;font-size:11.5px}
+.rp-t th{text-align:left;font-weight:600;color:#7A5A3E;border-bottom:1.5px solid var(--rl);padding:5px 6px}
+.rp-t td{border-bottom:1px solid #F3E6DA;padding:5px 6px;vertical-align:top}
+.rp-t td:first-child{white-space:nowrap;width:1%}
+.rp-t i{color:#7A5A3E}
+.rp-ok{color:#15803D;font-weight:600}
+.rp-no{color:#B91C1C;font-weight:600}
+.rp-ach p{margin:6px 0 0}
+.rp-star{display:flex;align-items:center;gap:6px;font-weight:600;color:#047857}
+.rp-star svg{width:18px;height:18px}
+.rp-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.rp-bd{display:flex;align-items:center;gap:6px;border:1.5px solid var(--rl);border-radius:12px;padding:4px 10px 4px 4px}
+.rp-bd svg{width:30px;height:30px}
+.rp-bd small{display:block;font-size:10px;color:#7A5A3E}
+.rp-foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-top:18px;padding-top:8px;border-top:1px solid var(--rl);font-size:10.5px;color:#7A5A3E}
+.cert-prev{overflow:hidden;border-radius:14px;border:1.5px solid var(--line);background:#fff}
+.cert-prev .cert{transform-origin:0 0}
+.cert{--ro:#E86F00;--rk:#2B1A0C;width:297mm;height:210mm;background:#fff;color:var(--rk);font-family:'Poppins',sans-serif;padding:12mm;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.cert-frame{position:relative;height:100%;border:3px solid var(--ro);border-radius:18px;padding:6px;overflow:hidden;background:radial-gradient(circle at 12% 10%,#FFF1E3,transparent 40%),radial-gradient(circle at 90% 92%,#FFF1E3,transparent 40%)}
+.cert-frame::before{content:"";position:absolute;inset:6px;border:1.5px dashed #F2B27A;border-radius:13px;pointer-events:none}
+.cert-deco .cd{position:absolute;color:var(--ro);opacity:.1}
+.cert-deco svg{width:100%;height:100%}
+.cd1{width:70px;height:70px;left:5%;top:9%;transform:rotate(-12deg)}
+.cd2{width:56px;height:56px;right:7%;top:12%;transform:rotate(10deg)}
+.cd3{width:44px;height:44px;left:10%;bottom:16%}
+.cd4{width:80px;height:80px;right:5%;bottom:10%;transform:rotate(-8deg)}
+.cd5{width:46px;height:46px;left:44%;top:4%;transform:rotate(18deg)}
+.cd6{width:50px;height:50px;left:22%;bottom:5%}
+.cert-in{position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4% 10%}
+.cert-brand{display:flex;align-items:center;gap:10px;font-size:17px;color:var(--ro)}
+.cert-title{font-size:44px;font-weight:800;letter-spacing:.18em;margin-top:2%;color:var(--ro);text-shadow:0 2px 0 #FFE2C6}
+.cert-lead{margin:1% 0 0;color:#7A5A3E;font-size:14px}
+.cert-name{font-size:34px;font-weight:700;margin-top:1%;padding:0 30px 6px;border-bottom:2px solid #F2B27A;color:var(--rk)}
+.cert-text{max-width:620px;font-size:14px;line-height:1.6;margin:2.5% 0 0;color:var(--rk)}
+.cert-facts{display:flex;gap:26px;margin-top:3%}
+.cert-facts b{display:block;font-size:20px;color:var(--ro)}
+.cert-facts span{font-size:11.5px;color:#7A5A3E}
+.cert-foot{display:flex;align-items:flex-end;justify-content:space-between;width:100%;margin-top:auto;padding-top:3%}
+.cert-sign{display:flex;flex-direction:column;align-items:center;min-width:170px}
+.cert-sign i{width:170px;border-top:1.5px solid var(--rk);margin-bottom:6px}
+.cert-sign b{font-size:13px}
+.cert-sign span{font-size:11px;color:#7A5A3E}
+.cert-seal{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ro)}
+.cert-seal svg{width:58px;height:58px}
+.cert-seal span{font-size:11px;letter-spacing:.06em;color:#7A5A3E}
+#printArea{display:none}
+@media print{
+  body.printing{background:#fff!important}
+  body.printing::before{display:none!important}
+  body.printing>*:not(#printArea){display:none!important}
+  body.printing #printArea{display:block}
+  body.printing .rp{font-size:11.5px}
+  body.printing .cert{width:297mm;height:209mm;padding:10mm}
+}
+@media (max-width:760px){
+  .ledger td.sel{position:absolute;right:10px;top:10px;padding:0!important;width:auto;min-height:0;z-index:1}
+  .ledger td.sel::before{display:none}
+  .sel-mob{display:flex;align-items:center;gap:10px;padding:4px 6px 12px;font-size:14px;font-weight:500}
+  .ledger tr{position:relative}
+  .ledger tr:has(td.sel) td.full{padding-right:48px}
+  .bulk-in{border-radius:16px}
+  .bulk-n{width:100%}
+  .rp-paper{padding:14px}
+  .ver-bar{bottom:calc(76px + env(safe-area-inset-bottom))}
+}
+:root{
+  --or:#FF7A00;--or-deep:#E86A00;--or-text:#D25E00;--on-or:#FFFFFF;
+  --bg:#FFFAF5;--surface:#FFFFFF;--tint:#FFF3E7;--tint-2:#FFE6CF;
+  --line:#F1E4D6;--line-strong:#E6CBB0;
+  --ink:#2A2019;--soft:#6F6257;--faint:#A69788;
+  --scrim:rgba(42,32,25,.36);
+  --shadow:0 14px 34px -18px rgba(90,50,12,.30);
+  --shadow-lg:0 30px 70px -30px rgba(90,50,12,.38);
+  --ok:#15803D;--ok-bg:#EAF7EF;--ok-line:#BFE6CC;--ok-solid:#16A34A;
+  --bad:#C81E1E;--bad-bg:#FDEEEE;--bad-line:#F5C6C6;--bad-solid:#DC2626;
+  --warn:#B45309;--warn-bg:#FFF5E1;--warn-line:#F6DCA6;--warn-solid:#F59E0B;
+  --info:#1D4ED8;--info-bg:#EBF2FF;--info-line:#C6D7FB;--info-solid:#2563EB;
+}
+:root[data-theme="dark"]{
+  --or:#FF8A1F;--or-deep:#FF7A00;--or-text:#FF9A3D;--on-or:#FFFFFF;
+  --bg:#0D1220;--surface:#141B2D;--tint:#1B2438;--tint-2:#243049;
+  --line:rgba(148,163,196,.15);--line-strong:rgba(148,163,196,.32);
+  --ink:#E6EBF5;--soft:#9AA6BE;--faint:#67738D;
+  --scrim:rgba(4,7,14,.72);
+  --shadow:0 14px 34px -18px rgba(0,0,0,.75);
+  --shadow-lg:0 30px 70px -30px rgba(0,0,0,.9);
+  --ok:#4ADE80;--ok-bg:rgba(34,197,94,.13);--ok-line:rgba(74,222,128,.32);--ok-solid:#22C55E;
+  --bad:#F87171;--bad-bg:rgba(239,68,68,.13);--bad-line:rgba(248,113,113,.34);--bad-solid:#EF4444;
+  --warn:#FBBF24;--warn-bg:rgba(245,158,11,.13);--warn-line:rgba(251,191,36,.32);--warn-solid:#F59E0B;
+  --info:#7AA7FF;--info-bg:rgba(59,130,246,.15);--info-line:rgba(122,167,255,.34);--info-solid:#3B82F6;
+}
+body{color:var(--ink)}
+.input,.select,.textarea,.select option,.mitem,.puser,.rchip,.pager button,.qa-btn,.kpi-t,.pal-q input,.pal-item,
+.ex-quick button,.ex-chip,.xp-name,.xp-opt,.xp-n,.bn-pt,.chip-btn,.bd,.bd-chip,.mrow,.toast,.ann-body,.earn-chip{color:var(--ink)}
+.ccard .who b,.ex-who b,.xr-model b,.xr-facts b{color:var(--ink)}
+.ibtn{color:var(--soft)}
+.ibtn:hover{color:var(--or)}
+.top-actions .ibtn,.lg-corner .ibtn{color:var(--ink)}
+kbd,.pal-x{color:var(--soft)}
+.nav a .i{color:var(--soft);transition:color .2s}
+.nav a:hover .i{color:var(--or)}
+.nav a.on .i{color:var(--on-or)}
+.cab-nav button{color:var(--soft)}
+.cab-nav button:hover{color:var(--ink)}
+.cab-nav button.on{color:var(--on-or)}
+.qa-ic,.mrow>.i:first-child,.earn-chip svg.tb,.tile .i{color:var(--or)}
+.kpi-t b,.summary b,.gm-month b,.pub-stat b{color:var(--or)}
+.attn-ok>.i{color:var(--ok-solid)}
+.kpi-t.hot,.kpi-t.hot b{color:var(--on-or)}
+.pager button.on,.xp-name.xp-on,.xp-opt.xp-on,.xp-n.xp-done,.bn-pt.on,.seg input:checked+span{color:var(--on-or)}
+.linkish{color:inherit}
+.linkish:hover{color:var(--or)}
+.ccard,.attn,.summary,.ledger,.kpi-t,.qa-btn,.tile,.hl-card,.gm-card{box-shadow:0 1px 2px rgba(60,35,10,.04)}
+:root[data-theme="dark"] .ccard,:root[data-theme="dark"] .attn,:root[data-theme="dark"] .summary,:root[data-theme="dark"] .ledger,:root[data-theme="dark"] .kpi-t,:root[data-theme="dark"] .qa-btn,:root[data-theme="dark"] .tile{box-shadow:none}
+.ledger th{color:var(--soft);background:color-mix(in srgb,var(--tint) 70%,var(--surface))}
+.ledger td,.rank-table,.pts-v,.lead-list,.ts-table,.hl-table,.frac,.login-code,.summary b,.kpi-t b{font-variant-numeric:tabular-nums}
+.select option{background:var(--surface)}
+.err-text,.ferr{color:var(--bad)}
+:root[data-theme="dark"] .select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8A1F' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}
+.pill{border:1.5px solid transparent}
+.pill.held{background:var(--ok-bg);color:var(--ok);border-color:var(--ok-line)}
+.pill.absent{background:var(--bad-bg);color:var(--bad);border:1.5px solid var(--bad-line)}
+.pill.absent .why{color:var(--ink);opacity:.8}
+.st{border-color:var(--soft)}
+.st-ok{border-color:var(--ok-solid)}
+.st-ok::after{border-color:var(--ok-solid)}
+.st-done{background:var(--ok-solid);border-color:var(--ok-solid)}
+.st-done::after{border-color:#fff}
+.st-wait{border-color:var(--info-solid);background:linear-gradient(90deg,var(--info-solid) 50%,transparent 50%)}
+.st-stale{border-color:var(--warn-solid)}
+.st-debt{background:var(--warn-solid);border-color:var(--warn-solid);animation-name:stPulseWarn}
+.st-debt::after{color:#fff}
+@keyframes stPulseWarn{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--warn-solid) 55%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.sttag{border:1.5px solid transparent}
+.sttag-ok{background:var(--ok-bg);color:var(--ok);border-color:var(--ok-line)}
+.sttag-done{background:var(--ok-bg);color:var(--ok);border-color:var(--ok-line)}
+.sttag-wait{background:var(--info-bg);color:var(--info);border-color:var(--info-line)}
+.sttag-stale{background:var(--warn-bg);color:var(--warn);border:1.5px dashed var(--warn-line)}
+.sttag-debt{background:var(--warn-bg);color:var(--warn);border-color:var(--warn-line)}
+.sttag-debt .st{border-color:var(--warn-solid);background:var(--warn-solid);animation:none}
+.sttag-debt .st::after{color:#fff}
+.seg input:checked+span .st-debt::after{color:var(--or)}
+.toast{background:var(--surface);border:1.5px solid var(--line);box-shadow:var(--shadow-lg);padding:13px 16px 13px 14px;border-radius:16px}
+.toast .i{flex:none;width:22px;height:22px;padding:3px;border-radius:50%;margin-top:-1px;box-sizing:border-box;color:#fff}
+.toast.ok{background:var(--surface);color:var(--ink)}
+.toast.ok .i{background:var(--ok-solid)}
+.toast.err{border-color:var(--bad-line);background:color-mix(in srgb,var(--bad-bg) 60%,var(--surface))}
+.toast.err .i{background:var(--bad-solid)}
+.toast.info .i{background:var(--info-solid)}
+.xr-verdict.xr-pass{background:var(--ok-bg);color:var(--ok);border:1.5px solid var(--ok-line)}
+.xr-verdict.xr-fail{background:var(--bad-bg);color:var(--bad);border:1.5px solid var(--bad-line)}
+.xr-verdict.xr-wait{background:var(--warn-bg);color:var(--warn);border:1.5px solid var(--warn-line)}
+.xr-opt.xr-good{background:var(--ok-solid);border-color:var(--ok-solid);color:#fff}
+.xr-opt.xr-wrong{background:var(--bad-bg);border-color:var(--bad-line);color:var(--bad)}
+.xr-opt.xr-key{border-color:var(--ok-solid);box-shadow:inset 0 0 0 1px var(--ok-solid)}
+.pwc-rules li.pwc-ok{color:var(--ok)}
+.pwc-rules li.pwc-ok i{background:var(--ok-solid);border-color:var(--ok-solid)}
+.ex-err{border-color:var(--bad-line);background:var(--bad-bg);color:var(--bad)}
+.ex-q.ex-bad{border-color:var(--bad-solid)}
+.ex-vio i.ex-von,.xp-warn i.xp-won{background:var(--bad-solid);border-color:var(--bad-solid)}
+.xp-save.xp-off,.loader-msg.warn p{color:var(--warn)}
+.resp-card.low{border-color:var(--bad-solid);box-shadow:inset 0 0 0 1px var(--bad-solid)}
+.st-banner{border-style:solid}
+.st-banner.st-left{border-color:var(--warn-line);background:var(--warn-bg)}
+.st-banner.st-left>svg.tb{color:var(--warn)}
+.st-banner.st-grad{border-color:var(--info-line);background:var(--info-bg)}
+.st-banner.st-grad>svg.tb{color:var(--info)}
+.st-ic.abs{background:var(--bad-solid);color:#fff}
+.abs-box{border-color:var(--bad-line);background:var(--bad-bg)}
+.abs-head,:root[data-theme="dark"] .abs-head{color:var(--bad)}
+.hl-card.ok>svg{color:var(--ok-solid)}
+.hl-card.warn{border-color:var(--warn-line);background:var(--warn-bg)}
+.hl-card.warn>svg{color:var(--warn)}
+.hl-card.bad{border-color:var(--bad-line);background:var(--bad-bg)}
+.hl-card.bad>svg{color:var(--bad)}
+.err-msg,:root[data-theme="dark"] .err-msg{color:var(--bad)}
+.grow-card{border-color:var(--ok-line);background:linear-gradient(120deg,var(--ok-bg),var(--surface))}
+.grow-card .eyebrow,:root[data-theme="dark"] .grow-card .eyebrow{color:var(--ok)}
+.ts-pct .gm-bar i{background:var(--ok-solid)}
+body::before{transition:opacity .4s var(--ease)}
+body.deco-quiet::before{opacity:.35}
+:root[data-theme="dark"] body.deco-quiet::before{opacity:.5}
+.loader.sk{align-items:stretch;gap:14px;padding:6px 0 20px;text-align:left}
+.sk-grid{display:grid;gap:12px}
+.sk-top{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.sk-card{height:86px;border-radius:var(--r-lg);border:1.5px solid var(--line);background:var(--surface);padding:16px;display:flex;flex-direction:column;gap:10px}
+.sk-row{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--r-lg);border:1.5px solid var(--line);background:var(--surface)}
+.sk-row .sk-c{width:38px;height:38px;border-radius:12px;flex:none}
+.sk-row>div{flex:1;display:flex;flex-direction:column;gap:8px}
+.sk-l,.sk-c{display:block;border-radius:8px;background:linear-gradient(90deg,var(--tint) 0%,var(--tint-2) 40%,var(--tint) 80%);background-size:300% 100%;animation:skMove 1.3s ease-in-out infinite}
+.sk-l{height:11px}
+.sk-l.w30{width:30%}.sk-l.w45{width:45%}.sk-l.w60{width:60%}.sk-l.w80{width:80%}.sk-l.big{height:22px;width:40%}
+@keyframes skMove{from{background-position:100% 0}to{background-position:0 0}}
+.loader.sk .loader-msg{justify-content:flex-start;min-height:24px;max-width:none}
+.loader.sk.mini .sk-top{display:none}
+@media (prefers-reduced-motion:reduce){.sk-l,.sk-c{animation:none}}
+.empty{border-style:dashed;background:color-mix(in srgb,var(--surface) 70%,transparent)}
+.empty-art{position:relative;width:86px;height:86px;margin-bottom:4px}
+.empty-art .ea-b{position:absolute;inset:8px;border-radius:26px;background:linear-gradient(140deg,var(--tint-2),var(--tint));transform:rotate(-8deg)}
+.empty-art .ea-f{position:absolute;inset:8px;border-radius:26px;background:var(--surface);border:1.5px solid var(--line);display:grid;place-items:center;transform:rotate(4deg);box-shadow:var(--shadow)}
+.empty-art .ea-f svg{width:38px;height:38px;color:var(--or)}
+.empty-art .ea-s{position:absolute;width:18px;height:18px;color:var(--warn-solid)}
+.empty-art .ea-s svg{width:100%;height:100%}
+.empty-art .ea-s1{right:-4px;top:0}
+.empty-art .ea-s2{left:-2px;bottom:4px;width:13px;height:13px;color:var(--or);opacity:.7}
+.empty>.i:first-child{width:54px;height:54px;padding:13px;border-radius:18px;background:var(--tint);color:var(--or)}
+@media (max-width:760px){.cab-nav button.on{color:var(--or-text)}}
+@media (max-width:980px){.search-btn{color:var(--ink)}}
+.btn:not(.btn-primary),.tabs button.on,.ann-toggle,.ann-more button,.attn-more,.lg-forgot,.chip-btn:hover{color:var(--or-text)}
 </style>
 </head>
 <body>
@@ -1683,7 +1984,7 @@ svg.tb{width:1.15em;height:1.15em;flex:none}
 <div id="modalRoot"></div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
 
-<script>const API_URL = 'https://script.google.com/macros/s/AKfycbwqogxkMvs6r1n00Cr3y0rydPpCc8kQptW3Mx8SS40whuD_JldMdZgOO-cpY4E8feQF/exec';
+<script>const API_URL = 'https://script.google.com/macros/s/AKfycbyAI_cj-QMp9n0waphROzDxyuee-1v-aCbFGPKHjev28NiYHKwA0OPwT5TcvIZN3jU/exec';
 
 const ICONS = {
   home:'<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',
@@ -1904,6 +2205,7 @@ async function run(btn, fn){
 }
 
 function applyData(d, opts = {}){
+  verCheck(d);
   if (d.role === 'student') return cabApply(d, opts);
   const prevSig = S.permsSig;
   S.d = d;
@@ -2278,6 +2580,7 @@ function renderViewAs(){
 }
 
 function renderPage(isRefresh){
+  decoMode(S.page);
   if (isRefresh && exHold()) return;
   const main = $('#main');
   const fn = RENDER[S.page] || RENDER.none;
@@ -2573,9 +2876,6 @@ document.addEventListener('visibilitychange', () => {
 const RENDER = {};
 const AFTER = {};
 
-function emptyBox(title, text, action){
-  return `<div class="empty">${pips(0, 8)}<h4>${title}</h4><p>${text}</p>${action || ''}</div>`;
-}
 function greeting(){
   const h = Number((S.d.now || '').slice(11,13)) || new Date().getHours();
   if (h >= 5 && h < 12) return 'Sabahınız xeyir';
@@ -2709,6 +3009,7 @@ function attentionItems(){
   if (d.exam && d.exam.pending) out.push({ sev: 1, glyph: `<span class="st-ic">${ic('exam')}</span>`, key: '~',
     title: `${d.exam.pending} imtahan cavabı yoxlamanızı gözləyir`, meta: 'Açıq suallara bal verilməlidir — bundan sonra tələbə yekun nəticəni görəcək.',
     act: `<button class="btn btn-sm btn-primary" data-act="exShowPending">Yoxla</button>` });
+  out.push(...absItems(d.absAlerts));
   const sa = d.surveyAlerts;
   if (sa && sa.low) out.push({ sev: 0, glyph: `<span class="st-ic">${ic('poll')}</span>`, key: '~',
     title: `${sa.low} aşağı qiymətli sorğu cavabına baxılmayıb`, meta: 'Valideynlə əlaqə saxlamaq lazım ola bilər.',
@@ -2757,7 +3058,7 @@ RENDER.home = () => {
         const tag = attr ? 'button' : 'div';
         return `<${tag} class="kpi-t${t.hot ? ' hot' : ''}" ${attr}><b>${t.n}</b><span>${t.label}</span><small>${t.sub}</small></${tag}>`;
       }).join('')}</div>` : ''}
-    ${(can('courses.view') || d.surveyAlerts) ? `<div class="section"><div class="section-head"><h3>Diqqət tələb edir</h3>
+    ${(can('courses.view') || d.surveyAlerts || (d.absAlerts && d.absAlerts.length)) ? `<div class="section"><div class="section-head"><h3>Diqqət tələb edir</h3>
         <div class="st-legend" aria-hidden="true">${can('courses.view') ? `<span>${stDot('done')}ay bitdi</span><span>${stDot('stale')}dərs yoxdur</span>` : ''}</div></div>
       <div id="attBox">${attentionHtml()}</div></div>` : ''}
     ${can('courses.view') ? `<div class="section"><div class="section-head"><h3>Gedişat</h3>
@@ -2916,6 +3217,7 @@ RENDER.mine = () => {
   const sorted = mine.slice().sort((a, b) => (a.complete - b.complete) || courseTitle(a).localeCompare(courseTitle(b), 'az'));
   return `<div class="page-head"><div><h2>Məşğələlərim</h2><p>Dərsdən sonra uyğun düyməni basın. Səhv qeydi ${S.d.editWindowHours} saat ərzində özünüz düzəldə bilərsiniz.</p></div></div>
     ${S.d.exam && S.d.exam.pending ? `<div class="done-note" style="margin-bottom:16px">${ic('exam')}<span><b>${S.d.exam.pending} imtahan cavabı</b> yoxlamanızı gözləyir. <button class="linkish" data-act="exShowPending">Yoxlamağa keç</button></span></div>` : ''}
+    ${absBoxHtml()}
     ${mine.length ? `${done ? `<div class="done-note" style="margin-bottom:16px">${ic('info')}<span>${done} məşğələdə ayın bütün dərsləri keçilib. Yeni ayı Leyla xanım başladacaq.</span></div>` : ''}
       <div class="cgrid">${sorted.map(c => courseCard(c, 'mine')).join('')}</div>`
     : emptyBox('Sizin məşğələniz yoxdur', 'Leyla xanım sizə məşğələ təyin edəndə o, burada görünəcək.')}`;
@@ -2992,13 +3294,6 @@ const SITE_TIPS = [
   'İmtahanın nəticə linkini bir kliklə valideynə göndərə bilərsiniz.'
 ];
 
-function loadingBox(retry){
-  return `<div class="loader" data-staged data-retry="${retry || 'page'}">
-    <span class="cap" data-logo="light"></span>
-    ${pips(0, 8, '')}
-    <div class="loader-msg"><p>Yüklənir…</p></div>
-  </div>`;
-}
 let lastTip = -1;
 function pickTip(){
   let i; do { i = Math.floor(Math.random() * SITE_TIPS.length); } while (SITE_TIPS.length > 1 && i === lastTip);
@@ -3059,6 +3354,8 @@ function cardHtml(k){
   const rate = total ? Math.round(k.stats.held / total * 100) : null;
   const acts = [];
   acts.push(`<button class="btn btn-sm btn-soft" data-act="parentLink" data-id="${s.id}">${ic('wa')}Valideyn linki</button>`);
+  acts.push(`<button class="btn btn-sm btn-soft" data-act="monthReport" data-id="${s.id}">${ic('printer')}Aylıq hesabat</button>`);
+  if (s.status === 'grad') acts.push(`<button class="btn btn-sm btn-soft" data-act="certificate" data-id="${s.id}">${tb('certificate')}Sertifikat</button>`);
   if (s.login) acts.push(`<button class="btn btn-sm btn-soft" data-act="sendLogin" data-id="${s.id}">${ic('send')}Giriş məlumatı</button>`);
   if (s.canReset && !ro()) acts.push(`<button class="btn btn-sm btn-soft" data-act="resetStuPw" data-id="${s.id}">${ic('key')}Şifrəni sıfırla</button>`);
   if (s.canBonus && gameOn() && !ro()) acts.push(`<button class="btn btn-sm btn-soft" data-act="bonusForm" data-id="${s.id}" data-name="${esc(s.name)}">${ic('star')}Bonus ver</button>`);
@@ -3129,13 +3426,14 @@ function cardHtml(k){
 
 RENDER.staff = () => `
   <div class="page-head"><div><h2>Müəllimlər və köməkçilər</h2><p>Sistemə giriş hesabları.</p></div>
-    ${can('teachers.add') ? `<button class="btn btn-primary" data-act="userForm">${ic('plus')}Yeni istifadəçi</button>` : ''}</div>
+    <div class="row"><button class="btn btn-soft" data-act="teacherStats">${ic('chart')}Statistika</button>
+    ${can('teachers.add') ? `<button class="btn btn-primary" data-act="userForm">${ic('plus')}Yeni istifadəçi</button>` : ''}</div></div>
   <div class="toolbar">
     <div class="input-wrap search">${ic('search','lead')}<input class="input has-lead" id="uq" placeholder="Ad, login və ya fənn üzrə axtar" value="${esc(S.ui.uq || '')}"></div>
     <div class="seg">${[['all','Hamısı'],['teacher','Müəllimlər'],['helper','Köməkçilər']].map(([k, l]) =>
       `<label><input type="radio" name="ur" value="${k}" ${(S.ui.ur || 'all') === k ? 'checked' : ''}><span>${l}</span></label>`).join('')}</div>
   </div>
-  <div id="ulist">${staffList()}</div>`;
+  <div id="ulist">${staffList()}</div><div id="bulkBar" class="bulk-bar" hidden></div>`;
 function staffList(){
   const q = fold(S.ui.uq || ''), r = S.ui.ur || 'all';
   const list = S.d.users.filter(u => {
@@ -3145,7 +3443,8 @@ function staffList(){
     return true;
   }).sort((a, b) => (a.role === 'superadmin' ? -1 : b.role === 'superadmin' ? 1 : a.name.localeCompare(b.name, 'az')));
   if (!list.length) return emptyBox('Heç nə tapılmadı', 'Axtarışı və ya filtri dəyişin.');
-  return `<table class="ledger"><thead><tr><th>Ad Soyad</th><th>Login</th><th>Şifrə</th><th>Məşğələlər</th><th></th></tr></thead><tbody>
+  const sel = selSet('selU');
+  return `${selMobHtml(list.every(u => sel.has(u.id)), list.length)}<table class="ledger"><thead><tr><th class="sel">${CHK('data-selall aria-label="Hamısını seç"', list.length && list.every(u => sel.has(u.id)))}</th><th>Ad Soyad</th><th>Login</th><th>Şifrə</th><th>Məşğələlər</th><th></th></tr></thead><tbody>
     ${list.map(u => {
       const cs = S.d.courses.filter(c => c.teacherId === u.id);
       const isSelf = u.id === me().id;
@@ -3155,7 +3454,8 @@ function staffList(){
       const pw = can('teachers.passwords') && !locked
         ? `<span class="pw"><code id="pw_${u.id}">••••••</code><button class="ibtn sm" data-act="revealPw" data-id="${u.id}" title="Şifrəni göstər" aria-label="Şifrəni göstər">${ic('eye')}</button></span>`
         : '<span class="faint">Gizli</span>';
-      return `<tr>
+      return `<tr class="${sel.has(u.id) ? 'sel-on' : ''}">
+        <td class="sel">${CHK(`data-sel="${u.id}" aria-label="${esc(u.name)} seç"`, sel.has(u.id))}</td>
         <td data-label="Ad Soyad" class="full"><div class="person"><span class="ava">${esc(initials(u.name))}</span><div><b>${esc(u.name)}${isSelf ? ' <span class="faint" style="font-weight:400">(siz)</span>' : ''}</b><span class="tag${u.role === 'superadmin' ? ' solid' : u.role === 'helper' ? ' line' : ''}" style="margin-top:4px">${roleLabel(u.role)}</span>${u.subject ? ` <span class="tag line" style="margin-top:4px">${esc(u.subject)}</span>` : ''}${u.mustChange ? ` <span class="tag line" style="margin-top:4px" title="Bu istifadəçi hələ ilkin şifrə ilə daxil olmayıb və ya şifrəsini dəyişməyib">${ic('key')}Şifrəni dəyişməyib</span>` : ''}</div></div></td>
         <td data-label="Login">${esc(u.login || '—')}</td>
         <td data-label="Şifrə">${pw}</td>
@@ -3167,7 +3467,10 @@ function staffList(){
     }).join('')}</tbody></table>`;
 }
 AFTER.staff = (root) => {
-  const upd = () => { $('#ulist').innerHTML = staffList(); hydrateIcons($('#ulist')); };
+  const upd = () => { $('#ulist').innerHTML = staffList(); hydrateIcons($('#ulist')); syncAll($('#ulist'), 'selU'); };
+  bindSel($('#ulist', root), 'u');
+  syncAll($('#ulist', root), 'selU');
+  drawBulk('u');
   $('#uq', root).addEventListener('input', e => { S.ui.uq = e.target.value; upd(); });
   $$('input[name=ur]', root).forEach(r => r.addEventListener('change', e => { S.ui.ur = e.target.value; upd(); }));
 };
@@ -3977,6 +4280,7 @@ RENDER.dev = () => {
       <div style="flex:1;min-width:0"><h3 style="font-size:18px">Xoş gəldiniz, ${esc(d.me.name)}</h3>
       <p class="muted" style="font-size:13px">Sizin fəaliyyətiniz adi jurnalda görünmür, ayrıca texniki jurnalda saxlanılır.</p></div>
       <button class="btn btn-soft" data-act="devStats">${ic('database')}Sistem statistikası</button></div>
+    ${devHealthShell()}
 
     <div class="section"><div class="maint-toggle ${m.on ? 'on' : ''}">
       <div style="flex:1;min-width:200px"><div class="row" style="gap:8px"><b style="font-size:16px">Texniki iş rejimi</b>${m.on ? '<span class="tag solid">Aktiv</span>' : '<span class="tag">Söndürülüb</span>'}</div>
@@ -4031,6 +4335,7 @@ AFTER.dev = (root, isRefresh) => {
   if (n) n.addEventListener('input', e => { S.ui.mtNote = e.target.value; });
   if (mm) mm.addEventListener('change', e => { S.ui.mtMin = e.target.value; });
   loadArchivePanel(isRefresh);
+  loadHealth();
   bindTestGen(root);
   loadTestInfo();
 };
@@ -4780,6 +5085,7 @@ async function renderPublicCard(token){
         <div class="pub-stat"><b>${k.stats.absent}</b><span>qayıb</span></div>
         <div class="pub-stat"><b>${rate}%</b><span>davamiyyət</span></div>
       </div>
+      ${pubGameHtml(k.game)}
       ${k.courses.length ? `<div class="pub-card"><h3>Məşğələlər</h3><div class="cgrid">${k.courses.map(c => `<article class="ccard${c.complete?' done':''}">
         <div class="ccard-top"><span class="tag${c.type==='group'?' solid':''}">${typeLabel(c.type)}</span><span class="month">Ay ${c.monthNo}</span></div>
         <div><h3>${esc(c.title || (c.type==='individual'? s.name : c.studentNames.slice(0,2).join(', ')))}</h3><p class="who">Müəllim: <b>${esc(c.teacherName)}</b></p></div>
@@ -6719,7 +7025,7 @@ function preferredTheme(){
 function setTheme(t, save){
   S.theme = t === 'dark' ? 'dark' : 'light';
   document.documentElement.dataset.theme = S.theme;
-  $('meta[name=theme-color]').setAttribute('content', S.theme === 'dark' ? '#150F09' : '#FF7A00');
+  $('meta[name=theme-color]').setAttribute('content', S.theme === 'dark' ? '#0D1220' : '#FF7A00');
   $$('.theme-btn').forEach(b => { b.innerHTML = ic(S.theme === 'dark' ? 'sun' : 'moon'); b.title = S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'; });
   if (save) localSet(THEME_KEY, S.theme);
 }
@@ -6887,8 +7193,8 @@ function decoUri(color, op){
 }
 function initDeco(){
   const r = document.documentElement.style;
-  r.setProperty('--deco-l', decoUri('#FF7A00', .085));
-  r.setProperty('--deco-d', decoUri('#FFB066', .07));
+  r.setProperty('--deco-l', decoUri('#FF7A00', .075));
+  r.setProperty('--deco-d', decoUri('#8EA2D0', .075));
 }
 
 function countUp(root){
@@ -6990,7 +7296,7 @@ function leadersHtml(L, kind, opts = {}){
       ${nm(x, 'pod-name')}
       <small>${x.points} bal${kind === 'grp' ? ' (orta)' : ''}</small>${kind === 'grp' && x.teacher ? `<small class="faint">${esc(x.teacher)}</small>` : ''}
       <div class="pod-step">${x.place}</div></div>`).join('')}</div>
-    ${rest.length ? `<ol class="lead-list">${rest.map(x => `<li><span class="ln">${x.place}</span>${nm(x, '')}<span class="lp">${x.points} bal</span></li>`).join('')}</ol>` : ''}`;
+    ${rest.length ? `<ol class="lead-list">${rest.map(x => `<li><span class="ln">${x.place}</span>${nm(x, '')}<span class="lp">${x.points} bal</span></li>`).join('')}</ol>` : ''}${kind === 'ind' ? growHtml(L, opts) : ''}`;
 }
 function gameRulesHtml(R, levels){
   return `<div class="rules-grid">
@@ -7213,12 +7519,12 @@ CAB_RENDER.home = (d) => {
   return `${cabAnnHtml(d)}${hero}
     ${open.length ? `<div class="cab-sec"><div class="section-head"><h3>Sənə təyin edilmiş imtahanlar<span class="count">${open.length}</span></h3><button class="linkish" data-act="cabGo" data-p="exams">Hamısı</button></div>
       <div class="cab-exams">${open.slice(0, 3).map(cabExamCard).join('')}</div></div>` : ''}
-    <div class="cab-sec"><div class="section-head"><h3>Məşğələlərim<span class="count">${d.courses.length}</span></h3></div>
+    <div class="cab-sec"><div class="section-head"><h3>Məşğələlərim<span class="count">${d.courses.length}</span></h3>${S.cabRO ? '' : `<button class="linkish" data-act="cabReport">Aylıq hesabat</button>`}</div>
       ${d.courses.length ? `<div class="cgrid">${d.courses.map(c => `<article class="ccard">
         <div class="ccard-top"><span class="tag${c.type === 'group' ? ' solid' : ''}">${typeLabel(c.type)}</span><span class="month">Ay ${c.monthNo}</span></div>
         <div><h3>${esc(c.title)}</h3><p class="who">Müəllim: <b>${esc(c.teacherName)}</b></p></div>
         <div class="ccard-prog">${pips(Math.min(c.held, c.lessonsPerMonth), c.lessonsPerMonth)}<span class="frac">${c.held}/${c.lessonsPerMonth}</span></div>
-        <p class="ccard-meta">Bu ay ${c.mine.held} dərsdə iştirak etmisən${c.mine.absent ? `, ${c.mine.absent} dəfə qayıb` : ''}.${g.on && g.rules ? ` Hər dərs: +${c.lessonsPerMonth === 12 ? g.rules.perLesson12 : g.rules.perLesson8} bal.` : ''}</p></article>`).join('')}</div>`
+        <p class="ccard-meta">Bu ay ${c.mine.held} dərsdə iştirak etmisən${c.mine.absent ? `, ${c.mine.absent} dəfə qayıb` : ''}.</p></article>`).join('')}</div>`
         : `<div class="empty">${ic('book')}<h4>Hələ məşğələ yoxdur</h4><p>Müəllimin səni məşğələyə əlavə edəndən sonra burada görünəcək.</p></div>`}</div>
     <div class="cab-sec"><div class="summary"><div><b data-count="${st.held}">${st.held}</b><span>iştirak etdiyin dərs</span></div><div><b>${st.absent}</b><span>qayıb</span></div><div><b>${st.rate == null ? '—' : st.rate + '%'}</b><span>davamiyyət</span></div><div><b>${d.exams.done.count}</b><span>imtahan</span></div></div></div>
     ${g.on ? `<div class="cab-sec"><div class="section-head"><h3>Son nişanlar</h3><button class="linkish" data-act="cabGo" data-p="badges">Vitrin</button></div>
@@ -7276,12 +7582,13 @@ CAB_RENDER.profile = (d) => {
     <div class="cab-sec"><div class="profile"><span class="ava lg">${esc(initials(d.me.name))}</span><div class="profile-main"><h2>${esc(d.me.name)}</h2>
       <div class="kv"><div><span>Login</span><b>${esc(d.me.login)}</b></div>${d.me.parentName ? `<div><span>Valideyn</span><b>${esc(d.me.parentName)}</b></div>` : ''}${g.on ? `<div><span>Səviyyə</span><b>${esc(g.level.name)}</b></div>` : ''}</div></div></div></div>
     ${S.cabRO ? '' : `<div class="cab-sec cab-menu-list">
+      <button class="mrow" data-act="cabReport">${ic('printer')}<span>Aylıq hesabat (valideyn üçün)</span>${ic('chev')}</button>
       <button class="mrow" data-act="changePassword">${ic('key')}<span>Şifrəni dəyiş</span>${ic('chev')}</button>
       <button class="mrow" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}<span>${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</span>${ic('chev')}</button>
       ${isStandalone() ? '' : `<button class="mrow" data-act="installApp">${ic('home')}<span>Ana ekrana əlavə et</span>${ic('chev')}</button>`}
       <button class="mrow" data-act="logoutAll">${ic('shield')}<span>Bütün cihazlardan çıx</span>${ic('chev')}</button>
       <button class="mrow" data-act="logout">${ic('logout')}<span>Çıxış</span>${ic('chev')}</button></div>`}
-    ${g.on ? `<div class="cab-sec"><div class="section-head"><h3>Bal necə qazanılır?</h3></div>${gameRulesHtml(g.rules, g.levels)}</div>` : ''}`;
+    ${g.on ? `<div class="cab-sec"><div class="section-head"><h3>Bal necə qazanılır?</h3></div>${gameRulesChips(g.rules, g.levels)}</div>` : ''}`;
 };
 function cabRender(isRefresh){
   const d = S.cab, el = $('#cabMain');
@@ -7289,6 +7596,7 @@ function cabRender(isRefresh){
   const keep = isRefresh ? window.scrollY : 0;
   const fn = CAB_RENDER[S.cabPage] || CAB_RENDER.home;
   if (!isRefresh || !S.cabWord) S.cabWord = pickWord();
+  decoMode('');
   el.innerHTML = `<div class="cab-page cp-${S.cabPage}">${fn(d)}<aside class="word-card">${tb('bulb', 'word-ic')}${wordHtml(S.cabWord)}</aside></div>`;
   hydrateIcons(el);
   if (!isRefresh) countUp(el); else $$('[data-count]', el).forEach(x => { x.dataset.counted = '1'; });
@@ -7336,7 +7644,7 @@ RENDER.students = () => {
     ${ss === 'active' ? `<div class="seg" role="radiogroup" aria-label="Kabinetə giriş">${SF.map(([k, l]) =>
       `<label><input type="radio" name="sf" value="${k}" ${sf === k ? 'checked' : ''}><span>${k !== 'all' ? stDot(k) : ''}${l} ${cnt[k]}</span></label>`).join('')}</div>` : ''}
   </div>
-  <div id="slist">${studentsList()}</div>`;
+  <div id="slist">${studentsList()}</div><div id="bulkBar" class="bulk-bar" hidden></div>`;
 };
 function loginCell(s){
   if (!s.login) return '<span class="faint">—</span>';
@@ -7359,11 +7667,14 @@ function studentsList(){
   if (!list.length) return sf !== 'all' && !q
     ? emptyBox(sf === 'debt' ? 'Hamı kabinetə daxil olub' : 'İlkin şifrə ilə qalan tələbə yoxdur', 'Başqa filtr seçin.')
     : emptyBox(ss === 'active' ? 'Heç nə tapılmadı' : 'Bu siyahı boşdur', 'Axtarış sözünü və ya filtri dəyişin.');
-  return `<table class="ledger"><thead><tr><th>Tələbə</th><th>Login</th><th>${ss === 'active' ? 'Məşğələlər' : 'Status'}</th><th></th></tr></thead><tbody>
+  const sel = selSet('selS');
+  return `${selMobHtml(list.every(s => sel.has(s.id)), list.length)}<table class="ledger"><thead><tr><th class="sel">${CHK('data-selall aria-label="Hamısını seç"', list.length && list.every(s => sel.has(s.id)))}</th><th>Tələbə</th><th>Login</th><th>${ss === 'active' ? 'Məşğələlər' : 'Status'}</th><th></th></tr></thead><tbody>
     ${list.map(s => {
       const cs = coursesOfStudent(s.id);
       const active = isActiveStu(s);
-      return `<tr${active ? '' : ' class="muted-row"'}>
+      const on = sel.has(s.id);
+      return `<tr class="${active ? '' : 'muted-row'}${on ? ' sel-on' : ''}">
+        <td class="sel">${CHK(`data-sel="${s.id}" aria-label="${esc(s.name)} seç"`, on)}</td>
         <td data-label="Tələbə" class="full"><div class="person"><span class="ava">${esc(initials(s.name))}</span><div><button class="linkish" data-go="student" data-param="${s.id}">${esc(s.name)}</button>${s.noRank ? '<small>reytinqdə gizli</small>' : ''}${s.parentName ? `<small>Valideyn: ${esc(s.parentName)}</small>` : ''}${s.note ? `<small>${esc(s.note.length > 60 ? s.note.slice(0,60) + '…' : s.note)}</small>` : ''}</div></div></td>
         <td data-label="Login">${loginCell(s)}</td>
         ${active ? `<td data-label="Məşğələlər">${cs.length ? `<div class="chips">${cs.map(c => `<span class="cchip"><b>${typeLabel(c.type)}${c.type === 'group' ? ': ' + esc(courseTitle(c)) : ''}</b><span>${esc(c.teacherName)}, ${c.held}/${c.lessonsPerMonth}</span></span>`).join('')}</div>` : '<span class="faint">Məşğələ yoxdur</span>'}</td>`
@@ -7378,11 +7689,455 @@ function studentsList(){
     }).join('')}</tbody></table>`;
 }
 AFTER.students = (root) => {
-  const upd = () => { $('#slist').innerHTML = studentsList(); hydrateIcons($('#slist')); };
+  const upd = () => { $('#slist').innerHTML = studentsList(); hydrateIcons($('#slist')); syncAll($('#slist'), 'selS'); };
+  bindSel($('#slist', root), 's');
+  syncAll($('#slist', root), 'selS');
+  drawBulk('s');
   $('#sq', root).addEventListener('input', e => { S.ui.sq = e.target.value; upd(); });
   $$('input[name=sf]', root).forEach(r => r.addEventListener('change', e => { S.ui.sf = e.target.value; upd(); }));
-  $$('input[name=ss]', root).forEach(r => r.addEventListener('change', e => { S.ui.ss = e.target.value; S.ui.sf = 'all'; renderPage(true); }));
+  $$('input[name=ss]', root).forEach(r => r.addEventListener('change', e => { S.ui.ss = e.target.value; S.ui.sf = 'all'; selSet('selS').clear(); renderPage(true); }));
 };
+const APP_VER = '8.1';
+Object.assign(ICONS, {
+  printer: '<path d="M7 9V4h10v5"/><rect x="3.5" y="9" width="17" height="8" rx="2"/><path d="M7 14h10v6H7z"/><circle cx="17" cy="12" r=".6"/>',
+  pulse: '<path d="M3 12h4l2.5-6 4 12L16 9l1.5 3H21"/>',
+  checks: '<rect x="4" y="4" width="16" height="16" rx="4"/><path d="m8.5 12.3 2.4 2.4 4.6-5"/>',
+  bug: '<rect x="7.5" y="8" width="9" height="12" rx="4.5"/><path d="M9.5 8a2.5 2.5 0 0 1 5 0M12 12v8M4 13h3.5M16.5 13H20M5 8.5l3 1.7M19 8.5l-3 1.7M5 18.5l3-1.5M19 18.5l-3-1.5"/>'
+});
+NOTIF_ICON.absence = 'alert';
+NOTIF_ICON.badge = NOTIF_ICON.badge || 'award';
+BADGE_LOOK.grow = ['#A7F3D0', '#047857', 'trend'];
+BADGE_TIER.grow = 3;
+
+const ERR_SENT = new Set();
+let errCount = 0;
+function reportError(msg, where, stack){
+  if (!API_URL || /BURAYA/.test(API_URL)) return;
+  msg = String(msg || '').slice(0, 500);
+  if (!msg || /ResizeObserver loop|^Script error\.?$/i.test(msg)) return;
+  const k = msg + '|' + where;
+  if (ERR_SENT.has(k) || errCount >= 8) return;
+  ERR_SENT.add(k); errCount++;
+  try {
+    fetch(API_URL, { method: 'POST', redirect: 'follow', cache: 'no-store', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action: 'clientError', token: S.token || '', msg, where: String(where || '') + ' · ' + (location.hash || '#'),
+        stack: String(stack || '').slice(0, 1500), ua: navigator.userAgent.slice(0, 160), ver: APP_VER }) }).catch(() => {});
+  } catch (e) {}
+}
+window.addEventListener('error', e => {
+  if (e.target && e.target !== window) return;
+  reportError(e.message, (String(e.filename || '').split('/').pop() || 'səhifə') + ':' + e.lineno + ':' + e.colno, e.error && e.error.stack);
+});
+window.addEventListener('unhandledrejection', e => {
+  const r = e.reason;
+  if (r instanceof ApiError) return;
+  reportError(r && r.message ? r.message : String(r), 'promise', r && r.stack);
+});
+
+function verCmp(a, b){
+  const x = String(a || '0').split('.').map(Number), y = String(b || '0').split('.').map(Number);
+  for (let i = 0; i < Math.max(x.length, y.length); i++){ const d = (x[i] || 0) - (y[i] || 0); if (d) return d > 0 ? 1 : -1; }
+  return 0;
+}
+function verCheck(d){
+  const sv = d.ver || '';
+  S.serverVer = sv;
+  const bar = $('#verBar');
+  const staff = d.me && (d.me.isDev || d.me.isSuper);
+  let html = '';
+  if (sv && verCmp(sv, APP_VER) > 0) html = `${ic('refresh')}<span><b>Saytın yeni versiyası var</b> (v${esc(sv)}). Yeniləmək üçün düyməni basın.</span><button class="btn btn-sm btn-primary" data-act="verReload">Yenilə</button>`;
+  else if (staff && verCmp(sv || '0', APP_VER) < 0) html = `${ic('alert')}<span><b>Server köhnə versiyadadır</b> (${sv ? 'v' + esc(sv) : 'v7 və ya köhnə'}, sayt v${APP_VER}). Code.gs-i yeniləyib «Yeni versiya» ilə yerləşdirin.</span><button class="ibtn sm" data-act="verHide" aria-label="Bağla">${ic('x')}</button>`;
+  if (!bar) return;
+  if (!html || S.verHidden === sv){ bar.hidden = true; return; }
+  bar.innerHTML = html; bar.hidden = false; hydrateIcons(bar);
+}
+ACT.verReload = async () => {
+  try { const regs = navigator.serviceWorker ? await navigator.serviceWorker.getRegistrations() : []; await Promise.all(regs.map(r => r.update().catch(() => {}))); } catch (e) {}
+  try { if (window.caches){ const keys = await caches.keys(); await Promise.all(keys.map(k => caches.delete(k))); } } catch (e) {}
+  location.reload();
+};
+ACT.verHide = () => { S.verHidden = S.serverVer; const b = $('#verBar'); if (b) b.hidden = true; };
+
+function gameRulesChips(R, levels){
+  const chips = [['school', 'Dərsə gəl'], ['calendar', 'Ayın bütün dərslərinə buraxmadan gəl'], ['clipboard', 'İmtahan ver'], ['flag', 'Keçid balını topla'],
+    ['star', 'Müəllimdən bonus qazan'], ['flame', 'Ardıcıl gəl — seriyanı qoru'], ['trend', 'Ötən aydan daha yaxşı ol']];
+  return `<div class="earn-chips">${chips.map(([i, t]) => `<span class="earn-chip">${tb(i)}${t}</span>`).join('')}</div>
+    <div class="note-box">${tb('chart')}<p><b>Hər kəs üçün ədalətli:</b> ayda 8 və ya 12 dərs olmasından asılı olmayaraq, tam ay eyni qiymətləndirilir. Bir neçə məşğələdə oxuyursansa, ay balın onların ortalamasıdır. Reytinqə düşmək üçün ayın dərslərinin ən azı yarısında iştirak et. Nəticələr hər ayın ${R.snapDay}-də yekunlaşır.</p></div>
+    <div class="section"><div class="section-head"><h3>Səviyyələr</h3></div><div class="lv-ladder">${levels.map((l, i) => `<div class="lv-step">${levelBadge(i)}<b>${esc(l[1])}</b></div>`).join('')}</div>
+    <p class="hint" style="margin-top:10px">Səviyyə heç vaxt aşağı düşmür.</p></div>`;
+}
+
+function growHtml(L, opts = {}){
+  const g = L && L.grow; if (!g) return '';
+  const nm = opts.click && g.id ? `<button class="linkish" data-act="${opts.click}" data-id="${g.id}">${esc(g.name)}</button>` : `<b>${esc(g.name)}</b>`;
+  return `<div class="grow-card"><div class="grow-ic">${badgeSvg('grow')}</div><div><span class="eyebrow">Ayın ən çox irəliləyəni</span>${nm}
+    <small>${g.from} → ${g.to} reytinq balı · <b>+${g.points}</b></small></div></div>`;
+}
+
+function absItems(list){
+  return (list || []).map(a => ({ sev: 0, glyph: `<span class="st-ic abs">${ic('alert')}</span>`, key: a.name,
+    title: `${can('students.view') ? `<button class="linkish" data-go="student" data-param="${a.studentId}">${esc(a.name)}</button>` : esc(a.name)} — ardıcıl ${a.n} dərsə gəlməyib`,
+    meta: `«${esc(a.course)}»${a.teacher ? ` · Müəllim: ${esc(a.teacher)}` : ''} · son qayıb ${fmtDate(a.last)}`,
+    act: can('students.view') ? `<button class="btn btn-sm btn-soft" data-go="student" data-param="${a.studentId}">${ic('card')}Kart</button>` : '' }));
+}
+function absBoxHtml(){
+  const mine = (S.d.absAlerts || []).filter(a => a.teacherId === me().id);
+  if (!mine.length) return '';
+  return `<div class="abs-box"><div class="abs-head">${ic('alert')}<b>Diqqət: dərsə gəlməyən tələbələr</b></div>
+    ${mine.map(a => `<div class="abs-row"><b>${esc(a.name)}</b><span>«${esc(a.course)}» · ardıcıl ${a.n} qayıb · son: ${fmtDate(a.last)}</span></div>`).join('')}
+    <p class="hint">Valideynlə əlaqə saxlamaq yaxşı olar.</p></div>`;
+}
+
+function printDoc(html, landscape){
+  let area = $('#printArea');
+  if (!area){ area = document.createElement('div'); area.id = 'printArea'; document.body.appendChild(area); }
+  area.innerHTML = html; hydrateIcons(area);
+  let st = $('#printPage');
+  if (!st){ st = document.createElement('style'); st.id = 'printPage'; document.head.appendChild(st); }
+  st.textContent = `@page{size:A4 ${landscape ? 'landscape' : 'portrait'};margin:${landscape ? '0' : '12mm'}}`;
+  document.body.classList.add('printing');
+  const done = () => { document.body.classList.remove('printing'); window.removeEventListener('afterprint', done); };
+  window.addEventListener('afterprint', done);
+  setTimeout(() => { try { window.print(); } catch (e) {} setTimeout(done, 1500); }, 60);
+}
+const rpLogo = () => `<span class="rp-logo">${LOGO_SVG('#fff')}</span>`;
+function reportDoc(r){
+  const g = r.game;
+  const st = (x) => x === 'keçdi' ? '<span class="rp-ok">Keçdi</span>' : '<span class="rp-no">Qayıb</span>';
+  const kpi = [[r.held, 'iştirak etdiyi dərs'], [r.absent, 'qayıb'], [r.rate == null ? '—' : r.rate + '%', 'davamiyyət']];
+  if (g) kpi.push([g.score, 'ay üzrə reytinq balı'], [g.place ? g.place + '-ci' : '—', g.live ? 'yer (davam edir)' : 'yer reytinqdə']);
+  return `<div class="rp">
+    <header class="rp-top">${rpLogo()}<div><b>${esc(r.school)}</b><span>Aylıq hesabat</span></div><div class="rp-month">${esc(r.label)}</div></header>
+    <h1 class="rp-name">${esc(r.student.name)}</h1>${r.student.parentName ? `<p class="rp-sub">Valideyn: ${esc(r.student.parentName)}</p>` : ''}
+    <div class="rp-kpi">${kpi.map(([v, l]) => `<div><b>${v}</b><span>${l}</span></div>`).join('')}</div>
+    ${r.courses.length ? r.courses.map(c => `<section class="rp-sec"><h2>${esc(c.title)}</h2><p class="rp-sub">${c.teacher ? 'Müəllim: ' + esc(c.teacher) : ''}${c.subject ? ' · ' + esc(c.subject) : ''} · ${c.held} dərs${c.absent ? ', ' + c.absent + ' qayıb' : ''}</p>
+      <table class="rp-t"><thead><tr><th>Tarix</th><th>Status</th><th>Mövzu / qeyd</th></tr></thead><tbody>
+      ${c.lessons.map(l => `<tr><td>${fmtDate(l.date)}</td><td>${st(l.status)}</td><td>${esc(l.topic || '')}${l.reason ? `<i>${l.topic ? ' · ' : ''}Səbəb: ${esc(l.reason)}</i>` : ''}</td></tr>`).join('')}</tbody></table></section>`).join('')
+      : '<section class="rp-sec"><p class="rp-sub">Bu ay dərs qeydi yoxdur.</p></section>'}
+    ${r.exams.length ? `<section class="rp-sec"><h2>İmtahanlar</h2><table class="rp-t"><thead><tr><th>İmtahan</th><th>Nəticə</th><th>Tarix</th></tr></thead><tbody>
+      ${r.exams.map(x => `<tr><td>${esc(x.title)}</td><td>${x.status === 'review' ? 'yoxlanılır' : `${x.score}/${x.max} · <b>${x.pct}%</b>${x.pass === true ? ' <span class="rp-ok">keçdi</span>' : x.pass === false ? ' <span class="rp-no">keçmədi</span>' : ''}`}</td><td>${fmtDate(x.at)}</td></tr>`).join('')}</tbody></table></section>` : ''}
+    ${g ? `<section class="rp-sec rp-ach"><h2>Nailiyyətlər</h2>
+      <p>Ümumi bal: <b>${g.total}</b> · Səviyyə: <b>${esc(g.level)}</b> · Bu ay qazanılan bal: <b>${g.points}</b></p>
+      ${g.grow ? `<p class="rp-star">${tb('trend')} Ayın ən çox irəliləyən tələbəsi!</p>` : ''}
+      ${g.badges.length ? `<div class="rp-badges">${g.badges.map(b => `<span class="rp-bd">${badgeSvg(b.id)}<span>${esc(b.name)}<small>${esc(b.rarity)}</small></span></span>`).join('')}</div>` : '<p class="rp-sub">Bu ay yeni nişan qazanılmayıb.</p>'}
+      ${g.bonuses.length ? `<p class="rp-sub">Müəllimin tərifləri: ${g.bonuses.map(b => esc(b.reason)).filter(Boolean).join(' · ')}</p>` : ''}</section>` : ''}
+    <footer class="rp-foot"><span>Hazırlanıb: ${fmtDT(r.made)}</span><span>${esc(r.school)} · ${esc(siteUrl().replace(/^https?:\/\//, ''))}</span></footer></div>`;
+}
+function openReport(load, title){
+  run(null, async () => {
+    let r = (await load('')).report;
+    const draw = () => `<div class="rp-bar"><label class="field" style="margin:0"><span>Ay</span><select class="select" id="rpMonth">${r.months.map(m => `<option value="${m}" ${m === r.month ? 'selected' : ''}>${fmtMonthKey(m)}</option>`).join('')}</select></label>
+      <p class="hint">«Çap et» düyməsindən sonra printer əvəzinə «PDF kimi saxla» seçsəniz, fayl alınar.</p></div><div class="rp-paper" id="rpBox">${reportDoc(r)}</div>`;
+    openModal({ title: title || 'Aylıq hesabat', sub: esc(r.student.name), size: 'wide', body: `<div id="rpWrap">${draw()}</div>`,
+      foot: `<button class="btn btn-ghost" data-close>Bağla</button><button class="btn btn-primary" data-rpprint>${ic('printer')}Çap et / PDF</button>`,
+      onMount: (el) => {
+        const bind = () => {
+          const sel = el.querySelector('#rpMonth');
+          if (sel) sel.addEventListener('change', () => run(null, async () => {
+            r = (await load(sel.value)).report;
+            const w = el.querySelector('#rpWrap'); w.innerHTML = draw(); hydrateIcons(w); bind();
+          }));
+        };
+        bind();
+        el.querySelector('[data-rpprint]').addEventListener('click', () => printDoc(reportDoc(r), false));
+      } });
+  });
+}
+ACT.monthReport = (b) => openReport((m) => api('monthReport', { studentId: b.dataset.id, month: m }, { noRender: true }));
+ACT.cabReport = () => openReport((m) => api('sReport', { month: m }, { noRender: true }), 'Aylıq hesabatım');
+
+function certDoc(c){
+  const subj = c.subjects.length ? c.subjects.join(', ') : '';
+  return `<div class="cert"><div class="cert-frame"><div class="cert-deco">${['school', 'book', 'star', 'certificate', 'pencil', 'bulb'].map((n, i) => `<span class="cd cd${i + 1}">${tb(n)}</span>`).join('')}</div>
+    <div class="cert-in">
+      <div class="cert-brand">${rpLogo()}<b>${esc(c.school)}</b></div>
+      <div class="cert-title">SERTİFİKAT</div>
+      <p class="cert-lead">Bu sertifikat təsdiq edir ki,</p>
+      <div class="cert-name">${esc(c.name)}</div>
+      <p class="cert-text">${fmtDate(c.from)} – ${fmtDate(c.to)} tarixlərində ${esc(c.school)} kursunda${subj ? ` <b>${esc(subj)}</b> üzrə` : ''} təhsil alaraq kursu uğurla bitirmişdir.</p>
+      <div class="cert-facts">${c.lessons ? `<div><b>${c.lessons}</b><span>dərs</span></div>` : ''}${c.months ? `<div><b>${c.months}</b><span>ay</span></div>` : ''}${c.level ? `<div><b>${esc(c.level)}</b><span>səviyyə</span></div>` : ''}${c.badges ? `<div><b>${c.badges}</b><span>nişan</span></div>` : ''}</div>
+      <div class="cert-foot"><div class="cert-sign"><i></i><b>${esc(c.signer)}</b><span>Kurs rəhbəri</span></div>
+        <div class="cert-seal">${tb('award')}<span>${esc(c.no)}</span></div>
+        <div class="cert-sign"><i></i><b>${fmtDate(c.to)}</b><span>Tarix</span></div></div>
+    </div></div></div>`;
+}
+ACT.certificate = (b) => run(b, async () => {
+  const c = (await api('certData', { studentId: b.dataset.id }, { noRender: true })).cert;
+  openModal({ title: 'Məzun sertifikatı', sub: esc(c.name) + ' · №' + esc(c.no), size: 'wide', body: `<div class="cert-prev">${certDoc(c)}</div><p class="hint" style="margin-top:10px">A4, albom vərəqi. Çap pəncərəsində «PDF kimi saxla» seçərək faylı da ala bilərsiniz.</p>`,
+    foot: `<button class="btn btn-ghost" data-close>Bağla</button><button class="btn btn-primary" data-cprint>${ic('printer')}Çap et / PDF</button>`,
+    onMount: (el) => {
+      const box = el.querySelector('.cert-prev'), doc = box.querySelector('.cert');
+      const fit = () => { if (!box.isConnected) return window.removeEventListener('resize', fit); const k = box.clientWidth / doc.offsetWidth; doc.style.transform = `scale(${k})`; box.style.height = Math.ceil(doc.offsetHeight * k) + 'px'; };
+      fit(); window.addEventListener('resize', fit);
+      el.querySelector('[data-cprint]').addEventListener('click', () => printDoc(certDoc(c), true));
+    } });
+});
+
+function pubGameHtml(g){
+  if (!g) return '';
+  const lv = g.level, pct = lv.nextMin ? Math.round((g.total - lv.min) / (lv.nextMin - lv.min) * 100) : 100;
+  return `<div class="pub-card"><h3>Nailiyyətlər</h3>
+    <div class="gm-card"><div class="gm-lv">${levelBadge(lv.i)}<div><b>${esc(lv.name)}</b><small>${g.total} bal${lv.next ? ` · «${esc(lv.next)}» səviyyəsinə ${lv.nextMin - g.total} bal qalıb` : ' · ən yüksək səviyyə'}</small>
+      <div class="gm-bar"><i style="width:${Math.max(3, Math.min(100, pct))}%"></i></div></div></div>
+      <div class="gm-month"><b>${g.monthScore}</b><span>bu ay reytinq balı</span></div></div>
+    ${g.badges.length ? `<p class="hint" style="margin:14px 0 8px">Qazanılan nişanlar: ${g.badges.length} / ${g.badgeTotal}</p><div class="bd-mini">${g.badges.map(b => `<div class="bd-mini-i" title="${esc(b.name + ' — ' + b.desc)}">${badgeSvg(b.id)}<span>${esc(b.name)}${b.count > 1 ? ' ×' + b.count : ''}</span></div>`).join('')}</div>` : '<p class="hint" style="margin-top:12px">Hələ nişan qazanılmayıb.</p>'}
+  </div>`;
+}
+
+function selSet(k){ return S.ui[k] || (S.ui[k] = new Set()); }
+const CHK = (attrs, on) => `<label class="chk sel-chk"><input type="checkbox" ${attrs} ${on ? 'checked' : ''}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></label>`;
+function bulkBarHtml(kind){
+  const sel = selSet(kind === 's' ? 'selS' : 'selU');
+  if (!sel.size) return '';
+  const b = [`<button class="btn btn-sm btn-primary" data-act="${kind === 's' ? 'bulkCopyStu' : 'bulkCopyStaff'}">${ic('copy')}Loginləri kopyala</button>`];
+  if (kind === 's' && can('students.edit') && !ro()) b.push(`<button class="btn btn-sm btn-soft" data-act="bulkStatus">${tb('flag')}Status</button>`);
+  if (kind === 's' && me().isSuper && !ro() && gameOn()) b.push(`<button class="btn btn-sm btn-soft" data-act="bulkBadge">${tb('award')}Nişan ver</button>`);
+  return `<div class="bulk-in"><span class="bulk-n"><b>${sel.size}</b> seçilib</span><div class="bulk-acts">${b.join('')}</div>
+    <button class="ibtn sm" data-act="bulkClear" data-k="${kind}" title="Seçimi ləğv et" aria-label="Seçimi ləğv et">${ic('x')}</button></div>`;
+}
+function drawBulk(kind){
+  const bar = $('#bulkBar'); if (!bar) return;
+  const h = bulkBarHtml(kind);
+  bar.innerHTML = h; bar.hidden = !h; hydrateIcons(bar);
+}
+function bindSel(root, kind, listFn){
+  const key = kind === 's' ? 'selS' : 'selU';
+  root.addEventListener('change', e => {
+    const t = e.target;
+    if (t.matches('[data-sel]')){ const s = selSet(key); t.checked ? s.add(t.dataset.sel) : s.delete(t.dataset.sel); t.closest('tr').classList.toggle('sel-on', t.checked); syncAll(root, key); drawBulk(kind); }
+    else if (t.matches('[data-selall]')){
+      const s = selSet(key);
+      $$('[data-sel]', root).forEach(c => { c.checked = t.checked; t.checked ? s.add(c.dataset.sel) : s.delete(c.dataset.sel); c.closest('tr').classList.toggle('sel-on', t.checked); });
+      syncAll(root, key); drawBulk(kind);
+    }
+  });
+}
+function syncAll(root, key){
+  if (!root) return;
+  const boxes = $$('[data-sel]', root);
+  const on = boxes.length > 0 && boxes.every(c => c.checked), some = boxes.some(c => c.checked);
+  $$('[data-selall]', root).forEach(all => { all.checked = on; all.indeterminate = !on && some; });
+}
+function selMobHtml(on, n){ return n ? `<div class="sel-mob">${CHK('data-selall aria-label="Hamısını seç"', on)}<span>Hamısını seç (${n})</span></div>` : ''; }
+ACT.bulkClear = (b) => {
+  const kind = b.dataset.k, key = kind === 's' ? 'selS' : 'selU';
+  selSet(key).clear();
+  $$('[data-sel],[data-selall]').forEach(c => { c.checked = false; c.indeterminate = false; const tr = c.closest('tr'); if (tr) tr.classList.remove('sel-on'); });
+  drawBulk(kind);
+};
+function selectedStudents(){ return [...selSet('selS')].map(id => S.sMap[id]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name, 'az')); }
+
+function waLoginsText(list, opts){
+  const anyPw = list.some(x => x.pw);
+  return [`*${'Aslan Lessons'} — giriş məlumatları*`, `Sayt: ${siteUrl()}`, '',
+    ...list.map((x, i) => `${i + 1}. ${x.name} — login: ${x.login}${x.pw ? ` — şifrə: ${x.pw}` : ''}`),
+    ...(anyPw && opts.note ? ['', opts.note] : [])].join('\n');
+}
+function loginsShareModal({ title, sub, rows, withPw, pwLabel, note, skipped }){
+  let pwOn = withPw;
+  const text = () => waLoginsText(rows.map(r => ({ name: r.name, login: r.login, pw: pwOn ? r.pw : '' })), { note });
+  exCopy(text(), `${rows.length} nəfərin giriş məlumatı kopyalandı.`);
+  openModal({ title, sub, size: 'sm',
+    body: `<div class="stack">${rows.some(r => r.pw) ? `<label class="chk"><input type="checkbox" id="waPw" ${pwOn ? 'checked' : ''}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>${pwLabel}</label>` : ''}
+      <label class="field"><span>WhatsApp üçün mətn (artıq kopyalanıb)</span><textarea class="textarea wa-text" id="waText" rows="9" wrap="off">${esc(text())}</textarea></label>
+      ${skipped ? `<p class="hint">${skipped}</p>` : ''}</div>`,
+    foot: `<button class="btn btn-soft" data-wacopy>${ic('copy')}Yenidən kopyala</button><a class="btn btn-primary" data-wa target="_blank" rel="noopener" href="${esc(waLink(text()))}">${ic('wa')}WhatsApp</a>`,
+    onMount: (el) => {
+      const ta = el.querySelector('#waText'), wa = el.querySelector('[data-wa]'), pw = el.querySelector('#waPw');
+      const upd = () => { ta.value = text(); wa.href = waLink(ta.value); };
+      if (pw) pw.addEventListener('change', () => { pwOn = pw.checked; upd(); exCopy(ta.value, 'Mətn yeniləndi və kopyalandı.'); });
+      ta.addEventListener('input', () => { wa.href = waLink(ta.value); });
+      el.querySelector('[data-wacopy]').addEventListener('click', () => exCopy(ta.value, 'Kopyalandı.'));
+    } });
+}
+ACT.bulkCopyStu = () => {
+  const all = selectedStudents();
+  const rows = all.filter(s => s.login && isActiveStu(s)).map(s => ({ name: s.name, login: s.login, pw: s.fresh ? (S.d.stuPw || '12345') : '' }));
+  const skipped = all.length - rows.length;
+  if (!rows.length) return toast('Seçilənlər arasında aktiv girişi olan tələbə yoxdur.', 'err');
+  loginsShareModal({ title: 'Tələbələrin giriş məlumatları', sub: `${rows.length} tələbə`, rows, withPw: true,
+    pwLabel: 'İlkin şifrəni də yaz (şifrəsini dəyişməyənlər üçün)', note: 'İlk girişdə şifrəni dəyişin.',
+    skipped: (skipped ? `${skipped} nəfər (keçmiş tələbə) siyahıya salınmadı. ` : '') + 'Şifrəsini dəyişmiş tələbələrin şifrəsi heç kimə görünmür — onlara yalnız login yazılır.' });
+};
+ACT.bulkCopyStaff = () => run(null, async () => {
+  const ids = [...selSet('selU')];
+  let rows;
+  if (can('teachers.passwords') && !ro()){
+    const r = await api('bulkUserLogins', { ids }, { noRender: true });
+    rows = r.list.map(x => ({ name: x.name, login: x.login, pw: x.password }));
+  } else rows = ids.map(id => S.uMap[id]).filter(u => u && u.login).sort((a, b) => a.name.localeCompare(b.name, 'az')).map(u => ({ name: u.name, login: u.login, pw: '' }));
+  if (!rows.length) return toast('Seçilənlərin login məlumatı yoxdur.', 'err');
+  loginsShareModal({ title: 'Müəllimlərin giriş məlumatları', sub: `${rows.length} nəfər`, rows, withPw: false,
+    pwLabel: 'Şifrələri də yaz', note: 'Şifrəni heç kimə göstərməyin.', skipped: rows.some(r => r.pw) ? 'Şifrələr varsayılan olaraq yazılmır — qrupa göndərməzdən əvvəl düşünün.' : '' });
+});
+ACT.bulkStatus = () => {
+  const list = selectedStudents(); if (!list.length) return;
+  openModal({ title: 'Statusu dəyiş', sub: `${list.length} tələbə`, size: 'sm',
+    body: `<form class="stack" id="bsForm" novalidate>
+      <div class="seg full">${[['active', 'Aktiv', 'user'], ['left', 'Ayrılıb', 'logout'], ['grad', 'Məzun', 'award']].map(([v, l, i]) => `<label><input type="radio" name="st" value="${v}" ${v === 'left' ? 'checked' : ''}><span>${ic(i)}${l}</span></label>`).join('')}</div>
+      <label class="field"><span>Qeyd (istəyə bağlı)</span><input class="input" name="note" maxlength="200" placeholder="məsələn: kursu bitirdi"></label>
+      <p class="hint">Ayrılan və məzun tələbələr məşğələlərdən çıxarılır, kabinetə girişi bağlanır. Fərdi məşğələdə olan tələbənin statusu dəyişmir — əvvəlcə məşğələni silin.</p></form>`,
+    foot: `<button class="btn btn-ghost" data-close>Ləğv et</button><button class="btn btn-primary" form="bsForm" type="submit">${ic('check')}Tətbiq et</button>`,
+    onMount: (el, close) => {
+      const f = el.querySelector('#bsForm');
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        run(el.querySelector('[type=submit]'), async () => {
+          const r = await api('bulkStudentStatus', { ids: list.map(s => s.id), status: f.querySelector('[name=st]:checked').value, note: f.querySelector('[name=note]').value.trim() });
+          close(); selSet('selS').clear();
+          if (r.failed.length) bulkResult(r, 'Status dəyişdi'); else toast(`${r.done} tələbənin statusu dəyişdi.`);
+          renderPage(true);
+        });
+      });
+    } });
+};
+function bulkResult(r, what){
+  openModal({ title: `${what}: ${r.done}`, size: 'sm', body: `<p class="hint" style="margin-bottom:10px">Bu tələbələrə tətbiq olunmadı:</p>
+    <div class="fail-list">${r.failed.map(x => `<div><b>${esc(x.name)}</b><small>${esc(x.msg)}</small></div>`).join('')}</div>`,
+    foot: `<button class="btn btn-primary" data-close>Aydındır</button>` });
+}
+ACT.bulkBadge = () => run(null, async () => {
+  const list = selectedStudents(); if (!list.length) return;
+  const cat = await api('gameBoard', {}, { noRender: true, silent: true });
+  const badges = (cat.catalog || []).filter(b => b.id !== 'all');
+  let pick = '';
+  openModal({ title: 'Nişan ver', sub: `${list.length} tələbə`, size: 'wide',
+    body: `<form class="stack" id="bbForm" novalidate><div class="bd-pick">${badges.map(b => `<button type="button" class="bd-pk bdr${b.tier}" data-b="${b.id}">${badgeSvg(b.id)}<span>${esc(b.name)}</span></button>`).join('')}</div>
+      <label class="field"><span>Səbəb</span><input class="input" name="note" maxlength="160" placeholder="məsələn: olimpiadada iştirak" autocomplete="off"></label>
+      <p class="hint">Tələbələr bildiriş alacaq. Təkrarlanmayan nişan artıq kimdə varsa, ona verilməyəcək.</p></form>`,
+    foot: `<button class="btn btn-ghost" data-close>Ləğv et</button><button class="btn btn-primary" form="bbForm" type="submit">${tb('award')}Nişanı ver</button>`,
+    onMount: (el, close) => {
+      const f = el.querySelector('#bbForm');
+      f.addEventListener('click', e => { const p = e.target.closest('[data-b]'); if (!p) return; pick = p.dataset.b; $$('.bd-pk', f).forEach(x => x.classList.toggle('on', x === p)); });
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        const note = f.querySelector('[name=note]').value.trim();
+        if (!pick) return fieldErr(f, 'Nişanı seçin.');
+        if (note.length < 3) return fieldErr(f, 'Səbəbi yazın (ən azı 3 simvol).');
+        run(el.querySelector('[type=submit]'), async () => {
+          const r = await api('bulkBadge', { ids: list.map(s => s.id), badge: pick, note }, { noRender: true });
+          close();
+          if (r.failed.length) bulkResult(r, 'Nişan verildi'); else toast(`${r.done} tələbəyə nişan verildi.`);
+        });
+      });
+    } });
+});
+
+ACT.teacherStats = () => {
+  let month = '';
+  const draw = (st) => {
+    const t = st.teachers;
+    return `<div class="rp-bar"><label class="field" style="margin:0"><span>Ay</span><select class="select" id="tsMonth">${st.months.map(m => `<option value="${m}" ${m === st.month ? 'selected' : ''}>${fmtMonthKey(m)}</option>`).join('')}</select></label>
+      <p class="hint">«Vaxtında» — dərs elə həmin gün qeyd olunub. Gecikmə dərs tarixindən qeyd tarixinə qədər olan günlərdir.</p></div>
+      ${t.length ? `<table class="ledger ts-table"><thead><tr><th>Müəllim</th><th>Qeyd olunan dərs</th><th>Vaxtında</th><th>Gecikmə</th><th>Tələbə / məşğələ</th><th>Qayıb</th><th>Bonus</th></tr></thead><tbody>
+      ${t.map(x => `<tr><td data-label="Müəllim" class="full"><div class="person"><span class="ava">${esc(initials(x.name))}</span><div><b>${esc(x.name)}</b>${x.subject ? `<small>${esc(x.subject)}</small>` : ''}</div></div></td>
+        <td data-label="Qeyd olunan dərs"><b>${x.lessons}</b>${x.byOthers ? `<br><small class="muted">+${x.byOthers} başqası qeyd edib</small>` : ''}</td>
+        <td data-label="Vaxtında">${x.pct == null ? '<span class="faint">—</span>' : `<div class="ts-pct"><div class="gm-bar"><i style="width:${Math.max(3, x.pct)}%"></i></div><b>${x.pct}%</b></div>`}</td>
+        <td data-label="Gecikmə">${x.late ? `${x.late} dərs · orta ${x.avgDelay} gün${x.maxDelay > 1 ? `<br><small class="muted">ən çox ${x.maxDelay} gün</small>` : ''}` : '<span class="faint">yoxdur</span>'}</td>
+        <td data-label="Tələbə / məşğələ">${x.students} / ${x.courses}</td>
+        <td data-label="Qayıb">${x.absRate == null ? '—' : x.absRate + '%'}</td>
+        <td data-label="Bonus">${x.bonuses}</td></tr>`).join('')}</tbody></table>` : emptyBox('Məlumat yoxdur', 'Bu ay dərs qeyd olunmayıb.')}`;
+  };
+  run(null, async () => {
+    const r = await api('teacherStats', {}, { noRender: true });
+    openModal({ title: 'Müəllim statistikası', sub: esc(r.stats.label), size: 'wide', body: `<div id="tsBox">${draw(r.stats)}</div>`,
+      foot: `<button class="btn btn-primary" data-close>Bağla</button>`,
+      onMount: (el) => {
+        const bind = () => { const s = el.querySelector('#tsMonth'); if (s) s.addEventListener('change', () => run(null, async () => {
+          month = s.value; const n = await api('teacherStats', { month }, { noRender: true });
+          const box = el.querySelector('#tsBox'); box.innerHTML = draw(n.stats); hydrateIcons(box); bind();
+          const sub = el.querySelector('.mhead p'); if (sub) sub.textContent = n.stats.label; })); };
+        bind();
+      } });
+  });
+};
+
+function devHealthShell(){
+  return `<div class="section"><div class="section-head"><h3>Sistemin vəziyyəti</h3><div class="row">
+      <button class="btn btn-sm btn-soft" data-act="devErrors">${ic('bug')}Xətalar</button>
+      <button class="btn btn-sm btn-soft" data-act="devSessions">${ic('key')}Sessiyalar</button>
+      <button class="btn btn-sm btn-soft" data-act="loadHealth">${ic('refresh')}Yenilə</button></div></div>
+    <div id="hlBox">${loadingBox('none')}</div></div>`;
+}
+function healthHtml(h){
+  const sv = h.ver, same = sv === APP_VER;
+  const pct = Math.round(h.cells / h.limit * 1000) / 10;
+  const lvl = pct >= 80 ? 'bad' : pct >= 50 ? 'warn' : 'ok';
+  const ago = (t) => t ? fmtDT(t) : '—';
+  return `<div class="hl-grid">
+    <div class="hl-card ${same ? 'ok' : 'bad'}">${ic(same ? 'checkcircle' : 'alert')}<div><b>Versiya</b><small>Sayt v${APP_VER} · server v${esc(sv || '?')}${same ? ' — uyğundur' : ' — fərqlidir! Hər iki faylı yeniləyin.'}</small></div></div>
+    <div class="hl-card ${h.errors.day ? 'warn' : 'ok'}">${ic(h.errors.day ? 'bug' : 'checkcircle')}<div><b>Xətalar</b><small>Son 24 saatda: ${h.errors.day} · jurnalda: ${h.errors.total}</small></div></div>
+    <div class="hl-card ${lvl}">${ic('database')}<div><b>Cədvəlin həcmi</b><small>${h.cells.toLocaleString('az')} / ${(h.limit / 1e6)} mln xana · ${pct}%</small><div class="gm-bar"><i style="width:${Math.max(2, Math.min(100, pct))}%"></i></div></div></div>
+    <div class="hl-card ${h.backup.last ? 'ok' : 'warn'}">${ic('shield')}<div><b>Ehtiyat nüsxə</b><small>${h.backup.last ? 'Son: ' + fmtDT(h.backup.last) : 'Hələ çıxarılmayıb'}</small></div></div>
+  </div>
+  <div class="section-head" style="margin-top:18px"><h3 style="font-size:15px">Avtomatik işlər</h3><button class="btn btn-sm btn-soft" data-act="reinstallTriggers">${ic('refresh')}Yenidən qur</button></div>
+  <table class="ledger hl-table"><thead><tr><th>İş</th><th>Vaxt</th><th>Vəziyyət</th><th>Son işləmə</th></tr></thead><tbody>
+    ${h.triggers.map(t => { const L = t.last;
+      const stt = t.on === null ? stTag('wait', 'yoxlanılmadı') : !t.on ? stTag('debt', 'qurulmayıb') : t.dup ? stTag('wait', 'təkrar') : !t.sigOk ? stTag('wait', 'köhnə qrafik') : stTag('ok', 'qurulub');
+      return `<tr><td data-label="İş" class="full"><b>${esc(t.label)}</b><br><small class="muted">${esc(t.fn)}</small></td><td data-label="Vaxt">${esc(t.when || '')}</td><td data-label="Vəziyyət">${stt}</td>
+        <td data-label="Son işləmə">${L ? `${L.ok ? stTag('ok', 'uğurlu') : stTag('debt', 'xəta')} <small class="muted">${ago(L.at)} · ${(L.ms / 1000).toFixed(1)} san</small>${L.msg ? `<br><small class="err-msg">${esc(L.msg)}</small>` : ''}` : '<span class="faint">hələ işləməyib</span>'}</td></tr>`; }).join('')}
+  </tbody></table>
+  <details class="hl-sheets"><summary>Vərəqlər üzrə həcm (${h.sheets.length})</summary><div class="hl-sh">${h.sheets.map(x => `<div><span>${esc(x.name)}</span><small>${x.rows} sətir · ${x.cells.toLocaleString('az')} xana</small><div class="gm-bar"><i style="width:${Math.max(1, Math.round(x.cells / h.sheets[0].cells * 100))}%"></i></div></div>`).join('')}</div></details>`;
+}
+async function loadHealth(){
+  const box = $('#hlBox'); if (!box) return;
+  try { const r = await api('devHealth', {}, { noRender: true, silent: true }); if (box.isConnected){ box.innerHTML = healthHtml(r.health); hydrateIcons(box); } }
+  catch (e) { if (box.isConnected) box.innerHTML = `<p class="hint">${esc(e.message)}</p>`; }
+}
+ACT.loadHealth = (b) => run(b, loadHealth);
+ACT.reinstallTriggers = (b) => run(b, async () => {
+  const r = await api('installTriggers', { force: true }, { noRender: true });
+  toast(`Avtomatik işlər yenidən quruldu (${r.created.length}).`); loadHealth();
+});
+ACT.devErrors = () => run(null, async () => {
+  const r = await api('devErrors', {}, { noRender: true });
+  const draw = (list) => list.length ? `<div class="err-list">${list.map(x => `<details class="err-i"><summary><span class="tag ${x.src === 'client' ? 'line' : 'solid'}">${x.src === 'client' ? 'sayt' : x.src === 'job' ? 'avtomatik iş' : 'server'}</span><b>${esc(x.msg)}</b>${x.count > 1 ? `<span class="count">×${x.count}</span>` : ''}<small>${fmtDT(x.lastAt)}</small></summary>
+      <div class="err-d"><div><span>Yer</span><code>${esc(x.where || '—')}</code></div>${x.who ? `<div><span>İstifadəçi</span><b>${esc(x.who)}</b></div>` : ''}${x.ua ? `<div><span>Cihaz</span><small>${esc(x.ua)}</small></div>` : ''}<div><span>İlk dəfə</span><small>${fmtDT(x.at)}</small></div>
+      ${x.stack ? `<pre>${esc(x.stack)}</pre>` : ''}</div></details>`).join('')}</div>` : emptyBox('Xəta yoxdur', 'Saytda və serverdə xəta qeydə alınmayıb.');
+  openModal({ title: 'Xətalar', sub: 'Son 30 gün · eyni xətalar birləşdirilir', size: 'wide', body: `<div id="erBox">${draw(r.errors)}</div>`,
+    foot: `<button class="btn btn-ghost" data-erclear ${r.errors.length ? '' : 'disabled'}>${ic('trash')}Təmizlə</button><button class="btn btn-primary" data-close>Bağla</button>`,
+    onMount: (el) => el.querySelector('[data-erclear]').addEventListener('click', (e) => run(e.currentTarget, async () => {
+      const n = await api('devErrors', { clear: true }, { noRender: true }); const box = el.querySelector('#erBox'); box.innerHTML = draw(n.errors); hydrateIcons(box); loadHealth();
+    })) });
+});
+ACT.devSessions = () => run(null, async () => {
+  let r = await api('devSessions', {}, { noRender: true });
+  const dt = (ms) => ms ? fmtDT(new Date(ms + 4 * 3600e3).toISOString().slice(0, 19).replace('T', ' ')) : '—';
+  const draw = () => `<p class="hint" style="margin-bottom:12px">«Məni yadda saxla» ilə açılan sessiyalar (${r.sessions.length}). Bağlanan sessiyada istifadəçi dərhal çıxarılır.</p>
+    ${r.sessions.length ? `<table class="ledger"><thead><tr><th>İstifadəçi</th><th>Son aktivlik</th><th>Açılıb</th><th></th></tr></thead><tbody>
+    ${r.sessions.map(x => `<tr><td data-label="İstifadəçi" class="full"><b>${esc(x.name)}</b> <span class="tag line">${x.kind === 's' ? 'tələbə' : roleLabel(x.role)}</span></td>
+      <td data-label="Son aktivlik">${dt(x.last)}</td><td data-label="Açılıb">${dt(x.created)}</td>
+      <td class="actions"><button class="btn btn-sm btn-soft" data-kill="${x.id}">${ic('logout')}Bağla</button></td></tr>`).join('')}</tbody></table>` : emptyBox('Sessiya yoxdur', 'Heç kim «Məni yadda saxla» ilə daxil olmayıb.')}`;
+  openModal({ title: 'Sessiyalar', size: 'wide', body: `<div id="ssBox">${draw()}</div>`, foot: `<button class="btn btn-primary" data-close>Bağla</button>`,
+    onMount: (el) => el.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-kill]'); if (!b) return;
+      run(b, async () => { r = await api('devKillSession', { id: b.dataset.kill }, { noRender: true }); const box = el.querySelector('#ssBox'); box.innerHTML = draw(); hydrateIcons(box); toast('Sessiya bağlandı.'); });
+    }) });
+});
+(function(){ if (!$('#verBar')){ const b = document.createElement('div'); b.id = 'verBar'; b.className = 'ver-bar'; b.hidden = true; b.setAttribute('role', 'status'); document.body.appendChild(b); } })();
+
+const DECO_LOUD = ['home', 'mine', 'rating'];
+function decoMode(page){ document.body.classList.toggle('deco-quiet', !!page && !DECO_LOUD.includes(page)); }
+function loadingBox(retry){
+  const mini = retry === 'none';
+  const row = (a, b) => `<div class="sk-row"><i class="sk-c"></i><div><i class="sk-l ${a}"></i><i class="sk-l ${b}"></i></div></div>`;
+  return `<div class="loader sk${mini ? ' mini' : ''}" data-staged data-retry="${retry || 'page'}" aria-busy="true" aria-label="Yüklənir">
+    <div class="sk-top">${'<div class="sk-card"><i class="sk-l w45"></i><i class="sk-l big"></i></div>'.repeat(3)}</div>
+    <div class="sk-grid">${row('w45', 'w80')}${mini ? '' : row('w60', 'w45') + row('w30', 'w60')}</div>
+    <div class="loader-msg"><p>Yüklənir…</p></div>
+  </div>`;
+}
+const EMPTY_ICONS = [[/xəta|açılmadı|alınmadı|yoxlan/i, 'bolt'], [/tapılmadı|axtar|filtr/i, 'compass'], [/tələbə|valideyn/i, 'users'], [/müəllim|istifadəçi/i, 'school'],
+  [/məşğələ/i, 'notebook'], [/imtahan|sınaq|cavab gözləyən/i, 'clipboard'], [/dərs|tarixçə|qeyd/i, 'calendar'], [/nişan|nailiyyət/i, 'award'], [/reytinq|lider/i, 'trophy'],
+  [/sorğu|cavab/i, 'chart'], [/bildiriş|elan|yenilik/i, 'bell'], [/sessiya|şifrə/i, 'shield'], [/zibil|silin/i, 'stack'], [/arxiv/i, 'stack']];
+function emptyArt(title){
+  const k = (EMPTY_ICONS.find(([r]) => r.test(String(title))) || [0, 'sparkles'])[1];
+  return `<div class="empty-art" aria-hidden="true"><span class="ea-b"></span><span class="ea-f">${tb(k)}</span><span class="ea-s ea-s1">${tb('sparkles')}</span><span class="ea-s ea-s2">${tb('star')}</span></div>`;
+}
+function emptyBox(title, text, action){
+  return `<div class="empty">${emptyArt(title)}<h4>${title}</h4><p>${text}</p>${action || ''}</div>`;
+}
+
 (function init(){
   hydrateIcons();
   $('[data-act=togglePass]').innerHTML = ic('eye');
