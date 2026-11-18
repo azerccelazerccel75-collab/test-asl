@@ -1262,21 +1262,6 @@ kbd{display:inline-grid;place-items:center;min-width:20px;height:21px;padding:0 
   .xp-end-row .btn{flex:1}
 }
 .login{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px 16px;overflow:hidden;background:var(--bg)}
-.lg-art{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-:root[data-theme="dark"] .lg-art{opacity:.75}
-.lg-float{animation:lgFloat 7s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.lg-float.f2{animation-duration:8.5s;animation-delay:-2s}
-.lg-float.f3{animation-duration:6.5s;animation-delay:-4s}
-.lg-float.f4{animation-duration:9s;animation-delay:-1s}
-.lg-tw path{animation:lgTw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.lg-tw path:nth-child(2){animation-delay:-1.1s}
-.lg-tw path:nth-child(3){animation-delay:-2.2s}
-.lg-wave{animation:lgWave 12s ease-in-out infinite alternate}
-.lg-wave2{animation:lgWave 15s ease-in-out infinite alternate-reverse}
-@keyframes lgFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-16px) rotate(2deg)}}
-@keyframes lgTw{0%,100%{transform:scale(1);opacity:.55}50%{transform:scale(1.35);opacity:1}}
-@keyframes lgWave{from{transform:translateX(0)}to{transform:translateX(-40px)}}
-@media (prefers-reduced-motion:reduce){.lg-float,.lg-tw path,.lg-wave,.lg-wave2{animation:none}}
 .lg-corner{position:absolute;top:16px;right:16px;display:flex;gap:8px;z-index:2}
 .lg-card{position:relative;z-index:1;width:100%;max-width:400px;padding:34px 28px 26px;border-radius:28px;
   background:color-mix(in srgb,var(--surface) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
@@ -1381,7 +1366,7 @@ button.bd:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 .lv-step svg{width:44px;height:44px;margin-bottom:4px}
 .lv-step b{font-size:13.5px}
 .lv-step small{font-size:12px;color:var(--soft)}
-.cab{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:var(--bg)}
+.cab{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .cab-top{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px clamp(16px,4vw,32px);
   background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .cab-brand{display:flex;align-items:center;gap:12px;min-width:0}
@@ -1480,6 +1465,138 @@ button.bd:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
   .pod-ic{width:50px;height:50px}
   .pod-1 .pod-ic{width:62px;height:62px}
 }
+:root{--deco:var(--deco-l);--gold:#F59E0B;--silver:#94A3B8;--bronze:#C2703A}
+:root[data-theme="dark"]{--deco:var(--deco-d)}
+body{isolation:isolate}
+body::before{content:"";position:fixed;inset:-480px;z-index:-1;pointer-events:none;background-image:var(--deco);background-size:480px 480px;animation:decoDrift 140s linear infinite;will-change:transform}
+@keyframes decoDrift{to{transform:translate3d(480px,480px,0)}}
+.maint,.public{background-image:var(--deco);background-size:480px 480px}
+.public:has(.xp-run){background-image:none}
+svg.tb{width:1.15em;height:1.15em;flex:none}
+.h-ic{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:10px;background:var(--tint);margin-right:8px;vertical-align:middle}
+.h-ic svg.tb{width:17px;height:17px}
+.lg-sky{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.lg-blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;animation:blob 18s ease-in-out infinite alternate}
+.lg-blob.b1{width:420px;height:420px;left:-120px;top:-100px;background:radial-gradient(circle,#FFB15C,transparent 70%)}
+.lg-blob.b2{width:520px;height:520px;right:-160px;bottom:-180px;background:radial-gradient(circle,#FF7A00,transparent 70%);opacity:.35;animation-duration:22s}
+.lg-blob.b3{width:300px;height:300px;right:18%;top:8%;background:radial-gradient(circle,#FFD3A1,transparent 70%);opacity:.5;animation-duration:15s}
+:root[data-theme="dark"] .lg-blob{opacity:.25}
+@keyframes blob{to{transform:translate(40px,30px) scale(1.12)}}
+.lg-ic{position:absolute;width:calc(var(--s) * 1.7);height:calc(var(--s) * 1.7);margin:calc(var(--s) * -.85);display:grid;place-items:center;border-radius:30%;
+  background:color-mix(in srgb,var(--surface) 70%,transparent);border:1.5px solid color-mix(in srgb,var(--or) 22%,transparent);color:var(--or);
+  box-shadow:0 14px 34px -18px rgba(255,122,0,.65);transform:rotate(var(--r));animation:lgFloat 7s ease-in-out infinite;animation-delay:calc(var(--d) * -1)}
+.lg-ic svg.tb{width:var(--s);height:var(--s)}
+.lg-ic.far{background:none;border:0;box-shadow:none;opacity:.55}
+.lg-ic.a-spin svg{animation:lgSpin 22s linear infinite}
+.lg-ic.a-glow{animation:lgFloat 7s ease-in-out infinite,lgGlow 3.2s ease-in-out infinite}
+.lg-ic.a-twinkle{background:none;border:0;box-shadow:none;animation:lgTw 2.8s ease-in-out infinite;animation-delay:calc(var(--d) * -1)}
+.lg-ic.a-rocket{animation:lgRocket 6s ease-in-out infinite}
+.lg-ic.a-draw path{stroke-dasharray:1;stroke-dashoffset:1;animation:lgDraw 5s ease-in-out infinite;animation-delay:calc(var(--d) * -1)}
+@keyframes lgFloat{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-14px) rotate(calc(var(--r) + 4deg))}}
+@keyframes lgSpin{to{transform:rotate(360deg)}}
+@keyframes lgGlow{0%,100%{box-shadow:0 14px 34px -18px rgba(255,122,0,.65)}50%{box-shadow:0 0 0 8px rgba(255,177,92,.18),0 18px 40px -12px rgba(255,122,0,.8)}}
+@keyframes lgTw{0%,100%{transform:scale(.8) rotate(var(--r));opacity:.45}50%{transform:scale(1.25) rotate(calc(var(--r) + 20deg));opacity:1}}
+@keyframes lgRocket{0%,100%{transform:translate(0,0) rotate(var(--r))}50%{transform:translate(10px,-18px) rotate(var(--r))}}
+@keyframes lgDraw{0%{stroke-dashoffset:1}45%,70%{stroke-dashoffset:0}100%{stroke-dashoffset:-1}}
+@media (max-width:640px){.lg-ic.sm-hide{display:none}.lg-ic{--k:.8}}
+@media (prefers-reduced-motion:reduce){body::before,.lg-blob,.lg-ic,.lg-ic svg,.lg-ic path{animation:none!important}}
+.loader-msg.quote{max-width:40ch}
+.word{display:flex;flex-direction:column;gap:6px;text-align:center;animation:pageIn .5s var(--ease)}
+.word span{font-size:15px;font-weight:600;line-height:1.5;color:var(--or)}
+.word em{font-style:normal;font-size:12.5px;color:var(--soft)}
+.loader .loader-msg.warn{margin-top:4px}
+.word-card{position:relative;display:flex;gap:14px;align-items:center;padding:18px 20px;border-radius:var(--r-lg);border:1.5px dashed color-mix(in srgb,var(--or) 45%,transparent);
+  background:linear-gradient(135deg,var(--tint),var(--surface));overflow:hidden}
+.word-card .word{text-align:left;align-items:flex-start}
+.word-card .word span{font-size:14.5px}
+.word-ic{width:40px!important;height:40px!important;padding:8px;border-radius:13px;background:var(--or);color:var(--on-or);flex:none;animation:lgGlow 3.4s ease-in-out infinite}
+.page,.cab-page{animation:pageIn .35s var(--ease)}
+.cgrid>*,.bd-grid>*,.cab-exams>*,.rules-grid>*,.lv-ladder>*,.summary>*,.tiles>*,.qa>*{animation:riseIn .45s var(--ease) both}
+.cgrid>*:nth-child(2),.bd-grid>*:nth-child(2),.cab-exams>*:nth-child(2),.rules-grid>*:nth-child(2),.summary>*:nth-child(2),.tiles>*:nth-child(2),.qa>*:nth-child(2){animation-delay:.04s}
+.cgrid>*:nth-child(3),.bd-grid>*:nth-child(3),.cab-exams>*:nth-child(3),.rules-grid>*:nth-child(3),.summary>*:nth-child(3),.tiles>*:nth-child(3),.qa>*:nth-child(3){animation-delay:.08s}
+.cgrid>*:nth-child(4),.bd-grid>*:nth-child(4),.rules-grid>*:nth-child(4),.summary>*:nth-child(4),.tiles>*:nth-child(4),.qa>*:nth-child(4){animation-delay:.12s}
+.cgrid>*:nth-child(5),.bd-grid>*:nth-child(5),.rules-grid>*:nth-child(5),.summary>*:nth-child(5){animation-delay:.16s}
+.cgrid>*:nth-child(n+6),.bd-grid>*:nth-child(n+6){animation-delay:.2s}
+@keyframes riseIn{from{opacity:0;transform:translateY(10px) scale(.985)}to{opacity:1;transform:none}}
+.ccard,.cab-ex,.rule,.lv-step,.tile,.bd-chip,.qa>*{transition:transform .2s var(--ease),box-shadow .2s var(--ease),border-color .2s}
+.ccard:hover,.cab-ex:hover,.rule:hover,.lv-step:hover,.tile:hover,.bd-chip:hover{transform:translateY(-3px);box-shadow:0 18px 36px -22px rgba(255,122,0,.55);border-color:color-mix(in srgb,var(--or) 40%,var(--line))}
+.btn{transition:transform .15s var(--ease),box-shadow .2s,background-color .2s,filter .2s}
+.btn:active:not(:disabled){transform:scale(.97)}
+.btn-primary{position:relative;overflow:hidden;background-image:linear-gradient(135deg,#FF9433,#FF7A00 55%,#F26B00)}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s var(--ease);pointer-events:none}
+.btn-primary:hover::after{transform:translateX(120%)}
+.ledger tbody tr{transition:background-color .15s}
+.ledger tbody tr:hover{background:color-mix(in srgb,var(--tint) 70%,transparent)}
+.page-head h2,.cab-head h2{background:linear-gradient(90deg,var(--or),#FFB15C);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+@media (prefers-reduced-motion:reduce){.cgrid>*,.bd-grid>*,.cab-exams>*,.rules-grid>*,.lv-ladder>*,.summary>*,.tiles>*,.qa>*,.page,.cab-page,.word-ic{animation:none!important}}
+.rar{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:99px;line-height:1.5}
+.rar.r1{background:var(--tint);color:var(--soft);border:1px solid var(--line)}
+.rar.r2{background:linear-gradient(90deg,#E2E8F0,#CBD5E1);color:#334155}
+.rar.r3{background:linear-gradient(90deg,#C4B5FD,#8B5CF6);color:#fff}
+.rar.r4{background:linear-gradient(90deg,#FDE68A,#F59E0B);color:#7C2D12;box-shadow:0 0 0 0 rgba(245,158,11,.5);animation:rarPulse 2.6s ease-in-out infinite}
+@keyframes rarPulse{50%{box-shadow:0 0 0 5px rgba(245,158,11,0)}}
+.rar-legend{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.bd-svg.r4:not(.bd-locked){animation:legGlow 3s ease-in-out infinite}
+@keyframes legGlow{0%,100%{filter:drop-shadow(0 6px 10px rgba(0,0,0,.14)) drop-shadow(0 0 0 rgba(251,191,36,0))}50%{filter:drop-shadow(0 6px 10px rgba(0,0,0,.14)) drop-shadow(0 0 10px rgba(251,191,36,.75))}}
+.bd-shine{animation:shine 3.6s ease-in-out infinite}
+@keyframes shine{0%,60%{opacity:0;transform:translateX(-8px)}75%{opacity:.5}100%{opacity:0;transform:translateX(30px)}}
+.bd.bdr4.bd-on{border-color:#FBBF24;background:linear-gradient(180deg,color-mix(in srgb,#FDE68A 30%,var(--surface)),var(--surface))}
+.bd.bdr3.bd-on{border-color:#C4B5FD}
+.bd.bdr2.bd-on{border-color:#CBD5E1}
+.bd .rar{margin:2px 0}
+.bd-share{color:var(--faint)!important;font-size:11px!important}
+.bd-acts{display:flex;gap:4px;margin-top:6px}
+.bd-big{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.bd-chip.bdr4{border-color:#FBBF24}
+.pl{display:inline-flex;align-items:center;gap:4px;min-width:34px;height:30px;padding:0 8px;border-radius:10px;background:var(--tint);font-weight:800}
+.pl svg.tb{width:16px;height:16px}
+.pl-1{background:linear-gradient(135deg,#FDE68A,#F59E0B);color:#7C2D12}
+.pl-2{background:linear-gradient(135deg,#F1F5F9,#94A3B8);color:#1E293B}
+.pl-3{background:linear-gradient(135deg,#FED7AA,#C2703A);color:#fff}
+.rank-table tr.rk td:first-child{position:relative}
+.rank-table tr.rk-1{background:linear-gradient(90deg,color-mix(in srgb,#FDE68A 38%,transparent),transparent 70%)}
+.rank-table tr.rk-2{background:linear-gradient(90deg,color-mix(in srgb,#CBD5E1 40%,transparent),transparent 70%)}
+.rank-table tr.rk-3{background:linear-gradient(90deg,color-mix(in srgb,#FED7AA 40%,transparent),transparent 70%)}
+.rank-table tr.rk-1 .pl-1{animation:rarPulse 2.6s ease-in-out infinite}
+.pod{position:relative}
+.pod-crown{position:absolute;top:-26px;color:#F59E0B;animation:lgFloat 3.4s ease-in-out infinite;--r:-8deg}
+.pod-crown svg.tb{width:30px;height:30px}
+.pod-1 .pod-step{box-shadow:0 18px 30px -16px rgba(245,158,11,.8)}
+.pod-step{animation:growUp .7s var(--ease) both;transform-origin:bottom}
+.pod-2 .pod-step{animation-delay:.1s}
+.pod-3 .pod-step{animation-delay:.2s}
+@keyframes growUp{from{transform:scaleY(.2);opacity:0}to{transform:none;opacity:1}}
+@media (max-width:1180px){.rank-table td,.rank-table th{padding-left:10px;padding-right:10px}.rank-table .lv-tag svg{display:none}}
+.lead-list li:nth-child(-n+3){border-color:color-mix(in srgb,var(--or) 35%,var(--line))}
+.lead-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.lead-head h3{font-size:18px;font-weight:700}
+.my-rank.top{background:linear-gradient(90deg,color-mix(in srgb,#FDE68A 45%,var(--tint)),var(--tint));border-color:#FBBF24}
+.note-box{display:flex;gap:12px;align-items:flex-start;margin-top:12px;padding:14px 16px;border-radius:var(--r);background:var(--tint);border:1.5px solid var(--line)}
+.note-box svg.tb{width:22px;height:22px;flex:none;margin-top:2px}
+.note-box p{font-size:13.5px;line-height:1.5}
+.st-banner{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:14px 16px;border-radius:var(--r-lg);margin-bottom:16px;border:1.5px dashed var(--or);background:var(--tint)}
+.st-banner>svg.tb{width:30px;height:30px}
+.st-banner>div{flex:1;min-width:200px}
+.st-banner b{display:block}
+.st-banner small{color:var(--soft)}
+.muted-row td{opacity:.72}
+.login-code.off{text-decoration:line-through;opacity:.7}
+.audit-top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.audit-top .select{flex:1;min-width:220px;max-width:420px}
+.audit-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.audit-head .person b{font-size:17px}
+.ev-more summary{cursor:pointer;font-weight:600;padding:8px 0}
+.bk-card{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:18px;border-radius:var(--r-lg);border:1.5px solid var(--line);background:var(--surface)}
+.bk-card>div{flex:1;min-width:220px}
+.bk-ic{width:44px!important;height:44px!important;padding:10px;border-radius:14px;background:var(--tint)}
+.hd{position:absolute;color:#fff;opacity:.16;animation:lgFloat 8s ease-in-out infinite}
+.hd svg.tb{width:100%;height:100%}
+.hd1{width:70px;height:70px;right:6%;top:8%;--r:12deg}
+.hd2{width:34px;height:34px;right:30%;top:14%;--r:0deg;animation-duration:5s}
+.hd3{width:54px;height:54px;right:16%;bottom:10%;--r:-18deg;animation-duration:9s}
+.hd4{width:30px;height:30px;left:40%;bottom:12%;--r:0deg;animation-duration:6s}
+.hd5{width:46px;height:46px;left:3%;bottom:6%;--r:-8deg;animation-duration:10s}
+@media (max-width:760px){.hd1,.hd3{display:none}}
 </style>
 </head>
 <body>
@@ -1510,7 +1627,7 @@ button.bd:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
     </label>
     <div class="caps" id="capsHint" hidden><svg class="i" viewBox="0 0 24 24" data-icon="alert"></svg>Caps Lock aktivdir</div>
     <div class="lg-row">
-      <label class="chk"><input type="checkbox" id="lgRemember" checked><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span>Məni yadda saxla</span></label>
+      <label class="chk"><input type="checkbox" id="lgRemember"><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span>Məni yadda saxla</span></label>
       <button class="lg-forgot" type="button" data-act="forgotPw">Şifrəni unutdum?</button>
     </div>
     <button class="btn btn-primary btn-lg btn-block" type="submit" id="loginBtn">Daxil ol</button>
@@ -1566,7 +1683,7 @@ button.bd:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 <div id="modalRoot"></div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
 
-<script>const API_URL = 'https://script.google.com/macros/s/AKfycbzPe-ceWRdizdV3EW_YNzlnwsb49TK2p64BndnQuEqld7SqTJxysJv6H6GxbyfZozY/exec';
+<script>const API_URL = 'https://script.google.com/macros/s/AKfycbwqogxkMvs6r1n00Cr3y0rydPpCc8kQptW3Mx8SS40whuD_JldMdZgOO-cpY4E8feQF/exec';
 
 const ICONS = {
   home:'<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',
@@ -1797,7 +1914,6 @@ function applyData(d, opts = {}){
   if (d.maintenance) S.maint = d.maintenance;
   S.permsSig = d.me.role + '|' + d.me.perms.join(',') + '|' + (d.me.viewAs ? d.me.viewAs.id : '');
   if (prevSig && prevSig !== S.permsSig && !d.me.isDev && !d.me.viewAs) toast('Sizin icazələriniz yeniləndi.', 'info');
-  if (d.me.theme && d.me.theme !== S.theme && !opts.keepTheme) setTheme(d.me.theme, false);
   if (!$('#shell').hidden){
     renderChrome();
     renderBell();
@@ -1816,16 +1932,6 @@ async function syncData(silent){
     if (r && r.same) S.lastSync = Date.now();
   }
   catch (e) { if (!silent && e.code !== 'AUTH' && e.code !== 'PWD') toast(e.message, 'err'); }
-}
-
-function setTheme(t, persist){
-  S.theme = t === 'dark' ? 'dark' : 'light';
-  document.documentElement.dataset.theme = S.theme;
-  $('meta[name=theme-color]').setAttribute('content', S.theme === 'dark' ? '#150F09' : '#FF7A00');
-  $$('.theme-btn').forEach(b => { b.innerHTML = ic(S.theme === 'dark' ? 'sun' : 'moon'); b.title = S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'; });
-  if (persist && S.token){
-    api('setTheme', { theme: S.theme }, { silent: true }).then(() => { if (S.d) S.d.me.theme = S.theme; }).catch(() => {});
-  }
 }
 
 function toast(msg, type = 'ok'){
@@ -1914,7 +2020,7 @@ function showLogin(msg){
   $('#cab').hidden = true;
   $('#login').hidden = false;
   closeAllModals();
-  const art = $('#loginArt'); if (art && !art.firstChild) art.innerHTML = LOGIN_ART;
+  const art = $('#loginArt'); if (art && !art.firstChild){ art.innerHTML = loginArtHtml(); }
   const mk = $('.lg-mark'); if (mk && !mk.firstChild) mk.innerHTML = LOGO_SVG('#fff');
   const err = $('#loginError');
   if (msg){ err.innerHTML = ic('alert') + `<span>${esc(msg)}</span>`; err.hidden = false; } else err.hidden = true;
@@ -1928,6 +2034,7 @@ function closeAllModals(){ while (modalStack.length) modalStack[modalStack.lengt
 $('#loginForm').addEventListener('submit', async e => {
   e.preventDefault();
   const login = $('#lgLogin').value.trim(), password = $('#lgPass').value;
+  S.loginKind = /^stud/i.test(login) ? 's' : 'u';
   const err = $('#loginError');
   if (!login || !password){
     err.innerHTML = ic('alert') + '<span>Login və şifrəni daxil edin.</span>'; err.hidden = false;
@@ -1949,7 +2056,6 @@ $('#loginForm').addEventListener('submit', async e => {
       S.loginPw = password;
       if (res.mustChange && !res.data){
 
-        if (res.me && res.me.theme) setTheme(res.me.theme, false);
         await hideSplash(started);
         showPwGate(res.me);
         return;
@@ -1957,7 +2063,6 @@ $('#loginForm').addEventListener('submit', async e => {
       if (res.maintenance && res.maintenance.on && !res.data){
 
         S.maint = res.maintenance;
-        if (res.me && res.me.theme) setTheme(res.me.theme, false);
         await hideSplash(started);
         showMaintenance({ maintenance: res.maintenance, me: res.me });
         return;
@@ -2183,6 +2288,7 @@ function renderPage(isRefresh){
   main.innerHTML = `<div class="page${isRefresh ? '' : ''}" ${isRefresh ? 'style="animation:none"' : ''}>${fn()}</div>`;
   hydrateIcons(main);
   const after = AFTER[S.page]; if (after) after(main, isRefresh);
+  if (!isRefresh) countUp(main);
   if (keep){
     const el = document.getElementById(keep.id);
     if (el){ el.focus({ preventScroll: true }); try { if (keep.s != null) el.setSelectionRange(keep.s, keep.e); } catch (e) {} }
@@ -2199,7 +2305,6 @@ document.addEventListener('click', e => {
   if (!e.target.closest('#umenu')) closeUserMenu();
   if (!e.target.closest('#bell')) closeNotif();
 });
-ACT.toggleTheme = () => { setTheme(S.theme === 'dark' ? 'light' : 'dark', !!S.token); const tb = $('#public .theme-btn'); if (tb) tb.innerHTML = ic(S.theme === 'dark' ? 'sun' : 'moon'); };
 ACT.togglePass = (b) => {
   const inp = document.getElementById(b.dataset.target);
   const show = inp.type === 'password';
@@ -2788,7 +2893,7 @@ function pickStudent(onPick, { title, filter } = {}){
   openPalette({ title: title || 'Tələbəni seçin', placeholder: 'Tələbənin adı və ya logini…', empty: 'Bu adla tələbə yoxdur.',
     source: (raw) => {
       const f = fold(raw.trim());
-      const list = S.d.students.filter(s => (!filter || filter(s)) && (!f || fold([s.name, s.login, s.parentName].join(' ')).includes(f)))
+      const list = S.d.students.filter(s => isActiveStu(s) && (!filter || filter(s)) && (!f || fold([s.name, s.login, s.parentName].join(' ')).includes(f)))
         .sort((a, b) => a.name.localeCompare(b.name, 'az'))
         .slice(0, 60);
       return [{ label: f ? 'Tapılan tələbələr' : 'Tələbələr', items: list.map(s => { const n = coursesOfStudent(s.id).length; return {
@@ -2868,61 +2973,6 @@ AFTER.courses = (root) => {
 };
 
 function coursesOfStudent(id){ return S.d.courses.filter(c => c.studentIds.includes(id)); }
-const SF = [['all', 'Hamısı'], ['debt', 'Hələ daxil olmayıb'], ['wait', 'İlkin şifrə ilə']];
-function stuLoginKind(s){ return !s.login ? '' : !s.seen ? 'debt' : s.fresh ? 'wait' : 'ok'; }
-RENDER.students = () => {
-  const sf = S.ui.sf || 'all';
-  const cnt = { all: S.d.students.length, debt: 0, wait: 0, ok: 0 };
-  S.d.students.forEach(st => { const k = stuLoginKind(st); if (k) cnt[k]++; });
-  return `
-  <div class="page-head"><div><h2>Tələbələr</h2><p>Cəmi ${S.d.students.length} tələbə.</p></div>
-    <div class="row">${canResetAll() ? `<button class="btn btn-soft" data-act="loginsList">${ic('key')}Giriş məlumatları</button>` : ''}
-    ${can('students.add') && !ro() ? `<button class="btn btn-primary" data-act="studentForm">${ic('plus')}Yeni tələbə</button>` : ''}</div></div>
-  <div class="toolbar">
-    <div class="input-wrap search">${ic('search','lead')}<input class="input has-lead" id="sq" placeholder="Ad, login və ya valideyn üzrə axtar" value="${esc(S.ui.sq || '')}"></div>
-    <div class="seg" role="radiogroup" aria-label="Kabinetə giriş">${SF.map(([k, l]) =>
-      `<label><input type="radio" name="sf" value="${k}" ${sf === k ? 'checked' : ''}><span>${k !== 'all' ? stDot(k) : ''}${l} ${cnt[k]}</span></label>`).join('')}</div>
-  </div>
-  <div id="slist">${studentsList()}</div>`;
-};
-function loginCell(s){
-  if (!s.login) return '<span class="faint">—</span>';
-  const k = stuLoginKind(s);
-  return `<code class="login-code">${esc(s.login)}</code>${k !== 'ok' ? `<br>${stTag(k, ST_LABEL[k].toLowerCase())}` : ''}`;
-}
-function studentsList(){
-  const q = fold(S.ui.sq || '');
-  const sf = S.ui.sf || 'all';
-  const list = S.d.students.filter(s => {
-    if (q && !fold([s.name, s.login, s.parentName].join(' ')).includes(q)) return false;
-    if (sf !== 'all' && stuLoginKind(s) !== sf) return false;
-    return true;
-  }).sort((a, b) => a.name.localeCompare(b.name, 'az'));
-  if (!S.d.students.length) return emptyBox('Hələ tələbə yoxdur', 'Tələbə əlavə edin, sonra onu məşğələyə yazın.',
-    can('students.add') ? `<button class="btn btn-primary" data-act="studentForm">${ic('plus')}Yeni tələbə</button>` : '');
-  if (!list.length) return sf !== 'all' && !q
-    ? emptyBox(sf === 'debt' ? 'Hamı kabinetə daxil olub' : 'İlkin şifrə ilə qalan tələbə yoxdur', 'Başqa filtr seçin.')
-    : emptyBox('Heç nə tapılmadı', 'Axtarış sözünü və ya filtri dəyişin.');
-  return `<table class="ledger"><thead><tr><th>Tələbə</th><th>Login</th><th>Məşğələlər</th><th></th></tr></thead><tbody>
-    ${list.map(s => {
-      const cs = coursesOfStudent(s.id);
-      return `<tr>
-        <td data-label="Tələbə" class="full"><div class="person"><span class="ava">${esc(initials(s.name))}</span><div><button class="linkish" data-go="student" data-param="${s.id}">${esc(s.name)}</button>${s.parentName ? `<small>Valideyn: ${esc(s.parentName)}</small>` : ''}${s.note ? `<small>${esc(s.note.length > 60 ? s.note.slice(0,60) + '…' : s.note)}</small>` : ''}</div></div></td>
-        <td data-label="Login">${loginCell(s)}</td>
-        <td data-label="Məşğələlər">${cs.length ? `<div class="chips">${cs.map(c => `<span class="cchip"><b>${typeLabel(c.type)}${c.type === 'group' ? ': ' + esc(courseTitle(c)) : ''}</b><span>${esc(c.teacherName)}, ${c.held}/${c.lessonsPerMonth}</span></span>`).join('')}</div>` : '<span class="faint">Məşğələ yoxdur</span>'}</td>
-        <td class="actions">
-          <button class="ibtn sm" data-go="student" data-param="${s.id}" title="Tələbə kartı" aria-label="Tələbə kartı">${ic('card')}</button>
-          ${canResetStudent(s.id) && !ro() ? `<button class="ibtn sm" data-act="resetStuPw" data-id="${s.id}" title="Şifrəni sıfırla" aria-label="Şifrəni sıfırla">${ic('key')}</button>` : ''}
-          ${can('students.edit') && !ro() ? `<button class="ibtn sm" data-act="studentForm" data-id="${s.id}" title="Redaktə et" aria-label="Redaktə et">${ic('edit')}</button>` : ''}
-          ${can('students.delete') && !ro() ? `<button class="ibtn sm" data-act="deleteStudent" data-id="${s.id}" title="Sil" aria-label="Sil">${ic('trash')}</button>` : ''}
-        </td></tr>`;
-    }).join('')}</tbody></table>`;
-}
-AFTER.students = (root) => {
-  const upd = () => { $('#slist').innerHTML = studentsList(); hydrateIcons($('#slist')); };
-  $('#sq', root).addEventListener('input', e => { S.ui.sq = e.target.value; upd(); });
-  $$('input[name=sf]', root).forEach(r => r.addEventListener('change', e => { S.ui.sf = e.target.value; upd(); }));
-};
 
 RENDER.student = () => `<button class="back" data-go="students">${ic('back')}Tələbələr</button><div id="cardBody">${S.ui.card && S.ui.card.student.id === S.param ? cardHtml(S.ui.card) : loadingBox()}</div>`;
 
@@ -2941,12 +2991,6 @@ const SITE_TIPS = [
   'İmtahanda düzgün variantın sonuna + işarəsi qoymaq kifayətdir.',
   'İmtahanın nəticə linkini bir kliklə valideynə göndərə bilərsiniz.'
 ];
-const SLOW_MSGS = [
-  'İnternetiniz zəif görünür. Bağlantınızı yoxlayın…',
-  'Bağlantı yavaşdır, bir az da gözləyin…',
-  'Hələ də yüklənir — şəbəkəni yoxlamağa dəyər.',
-  'Zəif internet. Wi-Fi və ya mobil şəbəkəni yoxlayın.'
-];
 
 function loadingBox(retry){
   return `<div class="loader" data-staged data-retry="${retry || 'page'}">
@@ -2959,56 +3003,6 @@ let lastTip = -1;
 function pickTip(){
   let i; do { i = Math.floor(Math.random() * SITE_TIPS.length); } while (SITE_TIPS.length > 1 && i === lastTip);
   lastTip = i; return SITE_TIPS[i];
-}
-function initLoader(el){
-  if (el.dataset.run) return; el.dataset.run = '1';
-  if (el.querySelector('[data-logo]')) hydrateIcons(el);
-  const msg = el.querySelector('.loader-msg');
-  const pipsEl = el.querySelector('.pips');
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let filled = 0;
-  const timers = [];
-
-  if (!reduce) timers.push(setInterval(() => {
-    if (!el.isConnected) return stop();
-    const dots = pipsEl ? pipsEl.querySelectorAll('.pip') : [];
-    filled = (filled + 1) % (dots.length + 1);
-    dots.forEach((d, i) => d.classList.toggle('on', i < filled));
-  }, 280));
-
-  timers.push(setTimeout(() => {
-    if (!el.isConnected) return stop();
-    const showTip = () => {
-      if (!el.isConnected || msg.classList.contains('warn')) return;
-      msg.className = 'loader-msg tip';
-      msg.innerHTML = `<p>${esc(pickTip())}</p>`;
-    };
-    showTip();
-    timers.push(setInterval(showTip, 3000));
-  }, 3000));
-
-  timers.push(setTimeout(() => {
-    if (!el.isConnected) return stop();
-    const txt = navigator.onLine === false ? 'İnternet bağlantısı yoxdur. Bağlantınızı yoxlayın — qoşulan kimi davam edəcəyik.'
-      : SLOW_MSGS[Math.floor(Math.random() * SLOW_MSGS.length)];
-    msg.className = 'loader-msg warn';
-    msg.innerHTML = `<p>${esc(txt)}</p>`;
-    const mode = el.dataset.retry;
-    if (mode === 'none') return;
-    const r = document.createElement('button');
-    r.className = 'btn btn-soft btn-sm retry';
-    r.innerHTML = mode === 'cancel' ? ic('x') + 'Ləğv et' : ic('refresh') + 'Yenidən yoxla';
-    r.addEventListener('click', () => {
-      if (mode === 'reload') location.reload();
-      else if (mode === 'cancel') cancelLoginWait();
-      else { stop(); if (S.d && !$('#shell').hidden) renderPage(false); }
-    });
-    el.appendChild(r);
-  }, 6000));
-  function stop(){ timers.forEach(t => { clearTimeout(t); clearInterval(t); }); }
-  el._stop = stop;
-
-  const chk = setInterval(() => { if (!el.isConnected){ stop(); clearInterval(chk); } }, 1000);
 }
 
 let loginWait = null;
@@ -3035,24 +3029,6 @@ function cancelLoginWait(){
 }
 
 let slowTimer = null, slowCount = 0;
-function slowWatch(start){
-  if (start){
-    slowCount++;
-    if (slowCount === 1){
-      clearTimeout(slowTimer);
-      slowTimer = setTimeout(() => {
-        if (document.querySelector('.loader[data-staged]') && document.querySelector('.loader[data-staged]').offsetParent) return;
-        const bar = $('#slowBar');
-        const txt = navigator.onLine === false ? 'İnternet bağlantısı yoxdur…' : SLOW_MSGS[Math.floor(Math.random() * SLOW_MSGS.length)];
-        bar.innerHTML = `<span class="spin"></span><span>${esc(txt)}</span>`;
-        bar.hidden = false;
-      }, 6000);
-    }
-  } else {
-    slowCount = Math.max(0, slowCount - 1);
-    if (!slowCount){ clearTimeout(slowTimer); const bar = $('#slowBar'); bar.hidden = true; bar.innerHTML = ''; }
-  }
-}
 
 const loaderObserver = new MutationObserver(muts => {
   muts.forEach(mu => mu.addedNodes.forEach(n => {
@@ -3086,6 +3062,8 @@ function cardHtml(k){
   if (s.login) acts.push(`<button class="btn btn-sm btn-soft" data-act="sendLogin" data-id="${s.id}">${ic('send')}Giriş məlumatı</button>`);
   if (s.canReset && !ro()) acts.push(`<button class="btn btn-sm btn-soft" data-act="resetStuPw" data-id="${s.id}">${ic('key')}Şifrəni sıfırla</button>`);
   if (s.canBonus && gameOn() && !ro()) acts.push(`<button class="btn btn-sm btn-soft" data-act="bonusForm" data-id="${s.id}" data-name="${esc(s.name)}">${ic('star')}Bonus ver</button>`);
+  if (s.canManage && gameOn()) acts.push(`<button class="btn btn-sm btn-soft" data-act="rankHide" data-id="${s.id}" data-on="${s.noRank ? '0' : '1'}">${tb(s.noRank ? 'users' : 'shield')}${s.noRank ? 'Reytinqdə göstər' : 'Reytinqdən gizlət'}</button>`);
+  if (s.canStatus && isActiveStu(s)) acts.push(`<button class="btn btn-sm btn-soft" data-act="stuStatus" data-id="${s.id}">${tb('flag')}Ayrıldı / Məzun</button>`);
   if (can('survey.send')) acts.push(`<button class="btn btn-sm btn-soft" data-act="cardSurvey" data-id="${s.id}">${ic('poll')}Sorğu göndər</button>`);
   if (can('students.edit')) acts.push(`<button class="btn btn-sm" data-act="studentForm" data-id="${s.id}">${ic('edit')}Redaktə et</button>`);
   const kv = [['Login', s.login], ['Kabinet', s.login ? (!s.seen ? 'hələ daxil olmayıb' : s.fresh ? 'ilkin şifrə ilə' : 'son giriş ' + fmtDate(s.lastSeen)) : ''], ['Valideyn', s.parentName], ['Qeydiyyat tarixi', s.createdAt ? fmtDate(s.createdAt) : '']]
@@ -3096,8 +3074,8 @@ function cardHtml(k){
     `<div><b>${k.stats.absent}</b><span>qayıb</span></div>`,
     `<div><b>${rate == null ? '—' : rate + '%'}</b><span>davamiyyət</span></div>`
   ];
-  if (k.game) sum.push(`<div><b>${k.game.total}</b><span>bal · ${esc(k.game.level.name)}</span></div>`);
-  return `
+  if (k.game) sum.push(`<div><b data-count="${k.game.total}">${k.game.total}</b><span>bal · ${esc(k.game.level.name)}</span></div>`);
+  return `${statusBanner(s)}
   <div class="profile">
     <span class="ava lg">${esc(initials(s.name))}</span>
     <div class="profile-main"><h2>${esc(s.name)}</h2>${s.note ? `<p class="muted" style="margin-top:4px">${esc(s.note)}</p>` : ''}${kv ? `<div class="kv">${kv}</div>` : ''}</div>
@@ -3626,7 +3604,7 @@ ACT.changePassword = () => {
 ACT.courseForm = (b) => {
   const c = b.dataset && b.dataset.id ? S.cMap[b.dataset.id] : null;
   const teachers = S.d.users.filter(u => u.role === 'teacher' || u.role === 'superadmin').sort((a, b2) => a.name.localeCompare(b2.name, 'az'));
-  const students = S.d.students.slice().sort((a, b2) => a.name.localeCompare(b2.name, 'az'));
+  const students = S.d.students.filter(x => isActiveStu(x) || (c && c.studentIds.includes(x.id))).sort((a, b2) => a.name.localeCompare(b2.name, 'az'));
   const st = { type: c ? c.type : 'individual', sel: new Set(c ? c.studentIds : []), q: '' };
   openModal({
     title: c ? 'Məşğələni redaktə et' : 'Yeni məşğələ', size: 'wide',
@@ -4038,7 +4016,7 @@ RENDER.dev = () => {
       <div id="tgInfo" style="margin-top:16px">${loadingBox('none')}</div>
     </div>
 
-    <div class="section"><div class="section-head"><h3>Arxiv (məlumatların köçürülməsi)</h3></div>
+    <div class="section"><div class="section-head"><h3>Arxiv (məlumatların köçürülməsi)</h3><button class="btn btn-sm btn-soft" data-act="devBackup">${ic('shield')}Ehtiyat nüsxələr</button></div>
       <p class="hint" style="margin-bottom:12px">Köhnə qeydləri ayrıca arxiv faylına (Google Drive-da, hər il üçün bir fayl) köçürün ki, işçi cədvəl kiçik və sürətli qalsın. Arxivdəki məlumat silinmir — faylı istənilən vaxt açmaq olar.</p>
       <div id="archPanel">${loadingBox()}</div>
     </div>
@@ -4342,6 +4320,7 @@ function toolTabs(){
   if (can('tools.bulk')) t.push(['bulk', 'Toplu əməliyyatlar', 'swap']);
   if (can('tools.datacheck')) t.push(['check', 'Yoxlama', 'shield']);
   if (can('tools.import')) t.push(['import', 'Toplu idxal', 'inbox']);
+  if (me().isSuper && !ro()) t.push(['backup', 'Ehtiyat nüsxə', 'shield']);
   return t;
 }
 RENDER.tools = () => {
@@ -4368,6 +4347,7 @@ async function loadTool(tab){
     if (tab === 'bulk') return drawBulk();
     if (tab === 'check') return drawCheckIntro();
     if (tab === 'import') return drawImport();
+    if (tab === 'backup') return drawBackup();
   } catch (e) {
     if (e.code === 'AUTH' || e.code === 'MAINT') return;
     if (box.isConnected) box.innerHTML = emptyBox('Yüklənmədi', esc(e.message), `<button class="btn btn-primary" data-act="reloadTool">${ic('refresh')}Yenidən</button>`);
@@ -4885,25 +4865,7 @@ function initInstallHint(){
 
 function syncLoginInstall(){ const b = $('#loginInstall'); if (b) b.hidden = isStandalone(); }
 
-function maybeInstallHint(){
-  if (installHiddenNow || isStandalone() || !S.d || S.viewAs) return;
-  if (S.d.me.installHint === 'dismissed') return;
-  if (!deferredInstall && !isIOS()) return;
-  if ($('#installHint') || $('#shell').hidden) return;
-  const el = document.createElement('div');
-  el.id = 'installHint'; el.className = 'install-hint'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Ana ekrana əlavə et');
-  el.innerHTML = `<span class="ic">${ic('home')}</span>
-    <span class="tx"><b>Ana ekrana əlavə et</b><small>Saytı tətbiq kimi bir toxunuşla açın.</small></span>
-    <button class="btn btn-primary btn-sm" data-act="installApp">Əlavə et</button>
-    <button class="ibtn sm" data-act="dismissInstall" aria-label="Bağla">${ic('x')}</button>`;
-  document.body.appendChild(el); hydrateIcons(el);
-}
 function hideInstallHint(){ const el = $('#installHint'); if (el){ el.classList.add('out'); setTimeout(() => el.remove(), 300); } }
-ACT.dismissInstall = () => {
-  installHiddenNow = true; hideInstallHint();
-  if (S.d){ S.d.me.installHint = 'dismissed'; api('dismissInstall', {}, { noRender: true, silent: true }).catch(() => {}); }
-  toast('Lazım olanda profil menyusundan «Ana ekrana əlavə et» seçə bilərsiniz.', 'info');
-};
 function installSteps(steps){
   return `<ul class="ios-steps" style="list-style:none;padding:0;margin:0">${steps.map((s, i) => `<li><span class="n">${i + 1}</span><span>${s}</span></li>`).join('')}</ul>`;
 }
@@ -6356,7 +6318,7 @@ function persist(){
   persistTimer = setTimeout(() => {
     if (!S.remember || !S.token) return;
     const d = S.d && !(S.d.me && (S.d.me.viewAs || S.d.me.readOnly)) ? S.d : null;
-    lsSet({ tok: S.token, kind: S.kind || 'u', rev: d ? d.rev : '', at: Date.now(), theme: S.theme, d });
+    lsSet({ tok: S.token, kind: S.kind || 'u', rev: d ? d.rev : '', at: Date.now(), d });
   }, 250);
 }
 function clearSession(){ clearTimeout(persistTimer); lsDrop(); S.remember = false; S.kind = null; S.cab = null; S.cabRO = false; }
@@ -6465,157 +6427,6 @@ ACT.bonusForm = (b) => {
     } });
 };
 
-function cardGameHtml(k){
-  const g = k.game; if (!g) return '';
-  const lv = g.level;
-  const pct = lv.nextMin ? Math.round((g.total - lv.min) / (lv.nextMin - lv.min) * 100) : 100;
-  return `<div class="section"><div class="section-head"><h3>Nailiyyətlər<span class="count">${g.badges.length}/${g.badgeTotal}</span></h3>
-      ${k.student.canBonus && gameOn() && !ro() ? `<button class="btn btn-sm btn-soft" data-act="bonusForm" data-id="${k.student.id}" data-name="${esc(k.student.name)}">${ic('star')}Bonus ver</button>` : ''}</div>
-    <div class="gm-card"><div class="gm-lv">${levelBadge(lv.i)}<div><b>${esc(lv.name)}</b><small>${g.total} bal${lv.next ? ` · «${esc(lv.next)}» səviyyəsinə ${lv.nextMin - g.total} bal qalıb` : ' · ən yüksək səviyyə'}</small>
-      <div class="gm-bar"><i style="width:${Math.max(3, Math.min(100, pct))}%"></i></div></div></div>
-      <div class="gm-month"><b>${g.monthPts}</b><span>bu ay bal</span></div></div>
-    ${g.badges.length ? `<div class="bd-mini">${g.badges.map(b => `<div class="bd-mini-i" title="${esc(b.name + ' — ' + b.desc)}">${badgeSvg(b.id)}<span>${esc(b.name)}${b.count > 1 ? ' ×' + b.count : ''}</span></div>`).join('')}</div>` : '<p class="hint">Hələ nişan qazanılmayıb.</p>'}
-  </div>`;
-}
-
-const BADGE_LOOK = {
-  first: ['#34D399', '#059669', 'flag'], att10: ['#60A5FA', '#2563EB', 'book', '10'], att50: ['#A78BFA', '#7C3AED', 'book', '50'], att100: ['#F472B6', '#DB2777', 'book', '100'],
-  str5: ['#FDBA74', '#EA580C', 'flame', '5'], str10: ['#FB923C', '#DC2626', 'flame', '10'], str25: ['#F87171', '#B91C1C', 'flame', '25'], str50: ['#FCD34D', '#C2410C', 'flame', '50'],
-  fullm: ['#2DD4BF', '#0F766E', 'cal'], loyal3: ['#93C5FD', '#1D4ED8', 'heart', '3'], loyal6: ['#C4B5FD', '#6D28D9', 'heart', '6'], loyal12: ['#FDE68A', '#CA8A04', 'heart', '12'],
-  exam1: ['#67E8F9', '#0891B2', 'paper'], exam10: ['#818CF8', '#4338CA', 'papers', '10'], pass3: ['#86EFAC', '#16A34A', 'target'], ace: ['#F9A8D4', '#BE185D', 'cap'],
-  perfect: ['#FDE047', '#D97706', 'star', '100'], improve: ['#5EEAD4', '#0D9488', 'trend'], honest: ['#A5B4FC', '#4F46E5', 'shield'], multi: ['#FCA5A5', '#E11D48', 'layers'],
-  chosen: ['#FDBA74', '#F97316', 'spark'], star: ['#FDE68A', '#F59E0B', 'star'],
-  m1: ['#FDE68A', '#D97706', 'medal', '1'], m2: ['#F3F4F6', '#9CA3AF', 'medal', '2'], m3: ['#FED7AA', '#B45309', 'medal', '3'],
-  g1: ['#FDE68A', '#D97706', 'cup', '1'], g2: ['#F3F4F6', '#9CA3AF', 'cup', '2'], g3: ['#FED7AA', '#B45309', 'cup', '3']
-};
-const BADGE_GLYPH = {
-  flag: '<path d="M25 46V18"/><path d="M25 19c6-4 11 4 17 0v13c-6 4-11-4-17 0"/>',
-  book: '<path d="M19 21c4-2 8-2 13 1v22c-5-3-9-3-13-1z"/><path d="M45 21c-4-2-8-2-13 1v22c5-3 9-3 13-1z"/>',
-  flame: '<path d="M32 15c2 7 10 10 10 20a10 10 0 0 1-20 0c0-5 3-8 5-10 0 4 2 6 4 6-2-6 1-12 1-16z"/>',
-  cal: '<rect x="19" y="21" width="26" height="23" rx="4"/><path d="M19 28h26M25 17v6M39 17v6"/><path d="m26 36 4 4 8-8"/>',
-  heart: '<path d="M32 44S18 36 18 26a7 7 0 0 1 14-3 7 7 0 0 1 14 3c0 10-14 18-14 18z"/>',
-  paper: '<path d="M22 16h14l7 7v25H22z"/><path d="M36 16v7h7"/><path d="M27 31h11M27 37h8"/>',
-  papers: '<path d="M25 19h13l6 6v21H25z"/><path d="M20 24v24h18"/><path d="M30 31h9M30 37h7"/>',
-  target: '<circle cx="32" cy="32" r="13"/><circle cx="32" cy="32" r="7"/><circle cx="32" cy="32" r="1.6" fill="#fff"/>',
-  cap: '<path d="M32 19 48 26 32 33 16 26z"/><path d="M22 29v8c0 3 5 5 10 5s10-2 10-5v-8"/><path d="M46 27v9"/>',
-  star: '<path d="m32 15 5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z"/>',
-  trend: '<path d="m17 42 10-10 7 7 13-14"/><path d="M38 25h9v9"/>',
-  shield: '<path d="M32 15 45 20v10c0 9-6 15-13 18-7-3-13-9-13-18V20z"/><path d="m26 32 4 4 8-8"/>',
-  layers: '<path d="M32 16 47 24 32 32 17 24z"/><path d="m17 31 15 8 15-8"/><path d="m17 38 15 8 15-8"/>',
-  spark: '<path d="M32 15c1 8 4 13 13 15-9 2-12 7-13 15-1-8-4-13-13-15 9-2 12-7 13-15z"/>',
-  medal: '<path d="m24 14 8 12 8-12"/><circle cx="32" cy="37" r="11"/>',
-  cup: '<path d="M23 17h18v8a9 9 0 0 1-18 0z"/><path d="M23 20h-5c0 6 3 8 6 8M41 20h5c0 6-3 8-6 8"/><path d="M32 34v6M26 45h12M28 40h8"/>'
-};
-let bdSeq = 0;
-function badgeSvg(id, locked){
-  const L = BADGE_LOOK[id] || ['#FFB577', '#FF7A00', 'star'];
-  const g = 'bg' + (++bdSeq);
-  const tier = { m1: 4, g1: 4, str50: 4, loyal12: 4, att100: 3, str25: 3, exam10: 3, ace: 3, perfect: 3, loyal6: 3, star: 3, m2: 3, m3: 3, g2: 3, g3: 3 }[id] || (/^(att50|str10|fullm|loyal3|pass3|improve|honest)$/.test(id) ? 2 : 1);
-  const shape = tier === 1 ? '<circle cx="32" cy="32" r="27"/>'
-    : tier === 2 ? '<path d="M32 4 56 18v28L32 60 8 46V18z"/>'
-    : tier === 3 ? '<path d="M32 3l7 6 9-1 3 9 8 5-3 9 3 9-8 5-3 9-9-1-7 6-7-6-9 1-3-9-8-5 3-9-3-9 8-5 3-9 9 1z"/>'
-    : '<path d="M32 3 38 13 50 9 49 21 60 27 51 35 56 46 44 47 40 59 32 51 24 59 20 47 8 46 13 35 4 27 15 21 14 9 26 13z"/>';
-  const isMedal = L[2] === 'medal';
-  const num = !L[3] ? '' : isMedal ? `<text x="32" y="41.5" text-anchor="middle" font-size="12" font-weight="800" fill="${L[1]}" font-family="Poppins,sans-serif">${L[3]}</text>`
-    : `<rect x="${32 - (L[3].length * 3.4 + 5)}" y="44.5" width="${L[3].length * 6.8 + 10}" height="13" rx="6.5" fill="#fff"/><text x="32" y="54.4" text-anchor="middle" font-size="10" font-weight="800" fill="${L[1]}" font-family="Poppins,sans-serif">${L[3]}</text>`;
-  const medalFill = L[2] === 'medal' ? '<circle cx="32" cy="37" r="8.5" fill="#fff" stroke="none"/>' : '';
-  return `<svg class="bd-svg${locked ? ' bd-locked' : ''}" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${L[0]}"/><stop offset="1" stop-color="${L[1]}"/></linearGradient></defs>
-    <g fill="url(#${g})" stroke="rgba(255,255,255,.55)" stroke-width="2">${shape}</g>
-    <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="translate(32 ${L[3] && !isMedal ? 27 : 32}) scale(${L[3] && !isMedal ? .68 : .78}) translate(-32 -32)">${BADGE_GLYPH[L[2]] || ''}${medalFill}</g>${num}
-    ${locked ? '<g transform="translate(52 52)"><circle r="9" fill="#6B7280" stroke="#fff" stroke-width="2"/><path d="M-3.5-1v-2a3.5 3.5 0 0 1 7 0v2M-4.5-1h9v6h-9z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></g>' : ''}</svg>`;
-}
-const LEVEL_COL = [['#FFD8B0', '#FF9A3D'], ['#86EFAC', '#16A34A'], ['#93C5FD', '#2563EB'], ['#C4B5FD', '#7C3AED'], ['#F9A8D4', '#DB2777'], ['#FCA5A5', '#DC2626'], ['#FDE68A', '#D97706']];
-function levelBadge(i){
-  const c = LEVEL_COL[i] || LEVEL_COL[0], g = 'lv' + (++bdSeq);
-  return `<svg class="lv-svg" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="${g}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs>
-    <path d="M32 4 55 15v18c0 13-10 22-23 27C19 55 9 46 9 33V15z" fill="url(#${g})" stroke="rgba(255,255,255,.6)" stroke-width="2"/>
-    <text x="32" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#fff" font-family="Poppins,sans-serif">${i + 1}</text></svg>`;
-}
-
-PAGES.rating = { title: 'Reytinq', icon: 'trophy', nav: true, allow: () => !!(S.d.game && S.d.game.show) && !me().isDev };
-RENDER.rating = () => `<div class="page-head"><div><h2>Reytinq və nailiyyətlər</h2><p>Tələbələrin balları, aylıq liderlər və bonuslar.</p></div></div><div id="boardBox">${S.ui.board ? boardHtml(S.ui.board) : loadingBox()}</div>`;
-AFTER.rating = () => loadBoard();
-async function loadBoard(){
-  try {
-    const r = await api('gameBoard', S.ui.boardMonth ? { month: S.ui.boardMonth } : {}, { noRender: true, silent: !!S.ui.board });
-    S.ui.board = r;
-    const box = $('#boardBox'); if (!box || S.page !== 'rating') return;
-    box.innerHTML = boardHtml(r); hydrateIcons(box);
-  } catch (e) {
-    if (e.code === 'AUTH') return;
-    const box = $('#boardBox'); if (box) box.innerHTML = emptyBox('Açılmadı', esc(e.message), `<button class="btn btn-primary" data-act="reloadBoard">${ic('refresh')}Yenidən cəhd et</button>`);
-  }
-}
-ACT.reloadBoard = () => loadBoard();
-function leadersHtml(L, kind, opts = {}){
-  const list = L ? (kind === 'ind' ? L.ind : L.grp) : [];
-  if (!list.length) return `<p class="hint">${L ? 'Bu ay üzrə reytinqə düşən yoxdur.' : 'Hələ yekunlaşmış ay yoxdur.'}</p>`;
-  const top = list.slice(0, 3), rest = list.slice(3);
-  const order = [top[1], top[0], top[2]].filter(Boolean);
-  return `<div class="podium">${order.map(x => `<div class="pod pod-${x.place}">
-      <div class="pod-ic">${badgeSvg((kind === 'ind' ? 'm' : 'g') + x.place)}</div>
-      ${opts.click && kind === 'ind' && x.id ? `<button class="linkish pod-name" data-act="${opts.click}" data-id="${x.id}">${esc(x.name)}</button>` : `<b class="pod-name">${esc(x.name)}</b>`}
-      <small>${kind === 'ind' ? x.points + ' bal' : x.points + ' bal (orta)'}</small>${kind === 'grp' && x.teacher ? `<small class="faint">${esc(x.teacher)}</small>` : ''}
-      <div class="pod-step">${x.place}</div></div>`).join('')}</div>
-    ${rest.length ? `<ol class="lead-list" start="4">${rest.map(x => `<li><span class="ln">${x.place}</span>
-      ${opts.click && kind === 'ind' && x.id ? `<button class="linkish" data-act="${opts.click}" data-id="${x.id}">${esc(x.name)}</button>` : `<b>${esc(x.name)}</b>`}
-      <span class="lp">${x.points} bal</span></li>`).join('')}</ol>` : ''}`;
-}
-function boardHtml(r){
-  if (!r.on) return `<div class="empty">${ic('trophy')}<h4>Nailiyyətlər sistemi söndürülüb</h4><p>Tələbələr bal, nişan və reytinq görmür.</p>
-    ${r.canToggle ? `<button class="btn btn-primary" data-act="setGame" data-on="1">${ic('power')}Sistemi aç</button>` : ''}</div>`;
-  const tab = S.ui.boardTab || 'live';
-  const tabs = [['live', 'Bu ay (canlı)'], ['ind', 'Fərdi reytinq'], ['grp', 'Qrup reytinqi'], ['bonus', 'Bonuslar'], ['rules', 'Qaydalar']];
-  const L = r.leaders;
-  let body = '';
-  if (tab === 'live'){
-    body = `<p class="hint" style="margin-bottom:12px">${fmtMonthKey(r.month)} ayının cari balları. ${r.all ? 'Bütün kurs' : 'Yalnız sizin tələbələriniz'}. Reytinqə düşmək üçün ayda ən azı ${r.limits.rankMin} dərsdə iştirak lazımdır.</p>
-      ${r.rows.length ? `<table class="ledger"><thead><tr><th>#</th><th>Tələbə</th><th>Səviyyə</th><th>Bu ay</th><th>Cəmi</th><th>Nişan</th><th></th></tr></thead><tbody>
-      ${r.rows.map((x, i) => `<tr><td data-label="#" class="nowrap"><b>${x.month && x.lessons >= r.limits.rankMin ? i + 1 : '—'}</b></td>
-        <td data-label="Tələbə" class="full"><div class="person"><span class="ava">${esc(initials(x.name))}</span><div>${can('students.view') ? `<button class="linkish" data-go="student" data-param="${x.id}">${esc(x.name)}</button>` : `<b>${esc(x.name)}</b>`}<small>${x.lessons} dərs bu ay${x.streak >= 3 ? ` · ${x.streak} ardıcıl` : ''}</small></div></div></td>
-        <td data-label="Səviyyə"><span class="lv-tag">${levelBadge(x.levelI)}${esc(x.level)}</span></td>
-        <td data-label="Bu ay"><b style="font-weight:700">${x.month}</b></td><td data-label="Cəmi">${x.total}</td><td data-label="Nişan">${x.badges}</td>
-        <td class="actions">${x.canBonus ? `<button class="btn btn-sm btn-soft" data-act="bonusForm" data-id="${x.id}" data-name="${esc(x.name)}" ${x.bonusLeft < 5 ? 'disabled title="Bu ayın limiti bitib"' : ''}>${ic('star')}Bonus</button>` : ''}</td></tr>`).join('')}</tbody></table>` : emptyBox('Tələbə yoxdur', 'Məşğələlərinizdə tələbə olanda burada görünəcək.')}
-      ${r.groups.length ? `<div class="section"><div class="section-head"><h3>Qruplar (bu ay, orta bal)</h3></div><table class="ledger"><thead><tr><th>#</th><th>Qrup</th><th>Müəllim</th><th>Tələbə</th><th>Orta bal</th></tr></thead><tbody>
-        ${r.groups.map((g, i) => `<tr><td data-label="#"><b>${i + 1}</b></td><td data-label="Qrup"><b style="font-weight:600">${esc(g.title)}</b></td><td data-label="Müəllim">${esc(g.teacher)}</td><td data-label="Tələbə">${g.members}</td><td data-label="Orta bal"><b>${g.avg}</b></td></tr>`).join('')}</tbody></table></div>` : ''}`;
-  } else if (tab === 'ind' || tab === 'grp'){
-    body = L ? `<div class="row" style="justify-content:space-between;margin-bottom:12px"><p class="hint">Yekunlaşmış ay: <b>${fmtMonthKey(L.month)}</b>. Liderlər hər ayın 1-də yenilənir.</p>
-        ${L.months.length > 1 ? `<select class="select" id="boardMonth" style="max-width:200px">${L.months.map(m => `<option value="${m}" ${m === L.month ? 'selected' : ''}>${fmtMonthKey(m)}</option>`).join('')}</select>` : ''}</div>
-      ${leadersHtml(L, tab)}` : `<div class="empty">${ic('trophy')}<h4>İlk nəticələr ${firstResultsDate(r.start)}</h4><p>Ay bitəndən sonra ən yaxşı 10 tələbə və 5 qrup burada görünəcək.</p></div>`;
-  } else if (tab === 'bonus'){
-    body = r.bonuses.length ? `<table class="ledger"><thead><tr><th>Tarix</th><th>Tələbə</th><th>Bal</th><th>Səbəb</th><th>Verən</th><th></th></tr></thead><tbody>
-      ${r.bonuses.map(b => `<tr><td data-label="Tarix" class="nowrap">${fmtDT(b.at)}</td><td data-label="Tələbə">${esc(b.studentName)}</td><td data-label="Bal"><b>+${b.points}</b></td><td data-label="Səbəb">${esc(b.reason)}</td><td data-label="Verən">${esc(b.by)}</td>
-        <td class="actions">${b.canDelete ? `<button class="ibtn sm" data-act="deleteBonus" data-id="${b.id}" title="Sil" aria-label="Sil">${ic('trash')}</button>` : ''}</td></tr>`).join('')}</tbody></table>`
-      : emptyBox('Bonus yoxdur', 'Tələbəyə bonus vermək üçün «Bu ay» siyahısında «Bonus» düyməsini basın.');
-    body = `<p class="hint" style="margin-bottom:12px">Bonus ${r.limits.min}–${r.limits.max} bal olur, bir tələbəyə ayda ən çoxu ${r.limits.month} bal. Səhv verilmiş bonusu 24 saat ərzində silə bilərsiniz.</p>` + body;
-  } else {
-    body = gameRulesHtml(r.rules, r.levels, r.limits) + `<div class="section"><div class="section-head"><h3>Nişanlar<span class="count">${r.catalog.length}</span></h3></div>
-      <div class="bd-grid">${r.catalog.map(b => `<div class="bd"><div class="bd-ic">${badgeSvg(b.id)}</div><b>${esc(b.name)}</b><small>${esc(b.desc)}</small></div>`).join('')}</div></div>`;
-  }
-  return `${r.canToggle ? `<div class="gm-switch"><div><b>Nailiyyətlər sistemi açıqdır</b><p class="hint">Söndürsəniz, tələbələr bal, nişan və reytinqi görməyəcək. Məlumatlar silinmir.</p></div>
-      <button class="btn btn-soft btn-sm" data-act="setGame" data-on="0">${ic('power')}Söndür</button></div>` : ''}
-    <div class="tabs" role="tablist">${tabs.map(([k, l]) => `<button class="tab ${tab === k ? 'on' : ''}" data-act="boardTab" data-tab="${k}">${l}</button>`).join('')}</div>
-    <div class="board-body">${body}</div>`;
-}
-function firstResultsDate(start){
-  const d = new Date(String(start || today()).slice(0, 7) + '-01T12:00:00');
-  d.setMonth(d.getMonth() + 1);
-  return `${d.getDate()} ${MONTHS[d.getMonth()]}-da`;
-}
-function gameRulesHtml(R, levels, limits){
-  return `<div class="rules-grid">
-    <div class="rule"><span class="rule-n">+${R.lesson}</span><div><b>Hər dərs</b><small>Dərsdə iştirak etdin — bal qazandın. Qayıb bal vermir və ardıcıllığı qırır.</small></div></div>
-    <div class="rule"><span class="rule-n">+${R.streakBonus}</span><div><b>Hər ${R.streakEvery} ardıcıl dərs</b><small>Dərsləri buraxmadan gəl — hər ${R.streakEvery} dərsdən bir əlavə bal.</small></div></div>
-    <div class="rule"><span class="rule-n">%÷2</span><div><b>İmtahan</b><small>Faizin yarısı qədər bal (100% → 50 bal). Yalnız ən yaxşı cəhd sayılır.</small></div></div>
-    <div class="rule"><span class="rule-n">+${R.passBonus}</span><div><b>Keçid balı</b><small>İmtahanda keçid balını topladın — əlavə bal.</small></div></div>
-    <div class="rule"><span class="rule-n">+5…20</span><div><b>Müəllimdən bonus</b><small>Fəal iştirak, əla tapşırıq üçün. Ayda ən çoxu ${limits ? limits.month : 50} bal.</small></div></div>
-  </div>
-  <div class="section"><div class="section-head"><h3>Səviyyələr</h3></div><div class="lv-ladder">${levels.map((l, i) => `<div class="lv-step">${levelBadge(i)}<b>${esc(l[1])}</b><small>${l[0]} bal</small></div>`).join('')}</div>
-    <p class="hint" style="margin-top:10px">Səviyyə heç vaxt aşağı düşmür. Aylıq reytinq hər ayın 1-də yenilənir, reytinqə düşmək üçün ayda ən azı ${limits ? limits.rankMin : 4} dərsdə iştirak lazımdır.</p></div>`;
-}
-ACT.boardTab = (b) => { S.ui.boardTab = b.dataset.tab; const box = $('#boardBox'); if (box && S.ui.board){ box.innerHTML = boardHtml(S.ui.board); hydrateIcons(box); bindBoard(box); } };
-function bindBoard(box){ const sel = box.querySelector('#boardMonth'); if (sel) sel.addEventListener('change', () => { S.ui.boardMonth = sel.value; loadBoard(); }); }
-document.addEventListener('change', e => { if (e.target && e.target.id === 'boardMonth'){ S.ui.boardMonth = e.target.value; loadBoard(); } });
 ACT.deleteBonus = async (b) => {
   const ok = await confirmBox({ title: 'Bonusu sil', text: 'Bu bonus silinsin? Tələbənin balı azalacaq.', ok: 'Sil', danger: true });
   if (!ok) return;
@@ -6655,7 +6466,7 @@ const CAB_PAGES = [['home', 'Əsas', 'home', 'Əsas'], ['exams', 'İmtahanlar', 
 function cabData(){ return S.cab; }
 function cabApply(d, opts = {}){
   S.cab = d; S.lastSync = Date.now();
-  if (!S.cabRO){ S.d = d; if (d.maintenance) S.maint = d.maintenance; if (d.me.theme && d.me.theme !== S.theme && !opts.keepTheme) setTheme(d.me.theme, false); persist(); }
+  if (!S.cabRO){ S.d = d; if (d.maintenance) S.maint = d.maintenance; persist(); }
   if (!$('#cab').hidden){ cabChrome(); if (!opts.noRender) cabRender(true); if (!S.cabRO) cabPopup(); }
 }
 function cabEnter(){
@@ -6706,15 +6517,6 @@ function cabChrome(){
   document.title = `${(CAB_PAGES.find(p => p[0] === S.cabPage) || [, 'Kabinet'])[1]} — Aslan Lessons`;
 }
 ACT.cabGo = (b) => cabGo(b.dataset.p);
-function cabRender(isRefresh){
-  const d = S.cab, el = $('#cabMain');
-  if (!d) return;
-  const keep = isRefresh ? window.scrollY : 0;
-  const fn = CAB_RENDER[S.cabPage] || CAB_RENDER.home;
-  el.innerHTML = `<div class="cab-page cab-${S.cabPage}">${fn(d)}</div>`;
-  hydrateIcons(el);
-  if (isRefresh) window.scrollTo({ top: keep });
-}
 const CAB_RENDER = {};
 function cabAnnHtml(d){
   if (!d.announcements.length) return '';
@@ -6726,40 +6528,6 @@ function cabLevelRing(g){
   const r = 52, c = 2 * Math.PI * r;
   return `<div class="lv-ring"><svg viewBox="0 0 128 128" aria-hidden="true"><circle cx="64" cy="64" r="${r}" class="lv-track"/><circle cx="64" cy="64" r="${r}" class="lv-val" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - Math.max(.02, Math.min(1, pct)))}"/></svg>
     <div class="lv-in">${levelBadge(lv.i)}</div></div>`;
-}
-CAB_RENDER.home = (d) => {
-  const g = d.game, st = d.stats;
-  const hero = g.on ? `<div class="cab-hero"><div class="cab-hero-bg">${HERO_ART}</div>
-      ${cabLevelRing(g)}
-      <div class="cab-hero-tx"><span class="eyebrow">Səviyyə ${g.level.i + 1} · ${esc(g.level.name)}</span><div class="cab-pts"><b>${g.total}</b><span>bal</span></div>
-        <p>${g.level.next ? `«${esc(g.level.next)}» səviyyəsinə <b>${g.level.nextMin - g.total}</b> bal qalıb` : 'Ən yüksək səviyyədəsən — Əfsanə!'}</p></div>
-      <div class="cab-hero-stats">
-        <div><b>${g.monthPts}</b><span>bu ay bal</span></div>
-        <div><b>${g.streak}</b><span>ardıcıl dərs</span></div>
-        <div><b>${g.rank ? g.rank.place : '—'}</b><span>${g.rank ? 'yer bu ay' : 'reytinqdə yer'}</span></div>
-      </div></div>`
-    : `<div class="cab-hero cab-hero-plain"><div class="cab-hero-bg">${HERO_ART}</div><div class="cab-hero-tx"><span class="eyebrow">Tələbə kabineti</span><h2>${esc(d.me.name)}</h2><p>${fmtDate(d.today)}, ${weekday(d.today)}</p></div></div>`;
-  const open = d.exams.open;
-  const recent = g.on ? g.badges.filter(b => b.count).sort((a, b) => a.last < b.last ? 1 : -1).slice(0, 4) : [];
-  return `${cabAnnHtml(d)}${hero}
-    ${open.length ? `<div class="cab-sec"><div class="section-head"><h3>Sənə təyin edilmiş imtahanlar<span class="count">${open.length}</span></h3><button class="linkish" data-act="cabGo" data-p="exams">Hamısı</button></div>
-      <div class="cab-exams">${open.slice(0, 3).map(cabExamCard).join('')}</div></div>` : ''}
-    <div class="cab-sec"><div class="section-head"><h3>Məşğələlərim<span class="count">${d.courses.length}</span></h3></div>
-      ${d.courses.length ? `<div class="cgrid">${d.courses.map(c => `<article class="ccard">
-        <div class="ccard-top"><span class="tag${c.type === 'group' ? ' solid' : ''}">${typeLabel(c.type)}</span><span class="month">Ay ${c.monthNo}</span></div>
-        <div><h3>${esc(c.title)}</h3><p class="who">Müəllim: <b>${esc(c.teacherName)}</b></p></div>
-        <div class="ccard-prog">${pips(Math.min(c.held, c.lessonsPerMonth), c.lessonsPerMonth)}<span class="frac">${c.held}/${c.lessonsPerMonth}</span></div>
-        <p class="ccard-meta">Bu ay ${c.mine.held} dərsdə iştirak etmisən${c.mine.absent ? `, ${c.mine.absent} dəfə qayıb` : ''}.</p></article>`).join('')}</div>`
-        : `<div class="empty">${ic('book')}<h4>Hələ məşğələ yoxdur</h4><p>Müəllimin səni məşğələyə əlavə edəndən sonra burada görünəcək.</p></div>`}</div>
-    <div class="cab-sec"><div class="summary"><div><b>${st.held}</b><span>iştirak etdiyin dərs</span></div><div><b>${st.absent}</b><span>qayıb</span></div><div><b>${st.rate == null ? '—' : st.rate + '%'}</b><span>davamiyyət</span></div><div><b>${d.exams.done.count}</b><span>imtahan</span></div></div></div>
-    ${g.on ? `<div class="cab-sec"><div class="section-head"><h3>Son nişanlar</h3><button class="linkish" data-act="cabGo" data-p="badges">Vitrin</button></div>
-      ${recent.length ? `<div class="bd-row">${recent.map(b => `<button class="bd-chip" data-act="cabBadge" data-id="${b.id}">${badgeSvg(b.id)}<span>${esc(b.name)}</span></button>`).join('')}</div>` : `<p class="hint">İlk nişanını ilk dərsdə qazanacaqsan!</p>`}</div>
-      <div class="cab-sec"><div class="section-head"><h3>Bal tarixçəsi</h3></div>${pointsList(g.events.slice(0, 8))}</div>` : ''}`;
-};
-function pointsList(ev){
-  if (!ev.length) return '<p class="hint">Hələ bal yoxdur. Dərsə gəl, imtahan ver — ballar burada görünəcək.</p>';
-  const icn = { lesson: 'check', streak: 'bolt', exam: 'exam', pass: 'flag', bonus: 'star' };
-  return `<div class="pts-list">${ev.map(e => `<div class="pts-i pts-${e.k}"><span class="pts-ic">${ic(icn[e.k] || 'star')}</span><div><b>${esc(e.t)}</b><small>${fmtDate(e.d)}</small></div><span class="pts-v">+${e.p}</span></div>`).join('')}</div>`;
 }
 function cabExamCard(x){
   return `<article class="cab-ex"><div class="cab-ex-h"><span class="cab-ex-ic">${ic('exam')}</span><div><b>${esc(x.title)}</b><small>${esc(x.teacherName)}${x.subject ? ' · ' + esc(x.subject) : ''}</small></div></div>
@@ -6793,60 +6561,7 @@ CAB_RENDER.att = (d) => {
           <td data-label="Status">${entryPill({ status: h.status, reason: h.reason }, false)}</td></tr>`).join('')}</tbody></table>`
         : emptyBox('Hələ dərs yoxdur', 'Müəllimin ilk dərsi qeyd edəndə burada görünəcək.')}</div>`;
 };
-CAB_RENDER.badges = (d) => {
-  const g = d.game; if (!g.on) return '';
-  const got = g.badges.filter(b => b.count).length;
-  const groups = [['Davamiyyət', b => /^(first|att|str|fullm|loyal)/.test(b.id)], ['İmtahanlar', b => /^(exam|pass|ace|perfect|improve|honest)/.test(b.id)], ['Xüsusi', b => /^(multi|chosen|star)$/.test(b.id)], ['Aylıq reytinq', b => b.monthly]];
-  return `<div class="cab-head"><h2>Nailiyyətlər</h2><p>Qazandığın nişanlar heç vaxt itmir. Boz nişanlar hələ qarşıdadır — şərtini oxu və qazan!</p></div>
-    <div class="cab-sec"><div class="bd-top"><div class="bd-top-n"><b>${got}</b><span>/ ${g.badges.length} nişan</span></div><div class="gm-bar lg"><i style="width:${Math.round(got / g.badges.length * 100)}%"></i></div></div></div>
-    ${groups.map(([title, f]) => { const list = g.badges.filter(f); return `<div class="cab-sec"><div class="section-head"><h3>${title}</h3></div>
-      <div class="bd-grid">${list.map(b => `<button class="bd ${b.count ? 'bd-on' : ''}" data-act="cabBadge" data-id="${b.id}"><div class="bd-ic">${badgeSvg(b.id, !b.count)}${b.count > 1 ? `<i class="bd-x">×${b.count}</i>` : ''}</div><b>${esc(b.name)}</b>
-        <small>${esc(b.desc)}</small>${!b.count && b.need ? `<div class="gm-bar sm"><i style="width:${Math.round(b.cur / b.need * 100)}%"></i></div><small class="faint">${b.cur}/${b.need}</small>` : b.count ? `<small class="bd-date">${fmtDate(b.last)}</small>` : ''}</button>`).join('')}</div></div>`; }).join('')}`;
-};
-ACT.cabBadge = (b) => {
-  const g = S.cab.game, x = g.badges.find(y => y.id === b.dataset.id); if (!x) return;
-  openModal({ title: x.name, size: 'sm', body: `<div class="bd-big">${badgeSvg(x.id, !x.count)}<p>${esc(x.desc)}</p>
-    ${x.count ? `<span class="tag solid">${x.count > 1 ? x.count + ' dəfə qazanılıb' : 'Qazanılıb'} · ${fmtDate(x.last)}</span>` : x.need ? `<div class="gm-bar"><i style="width:${Math.round(x.cur / x.need * 100)}%"></i></div><small class="muted">${x.cur} / ${x.need}</small>` : '<span class="tag line">Hələ qazanılmayıb</span>'}</div>`,
-    foot: `<button class="btn btn-primary" data-close>Bağla</button>` });
-};
-CAB_RENDER.rating = (d) => {
-  const g = d.game; if (!g.on) return '';
-  const tab = S.ui.cabRt || 'ind';
-  const L = g.leaders;
-  const mine = g.rank ? `<div class="my-rank">${ic('trophy')}<div><b>Bu ay ${g.rank.place}-ci yerdəsən</b><small>${g.monthPts} bal · ${g.rank.of} tələbə arasında. Nəticə ayın sonunda yekunlaşır.</small></div></div>`
-    : `<div class="my-rank">${ic('trophy')}<div><b>Bu ay hələ reytinqdə deyilsən</b><small>Reytinqə düşmək üçün ayda ən azı ${g.rankMin} dərsdə iştirak et. Bu ay: ${g.monthLessons} dərs, ${g.monthPts} bal.</small></div></div>`;
-  const groups = g.groups.length ? `<div class="my-rank">${ic('users')}<div><b>Qrupun bu ay ${g.groups[0].place}-ci yerdədir</b><small>${esc(g.groups[0].title)} · orta bal ${g.groups[0].avg}</small></div></div>` : '';
-  const body = L ? `<p class="hint" style="margin-bottom:12px">${fmtMonthKey(L.month)} ayının liderləri. Hər ayın 1-də yenilənir.</p>${leadersHtml(L, tab, { click: 'cabProfile' })}`
-    : `<div class="empty">${ic('trophy')}<h4>İlk nəticələr ${firstResultsDate(g.start)}</h4><p>Ay bitəndən sonra ayın ən yaxşı 10 tələbəsi və 5 qrupu burada görünəcək. İndi bal topla — bəlkə birinci sən olacaqsan!</p></div>`;
-  return `<div class="cab-head"><h2>Reytinq</h2><p>Keçən ayın liderləri və sənin bu ayki yerin.</p></div>
-    <div class="cab-sec">${mine}${tab === 'grp' ? groups : ''}</div>
-    <div class="tabs" role="tablist"><button class="tab ${tab === 'ind' ? 'on' : ''}" data-act="cabRt" data-t="ind">Fərdi</button><button class="tab ${tab === 'grp' ? 'on' : ''}" data-act="cabRt" data-t="grp">Qrup</button></div>
-    <div class="cab-sec">${body}</div>`;
-};
 ACT.cabRt = (b) => { S.ui.cabRt = b.dataset.t; cabRender(false); };
-ACT.cabProfile = (b) => {
-  if (S.cabRO) return;
-  run(null, async () => {
-    const r = await api('sProfile', { id: b.dataset.id }, { noRender: true });
-    const p = r.profile;
-    openModal({ title: p.name, sub: p.on ? `${esc(p.level.name)} · ${p.level.pts} bal` : '', size: 'sm',
-      body: p.badges.length ? `<div class="bd-grid sm">${p.badges.map(x => `<div class="bd bd-on"><div class="bd-ic">${badgeSvg(x.id)}${x.count > 1 ? `<i class="bd-x">×${x.count}</i>` : ''}</div><b>${esc(x.name)}</b></div>`).join('')}</div>` : '<p class="hint">Hələ nişan yoxdur.</p>',
-      foot: `<button class="btn btn-primary" data-close>Bağla</button>` });
-  });
-};
-CAB_RENDER.profile = (d) => {
-  const g = d.game;
-  return `<div class="cab-head"><h2>Profil</h2></div>
-    <div class="cab-sec"><div class="profile"><span class="ava lg">${esc(initials(d.me.name))}</span><div class="profile-main"><h2>${esc(d.me.name)}</h2>
-      <div class="kv"><div><span>Login</span><b>${esc(d.me.login)}</b></div>${d.me.parentName ? `<div><span>Valideyn</span><b>${esc(d.me.parentName)}</b></div>` : ''}${g.on ? `<div><span>Səviyyə</span><b>${esc(g.level.name)}</b></div>` : ''}</div></div></div></div>
-    ${S.cabRO ? '' : `<div class="cab-sec cab-menu-list">
-      <button class="mrow" data-act="changePassword">${ic('key')}<span>Şifrəni dəyiş</span>${ic('chev')}</button>
-      <button class="mrow" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}<span>${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</span>${ic('chev')}</button>
-      ${isStandalone() ? '' : `<button class="mrow" data-act="installApp">${ic('home')}<span>Ana ekrana əlavə et</span>${ic('chev')}</button>`}
-      <button class="mrow" data-act="logoutAll">${ic('shield')}<span>Bütün cihazlardan çıx</span>${ic('chev')}</button>
-      <button class="mrow" data-act="logout">${ic('logout')}<span>Çıxış</span>${ic('chev')}</button></div>`}
-    ${g.on ? `<div class="cab-sec"><div class="section-head"><h3>Bal necə qazanılır?</h3></div>${gameRulesHtml(g.rules, g.levels, { month: 50, rankMin: g.rankMin })}</div>` : ''}`;
-};
 ACT.cabMenu = (b) => {
   const box = b.parentElement; if (box.querySelector('.umenu-pop')) return cabCloseMenu();
   const d = S.cab;
@@ -6933,32 +6648,6 @@ ACT.devViewStudent = (b) => {
   });
 };
 
-const HERO_ART = `<svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-  <circle cx="350" cy="30" r="90" fill="rgba(255,255,255,.12)"/><circle cx="350" cy="30" r="56" fill="rgba(255,255,255,.1)"/>
-  <circle cx="40" cy="210" r="70" fill="rgba(255,255,255,.08)"/>
-  <path d="M300 170l6 13 14 2-10 10 2 14-12-7-12 7 2-14-10-10 14-2z" fill="rgba(255,255,255,.28)"/>
-  <path d="M250 40l3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1z" fill="rgba(255,255,255,.35)"/>
-  <circle cx="200" cy="200" r="4" fill="rgba(255,255,255,.4)"/><circle cx="380" cy="150" r="5" fill="rgba(255,255,255,.3)"/><circle cx="120" cy="24" r="3" fill="rgba(255,255,255,.45)"/>
-</svg>`;
-
-const LOGIN_ART = `<svg class="lg-art" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-  <defs>
-    <linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB15C"/><stop offset="1" stop-color="#FF7A00"/></linearGradient>
-    <linearGradient id="lgB" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FF7A00" stop-opacity=".9"/><stop offset="1" stop-color="#FFC48A" stop-opacity=".6"/></linearGradient>
-    <radialGradient id="lgC" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FF7A00" stop-opacity=".32"/><stop offset="1" stop-color="#FF7A00" stop-opacity="0"/></radialGradient>
-  </defs>
-  <circle cx="660" cy="120" r="260" fill="url(#lgC)"/><circle cx="110" cy="700" r="300" fill="url(#lgC)"/>
-  <path class="lg-wave" d="M-40 610C120 540 240 700 420 640S700 520 860 590V840H-40z" fill="url(#lgA)" opacity=".16"/>
-  <path class="lg-wave2" d="M-40 680C140 620 260 760 460 700S720 610 860 660V840H-40z" fill="url(#lgB)" opacity=".2"/>
-  <g class="lg-float f1"><g transform="translate(96 140) rotate(-12)"><rect width="120" height="92" rx="14" fill="url(#lgA)"/><path d="M60 14v66M14 24c18-8 32-8 46 4M106 24c-18-8-32-8-46 4" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".9"/></g></g>
-  <g class="lg-float f2"><g transform="translate(610 470) rotate(18)"><path d="M0 34 58 8l58 26-58 26z" fill="url(#lgA)"/><path d="M22 44v24c0 10 16 18 36 18s36-8 36-18V44" fill="none" stroke="#FF7A00" stroke-width="7" stroke-linecap="round"/><path d="M108 38v30" stroke="#FF7A00" stroke-width="5" stroke-linecap="round"/><circle cx="108" cy="72" r="6" fill="#FF7A00"/></g></g>
-  <g class="lg-float f3"><g transform="translate(640 210) rotate(28)"><rect width="18" height="120" rx="6" fill="url(#lgA)"/><path d="M0 120h18L9 146z" fill="#FFC48A"/><rect width="18" height="16" rx="6" fill="#FF7A00"/></g></g>
-  <g class="lg-float f4"><g transform="translate(150 470)"><circle r="44" fill="none" stroke="#FF7A00" stroke-width="8" opacity=".35"/><circle r="44" fill="none" stroke="#FF7A00" stroke-width="8" stroke-dasharray="190 400" stroke-linecap="round" transform="rotate(-90)"/><path d="m-16 2 11 11 22-24" fill="none" stroke="#FF7A00" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></g></g>
-  <g class="lg-tw"><path d="M520 90l7 16 17 2-13 11 4 17-15-9-15 9 4-17-13-11 17-2z" fill="#FF7A00" opacity=".55"/><path d="M300 690l5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z" fill="#FF7A00" opacity=".4"/><path d="M70 330l4 9 10 1-8 6 3 10-9-5-9 5 3-10-8-6 10-1z" fill="#FF7A00" opacity=".45"/></g>
-  <g class="lg-dots" fill="#FF7A00"><circle cx="420" cy="90" r="6" opacity=".35"/><circle cx="446" cy="90" r="6" opacity=".55"/><circle cx="472" cy="90" r="6" opacity=".8"/><circle cx="498" cy="90" r="6"/>
-    <circle cx="560" cy="720" r="7" opacity=".3"/><circle cx="740" cy="360" r="9" opacity=".25"/><circle cx="40" cy="80" r="8" opacity=".3"/><circle cx="270" cy="60" r="5" opacity=".4"/></g>
-</svg>`;
-
 ACT.forgotPw = () => {
   const inp = $('#lgLogin'), login = inp.value.trim();
   if (!login){
@@ -6972,11 +6661,734 @@ ACT.forgotPw = () => {
   window.open(waLink(text), '_blank', 'noopener');
 };
 
+const TB = {
+  school: '<path d="M22 9l-10 -4l-10 4l10 4l10 -4v6"/><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4"/>',
+  book: '<path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/><path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0"/><path d="M3 6l0 13"/><path d="M12 6l0 13"/><path d="M21 6l0 13"/>',
+  notebook: '<path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18"/><path d="M13 8l2 0"/><path d="M13 12l2 0"/>',
+  pencil: '<path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"/><path d="M13.5 6.5l4 4"/>',
+  bulb: '<path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7"/><path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"/><path d="M9.7 17l4.6 0"/>',
+  star: '<path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"/>',
+  trophy: '<path d="M8 21l8 0"/><path d="M12 17l0 4"/><path d="M7 4l10 0"/><path d="M17 4v8a5 5 0 0 1 -10 0v-8"/><path d="M5 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M19 9m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>',
+  rocket: '<path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3"/><path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3"/><path d="M15 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>',
+  atom: '<path d="M12 12v.01"/><path d="M19.071 4.929c-1.562 -1.562 -6 .337 -9.9 4.243c-3.905 3.905 -5.804 8.337 -4.242 9.9c1.562 1.561 6 -.338 9.9 -4.244c3.905 -3.905 5.804 -8.337 4.242 -9.9"/><path d="M4.929 4.929c-1.562 1.562 .337 6 4.243 9.9c3.905 3.905 8.337 5.804 9.9 4.242c1.561 -1.562 -.338 -6 -4.244 -9.9c-3.905 -3.905 -8.337 -5.804 -9.9 -4.242"/>',
+  calculator: '<path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"/><path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z"/><path d="M8 14l0 .01"/><path d="M12 14l0 .01"/><path d="M16 14l0 .01"/><path d="M8 17l0 .01"/><path d="M12 17l0 .01"/><path d="M16 17l0 .01"/>',
+  flask: '<path d="M9 3l6 0"/><path d="M10 9l4 0"/><path d="M10 3v6l-4 11a.7 .7 0 0 0 .5 1h11a.7 .7 0 0 0 .5 -1l-4 -11v-6"/>',
+  world: '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M3.6 9h16.8"/><path d="M3.6 15h16.8"/><path d="M11.5 3a17 17 0 0 0 0 18"/><path d="M12.5 3a17 17 0 0 1 0 18"/>',
+  music: '<path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/>',
+  flame: '<path d="M12 12c2 -2.96 0 -7 -1 -8c0 3.038 -1.773 4.741 -3 6c-1.226 1.26 -2 3.24 -2 5a6 6 0 1 0 12 0c0 -1.532 -1.056 -3.94 -2 -5c-1.786 3 -2.791 3 -4 2z"/>',
+  sparkles: '<path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z"/>',
+  heart: '<path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/>',
+  crown: '<path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z"/>',
+  compass: '<path d="M8 16l2 -6l6 -2l-2 6l-6 2"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 3l0 2"/><path d="M12 19l0 2"/><path d="M3 12l2 0"/><path d="M19 12l2 0"/>',
+  target: '<path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/><path d="M12 7a5 5 0 1 0 5 5"/><path d="M13 3.055a9 9 0 1 0 7.941 7.945"/><path d="M15 6v3h3l3 -3h-3v-3z"/><path d="M15 9l-3 3"/>',
+  medal: '<path d="M12 4v3m-4 -3v6m8 -6v6"/><path d="M12 18.5l-3 1.5l.5 -3.5l-2 -2l3 -.5l1.5 -3l1.5 3l3 .5l-2 2l.5 3.5z"/>',
+  award: '<path d="M12 9m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"/><path d="M12 15l3.4 5.89l1.598 -3.233l3.598 .232l-3.4 -5.889"/><path d="M6.802 12l-3.4 5.89l3.598 -.233l1.598 3.232l3.4 -5.889"/>',
+  certificate: '<path d="M15 15m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/><path d="M13 17.5v4.5l2 -1.5l2 1.5v-4.5"/><path d="M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73"/><path d="M6 9l12 0"/><path d="M6 12l3 0"/><path d="M6 15l2 0"/>',
+  ruler: '<path d="M17 3l4 4l-14 14l-4 -4z"/><path d="M16 7l-1.5 -1.5"/><path d="M13 10l-1.5 -1.5"/><path d="M10 13l-1.5 -1.5"/><path d="M7 16l-1.5 -1.5"/>',
+  backpack: '<path d="M5 18v-6a6 6 0 0 1 6 -6h2a6 6 0 0 1 6 6v6a3 3 0 0 1 -3 3h-8a3 3 0 0 1 -3 -3z"/><path d="M10 6v-1a2 2 0 1 1 4 0v1"/><path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/><path d="M11 10h2"/>',
+  abc: '<path d="M3 16v-6a2 2 0 1 1 4 0v6"/><path d="M3 13h4"/><path d="M10 8v6a2 2 0 1 0 4 0v-1a2 2 0 1 0 -4 0v1"/><path d="M20.732 12a2 2 0 0 0 -3.732 1v1a2 2 0 0 0 3.726 1.01"/>',
+  math: '<path d="M3 19a2 2 0 0 0 2 2c2 0 2 -4 3 -9s1 -9 3 -9a2 2 0 0 1 2 2"/><path d="M5 12h6"/><path d="M15 12l6 6"/><path d="M15 18l6 -6"/>',
+  clipboard: '<path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"/><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"/><path d="M9 14l2 2l4 -4"/>',
+  calendar: '<path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M15 19l2 2l4 -4"/>',
+  language: '<path d="M4 5h7"/><path d="M9 3v2c0 4.418 -2.239 8 -5 8"/><path d="M5 9c0 2.144 2.952 3.908 6.7 4"/><path d="M12 20l4 -9l4 9"/><path d="M19.1 18h-6.2"/>',
+  chart: '<path d="M4 19l16 0"/><path d="M4 15l4 -6l4 2l4 -5l4 4"/>',
+  presentation: '<path d="M3 4l18 0"/><path d="M4 4v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-10"/><path d="M12 16l0 4"/><path d="M9 20l6 0"/><path d="M8 12l3 -3l2 2l3 -3"/>',
+  shield: '<path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06"/><path d="M15 19l2 2l4 -4"/>',
+  stack: '<path d="M12 4l-8 4l8 4l8 -4l-8 -4"/><path d="M4 12l8 4l8 -4"/><path d="M4 16l8 4l8 -4"/>',
+  trend: '<path d="M3 17l6 -6l4 4l8 -8"/><path d="M14 7l7 0l0 7"/>',
+  bolt: '<path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/>',
+  mountain: '<path d="M3 20h18l-6.921 -14.612a2.3 2.3 0 0 0 -4.158 0l-6.921 14.612z"/><path d="M7.5 11l2 2.5l2.5 -2.5l2 3l2.5 -2"/>',
+  diamond: '<path d="M6 5h12l3 5l-8.5 9.5a.7 .7 0 0 1 -1 0l-8.5 -9.5l3 -5"/><path d="M10 12l-2 -2.2l.6 -1"/>',
+  flag: '<path d="M5 5a5 5 0 0 1 7 0a5 5 0 0 0 7 0v9a5 5 0 0 1 -7 0a5 5 0 0 0 -7 0v-9z"/><path d="M5 21v-7"/>',
+  clock: '<path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/><path d="M12 7v5l3 3"/>',
+  users: '<path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"/>',
+  bell: '<path d="M4 17a3 3 0 0 0 3 3"/><path d="M14.805 6.37l2.783 -2.784a2 2 0 1 1 2.829 2.828l-2.784 2.786"/><path d="M16.505 7.495a5.105 5.105 0 0 1 .176 7.035l-.176 .184l-1.867 1.867a3.48 3.48 0 0 0 -1.013 2.234l-.008 .23v.934c0 .327 -.13 .64 -.36 .871a.51 .51 0 0 1 -.652 .06l-.07 -.06l-9.385 -9.384a.51 .51 0 0 1 0 -.722c.198 -.198 .456 -.322 .732 -.353l.139 -.008h.933c.848 0 1.663 -.309 2.297 -.864l.168 -.157l1.867 -1.867l.16 -.153a5.105 5.105 0 0 1 7.059 .153"/>'
+};
+function tb(name, cls, extra){
+  return `<svg class="tb${cls ? ' ' + cls : ''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra || ''}>${TB[name] || ''}</svg>`;
+}
+
+const THEME_KEY = 'al_theme', INSTALL_KEY = 'al_install';
+function localGet(k){ try { return localStorage.getItem(k); } catch (e) { return null; } }
+function localSet(k, v){ try { localStorage.setItem(k, v); } catch (e) {} }
+function preferredTheme(){
+  const t = localGet(THEME_KEY);
+  if (t === 'dark' || t === 'light') return t;
+  try { return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } catch (e) { return 'light'; }
+}
+function setTheme(t, save){
+  S.theme = t === 'dark' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = S.theme;
+  $('meta[name=theme-color]').setAttribute('content', S.theme === 'dark' ? '#150F09' : '#FF7A00');
+  $$('.theme-btn').forEach(b => { b.innerHTML = ic(S.theme === 'dark' ? 'sun' : 'moon'); b.title = S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'; });
+  if (save) localSet(THEME_KEY, S.theme);
+}
+ACT.toggleTheme = () => {
+  setTheme(S.theme === 'dark' ? 'light' : 'dark', true);
+  const tb2 = $('#public .theme-btn'); if (tb2) tb2.innerHTML = ic(S.theme === 'dark' ? 'sun' : 'moon');
+  if (!$('#cab').hidden && S.cab){ cabChrome(); if (S.cabPage === 'profile') cabRender(true); }
+};
+function maybeInstallHint(){
+  if (installHiddenNow || isStandalone() || !S.d || S.viewAs) return;
+  if (localGet(INSTALL_KEY) === 'dismissed') return;
+  if (!deferredInstall && !isIOS()) return;
+  if ($('#installHint') || $('#shell').hidden) return;
+  const el = document.createElement('div');
+  el.id = 'installHint'; el.className = 'install-hint'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-label', 'Ana ekrana əlavə et');
+  el.innerHTML = `<span class="ic">${ic('home')}</span>
+    <span class="tx"><b>Ana ekrana əlavə et</b><small>Saytı tətbiq kimi bir toxunuşla açın.</small></span>
+    <button class="btn btn-primary btn-sm" data-act="installApp">Əlavə et</button>
+    <button class="ibtn sm" data-act="dismissInstall" aria-label="Bağla">${ic('x')}</button>`;
+  document.body.appendChild(el); hydrateIcons(el);
+}
+ACT.dismissInstall = () => {
+  installHiddenNow = true; hideInstallHint();
+  localSet(INSTALL_KEY, 'dismissed');
+  toast('Lazım olanda profil menyusundan «Ana ekrana əlavə et» seçə bilərsiniz.', 'info');
+};
+
+const QUOTES = [
+  ['Təhsil dünyanı dəyişmək üçün istifadə edə biləcəyin ən güclü silahdır.', 'Nelson Mandela'],
+  ['Hər şey tamamlanana qədər mümkünsüz görünür.', 'Nelson Mandela'],
+  ['Təsəvvür bilikdən daha vacibdir.', 'Albert Eynşteyn'],
+  ['Heç vaxt səhv etməyən insan heç vaxt yeni bir şey sınamayıb.', 'Albert Eynşteyn'],
+  ['Dünəndən öyrən, bu gün üçün yaşa, sabaha ümid et.', 'Albert Eynşteyn'],
+  ['Öyrənmək heç vaxt ağlı yormur.', 'Leonardo da Vinçi'],
+  ['Bilik gücdür.', 'Frensis Bekon'],
+  ['Gələcək bu gün ona hazırlaşanlara məxsusdur.', 'Malkolm X'],
+  ['Uğur hər gün təkrarlanan kiçik səylərin cəmidir.', 'Robert Kollier'],
+  ['Oxumaq ağıl üçün, idman bədən üçün nədirsə, odur.', 'Riçard Stil']
+];
+const MOTIVES = [
+  'Hər dərs səni hədəfinə bir addım yaxınlaşdırır. Davam et! 🚀',
+  'Bu gün öyrəndiyin bir şey sabah sənin gücün olacaq. 💪',
+  'Çətin tapşırıq — beyin üçün idmandır. 🧠',
+  'Səhv etməkdən qorxma: hər səhv yeni bir dərsdir. ✏️',
+  'Ardıcıllıq istedaddan güclüdür. Dərsləri buraxma! 🔥',
+  'Kiçik addımlar da böyük nəticəyə aparır. 🌱',
+  'Sən düşündüyündən daha bacarıqlısan! ⭐',
+  'Bilik heç vaxt itməyən sərvətdir. 📚',
+  'Bu gün özünü dünənkindən bir az yaxşı et. 📈',
+  'Bu ayı buraxmadan bitir — tam ay sənə +30 bonus gətirir! 🏆'
+];
+const SLOW_MSGS = [
+  'İnternet bir az yorulub, çay içib qayıdır ☕',
+  'Məlumatlar yoldadır… deyəsən, tıxaca düşüblər 🚗',
+  'Siqnal axtarırıq… pəncərəyə bir az yaxın dur 📶',
+  'Serverə göyərçin göndərdik, cavabı gətirir 🕊️',
+  'Bir az səbr — yaxşı şeylər tələsmir 🐢',
+  'Wi-Fi ilə danışıqlar gedir… razılaşmaq üzrəyik 🤝',
+  'Baytlar qaçır, sadəcə ayaqları bir az qısadır 🏃',
+  'İnternet bu gün bir az fikirlidir. Gözləyək 🤔',
+  'Yüklənir… bu vaxt bir dərin nəfəs al 🌬️',
+  'Bağlantı zəifdir, amma biz təslim olmuruq! 💪'
+];
+const OFFLINE_MSG = 'İnternet bağlantısı yoxdur 📵 Qoşulan kimi davam edəcəyik.';
+let lastWord = -1;
+function pickWord(){
+  const n = QUOTES.length + MOTIVES.length;
+  let i; do { i = Math.floor(Math.random() * n); } while (n > 1 && i === lastWord);
+  lastWord = i;
+  return i < QUOTES.length ? { text: QUOTES[i][0], by: QUOTES[i][1] } : { text: MOTIVES[i - QUOTES.length], by: '' };
+}
+function wordHtml(w){ return `<p class="word"><span>${esc(w.text)}</span>${w.by ? `<em>— ${esc(w.by)}</em>` : ''}</p>`; }
+function slowText(){ return navigator.onLine === false ? OFFLINE_MSG : SLOW_MSGS[Math.floor(Math.random() * SLOW_MSGS.length)]; }
+function studentCtx(){ return S.kind === 's' || S.loginKind === 's'; }
+function initLoader(el){
+  if (el.dataset.run) return; el.dataset.run = '1';
+  if (el.querySelector('[data-logo]')) hydrateIcons(el);
+  const msg = el.querySelector('.loader-msg');
+  const pipsEl = el.querySelector('.pips');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let filled = 0;
+  const timers = [];
+  if (!reduce) timers.push(setInterval(() => {
+    if (!el.isConnected) return stop();
+    const dots = pipsEl ? pipsEl.querySelectorAll('.pip') : [];
+    filled = (filled + 1) % (dots.length + 1);
+    dots.forEach((d, i) => d.classList.toggle('on', i < filled));
+  }, 280));
+  const student = studentCtx();
+  timers.push(setTimeout(() => {
+    if (!el.isConnected) return stop();
+    if (student){
+      msg.className = 'loader-msg tip quote';
+      msg.innerHTML = wordHtml(pickWord());
+      return;
+    }
+    const showTip = () => {
+      if (!el.isConnected || msg.classList.contains('warn')) return;
+      msg.className = 'loader-msg tip';
+      msg.innerHTML = `<p>${esc(pickTip())}</p>`;
+    };
+    showTip();
+    timers.push(setInterval(showTip, 3000));
+  }, student ? 900 : 3000));
+  timers.push(setTimeout(() => {
+    if (!el.isConnected) return stop();
+    const warn = document.createElement('div');
+    warn.className = 'loader-msg warn';
+    warn.innerHTML = `<p>${esc(slowText())}</p>`;
+    if (student) msg.after(warn); else { msg.className = 'loader-msg warn'; msg.innerHTML = warn.innerHTML; }
+    const mode = el.dataset.retry;
+    if (mode === 'none') return;
+    const r = document.createElement('button');
+    r.className = 'btn btn-soft btn-sm retry';
+    r.innerHTML = mode === 'cancel' ? ic('x') + 'Ləğv et' : ic('refresh') + 'Yenidən yoxla';
+    r.addEventListener('click', () => {
+      if (mode === 'reload') location.reload();
+      else if (mode === 'cancel') cancelLoginWait();
+      else { stop(); if (S.d && !$('#shell').hidden) renderPage(false); }
+    });
+    el.appendChild(r);
+  }, 6500));
+  function stop(){ timers.forEach(t => { clearTimeout(t); clearInterval(t); }); }
+  el._stop = stop;
+  const chk = setInterval(() => { if (!el.isConnected){ stop(); clearInterval(chk); } }, 1000);
+}
+function slowWatch(start){
+  if (start){
+    slowCount++;
+    if (slowCount === 1){
+      clearTimeout(slowTimer);
+      slowTimer = setTimeout(() => {
+        if (document.querySelector('.loader[data-staged]') && document.querySelector('.loader[data-staged]').offsetParent) return;
+        const bar = $('#slowBar');
+        bar.innerHTML = `<span class="spin"></span><span>${esc(slowText())}</span>`;
+        bar.hidden = false;
+      }, 6000);
+    }
+  } else {
+    slowCount = Math.max(0, slowCount - 1);
+    if (!slowCount){ clearTimeout(slowTimer); const bar = $('#slowBar'); bar.hidden = true; bar.innerHTML = ''; }
+  }
+}
+
+const LOGIN_ICONS = [
+  ['school', 8, 12, 64, -12, 'float', 0], ['book', 82, 9, 58, 10, 'float', 1.2], ['pencil', 88, 46, 50, 24, 'draw', .4],
+  ['bulb', 6, 52, 54, -8, 'glow', .8], ['atom', 76, 78, 62, 0, 'spin', 0], ['calculator', 20, 82, 48, 12, 'float', 2],
+  ['rocket', 50, 4, 46, 30, 'rocket', .6], ['star', 30, 16, 30, 0, 'twinkle', 1.4], ['trophy', 92, 74, 40, -10, 'float', 2.6],
+  ['music', 3, 28, 38, 14, 'float', 3.1], ['world', 62, 90, 44, 0, 'spin', 0], ['math', 38, 92, 40, -6, 'draw', 1.6],
+  ['flask', 68, 22, 40, 16, 'float', 1.9], ['abc', 14, 68, 44, 0, 'draw', 2.4], ['ruler', 96, 26, 36, 0, 'float', .2],
+  ['sparkles', 58, 12, 30, 0, 'twinkle', .3], ['compass', 26, 40, 34, 0, 'spin', 0], ['certificate', 72, 60, 38, -8, 'float', 3.4],
+  ['star', 90, 92, 26, 0, 'twinkle', 2.1], ['backpack', 46, 76, 34, 8, 'float', 1.1]
+];
+function loginArtHtml(){
+  return `<div class="lg-sky" aria-hidden="true"><span class="lg-blob b1"></span><span class="lg-blob b2"></span><span class="lg-blob b3"></span>
+    ${LOGIN_ICONS.map(([n, x, y, s, r, a, d], i) => `<span class="lg-ic a-${a}${i % 3 === 2 ? ' far' : ''}${i > 11 ? ' sm-hide' : ''}" style="left:${x}%;top:${y}%;--s:${s}px;--r:${r}deg;--d:${d}s">${tb(n, '', a === 'draw' ? ' pathLength="1"' : '')}</span>`).join('')}</div>`;
+}
+const DECO_ICONS = ['school', 'book', 'pencil', 'bulb', 'atom', 'calculator', 'rocket', 'star', 'music', 'world', 'math', 'flask', 'abc', 'ruler', 'compass', 'trophy'];
+function decoUri(color, op){
+  const cells = [[40, 40, -12], [200, 70, 10], [360, 30, -4], [110, 170, 16], [290, 160, -14], [430, 190, 8], [30, 290, 6], [180, 300, -10],
+    [340, 290, 14], [90, 410, -6], [250, 420, 12], [410, 400, -16], [460, 300, 0], [140, 90, 0], [300, 470, 4], [20, 470, -8]];
+  const g = cells.map(([x, y, r], i) => `<g transform="translate(${x} ${y}) rotate(${r} 14 14) scale(1.25)">${TB[DECO_ICONS[i % DECO_ICONS.length]]}</g>`).join('');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" fill="none" stroke="${color}" stroke-opacity="${op}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${g}</svg>`;
+  return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+}
+function initDeco(){
+  const r = document.documentElement.style;
+  r.setProperty('--deco-l', decoUri('#FF7A00', .085));
+  r.setProperty('--deco-d', decoUri('#FFB066', .07));
+}
+
+function countUp(root){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  $$('[data-count]', root || document).forEach(el => {
+    if (el.dataset.counted) return; el.dataset.counted = '1';
+    const to = Number(el.dataset.count); if (!isFinite(to) || to <= 0 || to > 1e6) return;
+    const t0 = performance.now(), dur = Math.min(1100, 450 + to * 2);
+    const step = (t) => {
+      const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = Math.round(to * e).toLocaleString('az-Latn-AZ');
+      if (k < 1) requestAnimationFrame(step);
+    };
+    el.textContent = '0';
+    requestAnimationFrame(step);
+  });
+}
+const BADGE_LOOK = {
+  first: ['#34D399', '#059669', 'school'], att10: ['#60A5FA', '#2563EB', 'book'], att25: ['#38BDF8', '#0369A1', 'notebook'], att50: ['#A78BFA', '#7C3AED', 'bulb'],
+  att100: ['#F472B6', '#DB2777', 'rocket'], att200: ['#FDE68A', '#D97706', 'world'],
+  str5: ['#FDBA74', '#EA580C', 'flame', '5'], str10: ['#FB923C', '#DC2626', 'flame', '10'], str25: ['#F87171', '#B91C1C', 'flame', '25'], str50: ['#FCD34D', '#C2410C', 'flame', '50'],
+  fullm: ['#2DD4BF', '#0F766E', 'calendar'], fullm3: ['#5EEAD4', '#0E7490', 'calendar', '3'], fullm6: ['#FDE68A', '#B45309', 'award'], comeback: ['#86EFAC', '#15803D', 'compass'],
+  loyal3: ['#93C5FD', '#1D4ED8', 'heart', '3'], loyal6: ['#C4B5FD', '#6D28D9', 'heart', '6'], loyal12: ['#FDE68A', '#CA8A04', 'heart', '12'],
+  exam1: ['#67E8F9', '#0891B2', 'clipboard'], exam5: ['#7DD3FC', '#0284C7', 'clipboard', '5'], exam10: ['#818CF8', '#4338CA', 'clipboard', '10'], exam25: ['#C084FC', '#7E22CE', 'clipboard', '25'],
+  pass3: ['#86EFAC', '#16A34A', 'flag'], pass10: ['#4ADE80', '#166534', 'flag', '10'], ace: ['#F9A8D4', '#BE185D', 'abc'], ace10: ['#FDE047', '#B45309', 'pencil'],
+  perfect: ['#FDE047', '#D97706', 'certificate', '100'], perf3: ['#FCA5A5', '#B91C1C', 'target', '3'], fast: ['#FDE68A', '#EA580C', 'bolt'], improve: ['#5EEAD4', '#0D9488', 'trend'],
+  honest: ['#A5B4FC', '#4F46E5', 'shield'], multi: ['#FCA5A5', '#E11D48', 'stack'], chosen: ['#FDBA74', '#F97316', 'sparkles'], star: ['#FDE68A', '#F59E0B', 'star'],
+  bonus10: ['#F0ABFC', '#A21CAF', 'presentation'], lvlusta: ['#E9D5FF', '#6B21A8', 'mountain'],
+  m1: ['#FDE68A', '#D97706', 'medal', '1'], m2: ['#F3F4F6', '#6B7280', 'medal', '2'], m3: ['#FED7AA', '#B45309', 'medal', '3'], top10: ['#BFDBFE', '#1E40AF', 'chart', '10'],
+  lead3: ['#FDE68A', '#B45309', 'crown', '3'], g1: ['#FDE68A', '#D97706', 'trophy', '1'], g2: ['#F3F4F6', '#6B7280', 'trophy', '2'], g3: ['#FED7AA', '#B45309', 'trophy', '3'],
+  all: ['#FBCFE8', '#7C3AED', 'diamond']
+};
+const BADGE_TIER = { m1: 4, g1: 4, lead3: 4, str50: 4, loyal12: 4, att200: 4, fullm6: 4, ace10: 4, perf3: 4, lvlusta: 4, all: 4,
+  att100: 3, str25: 3, fullm3: 3, loyal6: 3, exam25: 3, pass10: 3, ace: 3, perfect: 3, bonus10: 3, m2: 3, m3: 3, g2: 3, g3: 3,
+  att50: 2, str10: 2, fullm: 2, comeback: 2, loyal3: 2, exam10: 2, pass3: 2, fast: 2, improve: 2, honest: 2, star: 2, top10: 2 };
+const RAR = ['', 'Adi', 'Nadir', 'Epik', 'Əfsanəvi'];
+const RAR_RING = ['', 'rgba(255,255,255,.75)', '#CBD5E1', '#A78BFA', '#FBBF24'];
+let bdSeq = 0;
+function badgeSvg(id, locked){
+  const L = BADGE_LOOK[id] || ['#FFB577', '#FF7A00', 'star'];
+  const tier = BADGE_TIER[id] || 1, g = 'bg' + (++bdSeq);
+  const shape = tier === 1 ? '<circle cx="32" cy="32" r="26"/>'
+    : tier === 2 ? '<path d="M32 5 55.4 18.5v27L32 59 8.6 45.5v-27z"/>'
+    : tier === 3 ? '<path d="M32 3l7 6 9-1 3 9 8 5-3 9 3 9-8 5-3 9-9-1-7 6-7-6-9 1-3-9-8-5 3-9-3-9 8-5 3-9 9 1z"/>'
+    : '<path d="M32 2 38.5 12.5 50.5 9 49.5 21.5 61 27.5 52 36 57 47.5 44.5 48 40 60 32 51.5 24 60 19.5 48 7 47.5 12 36 3 27.5 14.5 21.5 13.5 9 25.5 12.5z"/>';
+  const num = L[3] ? `<rect x="${32 - (L[3].length * 3.4 + 5)}" y="44" width="${L[3].length * 6.8 + 10}" height="13" rx="6.5" fill="#fff"/><text x="32" y="53.9" text-anchor="middle" font-size="10" font-weight="800" fill="${L[1]}" font-family="Poppins,sans-serif">${L[3]}</text>` : '';
+  const gy = L[3] ? 12 : 17, sc = L[3] ? 1.1 : 1.25;
+  return `<svg class="bd-svg r${tier}${locked ? ' bd-locked' : ''}" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${L[0]}"/><stop offset="1" stop-color="${L[1]}"/></linearGradient></defs>
+    <g fill="url(#${g})" stroke="${RAR_RING[tier]}" stroke-width="${tier === 1 ? 2 : 2.6}" stroke-linejoin="round">${shape}</g>
+    ${tier === 4 ? '<path class="bd-shine" d="M14 20 L30 8 L36 8 L18 24z" fill="#fff" opacity=".35"/>' : ''}
+    <g fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(${32 - 12 * sc} ${gy}) scale(${sc})">${TB[L[2]] || ''}</g>${num}
+    ${locked ? '<g transform="translate(52 52)"><circle r="9" fill="#6B7280" stroke="#fff" stroke-width="2"/><path d="M-3.5-1v-2a3.5 3.5 0 0 1 7 0v2M-4.5-1h9v6h-9z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></g>' : ''}</svg>`;
+}
+function rarChip(t){ return `<span class="rar r${t}">${RAR[t]}</span>`; }
+function shareText(p){ return p ? `Tələbələrin ${p}%-ində var` : 'Hələ heç kimdə yoxdur'; }
+const LEVEL_COL = [['#FFD8B0', '#FF9A3D'], ['#86EFAC', '#16A34A'], ['#93C5FD', '#2563EB'], ['#C4B5FD', '#7C3AED'], ['#F9A8D4', '#DB2777'], ['#FCA5A5', '#DC2626'], ['#FDE68A', '#D97706']];
+function levelBadge(i){
+  const c = LEVEL_COL[i] || LEVEL_COL[0], g = 'lv' + (++bdSeq);
+  return `<svg class="lv-svg" viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="${g}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs>
+    <path d="M32 4 55 15v18c0 13-10 22-23 27C19 55 9 46 9 33V15z" fill="url(#${g})" stroke="rgba(255,255,255,.6)" stroke-width="2"/>
+    <text x="32" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#fff" font-family="Poppins,sans-serif">${i + 1}</text></svg>`;
+}
+function badgeCard(b, opts = {}){
+  const locked = !b.count;
+  const tag = opts.button ? 'button' : 'div';
+  return `<${tag} class="bd ${locked ? '' : 'bd-on'} bdr${b.tier}"${opts.button ? ` data-act="${opts.button}" data-id="${b.id}"` : ''}>
+    <div class="bd-ic">${badgeSvg(b.id, locked && !opts.plain)}${b.count > 1 ? `<i class="bd-x">×${b.count}</i>` : ''}</div>
+    <b>${esc(b.name)}</b>${rarChip(b.tier)}
+    ${opts.short ? '' : `<small>${esc(b.desc)}</small>`}
+    ${!opts.short && locked && b.need ? `<div class="gm-bar sm"><i style="width:${Math.round(b.cur / b.need * 100)}%"></i></div><small class="faint">${b.cur}/${b.need}</small>` : ''}
+    ${!opts.short && !locked && b.last ? `<small class="bd-date">${fmtDate(b.last)}${b.manual ? ' · əl ilə' : ''}</small>` : ''}
+    ${opts.share ? `<small class="bd-share">${shareText(b.share)}</small>` : ''}
+    ${opts.extra ? opts.extra(b) : ''}</${tag}>`;
+}
+const BADGE_CATS = [['att', 'Davamiyyət', 'calendar'], ['exam', 'İmtahanlar', 'clipboard'], ['special', 'Xüsusi', 'sparkles'], ['rating', 'Aylıq reytinq', 'trophy']];
+function badgeGroups(list, opts){
+  return BADGE_CATS.map(([cat, title, icon]) => {
+    const l = list.filter(b => b.cat === cat); if (!l.length) return '';
+    return `<div class="cab-sec"><div class="section-head"><h3><span class="h-ic">${tb(icon)}</span>${title}<span class="count">${l.filter(b => b.count).length}/${l.length}</span></h3></div>
+      <div class="bd-grid">${l.map(b => badgeCard(b, opts)).join('')}</div></div>`;
+  }).join('');
+}
+function firstResultsDate(start){
+  const d = new Date(String(start || today()).slice(0, 7) + '-01T12:00:00');
+  d.setMonth(d.getMonth() + 1); d.setDate(5);
+  return `${d.getDate()} ${MONTHS[d.getMonth()]}-da`;
+}
+function nextSnapText(L){ if (!L || !L.next) return ''; const d = new Date(L.next + 'T12:00:00'); return `Növbəti yekun: ${d.getDate()} ${MONTHS[d.getMonth()]}`; }
+function placeMark(p){ return p >= 1 && p <= 3 ? `<span class="pl pl-${p}">${tb(p === 1 ? 'crown' : 'medal')}<b>${p}</b></span>` : `<span class="pl"><b>${p || '—'}</b></span>`; }
+function leadersHtml(L, kind, opts = {}){
+  const list = L ? (kind === 'ind' ? L.ind : L.grp) : [];
+  if (!list.length) return `<p class="hint">${L ? 'Bu ay üzrə reytinqə düşən olmayıb.' : 'Hələ yekunlaşmış ay yoxdur.'}</p>`;
+  const top = list.slice(0, 3), rest = list.slice(3);
+  const order = [top[1], top[0], top[2]].filter(Boolean);
+  const nm = (x, cls) => opts.click && kind === 'ind' && x.id ? `<button class="linkish ${cls}" data-act="${opts.click}" data-id="${x.id}">${esc(x.name)}</button>` : `<b class="${cls}">${esc(x.name)}</b>`;
+  return `<div class="podium">${order.map(x => `<div class="pod pod-${x.place}">
+      ${x.place === 1 ? `<span class="pod-crown">${tb('crown')}</span>` : ''}
+      <div class="pod-ic">${badgeSvg((kind === 'ind' ? 'm' : 'g') + x.place)}</div>
+      ${nm(x, 'pod-name')}
+      <small>${x.points} bal${kind === 'grp' ? ' (orta)' : ''}</small>${kind === 'grp' && x.teacher ? `<small class="faint">${esc(x.teacher)}</small>` : ''}
+      <div class="pod-step">${x.place}</div></div>`).join('')}</div>
+    ${rest.length ? `<ol class="lead-list">${rest.map(x => `<li><span class="ln">${x.place}</span>${nm(x, '')}<span class="lp">${x.points} bal</span></li>`).join('')}</ol>` : ''}`;
+}
+function gameRulesHtml(R, levels){
+  return `<div class="rules-grid">
+    <div class="rule"><span class="rule-n">+${R.perLesson8}</span><div><b>Hər dərs (ayda 8 dərs)</b><small>Ayda 8 dərslik məşğələdə hər dərs ${R.perLesson8} bal.</small></div></div>
+    <div class="rule"><span class="rule-n">+${R.perLesson12}</span><div><b>Hər dərs (ayda 12 dərs)</b><small>Ayda 12 dərslik məşğələdə hər dərs ${R.perLesson12} bal. Tam ay hər iki halda ${R.fullMonth} bal edir.</small></div></div>
+    <div class="rule"><span class="rule-n">+${R.fullBonus}</span><div><b>Tam ay</b><small>Ayın bütün dərslərinə buraxmadan gəl — əlavə bonus.</small></div></div>
+    <div class="rule"><span class="rule-n">%÷2</span><div><b>İmtahan</b><small>Faizin yarısı qədər bal (100% → 50 bal). Yalnız ən yaxşı cəhd sayılır.</small></div></div>
+    <div class="rule"><span class="rule-n">+${R.passBonus}</span><div><b>Keçid balı</b><small>İmtahanda keçid balını topladın — əlavə bal.</small></div></div>
+    <div class="rule"><span class="rule-n">+5…20</span><div><b>Müəllimdən bonus</b><small>Fəal iştirak, əla tapşırıq üçün. Ayda ən çoxu ${R.bonusMonth} bal.</small></div></div>
+  </div>
+  <div class="note-box">${tb('chart')}<p><b>Aylıq reytinq ədalətlidir:</b> bir neçə məşğələdə oxuyan tələbənin ay balı məşğələlər üzrə ortalama hesablanır. Reytinqə düşmək üçün ayın dərslərinin ən azı ${R.rankPct}%-ində iştirak lazımdır. Nəticələr hər ayın ${R.snapDay}-də yekunlaşır.</p></div>
+  <div class="section"><div class="section-head"><h3>Səviyyələr</h3></div><div class="lv-ladder">${levels.map((l, i) => `<div class="lv-step">${levelBadge(i)}<b>${esc(l[1])}</b><small>${l[0]} bal</small></div>`).join('')}</div>
+    <p class="hint" style="margin-top:10px">Səviyyə heç vaxt aşağı düşmür.</p></div>`;
+}
+
+function cardGameHtml(k){
+  const g = k.game; if (!g) return '';
+  const lv = g.level, s = k.student;
+  const pct = lv.nextMin ? Math.round((g.total - lv.min) / (lv.nextMin - lv.min) * 100) : 100;
+  const btns = [];
+  if (s.canBonus && gameOn() && !ro()) btns.push(`<button class="btn btn-sm btn-soft" data-act="bonusForm" data-id="${s.id}" data-name="${esc(s.name)}">${ic('star')}Bonus ver</button>`);
+  if (s.canManage) btns.push(`<button class="btn btn-sm btn-soft" data-act="openAudit" data-id="${s.id}">${tb('shield')}Nailiyyətləri idarə et</button>`);
+  return `<div class="section"><div class="section-head"><h3>Nailiyyətlər<span class="count">${g.badges.length}/${g.badgeTotal}</span>${g.hidden ? '<span class="tag line">reytinqdə gizlidir</span>' : ''}</h3><div class="row">${btns.join('')}</div></div>
+    <div class="gm-card"><div class="gm-lv">${levelBadge(lv.i)}<div><b>${esc(lv.name)}</b><small>${g.total} bal${lv.next ? ` · «${esc(lv.next)}» səviyyəsinə ${lv.nextMin - g.total} bal qalıb` : ' · ən yüksək səviyyə'}</small>
+      <div class="gm-bar"><i style="width:${Math.max(3, Math.min(100, pct))}%"></i></div></div></div>
+      <div class="gm-month"><b>${g.monthScore}</b><span>bu ay reytinq balı</span></div></div>
+    ${g.badges.length ? `<div class="bd-mini">${g.badges.map(b => `<div class="bd-mini-i" title="${esc(b.name + ' — ' + b.desc)}">${badgeSvg(b.id)}<span>${esc(b.name)}${b.count > 1 ? ' ×' + b.count : ''}</span></div>`).join('')}</div>` : '<p class="hint">Hələ nişan qazanılmayıb.</p>'}
+  </div>`;
+}
+const STATUS_LBL = { active: 'Aktiv', left: 'Ayrılıb', grad: 'Məzun' };
+function statusBanner(s){
+  if (!s.status || s.status === 'active') return '';
+  return `<div class="st-banner st-${s.status}">${tb(s.status === 'grad' ? 'school' : 'flag')}<div><b>${s.status === 'grad' ? 'Məzun' : 'Kursu tərk edib'}</b><small>${s.statusAt ? fmtDate(s.statusAt) + ' · ' : ''}${s.statusNote ? esc(s.statusNote) + ' · ' : ''}Kabinetə giriş bağlıdır, bütün məlumatlar saxlanılır.</small></div>
+    ${s.canStatus ? `<button class="btn btn-sm btn-primary" data-act="stuStatus" data-id="${s.id}" data-to="active">${ic('refresh')}Yenidən aktiv et</button>` : ''}</div>`;
+}
+ACT.stuStatus = (b) => {
+  const sid = b.dataset.id;
+  const s = (S.ui.card && S.ui.card.student.id === sid ? S.ui.card.student : null) || S.sMap[sid];
+  if (!s) return;
+  const cur = s.status || 'active';
+  let to = b.dataset.to || (cur === 'active' ? 'left' : 'active');
+  openModal({ title: 'Tələbənin statusu', sub: esc(s.name), size: 'sm',
+    body: `<form class="stack" id="stForm" novalidate>
+      <div class="seg full">${[['active', 'Aktiv', 'user'], ['left', 'Ayrılıb', 'logout'], ['grad', 'Məzun', 'award']].map(([v, l, i]) => `<label><input type="radio" name="st" value="${v}" ${to === v ? 'checked' : ''}><span>${ic(i)}${l}</span></label>`).join('')}</div>
+      <label class="field"><span>Qeyd (istəyə bağlı)</span><input class="input" name="note" maxlength="200" placeholder="məsələn: başqa şəhərə köçdü"></label>
+      <p class="hint" id="stHint"></p></form>`,
+    foot: `<button class="btn btn-ghost" data-close>Ləğv et</button><button class="btn btn-primary" form="stForm" type="submit">${ic('check')}Yadda saxla</button>`,
+    onMount: (el, close) => {
+      const f = el.querySelector('#stForm'), hint = el.querySelector('#stHint');
+      const upd = () => { to = f.querySelector('[name=st]:checked').value;
+        hint.textContent = to === 'active' ? 'Tələbənin kabinetə girişi açılacaq. Onu yenidən məşğələyə əlavə etməyi unutmayın.'
+          : 'Tələbə bütün məşğələlərdən çıxarılacaq, kabinetə girişi bağlanacaq. Dərs tarixçəsi, ballar və nişanlar saxlanılır, istənilən vaxt geri qaytarmaq olar.'; };
+      f.addEventListener('change', upd); upd();
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        if (to === cur){ close(); return; }
+        run(el.querySelector('[type=submit]'), async () => {
+          try {
+            const r = await api('setStudentStatus', { id: sid, status: to, note: f.querySelector('[name=note]').value.trim() });
+            close();
+            toast(to === 'active' ? 'Tələbə yenidən aktivdir.' : `Status dəyişdi: ${STATUS_LBL[to]}.${r.removed && r.removed.length ? ' Məşğələlərdən çıxarıldı: ' + r.removed.join(', ') : ''}`, 'ok');
+            if (S.page === 'student') loadCard();
+          } catch (ex) { if (ex.code !== 'AUTH') fieldErr(f, ex.message); }
+        });
+      });
+    } });
+};
+ACT.rankHide = (b) => {
+  const hidden = b.dataset.on === '1';
+  run(b, async () => {
+    await api('setRankHidden', { id: b.dataset.id, hidden });
+    toast(hidden ? 'Tələbənin adı ümumi reytinqdə göstərilməyəcək. Balları və nişanları qalır.' : 'Tələbə yenidən ümumi reytinqdə görünür.', 'ok');
+    if (S.page === 'student') loadCard();
+    if (S.page === 'rating') loadBoard();
+    if (S.ui.auditId === b.dataset.id) loadAudit(b.dataset.id);
+  });
+};
+ACT.openAudit = (b) => { S.ui.boardTab = 'audit'; S.ui.auditId = b.dataset.id; go('rating'); };
+
+PAGES.rating = { title: 'Reytinq', icon: 'trophy', nav: true, allow: () => !!(S.d.game && S.d.game.show) && !me().isDev };
+RENDER.rating = () => `<div class="page-head"><div><h2>Reytinq və nailiyyətlər</h2><p>Tələbələrin balları, aylıq liderlər, nişanlar və bonuslar.</p></div></div><div id="boardBox">${S.ui.board ? boardHtml(S.ui.board) : loadingBox()}</div>`;
+AFTER.rating = () => loadBoard();
+async function loadBoard(){
+  try {
+    const r = await api('gameBoard', S.ui.boardMonth ? { month: S.ui.boardMonth } : {}, { noRender: true, silent: !!S.ui.board });
+    S.ui.board = r;
+    const box = $('#boardBox'); if (!box || S.page !== 'rating') return;
+    box.innerHTML = boardHtml(r); hydrateIcons(box); countUp(box);
+    if (S.ui.boardTab === 'audit' && r.canManage && S.ui.auditId) loadAudit(S.ui.auditId);
+  } catch (e) {
+    if (e.code === 'AUTH') return;
+    const box = $('#boardBox'); if (box) box.innerHTML = emptyBox('Açılmadı', esc(e.message), `<button class="btn btn-primary" data-act="reloadBoard">${ic('refresh')}Yenidən cəhd et</button>`);
+  }
+}
+ACT.reloadBoard = () => loadBoard();
+function boardHtml(r){
+  if (!r.on) return `<div class="empty">${ic('trophy')}<h4>Nailiyyətlər sistemi söndürülüb</h4><p>Tələbələr bal, nişan və reytinq görmür.</p>
+    ${r.canToggle ? `<button class="btn btn-primary" data-act="setGame" data-on="1">${ic('power')}Sistemi aç</button>` : ''}</div>`;
+  const tabs = [['live', 'Bu ay (canlı)'], ['ind', 'Fərdi reytinq'], ['grp', 'Qrup reytinqi'], ['badges', 'Nişanlar'], ['bonus', 'Bonuslar'], ['rules', 'Qaydalar']];
+  if (r.canManage) tabs.push(['audit', 'Yoxlama və idarə']);
+  if (!tabs.some(t => t[0] === S.ui.boardTab)) S.ui.boardTab = 'live';
+  const tab = S.ui.boardTab;
+  const L = r.leaders;
+  let body = '';
+  if (tab === 'live'){
+    body = `<p class="hint" style="margin-bottom:12px">${fmtMonthKey(r.month)} ayının cari nəticəsi. ${r.all ? 'Bütün kurs' : 'Yalnız sizin tələbələriniz'}. Ay balı bir neçə məşğələdə oxuyanlar üçün ortalama hesablanır; reytinqə düşmək üçün ayın dərslərinin ən azı ${r.rules.rankPct}%-ində iştirak lazımdır.</p>
+      ${r.rows.length ? `<table class="ledger rank-table"><thead><tr><th>Yer</th><th>Tələbə</th><th>Səviyyə</th><th>Ay balı</th><th>Cəmi</th><th>Nişan</th><th></th></tr></thead><tbody>
+      ${r.rows.map(x => `<tr class="${x.place && x.place <= 3 ? 'rk rk-' + x.place : ''}"><td data-label="Yer" class="nowrap">${placeMark(x.place)}</td>
+        <td data-label="Tələbə" class="full"><div class="person"><span class="ava">${esc(initials(x.name))}</span><div>${can('students.view') ? `<button class="linkish" data-go="student" data-param="${x.id}">${esc(x.name)}</button>` : `<b>${esc(x.name)}</b>`}
+          <small>${x.lessons} dərs bu ay${x.courses > 1 ? ` · ${x.courses} məşğələ (orta)` : ''}${x.streak >= 3 ? ` · ${x.streak} ardıcıl` : ''}${x.hidden ? ' · reytinqdə gizli' : ''}${!x.ok && !x.hidden && x.lessons ? ' · şərt ödənməyib' : ''}</small></div></div></td>
+        <td data-label="Səviyyə"><span class="lv-tag">${levelBadge(x.levelI)}${esc(x.level)}</span></td>
+        <td data-label="Ay balı"><b style="font-weight:700">${x.month}</b></td><td data-label="Cəmi">${x.total}</td><td data-label="Nişan">${x.badges}</td>
+        <td class="actions">${x.canBonus ? `<button class="btn btn-sm btn-soft" data-act="bonusForm" data-id="${x.id}" data-name="${esc(x.name)}" ${x.bonusLeft < 5 ? 'disabled title="Bu ayın limiti bitib"' : ''}>${ic('star')}Bonus</button>` : ''}
+          ${r.canManage ? `<button class="ibtn sm" data-act="openAuditHere" data-id="${x.id}" title="Yoxla və idarə et" aria-label="Yoxla və idarə et">${ic('eyeview')}</button>` : ''}</td></tr>`).join('')}</tbody></table>` : emptyBox('Tələbə yoxdur', 'Məşğələlərinizdə tələbə olanda burada görünəcək.')}
+      ${r.groups.length ? `<div class="section"><div class="section-head"><h3>Qruplar (bu ay, orta bal)</h3></div><table class="ledger rank-table"><thead><tr><th>Yer</th><th>Qrup</th><th>Müəllim</th><th>Tələbə</th><th>Orta bal</th></tr></thead><tbody>
+        ${r.groups.map(g => `<tr class="${g.place <= 3 ? 'rk rk-' + g.place : ''}"><td data-label="Yer">${placeMark(g.place)}</td><td data-label="Qrup"><b style="font-weight:600">${esc(g.title)}</b></td><td data-label="Müəllim">${esc(g.teacher)}</td><td data-label="Tələbə">${g.members}</td><td data-label="Orta bal"><b>${g.avg}</b></td></tr>`).join('')}</tbody></table></div>` : ''}`;
+  } else if (tab === 'ind' || tab === 'grp'){
+    body = L ? `<div class="lead-head"><div><h3>${fmtMonthKey(L.month)} ayının liderləri</h3><p class="hint">${nextSnapText(L)}</p></div>
+        ${L.months.length > 1 ? `<select class="select" id="boardMonth" style="max-width:200px">${L.months.map(m => `<option value="${m}" ${m === L.month ? 'selected' : ''}>${fmtMonthKey(m)}</option>`).join('')}</select>` : ''}</div>
+      ${leadersHtml(L, tab)}` : `<div class="empty">${ic('trophy')}<h4>İlk nəticələr ${firstResultsDate(r.start)}</h4><p>Ay bitəndən sonra ən yaxşı 10 tələbə və 5 qrup burada görünəcək.</p></div>`;
+  } else if (tab === 'badges'){
+    body = `<p class="hint" style="margin-bottom:12px">${r.catalog.length} nişan: ${[1, 2, 3, 4].map(t => `${rarChip(t)} ${r.catalog.filter(b => b.tier === t).length}`).join(' · ')}. Faiz — aktiv tələbələrin neçəsində bu nişan var.</p>`
+      + badgeGroups(r.catalog.map(b => Object.assign({}, b, { count: 1 })), { share: true, plain: true });
+  } else if (tab === 'bonus'){
+    body = `<p class="hint" style="margin-bottom:12px">Bonus ${r.limits.min}–${r.limits.max} bal olur, bir tələbəyə ayda ən çoxu ${r.limits.month} bal. Səhv verilmiş bonusu 24 saat ərzində silə bilərsiniz.</p>` +
+      (r.bonuses.length ? `<table class="ledger"><thead><tr><th>Tarix</th><th>Tələbə</th><th>Bal</th><th>Səbəb</th><th>Verən</th><th></th></tr></thead><tbody>
+      ${r.bonuses.map(b => `<tr><td data-label="Tarix" class="nowrap">${fmtDT(b.at)}</td><td data-label="Tələbə">${esc(b.studentName)}</td><td data-label="Bal"><b>+${b.points}</b></td><td data-label="Səbəb">${esc(b.reason)}</td><td data-label="Verən">${esc(b.by)}</td>
+        <td class="actions">${b.canDelete ? `<button class="ibtn sm" data-act="deleteBonus" data-id="${b.id}" title="Sil" aria-label="Sil">${ic('trash')}</button>` : ''}</td></tr>`).join('')}</tbody></table>`
+      : emptyBox('Bonus yoxdur', 'Tələbəyə bonus vermək üçün «Bu ay» siyahısında «Bonus» düyməsini basın.'));
+  } else if (tab === 'rules'){
+    body = gameRulesHtml(r.rules, r.levels);
+  } else {
+    const list = S.d.students.slice().sort((a, b) => a.name.localeCompare(b.name, 'az'));
+    body = `<div class="audit-top"><select class="select" id="auditPick"><option value="">Tələbəni seçin…</option>${list.map(x => `<option value="${x.id}" ${S.ui.auditId === x.id ? 'selected' : ''}>${esc(x.name)}${x.status && x.status !== 'active' ? ' (' + STATUS_LBL[x.status].toLowerCase() + ')' : ''}</option>`).join('')}</select>
+      <button class="btn btn-soft" data-act="recalcAll">${ic('refresh')}Hamısını yenidən hesabla</button></div>
+      <div id="auditBox">${S.ui.auditId ? loadingBox() : `<div class="empty">${tb('shield')}<h4>Tələbəni seçin</h4><p>Hər balın haradan gəldiyini aylar üzrə görəcəksiniz. Nişanı əl ilə vermək və ya geri almaq, tələbəni reytinqdən gizlətmək də buradadır.</p></div>`}</div>`;
+  }
+  return `${r.canToggle ? `<div class="gm-switch"><div><b>Nailiyyətlər sistemi açıqdır</b><p class="hint">Söndürsəniz, tələbələr bal, nişan və reytinqi görməyəcək. Məlumatlar silinmir.</p></div>
+      <button class="btn btn-soft btn-sm" data-act="setGame" data-on="0">${ic('power')}Söndür</button></div>` : ''}
+    <div class="tabs" role="tablist">${tabs.map(([k, l]) => `<button class="tab ${tab === k ? 'on' : ''}" data-act="boardTab" data-tab="${k}">${l}</button>`).join('')}</div>
+    <div class="board-body">${body}</div>`;
+}
+ACT.boardTab = (b) => { S.ui.boardTab = b.dataset.tab; const box = $('#boardBox'); if (box && S.ui.board){ box.innerHTML = boardHtml(S.ui.board); hydrateIcons(box); if (S.ui.boardTab === 'audit' && S.ui.auditId) loadAudit(S.ui.auditId); } };
+ACT.openAuditHere = (b) => { S.ui.auditId = b.dataset.id; ACT.boardTab({ dataset: { tab: 'audit' } }); };
+document.addEventListener('change', e => {
+  if (!e.target) return;
+  if (e.target.id === 'boardMonth'){ S.ui.boardMonth = e.target.value; loadBoard(); }
+  if (e.target.id === 'auditPick'){ S.ui.auditId = e.target.value; if (S.ui.auditId) loadAudit(S.ui.auditId); }
+});
+async function loadAudit(id){
+  const box = $('#auditBox'); if (!box) return;
+  box.innerHTML = loadingBox();
+  try {
+    const r = await api('gameAudit', { studentId: id }, { noRender: true });
+    if (S.ui.auditId !== id || !$('#auditBox')) return;
+    $('#auditBox').innerHTML = auditHtml(r.audit); hydrateIcons($('#auditBox')); countUp($('#auditBox'));
+  } catch (e) { if (e.code !== 'AUTH' && $('#auditBox')) $('#auditBox').innerHTML = emptyBox('Açılmadı', esc(e.message)); }
+}
+function auditHtml(a){
+  const s = a.student;
+  const evK = { lesson: 'Dərs', full: 'Tam ay', exam: 'İmtahan', pass: 'Keçid balı', bonus: 'Bonus' };
+  return `<div class="audit-head"><div class="person"><span class="ava">${esc(initials(s.name))}</span><div><b>${esc(s.name)}</b><small>${esc(s.login || '')} · ${STATUS_LBL[s.status] || 'Aktiv'}${s.hidden ? ' · reytinqdə gizli' : ''}</small></div></div>
+      <div class="row"><button class="btn btn-sm btn-soft" data-act="rankHide" data-id="${s.id}" data-on="${s.hidden ? '0' : '1'}">${tb(s.hidden ? 'users' : 'shield')}${s.hidden ? 'Reytinqdə göstər' : 'Reytinqdən gizlət'}</button>
+      <button class="btn btn-sm btn-soft" data-act="recalcOne" data-id="${s.id}">${ic('refresh')}Yenidən hesabla</button>
+      <button class="btn btn-sm btn-ghost" data-go="student" data-param="${s.id}">${ic('card')}Kart</button></div></div>
+    <div class="summary"><div><b data-count="${a.total}">${a.total}</b><span>cəmi bal · ${esc(a.level.name)}</span></div><div><b>${a.att}</b><span>dərs</span></div><div><b>${a.fullMonths}</b><span>tam ay</span></div><div><b>${a.exams}</b><span>imtahan</span></div><div><b>${a.maxStreak}</b><span>ən uzun seriya</span></div></div>
+    <div class="section"><div class="section-head"><h3>Aylar üzrə</h3></div>
+      ${a.months.length ? `<table class="ledger"><thead><tr><th>Ay</th><th>Dərs</th><th>Tam ay</th><th>İmtahan</th><th>Keçid</th><th>Bonus</th><th>Cəmi</th><th>Reytinq balı</th><th>Şərt</th><th>Yer</th></tr></thead><tbody>
+        ${a.months.map(m => `<tr><td data-label="Ay"><b style="font-weight:600">${fmtMonthKey(m.month)}</b>${m.live ? ' <span class="tag line">cari</span>' : ''}</td>
+          <td data-label="Dərs">${m.parts.lesson} <small class="muted">(${m.att}/${m.rec})</small></td><td data-label="Tam ay">${m.parts.full}</td><td data-label="İmtahan">${m.parts.exam}</td><td data-label="Keçid">${m.parts.pass}</td>
+          <td data-label="Bonus">${m.parts.bonus}</td><td data-label="Cəmi"><b>${m.points}</b></td><td data-label="Reytinq balı"><b>${m.score}</b>${m.courses > 1 ? ` <small class="muted">÷${m.courses}</small>` : ''}</td>
+          <td data-label="Şərt">${m.ok ? stTag('ok', 'ödənib') : stTag('debt', m.att + '/' + m.rec)}</td><td data-label="Yer">${m.place ? placeMark(m.place) : '—'}</td></tr>`).join('')}</tbody></table>` : '<p class="hint">Hələ bal yoxdur.</p>'}
+    </div>
+    <div class="section"><div class="section-head"><h3>Nişanlar<span class="count">${a.badges.filter(b => b.count).length}/${a.badges.length}</span></h3></div>
+      <div class="bd-grid sm">${a.badges.map(b => badgeCard(b, { short: true, extra: (x) => `<div class="bd-acts">${!x.count || x.repeat ? `<button class="ibtn sm" data-act="badgeOp" data-op="add" data-b="${x.id}" data-s="${s.id}" title="Ver" aria-label="Ver">${ic('plus')}</button>` : ''}${x.count ? `<button class="ibtn sm" data-act="badgeOp" data-op="remove" data-b="${x.id}" data-s="${s.id}" title="Geri al" aria-label="Geri al">${ic('trash')}</button>` : ''}</div>` })).join('')}</div></div>
+    ${a.log.length ? `<div class="section"><div class="section-head"><h3>Nişan tarixçəsi</h3></div><table class="ledger"><thead><tr><th>Tarix</th><th>Nişan</th><th>Necə</th><th>Qeyd</th></tr></thead><tbody>
+      ${a.log.map(l => `<tr class="${l.revoked ? 'muted-row' : ''}"><td data-label="Tarix" class="nowrap">${fmtDT(l.at)}</td><td data-label="Nişan"><b style="font-weight:600">${esc(l.name)}</b>${l.month ? ` <small class="muted">${fmtMonthKey(l.month)}</small>` : ''}</td>
+        <td data-label="Necə">${l.revoked ? stTag('debt', 'geri alınıb' + (l.by ? ': ' + l.by : '')) : l.by ? stTag('wait', 'əl ilə: ' + l.by) : stTag('ok', 'avtomatik')}</td><td data-label="Qeyd">${esc(l.note || '')}</td></tr>`).join('')}</tbody></table></div>` : ''}
+    <details class="section ev-more"><summary>Bütün bal hərəkətləri (${a.events.length})</summary>
+      <div class="pts-list">${a.events.map(e => `<div class="pts-i pts-${e.k}"><span class="pts-ic">${tb({ lesson: 'school', full: 'calendar', exam: 'clipboard', pass: 'flag', bonus: 'star' }[e.k] || 'star')}</span><div><b>${esc(e.t)}</b><small>${fmtDate(e.d)} · ${evK[e.k] || ''}</small></div><span class="pts-v">+${e.p}</span></div>`).join('')}</div></details>`;
+}
+ACT.badgeOp = (b) => {
+  const op = b.dataset.op, sid = b.dataset.s, bid = b.dataset.b;
+  const cat = (S.ui.board && S.ui.board.catalog || []).find(x => x.id === bid) || { name: bid };
+  openModal({ title: op === 'add' ? 'Nişan ver' : 'Nişanı geri al', sub: esc(cat.name), size: 'sm',
+    body: `<form class="stack" id="bgForm" novalidate><div class="bd-big">${badgeSvg(bid, op === 'remove')}</div>
+      <label class="field"><span>Səbəb</span><input class="input" name="note" maxlength="160" placeholder="${op === 'add' ? 'məsələn: kağız imtahanda 100%' : 'məsələn: dərs səhv qeyd olunmuşdu'}"></label>
+      <p class="hint">${op === 'add' ? 'Tələbə bildiriş alacaq. Qeyd jurnala yazılır.' : 'Geri alınan nişanı sistem avtomatik yenidən vermir — lazım olsa, əl ilə qaytara bilərsiniz.'}</p></form>`,
+    foot: `<button class="btn btn-ghost" data-close>Ləğv et</button><button class="btn btn-primary" form="bgForm" type="submit">${op === 'add' ? ic('plus') + 'Ver' : ic('trash') + 'Geri al'}</button>`,
+    onMount: (el, close) => {
+      const f = el.querySelector('#bgForm'), inp = f.querySelector('[name=note]');
+      setTimeout(() => inp.focus(), 60);
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        if (inp.value.trim().length < 3) return fieldErr(f, 'Səbəbi yazın (ən azı 3 simvol).');
+        run(el.querySelector('[type=submit]'), async () => {
+          try { await api('gameBadge', { studentId: sid, badge: bid, op, note: inp.value.trim() }, { noRender: true }); close(); toast(op === 'add' ? 'Nişan verildi.' : 'Nişan geri alındı.', 'ok'); loadAudit(sid); }
+          catch (ex) { if (ex.code !== 'AUTH') fieldErr(f, ex.message); }
+        });
+      });
+    } });
+};
+ACT.recalcOne = (b) => run(b, async () => { const r = await api('gameRecalc', { studentId: b.dataset.id }, { noRender: true }); toast(r.added ? `Yeni nişan: ${r.added}` : 'Hər şey qaydasındadır.', 'ok'); loadAudit(b.dataset.id); });
+ACT.recalcAll = (b) => run(b, async () => { const r = await api('gameRecalc', {}, { noRender: true }); toast(`Bütün tələbələr yoxlandı. Yeni nişan: ${r.added}${r.snapshot ? ' · aylıq reytinq yekunlaşdı' : ''}`, 'ok'); loadBoard(); });
+
+CAB_RENDER.home = (d) => {
+  const g = d.game, st = d.stats;
+  const hero = g.on ? `<div class="cab-hero"><div class="cab-hero-bg">${HERO_DECO}</div>
+      ${cabLevelRing(g)}
+      <div class="cab-hero-tx"><span class="eyebrow">Səviyyə ${g.level.i + 1} · ${esc(g.level.name)}</span><div class="cab-pts"><b data-count="${g.total}">${g.total}</b><span>bal</span></div>
+        <p>${g.level.next ? `«${esc(g.level.next)}» səviyyəsinə <b>${g.level.nextMin - g.total}</b> bal qalıb` : 'Ən yüksək səviyyədəsən — Əfsanə!'}</p></div>
+      <div class="cab-hero-stats">
+        <div><b data-count="${g.monthScore}">${g.monthScore}</b><span>bu ay reytinq balı</span></div>
+        <div><b>${g.streak}</b><span>ardıcıl dərs</span></div>
+        <div><b>${g.hidden ? '—' : g.rank ? g.rank.place : '—'}</b><span>${g.rank && !g.hidden ? 'yer bu ay' : 'reytinqdə yer'}</span></div>
+      </div></div>`
+    : `<div class="cab-hero cab-hero-plain"><div class="cab-hero-bg">${HERO_DECO}</div><div class="cab-hero-tx"><span class="eyebrow">Tələbə kabineti</span><h2>${esc(d.me.name)}</h2><p>${fmtDate(d.today)}, ${weekday(d.today)}</p></div></div>`;
+  const open = d.exams.open;
+  const recent = g.on ? g.badges.filter(b => b.count).sort((a, b) => a.last < b.last ? 1 : -1).slice(0, 4) : [];
+  return `${cabAnnHtml(d)}${hero}
+    ${open.length ? `<div class="cab-sec"><div class="section-head"><h3>Sənə təyin edilmiş imtahanlar<span class="count">${open.length}</span></h3><button class="linkish" data-act="cabGo" data-p="exams">Hamısı</button></div>
+      <div class="cab-exams">${open.slice(0, 3).map(cabExamCard).join('')}</div></div>` : ''}
+    <div class="cab-sec"><div class="section-head"><h3>Məşğələlərim<span class="count">${d.courses.length}</span></h3></div>
+      ${d.courses.length ? `<div class="cgrid">${d.courses.map(c => `<article class="ccard">
+        <div class="ccard-top"><span class="tag${c.type === 'group' ? ' solid' : ''}">${typeLabel(c.type)}</span><span class="month">Ay ${c.monthNo}</span></div>
+        <div><h3>${esc(c.title)}</h3><p class="who">Müəllim: <b>${esc(c.teacherName)}</b></p></div>
+        <div class="ccard-prog">${pips(Math.min(c.held, c.lessonsPerMonth), c.lessonsPerMonth)}<span class="frac">${c.held}/${c.lessonsPerMonth}</span></div>
+        <p class="ccard-meta">Bu ay ${c.mine.held} dərsdə iştirak etmisən${c.mine.absent ? `, ${c.mine.absent} dəfə qayıb` : ''}.${g.on && g.rules ? ` Hər dərs: +${c.lessonsPerMonth === 12 ? g.rules.perLesson12 : g.rules.perLesson8} bal.` : ''}</p></article>`).join('')}</div>`
+        : `<div class="empty">${ic('book')}<h4>Hələ məşğələ yoxdur</h4><p>Müəllimin səni məşğələyə əlavə edəndən sonra burada görünəcək.</p></div>`}</div>
+    <div class="cab-sec"><div class="summary"><div><b data-count="${st.held}">${st.held}</b><span>iştirak etdiyin dərs</span></div><div><b>${st.absent}</b><span>qayıb</span></div><div><b>${st.rate == null ? '—' : st.rate + '%'}</b><span>davamiyyət</span></div><div><b>${d.exams.done.count}</b><span>imtahan</span></div></div></div>
+    ${g.on ? `<div class="cab-sec"><div class="section-head"><h3>Son nişanlar</h3><button class="linkish" data-act="cabGo" data-p="badges">Vitrin</button></div>
+      ${recent.length ? `<div class="bd-row">${recent.map(b => `<button class="bd-chip bdr${b.tier}" data-act="cabBadge" data-id="${b.id}">${badgeSvg(b.id)}<span>${esc(b.name)}</span></button>`).join('')}</div>` : `<p class="hint">İlk nişanını ilk dərsdə qazanacaqsan!</p>`}</div>
+      <div class="cab-sec"><div class="section-head"><h3>Bal tarixçəsi</h3></div>${pointsList(g.events.slice(0, 8))}</div>` : ''}`;
+};
+function pointsList(ev){
+  if (!ev.length) return '<p class="hint">Hələ bal yoxdur. Dərsə gəl, imtahan ver — ballar burada görünəcək.</p>';
+  const icn = { lesson: 'school', full: 'calendar', exam: 'clipboard', pass: 'flag', bonus: 'star' };
+  return `<div class="pts-list">${ev.map(e => `<div class="pts-i pts-${e.k}"><span class="pts-ic">${tb(icn[e.k] || 'star')}</span><div><b>${esc(e.t)}</b><small>${fmtDate(e.d)}</small></div><span class="pts-v">+${e.p}</span></div>`).join('')}</div>`;
+}
+CAB_RENDER.badges = (d) => {
+  const g = d.game; if (!g.on) return '';
+  const got = g.badges.filter(b => b.count).length;
+  return `<div class="cab-head"><h2>Nailiyyətlər</h2><p>Qazandığın nişanlar heç vaxt itmir. Boz nişanlar hələ qarşıdadır — şərtini oxu və qazan!</p></div>
+    <div class="cab-sec"><div class="bd-top"><div class="bd-top-n"><b data-count="${got}">${got}</b><span>/ ${g.badges.length} nişan</span></div><div class="gm-bar lg"><i style="width:${Math.round(got / g.badges.length * 100)}%"></i></div></div>
+      <div class="rar-legend">${[1, 2, 3, 4].map(t => rarChip(t)).join('')}</div></div>
+    ${badgeGroups(g.badges, { button: 'cabBadge' })}`;
+};
+ACT.cabBadge = (b) => {
+  const g = S.cab.game, x = g.badges.find(y => y.id === b.dataset.id); if (!x) return;
+  openModal({ title: x.name, size: 'sm', body: `<div class="bd-big bdr${x.tier}">${badgeSvg(x.id, !x.count)}${rarChip(x.tier)}<p>${esc(x.desc)}</p>
+    ${x.count ? `<span class="tag solid">${x.count > 1 ? x.count + ' dəfə qazanılıb' : 'Qazanılıb'} · ${fmtDate(x.last)}</span>` : x.need ? `<div class="gm-bar"><i style="width:${Math.round(x.cur / x.need * 100)}%"></i></div><small class="muted">${x.cur} / ${x.need}</small>` : '<span class="tag line">Hələ qazanılmayıb</span>'}
+    <small class="muted">${shareText(x.share)}</small></div>`,
+    foot: `<button class="btn btn-primary" data-close>Bağla</button>` });
+};
+CAB_RENDER.rating = (d) => {
+  const g = d.game; if (!g.on) return '';
+  const tab = S.ui.cabRt || 'ind';
+  const L = g.leaders;
+  const mine = g.hidden ? `<div class="my-rank">${tb('shield')}<div><b>Sənin adın ümumi reytinqdə göstərilmir</b><small>Balların və nişanların əvvəlki kimi toplanır. Bu ay reytinq balın: ${g.monthScore}.</small></div></div>`
+    : g.rank ? `<div class="my-rank${g.rank.place <= 3 ? ' top' : ''}">${tb(g.rank.place <= 3 ? 'crown' : 'trophy')}<div><b>Bu ay ${g.rank.place}-ci yerdəsən</b><small>${g.monthScore} reytinq balı · ${g.rank.of} tələbə arasında. Nəticə növbəti ayın ${g.rules.snapDay}-də yekunlaşır.</small></div></div>`
+    : `<div class="my-rank">${tb('trophy')}<div><b>Bu ay hələ reytinqdə deyilsən</b><small>Ayın dərslərinin ən azı ${g.rules.rankPct}%-ində iştirak et. Bu ay: ${g.monthLessons} dərs, ${g.monthScore} reytinq balı.</small></div></div>`;
+  const groups = g.groups.length ? `<div class="my-rank">${tb('users')}<div><b>Qrupun bu ay ${g.groups[0].place}-ci yerdədir</b><small>${esc(g.groups[0].title)} · orta bal ${g.groups[0].avg}</small></div></div>` : '';
+  const body = L ? `<div class="lead-head"><div><h3>${fmtMonthKey(L.month)} ayının liderləri</h3><p class="hint">${nextSnapText(L)}</p></div></div>${leadersHtml(L, tab, { click: 'cabProfile' })}`
+    : `<div class="empty">${ic('trophy')}<h4>İlk nəticələr ${firstResultsDate(g.start)}</h4><p>Ay bitəndən sonra ayın ən yaxşı 10 tələbəsi və 5 qrupu burada görünəcək. İndi bal topla — bəlkə birinci sən olacaqsan!</p></div>`;
+  return `<div class="cab-head"><h2>Reytinq</h2><p>Keçən ayın liderləri və sənin bu ayki yerin.</p></div>
+    <div class="cab-sec">${mine}${tab === 'grp' ? groups : ''}</div>
+    <div class="tabs" role="tablist"><button class="tab ${tab === 'ind' ? 'on' : ''}" data-act="cabRt" data-t="ind">Fərdi</button><button class="tab ${tab === 'grp' ? 'on' : ''}" data-act="cabRt" data-t="grp">Qrup</button></div>
+    <div class="cab-sec">${body}</div>`;
+};
+ACT.cabProfile = (b) => {
+  if (S.cabRO) return;
+  run(null, async () => {
+    const r = await api('sProfile', { id: b.dataset.id }, { noRender: true });
+    const p = r.profile;
+    openModal({ title: p.name, sub: p.on ? `${esc(p.level.name)} · ${p.level.pts} bal` : '', size: 'sm',
+      body: p.badges.length ? `<div class="bd-grid sm">${p.badges.map(x => badgeCard(x, { short: true })).join('')}</div>` : '<p class="hint">Hələ nişan yoxdur.</p>',
+      foot: `<button class="btn btn-primary" data-close>Bağla</button>` });
+  });
+};
+CAB_RENDER.profile = (d) => {
+  const g = d.game;
+  return `<div class="cab-head"><h2>Profil</h2></div>
+    <div class="cab-sec"><div class="profile"><span class="ava lg">${esc(initials(d.me.name))}</span><div class="profile-main"><h2>${esc(d.me.name)}</h2>
+      <div class="kv"><div><span>Login</span><b>${esc(d.me.login)}</b></div>${d.me.parentName ? `<div><span>Valideyn</span><b>${esc(d.me.parentName)}</b></div>` : ''}${g.on ? `<div><span>Səviyyə</span><b>${esc(g.level.name)}</b></div>` : ''}</div></div></div></div>
+    ${S.cabRO ? '' : `<div class="cab-sec cab-menu-list">
+      <button class="mrow" data-act="changePassword">${ic('key')}<span>Şifrəni dəyiş</span>${ic('chev')}</button>
+      <button class="mrow" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}<span>${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</span>${ic('chev')}</button>
+      ${isStandalone() ? '' : `<button class="mrow" data-act="installApp">${ic('home')}<span>Ana ekrana əlavə et</span>${ic('chev')}</button>`}
+      <button class="mrow" data-act="logoutAll">${ic('shield')}<span>Bütün cihazlardan çıx</span>${ic('chev')}</button>
+      <button class="mrow" data-act="logout">${ic('logout')}<span>Çıxış</span>${ic('chev')}</button></div>`}
+    ${g.on ? `<div class="cab-sec"><div class="section-head"><h3>Bal necə qazanılır?</h3></div>${gameRulesHtml(g.rules, g.levels)}</div>` : ''}`;
+};
+function cabRender(isRefresh){
+  const d = S.cab, el = $('#cabMain');
+  if (!d) return;
+  const keep = isRefresh ? window.scrollY : 0;
+  const fn = CAB_RENDER[S.cabPage] || CAB_RENDER.home;
+  if (!isRefresh || !S.cabWord) S.cabWord = pickWord();
+  el.innerHTML = `<div class="cab-page cp-${S.cabPage}">${fn(d)}<aside class="word-card">${tb('bulb', 'word-ic')}${wordHtml(S.cabWord)}</aside></div>`;
+  hydrateIcons(el);
+  if (!isRefresh) countUp(el); else $$('[data-count]', el).forEach(x => { x.dataset.counted = '1'; });
+  if (isRefresh) window.scrollTo({ top: keep });
+}
+const HERO_DECO = ['school', 'star', 'rocket', 'sparkles', 'book'].map((n, i) => `<span class="hd hd${i + 1}">${tb(n)}</span>`).join('');
+
+function backupHtml(b){
+  return `<div class="bk-card">${tb('shield', 'bk-ic')}<div><b>Ehtiyat nüsxələr</b><p class="hint">Hər bazar günü cədvəlin tam nüsxəsi Google Drive-a avtomatik çıxarılır, son ${b.keep} nüsxə saxlanılır.</p>
+    <p>${b.last ? `Son nüsxə: <b>${fmtDT(b.last)}</b>${b.url ? ` · <a href="${esc(b.url)}" target="_blank" rel="noopener">aç</a>` : ''}${b.folder ? ` · <a href="${esc(b.folder)}" target="_blank" rel="noopener">qovluq</a>` : ''}` : 'Hələ nüsxə çıxarılmayıb.'}</p></div>
+    <button class="btn btn-soft" data-act="backupRun">${ic('refresh')}İndi nüsxə çıxar</button></div>`;
+}
+async function drawBackup(box){
+  box = box || toolBox(); if (!box) return;
+  const r = await api('backup', {}, { noRender: true });
+  box.innerHTML = backupHtml(r.backup); hydrateIcons(box);
+}
+ACT.backupRun = (b) => run(b, async () => {
+  const r = await api('backup', { run: true }, { noRender: true });
+  toast('Ehtiyat nüsxə çıxarıldı.', 'ok');
+  const box = b.closest('.bk-wrap') || toolBox();
+  if (box){ box.innerHTML = backupHtml(r.backup); hydrateIcons(box); }
+});
+ACT.devBackup = () => run(null, async () => {
+  const r = await api('backup', {}, { noRender: true });
+  openModal({ title: 'Ehtiyat nüsxələr', size: 'sm', body: `<div class="bk-wrap">${backupHtml(r.backup)}</div>`, foot: `<button class="btn btn-primary" data-close>Bağla</button>` });
+});
+function isActiveStu(s){ return !s.status || s.status === 'active'; }
+const SF = [['all', 'Hamısı'], ['debt', 'Hələ daxil olmayıb'], ['wait', 'İlkin şifrə ilə']];
+const SST = [['active', 'Aktiv'], ['left', 'Ayrılanlar'], ['grad', 'Məzunlar']];
+function stuLoginKind(s){ return !s.login ? '' : !s.seen ? 'debt' : s.fresh ? 'wait' : 'ok'; }
+RENDER.students = () => {
+  const sf = S.ui.sf || 'all', ss = S.ui.ss || 'active';
+  const inSt = S.d.students.filter(x => (x.status || 'active') === ss);
+  const cnt = { all: inSt.length, debt: 0, wait: 0, ok: 0 };
+  inSt.forEach(st => { const k = stuLoginKind(st); if (k) cnt[k]++; });
+  const sc = {}; SST.forEach(([k]) => { sc[k] = S.d.students.filter(x => (x.status || 'active') === k).length; });
+  return `
+  <div class="page-head"><div><h2>Tələbələr</h2><p>${sc.active} aktiv tələbə${sc.left + sc.grad ? `, ${sc.left + sc.grad} keçmiş tələbə` : ''}.</p></div>
+    <div class="row">${canResetAll() ? `<button class="btn btn-soft" data-act="loginsList">${ic('key')}Giriş məlumatları</button>` : ''}
+    ${can('students.add') && !ro() ? `<button class="btn btn-primary" data-act="studentForm">${ic('plus')}Yeni tələbə</button>` : ''}</div></div>
+  <div class="toolbar">
+    <div class="input-wrap search">${ic('search','lead')}<input class="input has-lead" id="sq" placeholder="Ad, login və ya valideyn üzrə axtar" value="${esc(S.ui.sq || '')}"></div>
+    ${sc.left + sc.grad ? `<div class="seg" role="radiogroup" aria-label="Status">${SST.map(([k, l]) => `<label><input type="radio" name="ss" value="${k}" ${ss === k ? 'checked' : ''}><span>${l} ${sc[k]}</span></label>`).join('')}</div>` : ''}
+    ${ss === 'active' ? `<div class="seg" role="radiogroup" aria-label="Kabinetə giriş">${SF.map(([k, l]) =>
+      `<label><input type="radio" name="sf" value="${k}" ${sf === k ? 'checked' : ''}><span>${k !== 'all' ? stDot(k) : ''}${l} ${cnt[k]}</span></label>`).join('')}</div>` : ''}
+  </div>
+  <div id="slist">${studentsList()}</div>`;
+};
+function loginCell(s){
+  if (!s.login) return '<span class="faint">—</span>';
+  if (!isActiveStu(s)) return `<code class="login-code off">${esc(s.login)}</code><br>${stTag('debt', 'giriş bağlıdır')}`;
+  const k = stuLoginKind(s);
+  return `<code class="login-code">${esc(s.login)}</code>${k !== 'ok' ? `<br>${stTag(k, ST_LABEL[k].toLowerCase())}` : ''}`;
+}
+function studentsList(){
+  const q = fold(S.ui.sq || '');
+  const ss = S.ui.ss || 'active';
+  const sf = ss === 'active' ? (S.ui.sf || 'all') : 'all';
+  const list = S.d.students.filter(s => {
+    if ((s.status || 'active') !== ss) return false;
+    if (q && !fold([s.name, s.login, s.parentName].join(' ')).includes(q)) return false;
+    if (sf !== 'all' && stuLoginKind(s) !== sf) return false;
+    return true;
+  }).sort((a, b) => a.name.localeCompare(b.name, 'az'));
+  if (!S.d.students.length) return emptyBox('Hələ tələbə yoxdur', 'Tələbə əlavə edin, sonra onu məşğələyə yazın.',
+    can('students.add') ? `<button class="btn btn-primary" data-act="studentForm">${ic('plus')}Yeni tələbə</button>` : '');
+  if (!list.length) return sf !== 'all' && !q
+    ? emptyBox(sf === 'debt' ? 'Hamı kabinetə daxil olub' : 'İlkin şifrə ilə qalan tələbə yoxdur', 'Başqa filtr seçin.')
+    : emptyBox(ss === 'active' ? 'Heç nə tapılmadı' : 'Bu siyahı boşdur', 'Axtarış sözünü və ya filtri dəyişin.');
+  return `<table class="ledger"><thead><tr><th>Tələbə</th><th>Login</th><th>${ss === 'active' ? 'Məşğələlər' : 'Status'}</th><th></th></tr></thead><tbody>
+    ${list.map(s => {
+      const cs = coursesOfStudent(s.id);
+      const active = isActiveStu(s);
+      return `<tr${active ? '' : ' class="muted-row"'}>
+        <td data-label="Tələbə" class="full"><div class="person"><span class="ava">${esc(initials(s.name))}</span><div><button class="linkish" data-go="student" data-param="${s.id}">${esc(s.name)}</button>${s.noRank ? '<small>reytinqdə gizli</small>' : ''}${s.parentName ? `<small>Valideyn: ${esc(s.parentName)}</small>` : ''}${s.note ? `<small>${esc(s.note.length > 60 ? s.note.slice(0,60) + '…' : s.note)}</small>` : ''}</div></div></td>
+        <td data-label="Login">${loginCell(s)}</td>
+        ${active ? `<td data-label="Məşğələlər">${cs.length ? `<div class="chips">${cs.map(c => `<span class="cchip"><b>${typeLabel(c.type)}${c.type === 'group' ? ': ' + esc(courseTitle(c)) : ''}</b><span>${esc(c.teacherName)}, ${c.held}/${c.lessonsPerMonth}</span></span>`).join('')}</div>` : '<span class="faint">Məşğələ yoxdur</span>'}</td>`
+          : `<td data-label="Status"><span class="tag line">${STATUS_LBL[s.status]}</span>${s.statusAt ? ` <small class="muted">${fmtDate(s.statusAt)}</small>` : ''}${s.statusNote ? `<br><small class="muted">${esc(s.statusNote)}</small>` : ''}</td>`}
+        <td class="actions">
+          <button class="ibtn sm" data-go="student" data-param="${s.id}" title="Tələbə kartı" aria-label="Tələbə kartı">${ic('card')}</button>
+          ${active && canResetStudent(s.id) && !ro() ? `<button class="ibtn sm" data-act="resetStuPw" data-id="${s.id}" title="Şifrəni sıfırla" aria-label="Şifrəni sıfırla">${ic('key')}</button>` : ''}
+          ${!active && can('students.edit') && !ro() ? `<button class="ibtn sm" data-act="stuStatus" data-id="${s.id}" data-to="active" title="Yenidən aktiv et" aria-label="Yenidən aktiv et">${ic('refresh')}</button>` : ''}
+          ${can('students.edit') && !ro() ? `<button class="ibtn sm" data-act="studentForm" data-id="${s.id}" title="Redaktə et" aria-label="Redaktə et">${ic('edit')}</button>` : ''}
+          ${can('students.delete') && !ro() ? `<button class="ibtn sm" data-act="deleteStudent" data-id="${s.id}" title="Sil" aria-label="Sil">${ic('trash')}</button>` : ''}
+        </td></tr>`;
+    }).join('')}</tbody></table>`;
+}
+AFTER.students = (root) => {
+  const upd = () => { $('#slist').innerHTML = studentsList(); hydrateIcons($('#slist')); };
+  $('#sq', root).addEventListener('input', e => { S.ui.sq = e.target.value; upd(); });
+  $$('input[name=sf]', root).forEach(r => r.addEventListener('change', e => { S.ui.sf = e.target.value; upd(); }));
+  $$('input[name=ss]', root).forEach(r => r.addEventListener('change', e => { S.ui.ss = e.target.value; S.ui.sf = 'all'; renderPage(true); }));
+};
 (function init(){
   hydrateIcons();
   $('[data-act=togglePass]').innerHTML = ic('eye');
   const st = lsGet();
-  setTheme(st && st.theme ? st.theme : 'light', false);
+  setTheme(preferredTheme(), false);
+  initDeco();
   loaderObserver.observe(document.body, { childList: true, subtree: true });
   registerSW();
   initInstallHint();
