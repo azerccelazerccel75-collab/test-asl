@@ -1,4 +1,4 @@
-const CACHE = 'aslan-v8-6';
+const CACHE = 'aslan-v8-7';
 const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png', 'icon-maskable.png'];
 
 self.addEventListener('install', e => {
