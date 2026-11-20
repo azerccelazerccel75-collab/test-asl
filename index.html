@@ -141,7 +141,7 @@ input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.85;f
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .stack{display:flex;flex-direction:column;gap:14px}
 .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.hint{font-size:12.5px;color:var(--soft);line-height:1.5}
+.hint{font-size:13px;color:var(--soft);line-height:1.55}
 .err-text{font-size:13px;font-weight:500;min-height:0}
 .seg{display:inline-flex;padding:4px;border-radius:var(--r);background:var(--tint);border:1.5px solid var(--line);gap:4px;flex-wrap:wrap}
 .seg label{position:relative}
@@ -1879,10 +1879,14 @@ body.deco-quiet::before{opacity:.35}
   .lg-field input,.lg-field .input,.modal .input,.modal .select,.modal .textarea{font-size:16px}
   .umenu-pop{position:fixed;left:12px;right:12px;top:calc(env(safe-area-inset-top) + 66px);min-width:0;width:auto!important;max-width:none!important;max-height:calc(100dvh - 90px);overflow:auto;transform-origin:top center}
   .cab-acts .umenu-pop{right:12px}
-  .tabs{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;margin-left:-4px;margin-right:-4px;padding:0 4px;
-    -webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
-  .tabs::-webkit-scrollbar{display:none}
-  .tabs button{flex:none;white-space:nowrap;scroll-snap-align:start;padding:10px 12px}
+  .tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;border-bottom:0;margin-bottom:20px}
+  .tabs button{justify-content:flex-start;text-align:left;white-space:normal;min-height:48px;padding:10px 12px;border:1.5px solid var(--line);border-radius:14px;background:var(--surface);font-size:13.5px;line-height:1.25;color:var(--ink)}
+  .tabs button .i{flex:none;color:var(--soft)}
+  .tabs button.on{background:color-mix(in srgb,var(--or) 10%,var(--surface));border-color:color-mix(in srgb,var(--or) 55%,var(--line));color:var(--or-text)}
+  .tabs button.on .i{color:var(--or)}
+  .tabs button.on::after{display:none}
+  .tabs button:last-child:nth-child(odd){grid-column:1 / -1}
+  .tabs .tbadge{margin-left:auto}
   .pal-x{min-height:34px;padding:6px 12px}
   .ledger.rank-table tr:has(td.full){display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:2px 10px;padding:12px 14px}
   .ledger.rank-table tr:has(td.full) td{padding:0;min-height:0;border:0;width:auto}
@@ -1936,7 +1940,7 @@ body.deco-quiet::before{opacity:.35}
 .pub-wrap>.soc-full{margin-top:26px}
 .public:has(.xp-run,.xp-rules,.xp-pick) .soc{display:none}
 .login{flex-direction:column}
-.lg-foot{position:relative;z-index:1;width:100%;max-width:400px;display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:20px}
+.lg-foot{position:relative;z-index:3;width:100%;max-width:400px;display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:20px}
 .soc-login{display:flex;flex-direction:column;align-items:center;gap:8px}
 .soc-cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
 .soc-login .soc-i{background:color-mix(in srgb,var(--surface) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
@@ -2137,9 +2141,9 @@ body:has(.xp-run) #nyGarland,body:has(.xp-run) #nySnow{display:none!important}
 .site-card>h3 .tb{width:22px;height:22px;color:var(--or)}
 .site-card>h3 .tag{margin-left:auto}
 .site-card .hint{margin-bottom:14px}
-.seg{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border-radius:14px;background:var(--tint);border:1.5px solid var(--line)}
-.seg button{border:0;background:transparent;color:var(--soft);font:inherit;font-size:14px;font-weight:600;padding:8px 14px;border-radius:10px;cursor:pointer;min-height:38px}
-.seg button.on{background:var(--surface);color:var(--or-text);box-shadow:0 4px 12px -6px rgba(0,0,0,.25)}
+.sseg{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;border-radius:14px;background:var(--tint);border:1.5px solid var(--line)}
+.sseg button{flex:1 1 auto;border:0;background:transparent;color:var(--soft);font:inherit;font-size:14px;font-weight:600;padding:8px 14px;border-radius:10px;cursor:pointer;min-height:38px}
+.sseg button.on{background:var(--surface);color:var(--or-text);box-shadow:0 4px 12px -6px rgba(0,0,0,.25)}
 .site-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
 .site-row .field{margin:0}
 .site-info{display:grid;gap:8px;margin:14px 0}
@@ -2168,9 +2172,40 @@ body:has(.xp-run) #nyGarland,body:has(.xp-run) #nySnow{display:none!important}
 .nyc-acts .btn{flex:1;justify-content:center;min-width:140px}
 .nyc-hint{font-size:12.5px;color:var(--soft);text-align:center;max-width:380px}
 @media (max-width:860px){.nyc{grid-template-columns:1fr}}
-@media (max-width:560px){.site-row{grid-template-columns:1fr}.site-kpi b{font-size:20px}.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}.seg button{padding:8px 6px;font-size:13px}}
+@media (max-width:560px){.site-row{grid-template-columns:1fr}.site-kpi b{font-size:20px}.sseg{display:flex;width:100%}.sseg button{flex:1;padding:8px 6px;font-size:13.5px}}
 html.no-share [data-act=achShare],html.no-share .cab-shr{display:none!important}
 :root[data-season="ny"] .select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231D5FD1' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}
+:where(p,li,small,.hint,.sub,dd,figcaption,label>span){text-wrap:pretty}
+:where(h1,h2,h3,h4,b,strong,.btn,.tag,.pill,th){text-wrap:balance}
+input::placeholder,textarea::placeholder{text-overflow:ellipsis}
+.site-total{display:flex;flex-direction:column;gap:2px;margin-top:12px;padding:12px 14px;border-radius:14px;border:1.5px dashed var(--line-strong)}
+.site-total span{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--faint)}
+.site-total b{font-size:14px;color:var(--ink);font-weight:600}
+.site-total small{font-size:13px;color:var(--soft)}
+.site-kpi div{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.site-kpi small{font-size:13px;line-height:1.3}
+.site-card .hint{font-size:13.5px}
+@media (max-width:560px){.site-card{padding:16px}.site-kpi{gap:8px}.site-kpi div{padding:12px 10px}.soc-field .soc-ic2{width:38px;height:38px}}
+.input{text-overflow:ellipsis}
+.qrow-top{align-items:flex-start}
+.qrow-top .qtext{flex:1;min-height:0;resize:none;field-sizing:content;line-height:1.45;padding-top:10px;padding-bottom:10px}
+.qrow-top .num,.qrow-top .ibtn{margin-top:8px}
+.pts-i b{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.35}
+.ex-link .nm{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.pod-name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-align:center}
+@media (max-width:760px){
+  .ledger td{width:auto;overflow-wrap:anywhere}
+  .site-acts{display:grid;grid-template-columns:1fr 1fr}
+  .site-acts .btn{justify-content:center}
+  .site-acts .btn-primary{grid-column:1 / -1}
+  .xp-bar-t b{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.3}
+}
+@media (max-width:400px){
+  .ledger td{padding-left:112px}
+  .ledger td::before{width:88px}
+  .cab-stat small,.cab-hero .cab-mini small{font-size:11.5px}
+}
+@media (max-width:760px){.lg-ic.lo{display:none}}
 </style>
 </head>
 <body>
@@ -2260,7 +2295,7 @@ html.no-share [data-act=achShare],html.no-share .cab-shr{display:none!important}
 <div id="modalRoot"></div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
 
-<script>const API_URL = 'https://script.google.com/macros/s/AKfycbz63JAIpmNfDekvbRzv13r6GyzPQ2FGL7_CaNsCo8U8BzBGCbxldfJOQGUWyvbpk_vF/exec';
+<script>const API_URL = 'https://script.google.com/macros/s/AKfycbz3CMunRCKysOcq63W7UrxJeOAZ-NW_hb3uAf7USUkrj-qPZekn57HYOIX2J7fKVPOU/exec';
 const SOCIAL = { whatsapp: '', instagram: '', tiktok: '' };
 
 const ICONS = {
@@ -2911,7 +2946,7 @@ ACT.userMenu = () => {
   pop.innerHTML = `<div class="umenu-head"><b>${esc(d.me.name)}</b><small>${roleLabel(d.me.role)}, login: ${esc(d.me.login)}</small></div>
     <button class="mitem" data-act="changePassword">${ic('key')}Şifrəni dəyiş</button>
     ${d.me.isMain ? `<button class="mitem" data-act="editSelf">${ic('user')}Profilim</button>` : ''}
-    <button class="mitem" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</button>${snowItem('mitem')}
+    <button class="mitem" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</button>${snowItem('mitem')}${sndItem('mitem')}
     ${isStandalone() ? '' : `<button class="mitem" data-act="installApp">${ic('home')}Ana ekrana əlavə et</button>`}
     ${d.me.readOnly ? '' : `<button class="mitem" data-act="logoutAll">${ic('shield')}Bütün cihazlardan çıx</button>`}
     <button class="mitem" data-act="logout">${ic('logout')}Çıxış</button>`;
@@ -3934,7 +3969,7 @@ RENDER.perms = () => {
       <div class="list">${list.map(u => `<button class="puser${sel && sel.id === u.id ? ' on' : ''}" data-act="pickPermUser" data-id="${u.id}">
         <span class="ava">${esc(initials(u.name))}</span><span class="who"><b>${esc(u.name)}</b><small>${roleLabel(u.role)}, ${(u.permissions || []).length} icazə</small></span></button>`).join('') || '<p class="hint" style="padding:10px">Heç nə tapılmadı.</p>'}</div>
     </aside>
-    <section id="ppanel">${sel ? permPanel(sel) : emptyBox('İstifadəçi seçin', 'Soldakı siyahıdan müəllim və ya köməkçi seçin. Burada onun icazələri görünəcək.')}</section>
+    <section id="ppanel">${sel ? permPanel(sel) : emptyBox('İstifadəçi seçin', 'Siyahıdan müəllim və ya köməkçi seçin. Burada onun icazələri görünəcək.')}</section>
   </div>` : emptyBox('İstifadəçi yoxdur', 'Əvvəlcə «Müəllimlər» bölməsində müəllim və ya köməkçi əlavə edin.', `<button class="btn btn-primary" data-go="staff">${ic('teacher')}Müəllimlər</button>`)}`;
 };
 function permPanel(u){
@@ -5145,7 +5180,7 @@ function drawQedit(){
   const wrap = $('#qedit'); if (!wrap) return;
   wrap.innerHTML = S.ui.qdraft.map((q, i) => `<div class="qrow" data-i="${i}">
     <div class="qrow-top"><span class="num">${i+1}</span>
-      <input class="input" data-qf="text" value="${esc(q.text)}" placeholder="Sualın mətni" maxlength="300">
+      <textarea class="textarea qtext" data-qf="text" rows="2" placeholder="Sualın mətni" maxlength="300">${esc(q.text)}</textarea>
       <button class="ibtn sm" data-act="qdel" data-i="${i}" aria-label="Sil">${ic('trash')}</button></div>
     <div class="row" style="gap:10px">
       <select class="select" data-qf="type" style="flex:0 1 180px">${Object.keys(QTYPE).map(t => `<option value="${t}" ${q.type===t?'selected':''}>${QTYPE[t]}</option>`).join('')}</select>
@@ -7154,7 +7189,7 @@ ACT.cabMenu = (b) => {
   const pop = document.createElement('div'); pop.className = 'umenu-pop';
   pop.innerHTML = `<div class="umenu-head"><b>${esc(d.me.name)}</b><small>Tələbə, login: ${esc(d.me.login)}</small></div>
     <button class="mitem" data-act="changePassword">${ic('key')}Şifrəni dəyiş</button>
-    <button class="mitem" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</button>${snowItem('mitem')}
+    <button class="mitem" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</button>${snowItem('mitem')}${sndItem('mitem')}
     <button class="mitem" data-act="logoutAll">${ic('shield')}Bütün cihazlardan çıx</button>
     <button class="mitem" data-act="logout">${ic('logout')}Çıxış</button>`;
   box.classList.add('umenu'); box.appendChild(pop); hydrateIcons(pop);
@@ -7461,7 +7496,7 @@ const LOGIN_ICONS = [
 ];
 function loginArtHtml(){
   return `<div class="lg-sky" aria-hidden="true"><span class="lg-blob b1"></span><span class="lg-blob b2"></span><span class="lg-blob b3"></span>
-    ${LOGIN_ICONS.map(([n, x, y, s, r, a, d], i) => `<span class="lg-ic a-${a}${i % 3 === 2 ? ' far' : ''}${i > 11 ? ' sm-hide' : ''}" style="left:${x}%;top:${y}%;--s:${s}px;--r:${r}deg;--d:${d}s">${tb(n, '', a === 'draw' ? ' pathLength="1"' : '')}</span>`).join('')}</div>`;
+    ${LOGIN_ICONS.map(([n, x, y, s, r, a, d], i) => `<span class="lg-ic a-${a}${i % 3 === 2 ? ' far' : ''}${i > 11 ? ' sm-hide' : ''}${y >= 62 ? ' lo' : ''}" style="left:${x}%;top:${y}%;--s:${s}px;--r:${r}deg;--d:${d}s">${tb(n, '', a === 'draw' ? ' pathLength="1"' : '')}</span>`).join('')}</div>`;
 }
 const DECO_ICONS = ['school', 'book', 'pencil', 'bulb', 'atom', 'calculator', 'rocket', 'star', 'music', 'world', 'math', 'flask', 'abc', 'ruler', 'compass', 'trophy'];
 function decoUri(color, op){
@@ -7864,7 +7899,7 @@ CAB_RENDER.profile = (d) => {
     ${S.cabRO ? '' : `<div class="cab-sec cab-menu-list">
       <button class="mrow" data-act="cabReport">${ic('printer')}<span>Aylıq hesabat (valideyn üçün)</span>${ic('chev')}</button>
       <button class="mrow" data-act="changePassword">${ic('key')}<span>Şifrəni dəyiş</span>${ic('chev')}</button>
-      <button class="mrow" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}<span>${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</span>${ic('chev')}</button>${snowItem('mrow')}
+      <button class="mrow" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}<span>${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</span>${ic('chev')}</button>${snowItem('mrow')}${sndItem('mrow')}
       ${isStandalone() ? '' : `<button class="mrow" data-act="installApp">${ic('home')}<span>Ana ekrana əlavə et</span>${ic('chev')}</button>`}
       <button class="mrow" data-act="logoutAll">${ic('shield')}<span>Bütün cihazlardan çıx</span>${ic('chev')}</button>
       <button class="mrow" data-act="logout">${ic('logout')}<span>Çıxış</span>${ic('chev')}</button></div>`}
@@ -7977,7 +8012,7 @@ AFTER.students = (root) => {
   $$('input[name=sf]', root).forEach(r => r.addEventListener('change', e => { S.ui.sf = e.target.value; upd(); }));
   $$('input[name=ss]', root).forEach(r => r.addEventListener('change', e => { S.ui.ss = e.target.value; S.ui.sf = 'all'; selSet('selS').clear(); renderPage(true); }));
 };
-const APP_VER = '8.5';
+const APP_VER = '8.6';
 Object.assign(ICONS, {
   printer: '<path d="M7 9V4h10v5"/><rect x="3.5" y="9" width="17" height="8" rx="2"/><path d="M7 14h10v6H7z"/><circle cx="17" cy="12" r=".6"/>',
   pulse: '<path d="M3 12h4l2.5-6 4 12L16 9l1.5 3H21"/>',
@@ -9072,6 +9107,7 @@ function achNext(){
   const it = S.achQ.shift();
   const id = it.kind === 'level' ? it.i : it.b.id;
   const isNy = it.kind === 'badge' && it.b.id === 'ny';
+  sndPlay(isNy ? 'ny' : it.kind === 'level' ? 'level' : it.b.tier >= 4 ? 'legend' : 'badge');
   openModal({ title: isNy ? 'Yeni iliniz mübarək!' : it.kind === 'level' ? 'Təbriklər!' : 'Yeni nailiyyət!', size: 'sm ach-m' + (isNy ? ' ach-ny' : ''), body: achBody(it),
     foot: `<button class="btn btn-soft" data-close>Bağla</button><button class="btn btn-primary" data-act="achShare" data-k="${it.kind}" data-id="${esc(String(id))}">${ic('share')}Paylaş</button>`,
     onClose: () => { if (S.achQ && S.achQ.length) setTimeout(achNext, 450); else S.achQ = null; } });
@@ -9380,19 +9416,20 @@ function garlandSync(){
 }
 addEventListener('resize', () => { if (seasonOn()) garlandSync(); });
 
-const SNOW = { cv: null, raf: 0, fl: [], last: 0, d: 1, chk: 0 };
+const SNOW = { cv: null, raf: 0, fl: [], last: 0, d: 1, chk: 0, k: 1 };
 function snowWanted(){
   let rm = false;
   try { rm = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-  return seasonOn() && snowOn() && !rm;
+  SNOW.k = rm ? .45 : 1;
+  return seasonOn() && snowOn();
 }
 function snowSync(){ if (snowWanted()) snowStart(); else snowStop(); }
-function snowFlake(init){ return { x: Math.random() * innerWidth, y: init ? Math.random() * innerHeight : -8, r: .9 + Math.random() * 2.4, s: .35 + Math.random() * .8, w: Math.random() * 6.28, o: .35 + Math.random() * .5 }; }
+function snowFlake(init){ const m = innerWidth < 700; return { x: Math.random() * innerWidth, y: init ? Math.random() * innerHeight : -8, r: (m ? 1.6 : 1.1) + Math.random() * (m ? 2.8 : 2.5), s: (.4 + Math.random() * .8) * SNOW.k, w: Math.random() * 6.28, o: .5 + Math.random() * .45 }; }
 function snowSize(){
   const c = SNOW.cv; if (!c) return;
   SNOW.d = Math.min(2, devicePixelRatio || 1);
   c.width = Math.round(innerWidth * SNOW.d); c.height = Math.round(innerHeight * SNOW.d);
-  const n = Math.round(Math.min(80, Math.max(22, innerWidth / 18)));
+  const n = Math.round(Math.min(90, Math.max(44, innerWidth / (innerWidth < 700 ? 8 : 16))));
   SNOW.fl = Array.from({ length: n }, () => snowFlake(true));
 }
 function snowStart(){
@@ -9415,11 +9452,11 @@ function snowTick(t){
   const c = SNOW.cv, x = c.getContext('2d'), W = innerWidth, H = innerHeight;
   x.setTransform(SNOW.d, 0, 0, SNOW.d, 0, 0); x.clearRect(0, 0, W, H);
   const dark = document.documentElement.dataset.theme === 'dark';
-  x.fillStyle = dark ? '#FFFFFF' : '#8FB2EC';
+  x.fillStyle = dark ? '#FFFFFF' : '#6F9BE3';
   SNOW.fl.forEach((f, i) => {
     f.y += f.s * dt; f.w += .012 * dt; f.x += Math.sin(f.w) * .35 * dt;
     if (f.y > H + 8 || f.x < -10 || f.x > W + 10) SNOW.fl[i] = snowFlake(false);
-    x.globalAlpha = f.o * (dark ? .8 : .75);
+    x.globalAlpha = f.o * (dark ? .85 : .7);
     x.beginPath(); x.arc(f.x, f.y, f.r, 0, 6.283); x.fill();
   });
   x.globalAlpha = 1;
@@ -9431,6 +9468,71 @@ ACT.toggleSnow = () => {
   toast(on ? 'Qar effekti yandırıldı.' : 'Qar effekti söndürüldü.', 'ok');
   $$('[data-act=toggleSnow]').forEach(b => { const t = b.querySelector('span') || b; const lbl = on ? 'Qarı söndür' : 'Qarı yandır'; if (t === b) b.lastChild.textContent = lbl; else t.textContent = lbl; });
 };
+const SND = { ctx: null };
+function sndOn(){ try { return localStorage.getItem('al_sound') !== '0'; } catch (e) { return true; } }
+function sndCtx(){
+  if (SND.ctx) return SND.ctx;
+  const C = window.AudioContext || window.webkitAudioContext;
+  if (!C) return null;
+  try { SND.ctx = new C(); } catch (e) { return null; }
+  return SND.ctx;
+}
+['pointerdown', 'keydown', 'touchend'].forEach(ev => addEventListener(ev, () => {
+  if (!sndOn()) return;
+  const c = sndCtx();
+  if (c && c.state === 'suspended') c.resume().catch(() => {});
+}, { capture: true, passive: true }));
+function sndTone(c, out, t, f, d, type, vol){
+  const o = c.createOscillator(), g = c.createGain();
+  o.type = type; o.frequency.setValueAtTime(f, t);
+  g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + .012); g.gain.exponentialRampToValueAtTime(.0001, t + d);
+  o.connect(g); g.connect(out); o.start(t); o.stop(t + d + .05);
+}
+function sndBell(c, out, t, f, d, vol){ sndTone(c, out, t, f, d, 'sine', vol); sndTone(c, out, t, f * 2.76, d * .55, 'sine', vol * .32); sndTone(c, out, t, f * 5.4, d * .3, 'sine', vol * .12); }
+function sndJingle(c, out, t, vol){
+  const len = Math.floor(c.sampleRate * .14), buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0);
+  for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3);
+  const src = c.createBufferSource(), bp = c.createBiquadFilter(), g = c.createGain();
+  src.buffer = buf; bp.type = 'bandpass'; bp.frequency.value = 7500; bp.Q.value = 1.4; g.gain.value = vol;
+  src.connect(bp); bp.connect(g); g.connect(out); src.start(t);
+}
+function sndRender(c, kind){
+  const out = c.createGain(), comp = c.createDynamicsCompressor();
+  out.gain.value = .9; out.connect(comp); comp.connect(c.destination);
+  const t = c.currentTime + .03;
+  if (kind === 'level'){
+    [523.25, 659.25, 783.99].forEach((f, i) => sndTone(c, out, t + i * .11, f, .22, 'triangle', .16));
+    [523.25, 659.25, 783.99, 1046.5].forEach(f => { sndTone(c, out, t + .36, f, 1.1, 'triangle', .1); sndTone(c, out, t + .36, f * 2, .6, 'sine', .03); });
+    [1567.98, 2093].forEach((f, i) => sndBell(c, out, t + .5 + i * .09, f, .7, .05));
+  } else if (kind === 'ny'){
+    const E = 659.25, G = 783.99, C = 523.25, D = 587.33;
+    [[E, 0], [E, .16], [E, .32], [E, .64], [E, .8], [E, .96], [E, 1.28], [G, 1.44], [C, 1.6], [D, 1.76], [E, 1.92]].forEach(([f, dt], i) => sndBell(c, out, t + dt, f * 2, i === 10 ? 1.4 : .45, i === 10 ? .13 : .1));
+    for (let k = 0; k < 13; k++) sndJingle(c, out, t + k * .16, .05 + (k % 2) * .03);
+  } else {
+    const legend = kind === 'legend';
+    [1318.5, 1568, 1975.5, 2637].forEach((f, i) => sndBell(c, out, t + i * .075, f, legend ? 1 : .7, legend ? .09 : .08));
+    sndTone(c, out, t, 660, .18, 'sine', .08);
+    if (legend) [2093, 2637, 3136].forEach((f, i) => sndBell(c, out, t + .38 + i * .06, f, .9, .05));
+  }
+}
+function sndPlay(kind){
+  if (!sndOn()) return;
+  const c = sndCtx(); if (!c) return;
+  const go = () => { try { sndRender(c, kind); } catch (e) {} };
+  if (c.state === 'running') go();
+  else c.resume().then(() => { if (c.state === 'running') go(); }).catch(() => {});
+}
+ACT.toggleSound = () => {
+  const on = !sndOn();
+  try { localStorage.setItem('al_sound', on ? '1' : '0'); } catch (e) {}
+  if (on) sndPlay('badge');
+  toast(on ? 'Səslər yandırıldı.' : 'Səslər söndürüldü.', 'ok');
+  $$('[data-act=toggleSound]').forEach(b => { const t = b.querySelector('span') || b; const lbl = on ? 'Səsləri söndür' : 'Səsləri yandır'; if (t === b) b.lastChild.textContent = lbl; else t.textContent = lbl; });
+};
+function sndItem(cls){
+  return cls === 'mrow' ? `<button class="mrow" data-act="toggleSound">${ic('bell')}<span>${sndOn() ? 'Səsləri söndür' : 'Səsləri yandır'}</span>${ic('chev')}</button>`
+    : `<button class="mitem" data-act="toggleSound">${ic('bell')}${sndOn() ? 'Səsləri söndür' : 'Səsləri yandır'}</button>`;
+}
 function snowItem(cls){
   if (!seasonOn()) return '';
   return cls === 'mrow' ? `<button class="mrow" data-act="toggleSnow">${ic('snow')}<span>${snowOn() ? 'Qarı söndür' : 'Qarı yandır'}</span>${ic('chev')}</button>`
@@ -9475,6 +9577,7 @@ function nyGreetBody(g, name){
     <h4>${esc(g.title)}</h4>${first ? `<p class="nyg-hi">Əziz ${esc(first)}!</p>` : ''}<p class="nyg-txt">${esc(g.text)}</p><p class="nyg-from">${esc(g.from)}</p></div>`;
 }
 function nyGreetShow(g, name){
+  sndPlay('ny');
   openModal({ title: g.title, size: 'sm ny-greet-m', body: nyGreetBody(g, name), foot: `<button class="btn btn-primary btn-block" data-close>Bağla</button>` });
 }
 function nyGreetCheck(){
@@ -9727,7 +9830,7 @@ function siteHtml(r){
   return `<div class="site-grid">
     <section class="site-card" id="seasonCard"><h3>${tb('christmas-tree')}Yeni il rejimi<span class="tag ${s.active ? 'solid' : ''}">${s.active ? 'Hazırda aktivdir' : 'Hazırda söndürülüb'}</span></h3>
       <p class="hint">Bütün saytın dizaynı (giriş, kabinet, idarə paneli, valideyn linki, hesabatlar) Yeni ilə uyğun dəyişir: qış rəngləri, qar, işıqlar, aslanın başında Şaxta baba papağı. Sertifikat dəyişmir. Söndürəndə hər şey əvvəlki kimi olur.</p>
-      <div class="seg" role="tablist" id="seasonMode">${[['off', 'Söndürülüb'], ['auto', 'Avtomatik'], ['on', 'Yandırılıb']].map(([k, l]) => `<button type="button" data-m="${k}" class="${s.mode === k ? 'on' : ''}">${l}</button>`).join('')}</div>
+      <div class="sseg" role="tablist" id="seasonMode">${[['off', 'Söndürülüb'], ['auto', 'Avtomatik'], ['on', 'Yandırılıb']].map(([k, l]) => `<button type="button" data-m="${k}" class="${s.mode === k ? 'on' : ''}">${l}</button>`).join('')}</div>
       <div class="site-row" id="seasonDates"${s.mode === 'auto' ? '' : ' hidden'}>
         <label class="field"><span>Başlayır</span><input class="input" type="date" id="seFrom" value="${toDate(s.from)}"></label>
         <label class="field"><span>Bitir</span><input class="input" type="date" id="seTo" value="${toDate(s.to)}"></label></div>
@@ -9737,19 +9840,19 @@ function siteHtml(r){
         <div>${tb('clock')}<span>Vaxt Bakı vaxtı ilə hesablanır. Rejim «Söndürülüb» olsa, nişan və təbrik də olmayacaq.</span></div></div>
       <label class="field"><span>Təbrikin başlığı</span><input class="input" id="seTitle" maxlength="80" value="${esc(s.greetTitle)}"></label>
       <label class="field" style="margin-top:12px"><span>Təbrikin mətni</span><textarea class="textarea" id="seText" rows="5" maxlength="900">${esc(s.greetText)}</textarea></label>
-      <label class="field" style="margin-top:12px"><span>İmza</span><input class="input" id="seFrom2" maxlength="120" value="${esc(s.greetFrom)}"></label>
+      <label class="field" style="margin-top:12px"><span>İmza</span><textarea class="textarea" id="seFrom2" rows="2" maxlength="120">${esc(s.greetFrom)}</textarea></label>
       <div class="site-acts"><button class="btn btn-soft" data-act="seasonPreview" data-k="greet">${ic('eyeview')}Təbrikə bax</button><button class="btn btn-soft" data-act="seasonPreview" data-k="badge">${ic('eyeview')}Nişana bax</button><button class="btn btn-primary" data-act="seasonSave">${ic('check')}Yadda saxla</button></div>
     </section>
     <section class="site-card"><h3>${tb('brand-instagram')}Sosial şəbəkələr</h3>
-      <p class="hint">Linklər giriş səhifəsində, kabinetdə, valideyn və nailiyyət səhifələrində və paylaşım şəkillərində görünür. Boş qalan düymə yerində qalır, amma heç yerə aparmır.</p>
-      <div class="site-grid">${[['whatsapp', 'WhatsApp', 'brand-whatsapp', 'Nömrə (994501234567) və ya link'], ['instagram', 'Instagram', 'brand-instagram', 'İstifadəçi adı (aslanlessons) və ya link'], ['tiktok', 'TikTok', 'brand-tiktok', 'İstifadəçi adı və ya link']].map(([k, l, i, ph]) => `<div class="soc-field"><span class="soc-ic2">${tb(i)}</span><label class="field"><span>${l}</span><input class="input" id="so_${k}" maxlength="200" placeholder="${ph}" value="${esc(so[k] || '')}"></label></div>`).join('')}</div>
+      <p class="hint">Nömrə, istifadəçi adı və ya tam link yazın. Linklər giriş səhifəsində, kabinetdə, valideyn və nailiyyət səhifələrində görünür. Boş qalan düymə yerində qalır, amma heç yerə aparmır.</p>
+      <div class="site-grid">${[['whatsapp', 'WhatsApp', 'brand-whatsapp', '994501234567'], ['instagram', 'Instagram', 'brand-instagram', 'aslanlessons'], ['tiktok', 'TikTok', 'brand-tiktok', 'aslanlessons']].map(([k, l, i, ph]) => `<div class="soc-field"><span class="soc-ic2">${tb(i)}</span><label class="field"><span>${l}</span><input class="input" id="so_${k}" maxlength="200" placeholder="${ph}" value="${esc(so[k] || '')}"></label></div>`).join('')}</div>
       <label class="chk" style="margin-top:16px"><input type="checkbox" id="soShare" ${r.site.share ? 'checked' : ''}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span>Tələbələr nailiyyətlərini paylaşa bilsin</span></label>
       <div class="site-acts"><button class="btn btn-primary" data-act="siteSave">${ic('check')}Yadda saxla</button></div>
     </section>
     <section class="site-card"><h3>${tb('chart-bar')}Paylaşım statistikası</h3>
-      <p class="hint">Tələbələr nailiyyətlərini nə qədər paylaşır, linkə neçə nəfər baxır və neçəsi «Bizə yaz» düyməsini basır.</p>
-      <div class="site-kpi"><div><b>${sh.m30.shares}</b><small>paylaşım · 30 gün</small></div><div><b>${sh.m30.opens}</b><small>baxış · 30 gün</small></div><div><b>${sh.m30.clicks}</b><small>«Bizə yaz» · 30 gün</small></div></div>
-      <p class="hint" style="margin:12px 0 0">Cəmi: ${sh.shares} paylaşım · ${sh.opens} baxış · ${sh.clicks} «Bizə yaz» · baxanların ${pct}-i yazıb.</p>
+      <p class="hint">Son 30 gündə tələbələr nailiyyətlərini neçə dəfə paylaşıb, linkə neçə nəfər baxıb və neçəsi bizə yazıb.</p>
+      <div class="site-kpi"><div><b>${sh.m30.shares}</b><small>Paylaşım</small></div><div><b>${sh.m30.opens}</b><small>Baxış</small></div><div><b>${sh.m30.clicks}</b><small>«Bizə yaz»</small></div></div>
+      <div class="site-total"><span>Bütün dövr</span><b>${sh.shares} paylaşım · ${sh.opens} baxış · ${sh.clicks} «Bizə yaz»</b>${sh.opens ? `<small>Baxanların ${pct}-i bizə yazıb</small>` : ''}</div>
     </section></div>`;
 }
 async function drawSite(){
@@ -9818,11 +9921,11 @@ function nycDraw(){
   const box = $('#nycBox'); if (!box) return;
   const { u, list, wishes, froms } = nycState();
   box.innerHTML = `<div class="nyc"><div class="nyc-side">
-      <div class="seg" id="nycWho"><button type="button" data-w="st" class="${u.who === 'st' ? 'on' : ''}">Tələbə</button><button type="button" data-w="te" class="${u.who === 'te' ? 'on' : ''}">Müəllim</button></div>
+      <div class="sseg" id="nycWho"><button type="button" data-w="st" class="${u.who === 'st' ? 'on' : ''}">Tələbə</button><button type="button" data-w="te" class="${u.who === 'te' ? 'on' : ''}">Müəllim</button></div>
       <label class="field"><span>Kimə</span><select class="select" id="nycId">${list.length ? list.map(x => `<option value="${x.id}" ${x.id === u.id ? 'selected' : ''}>${esc(x.name)}</option>`).join('') : '<option value="">Siyahı boşdur</option>'}</select></label>
       <label class="field"><span>Kimdən</span><select class="select" id="nycFrom">${froms.map((f, i) => `<option value="${i}" ${i === u.from ? 'selected' : ''}>${esc(capFirst(f.replace('Hörmətlə, ', '')))}</option>`).join('')}</select></label>
       <div class="nyc-wish"><span>Arzu mətni</span><div class="row" style="gap:4px"><button class="ibtn sm" type="button" data-wd="-1" aria-label="Əvvəlki">${tb('chevron-left')}</button><b>${(u.wish || 0) + 1} / ${wishes.length}</b><button class="ibtn sm" type="button" data-wd="1" aria-label="Növbəti">${tb('chevron-right')}</button></div></div>
-      <div class="seg" id="nycFmt"><button type="button" data-f="story" class="${u.fmt === 'story' ? 'on' : ''}">Story (9:16)</button><button type="button" data-f="post" class="${u.fmt === 'post' ? 'on' : ''}">Post (4:5)</button></div>
+      <div class="sseg" id="nycFmt"><button type="button" data-f="story" class="${u.fmt === 'story' ? 'on' : ''}">Story (9:16)</button><button type="button" data-f="post" class="${u.fmt === 'post' ? 'on' : ''}">Post (4:5)</button></div>
     </div>
     <div class="nyc-prev"><div class="nyc-img ${u.fmt === 'story' ? 'story' : ''}" id="nycImg">${list.length ? '<span class="spin"></span>' : ''}</div>
       <div class="nyc-acts"><button class="btn btn-primary" data-act="nycSave" ${list.length ? '' : 'disabled'}>${ic('download')}Şəkli yüklə</button>${navigator.share ? `<button class="btn btn-soft" data-act="nycShare" ${list.length ? '' : 'disabled'}>${ic('share')}Paylaş</button>` : ''}</div>
@@ -9867,6 +9970,7 @@ ACT.nycShare = async () => {
   if (!S.token) setTimeout(() => api('maintenanceStatus', {}, { noRender: true, silent: true }).catch(() => {}), 50);
 })();
 
+document.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.matches && e.target.matches('textarea.qtext, #seFrom2')) e.preventDefault(); });
 (function init(){
   hydrateIcons();
   $('[data-act=togglePass]').innerHTML = ic('eye');
