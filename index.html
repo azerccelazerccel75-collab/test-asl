@@ -1528,7 +1528,7 @@ button.ccard:hover,button.cab-ex:hover,button.tile:hover,button.bd-chip:hover{tr
 .btn-primary:hover::after{transform:translateX(120%)}
 .ledger tbody tr{transition:background-color .15s}
 .ledger tbody tr:hover{background:color-mix(in srgb,var(--tint) 70%,transparent)}
-.page-head h2,.cab-head h2{background:linear-gradient(90deg,var(--or),var(--brand-hi));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.page-head h2,.cab-head h2{color:var(--or-text)}
 @media (prefers-reduced-motion:reduce){.cgrid>*,.bd-grid>*,.cab-exams>*,.rules-grid>*,.lv-ladder>*,.summary>*,.tiles>*,.qa>*,.page,.cab-page,.word-ic{animation:none!important}}
 .rar{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:99px;line-height:1.5}
 .rar.r1{background:var(--tint);color:var(--soft);border:1px solid var(--line)}
@@ -2069,7 +2069,6 @@ body.deco-quiet::before{opacity:.35}
   --info:#22D3EE;--info-bg:rgba(34,211,238,.12);--info-line:rgba(34,211,238,.32);--info-solid:#06B6D4;
 }
 :root[data-season="ny"] body{background-image:radial-gradient(1200px 500px at 50% -180px,color-mix(in srgb,var(--brand-hi) 16%,transparent),transparent 70%)}
-:root[data-season="ny"] .page-head h2,:root[data-season="ny"] .cab-head h2{background-image:linear-gradient(90deg,var(--or),var(--gold))}
 :root[data-season="ny"] .shr-cta{background:linear-gradient(135deg,#0B1A45,#163276 55%,#1E4FB8)}
 :root[data-season="ny"] .shr-cta-eb{color:var(--gold-hi);background:rgba(252,211,77,.12);border-color:rgba(252,211,77,.32)}
 :root[data-season="ny"] .shr-hero .rar{color:#1E3A8A}
@@ -2127,8 +2126,7 @@ body:has(.xp-run) #nyGarland,body:has(.xp-run) #nySnow{display:none!important}
 .nyg-art{position:relative;display:inline-grid;place-items:center;margin-bottom:6px}
 .nyg-lion{width:82px;height:82px;border-radius:26px;display:grid;place-items:center;background:linear-gradient(135deg,#5B9BFF,#1D5FD1);box-shadow:0 18px 40px -14px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.35)}
 .nyg-lion svg{width:54px;height:54px}
-.nyg-year{display:block;margin-top:12px;font-size:58px;line-height:1;font-weight:800;letter-spacing:.02em;background:linear-gradient(180deg,#FFF5C2,#FCD34D 45%,#D99A0B);-webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 6px 18px rgba(252,211,77,.35))}
+.nyg-year{display:block;margin-top:12px;font-size:58px;line-height:1;font-weight:800;letter-spacing:.02em;color:#FCD34D;text-shadow:0 6px 22px rgba(252,211,77,.35)}
 .nyg h4{position:relative;font-size:24px;font-weight:800;margin:6px 0 4px;letter-spacing:-.01em;color:#fff}
 .nyg-hi{position:relative;font-weight:600;color:#FDE68A;margin-bottom:6px}
 .nyg-txt{position:relative;color:rgba(255,255,255,.9);font-size:14.5px;line-height:1.65;max-width:400px;margin:0 auto}
@@ -2206,6 +2204,136 @@ input::placeholder,textarea::placeholder{text-overflow:ellipsis}
   .cab-stat small,.cab-hero .cab-mini small{font-size:11.5px}
 }
 @media (max-width:760px){.lg-ic.lo{display:none}}
+.page-head h2,.cab-head h2{background:none;-webkit-background-clip:border-box;background-clip:border-box;-webkit-text-fill-color:currentColor;color:var(--or-text)}
+:root[data-season="nv"]{
+  --brand:#0E7A5A;--brand-hi:#34C38F;--brand-deep:#0A5C44;--brand-rgb:14,122,90;--brand-hi-rgb:52,195,143;--gold:#C8960C;--gold-hi:#FCD34D;
+  --or:#0E7A5A;--or-deep:#0A5C44;--or-text:#0B6B4E;--on-or:#FFFFFF;
+  --bg:#F4FAF6;--surface:#FFFFFF;--tint:#E9F6EF;--tint-2:#D5EFE1;
+  --line:#D7E9DF;--line-strong:#B0D4C1;
+  --ink:#14251D;--soft:#4F6458;--faint:#8AA095;
+  --scrim:rgba(8,30,22,.42);
+  --shadow:0 14px 34px -18px rgba(10,70,50,.32);
+  --shadow-lg:0 30px 70px -30px rgba(10,70,50,.4);
+}
+:root[data-season="nv"][data-theme="dark"]{
+  --brand:#1F9D74;--brand-hi:#4ADE9F;--brand-deep:#13805F;--brand-rgb:31,157,116;--brand-hi-rgb:74,222,159;--gold:#F2C14E;--gold-hi:#FDE68A;
+  --or:#1F9D74;--or-deep:#13805F;--or-text:#6EE7B7;--on-or:#FFFFFF;
+  --bg:#08140F;--surface:#0E1F18;--tint:#13291F;--tint-2:#1A3729;
+  --line:rgba(120,220,170,.14);--line-strong:rgba(120,220,170,.3);
+  --ink:#E6F4EC;--soft:#9DB8AA;--faint:#647D70;
+}
+:root[data-season="nv"] body{background-image:radial-gradient(1200px 500px at 50% -180px,color-mix(in srgb,#FCD34D 14%,transparent),transparent 70%)}
+:root[data-season] [fill="#FF7A00"]{fill:var(--brand)}
+:root[data-season] .gm-bar i,:root[data-season] .pod-step{background-image:linear-gradient(90deg,var(--brand-hi),var(--brand))}
+:root[data-season] .btn-primary{box-shadow:0 10px 24px -12px rgba(var(--brand-rgb),.8)}
+:root[data-season] #nyGarland{display:block}
+:root[data-season] header.top,:root[data-season] .cab-top{padding-top:20px}
+:root[data-season] .ny-hello{display:inline-flex}
+:root[data-season="nv"] .shr-cta{background:linear-gradient(135deg,#052E23,#0A4A39 55%,#0F7356)}
+:root[data-season="nv"] .shr-cta-eb{color:var(--gold-hi);background:rgba(252,211,77,.12);border-color:rgba(252,211,77,.32)}
+:root[data-season="nv"] .shr-hero .rar{color:#065F46}
+:root[data-season="nv"] .ach-stage::before{background:radial-gradient(circle,color-mix(in srgb,#FDE68A 70%,transparent),transparent 70%)}
+:root[data-season="nv"] .lg-blob.b3{background:radial-gradient(circle,#CDEFD9,transparent 70%)}
+:root[data-season="nv"][data-theme="dark"] .lg-blob.b3{background:radial-gradient(circle,#1E5A43,transparent 70%)}
+:root[data-season="nv"] .select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E7A5A' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}
+:root[data-season="nv"] :is(.logo-mark,.lg-mark,.sp-logo,.soc-mark){position:relative;overflow:visible}
+:root[data-season="nv"] :is(.logo-mark,.lg-mark,.sp-logo,.soc-mark)::after{content:"";position:absolute;z-index:2;width:58%;aspect-ratio:64/56;top:-36%;right:-8%;
+  background:var(--nv-hat) no-repeat center/contain;transform:rotate(10deg);pointer-events:none;filter:drop-shadow(0 2px 3px rgba(0,0,0,.2))}
+.nyg .nyg-lion{position:relative;overflow:visible}
+.nyg .nyg-lion::after{content:"";position:absolute;z-index:2;width:62%;aspect-ratio:64/56;top:-30%;right:-16%;background:var(--ny-hat) no-repeat center/contain;transform:rotate(16deg);pointer-events:none;filter:drop-shadow(0 2px 3px rgba(0,0,0,.22))}
+.nyg.nvg .nyg-lion::after{background-image:var(--nv-hat);width:58%;top:-36%;right:-8%;transform:rotate(10deg)}
+.nyg.nvg{background:radial-gradient(500px 260px at 50% 0,#22A06B,transparent 70%),linear-gradient(180deg,#052E23,#0A4A39 60%,#0F7356)}
+.nyg.nvg .nyg-lion{background:linear-gradient(135deg,#34D399,#0E7A5A)}
+.nyg.nvg .nyg-year{font-size:48px;letter-spacing:.01em}
+.ny-flakes.petal i{background:#F9A8D4;border-radius:60% 40% 60% 40%;width:calc(var(--s) * 1.8);height:var(--s);opacity:.85}
+.ny-flakes.petal i:nth-child(3n){background:#FDE68A}
+.ny-flakes.petal i:nth-child(4n){background:#86EFAC}
+.ny-flakes.conf i{border-radius:2px;background:#FF7A00}
+.ny-flakes.conf i:nth-child(3n){background:#3B82F6}
+.ny-flakes.conf i:nth-child(3n+1){background:#FCD34D}
+#nyGarland .b.nv{animation:nvSway 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+#nyGarland .b.nv:nth-child(even){animation-delay:-1.3s}
+@keyframes nvSway{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+:root[data-season="nv"] #nyGarland .w{stroke:#B7791F;opacity:.7}
+.ny-hello{background:linear-gradient(135deg,#1E3A8A,#2F6FE6)}
+:root[data-season="nv"] .ny-hello{background:linear-gradient(135deg,#065F46,#0E9F6E)}
+:root[data-season="nv"] .ny-hello .tb{color:#FDE68A}
+.modal.ach-nv .mhead h3{color:var(--or-text)}
+.ach-nv .ach-stage{width:220px;height:220px}
+.ach-nv .ach-stage::before{inset:20px;background:radial-gradient(circle,rgba(253,230,138,.6),transparent 70%)}
+.ach-nv .ach-rays{background:repeating-conic-gradient(from 0deg,rgba(52,195,143,.32) 0 8deg,transparent 8deg 22deg)}
+.ach-nv .ach-eb{color:#065F46;background:#D1FAE5}
+:root[data-theme="dark"] .ach-nv .ach-eb{color:#6EE7B7;background:rgba(52,211,153,.14)}
+.modal.cr-m .mhead h3{color:var(--or-text)}
+.crp{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+.crp-art{position:relative;width:132px;height:132px;display:grid;place-items:center;margin:4px 0 6px}
+.crp-art .ny-flakes{inset:-14px}
+.crp-ic{position:relative;width:96px;height:96px;border-radius:50%;display:grid;place-items:center;color:#fff;
+  background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--cc) 55%,#fff),var(--cc));box-shadow:0 18px 40px -16px var(--cc),inset 0 2px 0 rgba(255,255,255,.35);animation:achPop .7s var(--ease) both}
+.crp-ic .tb{width:50px;height:50px;stroke-width:1.8}
+.crp-eb{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cc);background:color-mix(in srgb,var(--cc) 12%,var(--surface));padding:4px 12px;border-radius:99px}
+.crp h3{font-size:22px;font-weight:800;color:var(--ink)}
+.crp p{font-size:14.5px;line-height:1.6;color:var(--soft);max-width:380px}
+.crp-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;width:100%;margin-top:6px}
+.crp-steps span{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);color:var(--faint)}
+.crp-steps span .tb{width:22px;height:22px}
+.crp-steps span b{font-size:12px;font-weight:600}
+.crp-steps span.ok{color:var(--cc);border-color:color-mix(in srgb,var(--cc) 35%,var(--line))}
+.crp-steps span.on{color:#fff;background:var(--cc);border-color:var(--cc);box-shadow:0 10px 22px -12px var(--cc)}
+.crp-prog{background:var(--tint);border-radius:14px;padding:10px 14px;color:var(--ink)!important;font-size:14px!important;width:100%;max-width:none!important}
+.cd-host:empty{display:none}
+.cd-host{width:100%}
+#cdApp{padding:0 clamp(16px,3vw,36px);margin:14px 0 -6px}
+#cdCab{max-width:1080px;margin:12px auto 0;padding:0 clamp(16px,4vw,32px)}
+#cdLogin{position:relative;z-index:2;max-width:420px;margin:0 auto 14px}
+.pub-wrap .cd-host{margin-bottom:16px}
+.cd{position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;padding:14px 48px 14px 16px;border-radius:20px;color:#fff;
+  background:linear-gradient(120deg,#E86A00,#FF8A1F 50%,#FFB15C);box-shadow:0 18px 40px -24px rgba(0,0,0,.6)}
+.cd-ny{background:linear-gradient(120deg,#0B1A45,#163276 55%,#2F6FE6)}
+.cd-nv{background:linear-gradient(120deg,#052E23,#0A5C44 55%,#12946B)}
+.cd::before{content:"";position:absolute;inset:0;background:radial-gradient(260px 120px at 85% 0,rgba(255,255,255,.18),transparent 70%);pointer-events:none}
+.cd .ny-flakes{inset:0;border-radius:0}
+.cd-ic{position:relative;width:46px;height:46px;flex:none;border-radius:15px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25)}
+.cd-ic .tb{width:26px;height:26px;color:#FDE68A}
+.cd-t{position:relative;min-width:0;flex:1}
+.cd-t small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.cd-t b{display:block;font-size:17px;font-weight:700;line-height:1.3}
+.cd-big{display:inline-block;min-width:1.4em;text-align:center;font-size:24px;font-weight:800;color:#FDE68A;margin:0 2px}
+.cd-units{position:relative;display:flex;gap:8px}
+.cd-u{display:flex;flex-direction:column;align-items:center;min-width:58px;padding:6px 6px 5px;border-radius:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22)}
+.cd-u b{font-size:24px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums;color:#fff}
+.cd-u b.tk{animation:cdTick .35s var(--ease)}
+.cd-u small{font-size:10.5px;opacity:.8;margin-top:1px}
+@keyframes cdTick{0%{transform:translateY(-35%);opacity:.2}100%{transform:none;opacity:1}}
+.cd-x{position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:10px;border:0;background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;cursor:pointer}
+.cd-x .i{width:16px;height:16px}
+.cd-x:hover{background:rgba(255,255,255,.24)}
+.cd-done .cd-t b{font-size:19px;color:#FDE68A}
+body:has(.xp-run) .cd-host{display:none}
+@media (max-width:760px){
+  .cd{flex-wrap:wrap;padding:12px 44px 12px 12px;gap:10px 12px}
+  .cd-ic{width:40px;height:40px;border-radius:13px}
+  .cd-t b{font-size:15.5px}
+  .cd-units{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+  .cd-u{min-width:0}
+  .cd-u b{font-size:22px}
+  #cdApp{margin-top:10px}
+}
+@media (prefers-reduced-motion:reduce){.cd-u b.tk{animation:none}}
+.cfx{position:fixed;inset:0;width:100vw;height:100vh;z-index:90;pointer-events:none}
+#simChip{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:59;display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#7C3AED;color:#fff;font-size:12.5px;box-shadow:0 10px 24px -12px rgba(0,0,0,.5)}
+#simChip .tb{width:16px;height:16px}
+@media (max-width:760px){#simChip{bottom:calc(84px + env(safe-area-inset-bottom))}}
+.cr-chips{display:flex;flex-wrap:wrap;gap:6px;padding-left:28px}
+.cr-chip{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:99px;font-size:12.5px;font-weight:600;color:var(--cc);background:color-mix(in srgb,var(--cc) 10%,var(--surface));border:1px solid color-mix(in srgb,var(--cc) 30%,var(--line))}
+.cr-chip .tb{width:15px;height:15px}
+.sim-quick{display:flex;flex-wrap:wrap;gap:6px;align-items:flex-end}
+.sim-card{border-color:color-mix(in srgb,#7C3AED 35%,var(--line))}
+.sim-card>h3 .tb{color:#7C3AED}
+#nycK button{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+#nycK .tb{width:17px;height:17px}
+.nyc-img.nv{background:#052E23}
+.cd-done .cd-t small{text-transform:none;letter-spacing:0;font-size:13px;font-weight:500;opacity:.9;margin-top:2px}
 </style>
 </head>
 <body>
@@ -2295,7 +2423,7 @@ input::placeholder,textarea::placeholder{text-overflow:ellipsis}
 <div id="modalRoot"></div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
 
-<script>const API_URL = 'https://script.google.com/macros/s/AKfycbz3CMunRCKysOcq63W7UrxJeOAZ-NW_hb3uAf7USUkrj-qPZekn57HYOIX2J7fKVPOU/exec';
+<script>const API_URL = 'https://script.google.com/macros/s/AKfycbzXb4rzEURr_unzEpeOH4lqIVE03RGTgdrnLVegdRCTjl5H0FVFleh0XV5lxjVpvUcf/exec';
 const SOCIAL = { whatsapp: '', instagram: '', tiktok: '' };
 
 const ICONS = {
@@ -5375,6 +5503,7 @@ function showPublic(){
   $('#public').hidden = false;
 }
 function pubShell(inner){
+  inner = '<div class="cd-host"></div>' + inner;
   return `<div class="pub-wrap"><div class="pub-top">
     <a class="logo"><span class="logo-mark"></span><span class="logo-text"><b>Aslan Lessons</b><small>Dərs qeydiyyatı</small></span></a>
     <div class="row" style="gap:8px">${S.cabX ? `<button class="btn btn-sm btn-soft" data-act="cabBack">${ic('back')}Kabinetə qayıt</button>` : ''}<button class="ibtn theme-btn" data-act="toggleTheme" aria-label="Görünüş"></button></div></div>${inner}
@@ -7506,7 +7635,7 @@ function decoUri(color, op){
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" fill="none" stroke="${color}" stroke-opacity="${op}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${g}</svg>`;
   return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
 }
-function initDeco(){
+function initDecoBase(){
   const r = document.documentElement.style;
   r.setProperty('--deco-l', decoUri('#FF7A00', .075));
   r.setProperty('--deco-d', decoUri('#8EA2D0', .075));
@@ -8012,7 +8141,7 @@ AFTER.students = (root) => {
   $$('input[name=sf]', root).forEach(r => r.addEventListener('change', e => { S.ui.sf = e.target.value; upd(); }));
   $$('input[name=ss]', root).forEach(r => r.addEventListener('change', e => { S.ui.ss = e.target.value; S.ui.sf = 'all'; selSet('selS').clear(); renderPage(true); }));
 };
-const APP_VER = '8.6';
+const APP_VER = '8.7';
 Object.assign(ICONS, {
   printer: '<path d="M7 9V4h10v5"/><rect x="3.5" y="9" width="17" height="8" rx="2"/><path d="M7 14h10v6H7z"/><circle cx="17" cy="12" r=".6"/>',
   pulse: '<path d="M3 12h4l2.5-6 4 12L16 9l1.5 3H21"/>',
@@ -8302,7 +8431,7 @@ function healthHtml(h){
     <div class="hl-card ${h.errors.day ? 'warn' : 'ok'}">${ic(h.errors.day ? 'bug' : 'checkcircle')}<div><b>Xətalar</b><small>Son 24 saatda: ${h.errors.day} · jurnalda: ${h.errors.total}</small></div></div>
     <div class="hl-card ${lvl}">${ic('database')}<div><b>Cədvəlin həcmi</b><small>${h.cells.toLocaleString('az')} / ${(h.limit / 1e6)} mln xana · ${pct}%</small><div class="gm-bar"><i style="width:${Math.max(2, Math.min(100, pct))}%"></i></div></div></div>
     <div class="hl-card ${h.backup.last ? 'ok' : 'warn'}">${ic('shield')}<div><b>Ehtiyat nüsxə</b><small>${h.backup.last ? 'Son: ' + fmtDT(h.backup.last) : 'Hələ çıxarılmayıb'}</small></div></div>
-    <div class="hl-card ${seasonOn() ? 'ok' : ''}">${ic('snow')}<div><b>Yeni il rejimi</b><small>${seasonOn() ? 'Aktivdir' : 'Söndürülüb'} · Alətlər → Sayt ayarları</small></div></div>
+    <div class="hl-card ${seasonOn() ? 'ok' : ''}">${ic(seasonKey() === 'nv' ? 'flame' : 'snow')}<div><b>Bayram rejimi</b><small>${seasonKey() === 'ny' ? 'Yeni il aktivdir' : seasonKey() === 'nv' ? 'Novruz aktivdir' : 'Söndürülüb'}${S.site && S.site.cd ? ' · geri sayım işləyir' : ''}${S.site && S.site.sim ? ' · sınaq tarixi' : ''} · Alətlər → Sayt ayarları</small></div></div>
     ${h.shares ? `<div class="hl-card ok">${ic('share')}<div><b>Nailiyyət paylaşımları</b><small>Son 30 gün: ${h.shares.m30.shares} paylaşım · ${h.shares.m30.opens} baxış · ${h.shares.m30.clicks} «Bizə yaz»</small><small class="hl-sub">Cəmi: ${h.shares.shares} · ${h.shares.opens} · ${h.shares.clicks}${h.shares.opens ? ` · çevrilmə ${Math.round(h.shares.clicks / h.shares.opens * 100)}%` : ''}</small></div></div>` : ''}
   </div>
   <div class="section-head" style="margin-top:18px"><h3 style="font-size:15px">Avtomatik işlər</h3><button class="btn btn-sm btn-soft" data-act="reinstallTriggers">${ic('refresh')}Yenidən qur</button></div>
@@ -8582,6 +8711,7 @@ function letterOf(r){
     ? 'Evdə onun uğurlarını qeyd etməyiniz və təriflərinizi əsirgəməməyiniz motivasiyasını daha da artıracaq. Birlikdə daha böyük nəticələr əldə edəcəyimizə inanıram!'
     : 'Gəlin birlikdə onu dəstəkləyək: dərs günlərini xatırlatmaq və kiçik uğurlarını tərifləmək çox kömək edir. Hər hansı sualınız olarsa, mənimlə əlaqə saxlamaqdan çəkinməyin.');
   if (PC.ny) P.push('Qarşıdan gələn Yeni iliniz mübarək! Ailənizə can sağlığı, sevinc və bərəkət, övladınıza isə yeni ildə yeni zirvələr və böyük uğurlar arzulayırıq.');
+  if (PC.nv) P.push('Novruz bayramınız mübarək! Qoy bahar ailənizə sevinc, süfrənizə bərəkət, övladınıza isə yeni güc, yeni ilham və böyük uğurlar gətirsin.');
   return { hi: r.student.parentName ? `Hörmətli ${r.student.parentName},` : 'Hörmətli valideyn,', paras: P, signer: r.signer || 'Leyla xanım' };
 }
 
@@ -8624,7 +8754,7 @@ async function reportPagesBase(r){
   ctx.restore();
   rrFill(ctx, M, 30, 42, 42, 12, '#fff');
   svgPaint(ctx, LOGO_SVG(PC.or), M + 5, 35, 32, PC.or);
-  if (PC.ny) nyReportDecor(ctx, W, M);
+  if (PC.ny || PC.nv) seasonReportDecor(ctx, W, M);
   text('Aslan Lessons', M + 54, 48, F(700, 15), '#fff');
   text('Aylıq hesabat', M + 54, 64, F(400, 10.5), 'rgba(255,255,255,.88)');
   ctx.font = F(700, 11);
@@ -8706,8 +8836,8 @@ async function reportPagesBase(r){
     text(`Ümumi bal: ${g.total} · bu ay qazanılan: ${g.points}`, M + 56, y + 31, F(400, 9.5), PC.soft);
     if (lv.nextMin){
       const pct = Math.max(.03, Math.min(1, (g.total - lv.min) / (lv.nextMin - lv.min)));
-      rrFill(ctx, M + 56, y + 38, 220, 6, 3, PC.ny ? '#E3ECFA' : '#F6E6D6');
-      const bgr = ctx.createLinearGradient(M + 56, 0, M + 276, 0); bgr.addColorStop(0, PC.ny ? '#7FB0FF' : '#FFB15C'); bgr.addColorStop(1, PC.or);
+      rrFill(ctx, M + 56, y + 38, 220, 6, 3, PC.ny ? '#E3ECFA' : PC.nv ? '#DDEFE5' : '#F6E6D6');
+      const bgr = ctx.createLinearGradient(M + 56, 0, M + 276, 0); bgr.addColorStop(0, PC.ny ? '#7FB0FF' : PC.nv ? '#6EE7B7' : '#FFB15C'); bgr.addColorStop(1, PC.or);
       rrFill(ctx, M + 56, y + 38, 220 * pct, 6, 3, bgr);
       text(`«${lv.next}» səviyyəsinə ${lv.nextMin - g.total} bal qalıb`, M + 286, y + 44, F(400, 8.5), PC.soft);
     }
@@ -9072,7 +9202,7 @@ function achItem(kind, id){
   return b && b.count ? { kind: 'badge', b } : null;
 }
 function achBody(it){
-  if (it.kind === 'badge' && it.b.id === 'ny') return nyAchBody(it.b);
+  if (it.kind === 'badge' && SEASON_ACH[it.b.id]) return seasonAchBody(it.b);
   const conf = Array.from({ length: 14 }, (_, k) => `<i style="--a:${k * 26}deg;--d:${(k % 5) * .07}s;--c:${['#FF7A00', '#FBBF24', '#22C55E', '#3B82F6', '#EC4899', '#8B5CF6'][k % 6]}"></i>`).join('');
   if (it.kind === 'level') return `<div class="ach"><div class="ach-stage"><div class="ach-rays"></div><div class="ach-conf">${conf}</div><div class="ach-art">${levelBadge(it.i)}</div></div>
     <span class="ach-eb">Yeni səviyyə</span><h3>${esc(it.name)}</h3><p>Təbrik edirik! Sən artıq «${esc(it.name)}» səviyyəsindəsən. Belə davam et — növbəti zirvə səni gözləyir!</p></div>`;
@@ -9093,11 +9223,12 @@ function achCheck(){
     if (cur.lv > (Number(prev.lv) || 0)) q.push({ kind: 'level', i: cur.lv, name: g.level.name });
     g.badges.forEach(x => { if (x.count && (Number(prev.b[x.id]) || 0) < x.count) q.push({ kind: 'badge', b: x }); });
   } else {
-    const lim = Date.now() - 3 * 864e5;
+    const lim = srvNow() - 3 * 864e5;
     g.badges.forEach(x => { if (x.count && x.last && new Date(String(x.last).replace(' ', 'T')).getTime() >= lim) q.push({ kind: 'badge', b: x }); });
   }
   if (!q.length) return;
-  q.sort((a, b) => (a.kind === 'level' ? 9 : a.b.tier) > (b.kind === 'level' ? 9 : b.b.tier) ? -1 : 1);
+  const rk = (x) => x.kind === 'level' ? 'z' : String(x.b.last || '') + x.b.tier;
+  q.sort((a, b) => rk(b).localeCompare(rk(a)));
   S.achQ = q.slice(0, 3);
   setTimeout(achNext, 900);
 }
@@ -9106,9 +9237,9 @@ function achNext(){
   if (modalStack.length){ setTimeout(achNext, 1200); return; }
   const it = S.achQ.shift();
   const id = it.kind === 'level' ? it.i : it.b.id;
-  const isNy = it.kind === 'badge' && it.b.id === 'ny';
-  sndPlay(isNy ? 'ny' : it.kind === 'level' ? 'level' : it.b.tier >= 4 ? 'legend' : 'badge');
-  openModal({ title: isNy ? 'Yeni iliniz mübarək!' : it.kind === 'level' ? 'Təbriklər!' : 'Yeni nailiyyət!', size: 'sm ach-m' + (isNy ? ' ach-ny' : ''), body: achBody(it),
+  const SA = it.kind === 'badge' ? SEASON_ACH[it.b.id] : null;
+  sndPlay(SA ? SA.snd : it.kind === 'level' ? 'level' : it.b.tier >= 4 ? 'legend' : 'badge');
+  openModal({ title: SA ? SA.title : it.kind === 'level' ? 'Təbriklər!' : 'Yeni nailiyyət!', size: 'sm ach-m' + (SA ? ' ' + SA.cls : ''), body: achBody(it),
     foot: `<button class="btn btn-soft" data-close>Bağla</button><button class="btn btn-primary" data-act="achShare" data-k="${it.kind}" data-id="${esc(String(id))}">${ic('share')}Paylaş</button>`,
     onClose: () => { if (S.achQ && S.achQ.length) setTimeout(achNext, 450); else S.achQ = null; } });
 }
@@ -9339,101 +9470,175 @@ footInit();
     'chart-bar': '<path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"/><path d="M4 20h14"/>',
     'chevron-left': '<path d="M15 6l-6 6l6 6"/>',
     'chevron-right': '<path d="M9 6l6 6l-6 6"/>',
-    calendar2: '<path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M11 15h1"/><path d="M12 15v3"/>'
+    flame: '<path d="M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.621 -2.333 5.588c0 3.704 3.134 6.706 7 6.706s7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235"/>',
+    seedling: '<path d="M12 10a6 6 0 0 0 -6 -6h-3v2a6 6 0 0 0 6 6h3"/><path d="M12 14a6 6 0 0 1 6 -6h3v1a6 6 0 0 1 -6 6h-3"/><path d="M12 20l0 -10"/>',
+    egg: '<path d="M19 14.083c0 4.154 -2.966 6.74 -7 6.917c-4.2 0 -7 -2.763 -7 -6.917c0 -5.538 3.5 -11.09 7 -11.083c3.5 .007 7 5.545 7 11.083z"/>',
+    droplet: '<path d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546z"/>',
+    wind: '<path d="M5 8h8.5a2.5 2.5 0 1 0 -2.34 -3.24"/><path d="M3 12h15.5a2.5 2.5 0 1 1 -2.34 3.24"/><path d="M4 16h5.5a2.5 2.5 0 1 1 -2.34 3.24"/>',
+    leaf: '<path d="M5 21c.5 -4.5 2.5 -8 7 -10"/><path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z"/>',
+    sun: '<path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/>',
+    buta: '<path d="M15 3c-5.5 0 -10 4.6 -10 10.2c0 4.4 3.3 7.8 7.4 7.8c3.8 0 6.6 -2.8 6.6 -6.3c0 -3.1 -2.3 -5.2 -5 -5.2c-2.2 0 -3.8 1.6 -3.8 3.5c0 1.6 1.2 2.8 2.7 2.8"/><path d="M15 3c1.6 .9 2.2 2.4 1.4 3.9"/>',
+    hourglass: '<path d="M6.5 7h11"/><path d="M6.5 17h11"/><path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"/><path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"/>',
+    check: '<path d="M5 12l5 5l10 -10"/>',
+    calendar2: '<path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M11 15h1"/><path d="M12 15v3"/>',
+    flask2: '<path d="M9 3l6 0"/><path d="M10 9l4 0"/><path d="M10 3v6l-4 11a.7 .7 0 0 0 .5 1h11a.7 .7 0 0 0 .5 -1l-4 -11v-6"/>'
   };
   Object.keys(add).forEach(k => { if (!TB[k]) TB[k] = add[k]; });
-  [['snow', 'snowflake'], ['gift', 'gift'], ['settings', 'settings'], ['tree', 'christmas-tree']].forEach(([k, t]) => { if (!ICONS[k]) ICONS[k] = TB[t]; });
+  [['snow', 'snowflake'], ['gift', 'gift'], ['settings', 'settings'], ['tree', 'christmas-tree'], ['flame', 'flame'], ['seedling', 'seedling'], ['hourglass', 'hourglass']].forEach(([k, t]) => { if (!ICONS[k]) ICONS[k] = TB[t]; });
 })();
 
 const NY_HAT = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 56"><path d="M9 42C12 24 25 9 43 7c6-.6 11 2 13 6-6-1-10 2-11 7-1 6 1 13 4 22z" fill="#E11D2E"/><path d="M43 7c6-.6 11 2 13 6-4-.8-7 .2-9 2-2-3-3-6-4-8z" fill="#B3121F"/><path d="M17 40c4-10 10-18 18-23" stroke="#FF6B7A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".55"/><circle cx="56.5" cy="13.5" r="6.5" fill="#fff"/><rect x="3" y="37" width="52" height="14" rx="7" fill="#fff"/><path d="M8 47h42" stroke="#DCE3EE" stroke-width="2" stroke-linecap="round"/></svg>';
+const NV_SPROUT = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 56"><path d="M18 44C16 30 12 20 6 12c9 5 14 15 16 30z" fill="#4ADE80"/><path d="M26 44C25 28 24 16 20 4c6 10 9 24 10 40z" fill="#22C55E"/><path d="M34 44c0-16 2-28 7-40c-2 13-3 26-2 40z" fill="#16A34A"/><path d="M42 44c3-14 8-23 16-30c-6 9-9 18-11 30z" fill="#4ADE80"/><path d="M30 44C31 32 33 22 34 13c1 10 0 21-1 31z" fill="#86EFAC"/><rect x="8" y="40" width="44" height="9" rx="4.5" fill="#DC2626"/><path d="M30 44c-6-6-14-6-14 0s8 6 14 0zm0 0c6-6 14-6 14 0s-8 6-14 0z" fill="#EF4444"/><path d="M30 44l-6 11M30 44l6 11" stroke="#DC2626" stroke-width="3.2" stroke-linecap="round"/><circle cx="30" cy="44" r="3.2" fill="#B91C1C"/></svg>';
 document.documentElement.style.setProperty('--ny-hat', `url("data:image/svg+xml,${encodeURIComponent(NY_HAT)}")`);
+document.documentElement.style.setProperty('--nv-hat', `url("data:image/svg+xml,${encodeURIComponent(NV_SPROUT)}")`);
 const PC_NY = { ny: true, or: '#1D5FD1', orText: '#1A4FB8', tint: '#EEF4FF', line: '#DCE6F5', lineS: '#C3D3EE', ink: '#16233A', soft: '#56657D', faint: '#8E9BB0', h1: '#1E3A8A', h2: '#2F6FE6', paper: '#F7FAFF' };
+const PC_NV = { nv: true, or: '#0E7A5A', orText: '#0B6B4E', tint: '#ECF7F1', line: '#D7E9DF', lineS: '#B9D9C8', ink: '#14251D', soft: '#4F6458', faint: '#8AA095', h1: '#064E3B', h2: '#0F8A63', paper: '#F7FCF9' };
 Object.assign(PC, { h1: '#FFA247', h2: '#FF7400', paper: '#FFFBF6' });
+const CR = [
+  { n: 'Su', ic: 'droplet', c: '#2563EB', t: 'Novruz qabağı ilk çərşənbədir. Su — həyatın və təmizliyin rəmzidir. Qədim inanca görə, bu gün sular təzələnir; insanlar bulaq başına gedir, bir-birinə xoş arzular diləyirlər.' },
+  { n: 'Od', ic: 'flame', c: '#EA580C', t: 'İkinci çərşənbə. Od — işığın, istiliyin və həyat enerjisinin rəmzidir. Tonqallar qalanır, insanlar tonqalın üstündən tullanaraq köhnə ilin dərdlərini geridə qoyurlar.' },
+  { n: 'Yel', ic: 'wind', c: '#0891B2', t: 'Üçüncü çərşənbə. Yel — oyanışın rəmzidir. İnanca görə, yel təbiəti yuxudan oyadır, ağacları tumurcuqlandırır və baharın gəldiyini xəbər verir.' },
+  { n: 'Torpaq', ic: 'seedling', c: '#4D7C0F', t: 'Axır çərşənbə — ən sevilən gün! Torpaq oyanır, səməni yaşıllaşır. Axşam tonqallar qalanır, papaq atılır, qapı pusulur, xonçalar bəzədilir — bayram artıq qapıdadır!' }
+];
 
-function seasonOn(){ return !!(S.site && S.site.ny); }
+function seasonKey(){ return (S.site && (S.site.k || (S.site.ny ? 'ny' : ''))) || ''; }
+function seasonOn(){ return !!seasonKey(); }
 function nyYearNow(){ return (S.site && S.site.y) || (new Date().getMonth() >= 6 ? new Date().getFullYear() + 1 : new Date().getFullYear()); }
+function nvYearNow(){ return (S.site && S.site.vy) || new Date().getFullYear(); }
+function srvNow(){ return Date.now() + (S.tOff || 0); }
 function snowOn(){ try { return localStorage.getItem('al_snow') !== '0'; } catch (e) { return true; } }
 function siteApply(x){
   if (!x || typeof x !== 'object') return;
-  const prev = JSON.stringify(S.site || {});
+  if (typeof x.now === 'number') S.tOff = x.now - Date.now();
+  const strip = (o) => { const c = Object.assign({}, o); delete c.now; return JSON.stringify(c); };
+  const prev = strip(S.site || {});
   S.site = x;
-  try { localStorage.setItem('al_site', JSON.stringify({ ny: !!x.ny, y: x.y, social: x.social || {}, share: x.share !== false })); } catch (e) {}
-  if (prev !== JSON.stringify(x)){
+  try { localStorage.setItem('al_site', JSON.stringify({ k: x.k || '', ny: !!x.ny, y: x.y, vy: x.vy, social: x.social || {}, share: x.share !== false, cd: x.cd || null, now: x.now })); } catch (e) {}
+  if (prev !== strip(x)){
     seasonSet();
     footInit();
     if (S.d && !$('#shell').hidden) renderChrome();
   }
+  cdSync();
+  simChip();
+  nyGreetTries = 0;
   nyGreetSoon();
 }
 function seasonSet(){
-  const on = seasonOn(), h = document.documentElement;
-  if (on) h.dataset.season = 'ny'; else delete h.dataset.season;
+  const k = seasonKey(), h = document.documentElement;
+  if (k) h.dataset.season = k; else delete h.dataset.season;
+  const cr = k === 'nv' && S.site && S.site.cr ? CR[S.site.cr.i] : null;
+  if (cr) h.dataset.cr = String(S.site.cr.i); else delete h.dataset.cr;
   h.classList.toggle('no-share', !!(S.site && S.site.share === false));
   const m = document.querySelector('meta[name=theme-color]');
-  if (m) m.setAttribute('content', S.theme === 'dark' ? '#0D1220' : on ? '#1D5FD1' : '#FF7A00');
-  garlandSync();
-  snowSync();
-  const r = document.documentElement.style;
-  if (on){ r.setProperty('--deco-l', nyDeco('#1D5FD1')); r.setProperty('--deco-d', nyDeco('#8EA2D0')); } else initDeco();
-  loginArtNy(on);
+  if (m) m.setAttribute('content', S.theme === 'dark' ? '#0D1220' : k === 'ny' ? '#1D5FD1' : k === 'nv' ? '#0E7A5A' : '#FF7A00');
+  garlandSync(true);
+  snowSync(true);
+  decoApply();
+  loginArtSeason(k);
   const hello = $('#nyHello');
-  if (hello) hello.innerHTML = `${tb('christmas-tree')}<span>Yeni iliniz mübarək!</span>`;
+  if (hello) hello.innerHTML = k === 'nv' ? `${tb('flame')}<span>${cr ? cr.n + ' çərşənbəniz mübarək!' : 'Novruz bayramınız mübarək!'}</span>` : `${tb('christmas-tree')}<span>Yeni iliniz mübarək!</span>`;
 }
-
-function nyDeco(color){
+function seasonDeco(color, list){
   const keep = DECO_ICONS.slice();
-  DECO_ICONS.splice(0, DECO_ICONS.length, 'snowflake', 'gift', 'christmas-tree', 'star', 'book', 'snowflake', 'pencil', 'gift', 'sparkles', 'christmas-tree', 'bulb', 'snowflake', 'star', 'gift', 'school', 'christmas-tree');
+  DECO_ICONS.splice(0, DECO_ICONS.length, ...list);
   const u = decoUri(color, .08);
   DECO_ICONS.splice(0, DECO_ICONS.length, ...keep);
   return u;
 }
+function decoApply(){
+  const k = seasonKey(), r = document.documentElement.style;
+  if (k === 'ny'){
+    const l = ['snowflake', 'gift', 'christmas-tree', 'star', 'book', 'snowflake', 'pencil', 'gift', 'sparkles', 'christmas-tree', 'bulb', 'snowflake', 'star', 'gift', 'school', 'christmas-tree'];
+    r.setProperty('--deco-l', seasonDeco('#1D5FD1', l)); r.setProperty('--deco-d', seasonDeco('#8EA2D0', l));
+  } else if (k === 'nv'){
+    const l = ['buta', 'flame', 'seedling', 'egg', 'book', 'buta', 'droplet', 'sun', 'pencil', 'wind', 'buta', 'leaf', 'flame', 'seedling', 'school', 'egg'];
+    r.setProperty('--deco-l', seasonDeco('#0E7A5A', l)); r.setProperty('--deco-d', seasonDeco('#7FB8A0', l));
+  } else initDecoBase();
+}
+function initDeco(){ decoApply(); }
 const LOGIN_ICONS_0 = LOGIN_ICONS.map(x => x[0]);
-const LOGIN_NY = { star: 'snowflake', rocket: 'gift', trophy: 'christmas-tree', calculator: 'snowflake', compass: 'gift' };
-let loginNyState = null;
-function loginArtNy(on){
-  if (loginNyState === on) return;
-  loginNyState = on;
-  LOGIN_ICONS.forEach((x, i) => { x[0] = on && LOGIN_NY[LOGIN_ICONS_0[i]] ? LOGIN_NY[LOGIN_ICONS_0[i]] : LOGIN_ICONS_0[i]; });
+const LOGIN_SEASON = { ny: { star: 'snowflake', rocket: 'gift', trophy: 'christmas-tree', calculator: 'snowflake', compass: 'gift' }, nv: { star: 'flame', rocket: 'seedling', trophy: 'buta', calculator: 'egg', compass: 'sun', music: 'droplet' } };
+let loginSeasonState = null;
+function loginArtSeason(k){
+  if (loginSeasonState === k) return;
+  loginSeasonState = k;
+  const map = LOGIN_SEASON[k] || {};
+  LOGIN_ICONS.forEach((x, i) => { x[0] = map[LOGIN_ICONS_0[i]] || LOGIN_ICONS_0[i]; });
   const art = $('#loginArt'); if (art && art.firstChild){ art.innerHTML = loginArtHtml(); }
 }
-let garlandW = 0;
-function garlandSync(){
+
+let garlandKey = '';
+function garlandSync(force){
   let g = $('#nyGarland');
-  if (!seasonOn()){ if (g) g.innerHTML = ''; garlandW = 0; return; }
+  const k = seasonKey();
+  if (!k){ if (g) g.innerHTML = ''; garlandKey = ''; return; }
   if (!g){ g = document.createElement('div'); g.id = 'nyGarland'; g.setAttribute('aria-hidden', 'true'); document.body.appendChild(g); }
-  const W = Math.round(innerWidth);
-  if (W === garlandW && g.innerHTML) return;
-  garlandW = W;
-  const step = W < 600 ? 46 : 64, n = Math.ceil(W / step) + 1, cols = ['#FACC15', '#F43F5E', '#22C55E', '#3B82F6', '#F472B6', '#F97316'];
-  let d = 'M0 2', bulbs = '';
-  for (let i = 0; i < n; i++){
-    const x0 = i * step, xm = x0 + step / 2;
-    d += ` Q${xm} 13 ${x0 + step} 2`;
-    const c = cols[i % cols.length];
-    bulbs += `<g class="b" style="color:${c}"><rect class="c" x="${xm - 2}" y="6.5" width="4" height="3.4" rx="1"/><ellipse cx="${xm}" cy="14.2" rx="3.6" ry="5" fill="${c}"/><ellipse cx="${xm - 1.1}" cy="12.6" rx="1" ry="1.6" fill="#fff" opacity=".55"/></g>`;
+  const W = Math.round(innerWidth), crI = S.site && S.site.cr ? S.site.cr.i : -1, key = k + W + '_' + crI;
+  if (!force && key === garlandKey && g.innerHTML) return;
+  garlandKey = key;
+  if (k === 'ny'){
+    const step = W < 600 ? 46 : 64, n = Math.ceil(W / step) + 1, cols = ['#FACC15', '#F43F5E', '#22C55E', '#3B82F6', '#F472B6', '#F97316'];
+    let d = 'M0 2', bulbs = '';
+    for (let i = 0; i < n; i++){
+      const x0 = i * step, xm = x0 + step / 2;
+      d += ` Q${xm} 13 ${x0 + step} 2`;
+      const c = cols[i % cols.length];
+      bulbs += `<g class="b" style="color:${c}"><rect class="c" x="${xm - 2}" y="6.5" width="4" height="3.4" rx="1"/><ellipse cx="${xm}" cy="14.2" rx="3.6" ry="5" fill="${c}"/><ellipse cx="${xm - 1.1}" cy="12.6" rx="1" ry="1.6" fill="#fff" opacity=".55"/></g>`;
+    }
+    g.innerHTML = `<svg viewBox="0 0 ${W} 24" preserveAspectRatio="none"><path class="w" d="${d}"/>${bulbs}</svg>`;
+    return;
   }
-  g.innerHTML = `<svg viewBox="0 0 ${W} 24" preserveAspectRatio="none"><path class="w" d="${d}"/>${bulbs}</svg>`;
+  const step = W < 600 ? 40 : 54, n = Math.ceil(W / step) + 1;
+  const items = crI >= 0 ? [CR[crI]] : CR;
+  let d = 'M0 2', it = '';
+  for (let i = 0; i < n; i++){
+    const x0 = i * step, xm = x0 + step / 2, e = items[i % items.length];
+    d += ` Q${xm} 9 ${x0 + step} 2`;
+    it += `<g transform="translate(${xm - 6.5} 6.5) scale(.54)"><g class="b nv" style="color:${e.c}"><circle cx="12" cy="12" r="11" fill="#FFFBEB" stroke="none"/><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${TB[e.ic]}</g></g></g>`;
+  }
+  g.innerHTML = `<svg viewBox="0 0 ${W} 24" preserveAspectRatio="none"><path class="w" d="${d}"/>${it}</svg>`;
 }
 addEventListener('resize', () => { if (seasonOn()) garlandSync(); });
 
-const SNOW = { cv: null, raf: 0, fl: [], last: 0, d: 1, chk: 0, k: 1 };
+const SNOW = { cv: null, raf: 0, fl: [], last: 0, d: 1, k: 1, mode: '' };
+function fxMode(){
+  const k = seasonKey();
+  if (k === 'ny') return 'snow';
+  if (k !== 'nv') return '';
+  const i = S.site && S.site.cr ? S.site.cr.i : -1;
+  return ['drops', 'sparks', 'wind', 'petals'][i] || 'petals';
+}
 function snowWanted(){
   let rm = false;
   try { rm = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
   SNOW.k = rm ? .45 : 1;
   return seasonOn() && snowOn();
 }
-function snowSync(){ if (snowWanted()) snowStart(); else snowStop(); }
-function snowFlake(init){ const m = innerWidth < 700; return { x: Math.random() * innerWidth, y: init ? Math.random() * innerHeight : -8, r: (m ? 1.6 : 1.1) + Math.random() * (m ? 2.8 : 2.5), s: (.4 + Math.random() * .8) * SNOW.k, w: Math.random() * 6.28, o: .5 + Math.random() * .45 }; }
+function snowSync(force){
+  const md = fxMode();
+  if (force && SNOW.cv && SNOW.mode !== md) snowStop();
+  if (snowWanted()) snowStart(); else snowStop();
+}
+function snowFlake(init){
+  const m = innerWidth < 700, W = innerWidth, H = innerHeight, md = SNOW.mode, R = Math.random;
+  if (md === 'sparks') return { x: R() * W, y: init ? R() * H : H + 10, r: 1 + R() * 2.2, s: -(.6 + R() * 1.2) * SNOW.k, w: R() * 6.28, o: .6 + R() * .4, c: R() > .5 ? '#F59E0B' : '#F97316', life: 1 };
+  if (md === 'drops') return { x: R() * W, y: init ? R() * H : -20, r: 7 + R() * 9, s: (3 + R() * 2.5) * SNOW.k, w: 0, o: .35 + R() * .35, c: '#3B82F6' };
+  if (md === 'wind') return { x: init ? R() * W : -20, y: R() * H, r: (m ? 4 : 3.5) + R() * 3.5, s: (1.6 + R() * 1.6) * SNOW.k, w: R() * 6.28, o: .55 + R() * .4, c: R() > .5 ? '#86EFAC' : '#F9A8D4', rot: R() * 6.28 };
+  if (md === 'petals') return { x: R() * W, y: init ? R() * H : -12, r: (m ? 4 : 3.4) + R() * 3.4, s: (.5 + R() * .7) * SNOW.k, w: R() * 6.28, o: .55 + R() * .4, c: R() > .55 ? '#F9A8D4' : R() > .4 ? '#FDE2E4' : '#86EFAC', rot: R() * 6.28 };
+  return { x: R() * W, y: init ? R() * H : -8, r: (m ? 1.6 : 1.1) + R() * (m ? 2.8 : 2.5), s: (.4 + R() * .8) * SNOW.k, w: R() * 6.28, o: .5 + R() * .45 };
+}
 function snowSize(){
   const c = SNOW.cv; if (!c) return;
   SNOW.d = Math.min(2, devicePixelRatio || 1);
   c.width = Math.round(innerWidth * SNOW.d); c.height = Math.round(innerHeight * SNOW.d);
-  const n = Math.round(Math.min(90, Math.max(44, innerWidth / (innerWidth < 700 ? 8 : 16))));
+  const base = Math.round(Math.min(90, Math.max(44, innerWidth / (innerWidth < 700 ? 8 : 16))));
+  const n = SNOW.mode === 'snow' ? base : SNOW.mode === 'drops' ? Math.round(base * .6) : Math.round(base * .55);
   SNOW.fl = Array.from({ length: n }, () => snowFlake(true));
 }
 function snowStart(){
   if (SNOW.cv) return;
+  SNOW.mode = fxMode();
   const c = document.createElement('canvas'); c.id = 'nySnow'; c.setAttribute('aria-hidden', 'true');
   document.body.appendChild(c); SNOW.cv = c; snowSize();
   addEventListener('resize', snowSize);
@@ -9449,25 +9654,54 @@ function snowTick(t){
   if (document.hidden || t - SNOW.last < 33) return;
   const dt = SNOW.last ? Math.min(3, (t - SNOW.last) / 16.7) : 1;
   SNOW.last = t;
-  const c = SNOW.cv, x = c.getContext('2d'), W = innerWidth, H = innerHeight;
+  const c = SNOW.cv, x = c.getContext('2d'), W = innerWidth, H = innerHeight, md = SNOW.mode;
   x.setTransform(SNOW.d, 0, 0, SNOW.d, 0, 0); x.clearRect(0, 0, W, H);
   const dark = document.documentElement.dataset.theme === 'dark';
-  x.fillStyle = dark ? '#FFFFFF' : '#6F9BE3';
+  if (md === 'snow') x.fillStyle = dark ? '#FFFFFF' : '#6F9BE3';
   SNOW.fl.forEach((f, i) => {
-    f.y += f.s * dt; f.w += .012 * dt; f.x += Math.sin(f.w) * .35 * dt;
-    if (f.y > H + 8 || f.x < -10 || f.x > W + 10) SNOW.fl[i] = snowFlake(false);
-    x.globalAlpha = f.o * (dark ? .85 : .7);
-    x.beginPath(); x.arc(f.x, f.y, f.r, 0, 6.283); x.fill();
+    if (md === 'snow'){
+      f.y += f.s * dt; f.w += .012 * dt; f.x += Math.sin(f.w) * .35 * dt;
+      if (f.y > H + 8 || f.x < -10 || f.x > W + 10) SNOW.fl[i] = snowFlake(false);
+      x.globalAlpha = f.o * (dark ? .85 : .7);
+      x.beginPath(); x.arc(f.x, f.y, f.r, 0, 6.283); x.fill();
+      return;
+    }
+    if (md === 'drops'){
+      f.y += f.s * dt; f.x -= .6 * dt;
+      if (f.y > H + 20) SNOW.fl[i] = snowFlake(false);
+      x.globalAlpha = f.o; x.strokeStyle = dark ? '#93C5FD' : f.c; x.lineWidth = 1.6; x.lineCap = 'round';
+      x.beginPath(); x.moveTo(f.x, f.y); x.lineTo(f.x + 2, f.y - f.r); x.stroke();
+      return;
+    }
+    if (md === 'sparks'){
+      f.y += f.s * dt; f.w += .05 * dt; f.x += Math.sin(f.w) * .5 * dt; f.life -= .004 * dt;
+      if (f.y < -10 || f.life <= 0) SNOW.fl[i] = snowFlake(false);
+      x.globalAlpha = Math.max(0, f.o * f.life); x.fillStyle = f.c;
+      x.beginPath(); x.arc(f.x, f.y, f.r, 0, 6.283); x.fill();
+      return;
+    }
+    if (md === 'wind'){ f.x += f.s * dt; f.y += Math.sin(f.w += .03 * dt) * .8 * dt + .25 * dt; f.rot += .06 * dt; if (f.x > W + 20) SNOW.fl[i] = snowFlake(false); }
+    else { f.y += f.s * dt; f.w += .02 * dt; f.x += Math.sin(f.w) * .6 * dt; f.rot += .02 * dt; if (f.y > H + 12) SNOW.fl[i] = snowFlake(false); }
+    x.globalAlpha = f.o; x.fillStyle = f.c;
+    x.save(); x.translate(f.x, f.y); x.rotate(f.rot); x.beginPath(); x.ellipse(0, 0, f.r, f.r * .55, 0, 0, 6.283); x.fill(); x.restore();
   });
   x.globalAlpha = 1;
 }
+function fxLabel(on){ return seasonKey() === 'ny' ? (on ? 'Qarı söndür' : 'Qarı yandır') : (on ? 'Bayram effektini söndür' : 'Bayram effektini yandır'); }
 ACT.toggleSnow = () => {
   const on = !snowOn();
   try { localStorage.setItem('al_snow', on ? '1' : '0'); } catch (e) {}
   snowSync();
-  toast(on ? 'Qar effekti yandırıldı.' : 'Qar effekti söndürüldü.', 'ok');
-  $$('[data-act=toggleSnow]').forEach(b => { const t = b.querySelector('span') || b; const lbl = on ? 'Qarı söndür' : 'Qarı yandır'; if (t === b) b.lastChild.textContent = lbl; else t.textContent = lbl; });
+  toast(on ? 'Effekt yandırıldı.' : 'Effekt söndürüldü.', 'ok');
+  $$('[data-act=toggleSnow]').forEach(b => { const t = b.querySelector('span') || b; const lbl = fxLabel(on); if (t === b) b.lastChild.textContent = lbl; else t.textContent = lbl; });
 };
+function snowItem(cls){
+  if (!seasonOn()) return '';
+  const icn = seasonKey() === 'ny' ? 'snow' : 'flame';
+  return cls === 'mrow' ? `<button class="mrow" data-act="toggleSnow">${ic(icn)}<span>${fxLabel(snowOn())}</span>${ic('chev')}</button>`
+    : `<button class="mitem" data-act="toggleSnow">${ic(icn)}${fxLabel(snowOn())}</button>`;
+}
+
 const SND = { ctx: null };
 function sndOn(){ try { return localStorage.getItem('al_sound') !== '0'; } catch (e) { return true; } }
 function sndCtx(){
@@ -9489,13 +9723,16 @@ function sndTone(c, out, t, f, d, type, vol){
   o.connect(g); g.connect(out); o.start(t); o.stop(t + d + .05);
 }
 function sndBell(c, out, t, f, d, vol){ sndTone(c, out, t, f, d, 'sine', vol); sndTone(c, out, t, f * 2.76, d * .55, 'sine', vol * .32); sndTone(c, out, t, f * 5.4, d * .3, 'sine', vol * .12); }
-function sndJingle(c, out, t, vol){
-  const len = Math.floor(c.sampleRate * .14), buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0);
+function sndNoise(c, out, t, dur, type, freq, q, vol){
+  const len = Math.floor(c.sampleRate * dur), buf = c.createBuffer(1, len, c.sampleRate), d = buf.getChannelData(0);
   for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3);
   const src = c.createBufferSource(), bp = c.createBiquadFilter(), g = c.createGain();
-  src.buffer = buf; bp.type = 'bandpass'; bp.frequency.value = 7500; bp.Q.value = 1.4; g.gain.value = vol;
+  src.buffer = buf; bp.type = type; bp.frequency.value = freq; bp.Q.value = q; g.gain.value = vol;
   src.connect(bp); bp.connect(g); g.connect(out); src.start(t);
 }
+function sndJingle(c, out, t, vol){ sndNoise(c, out, t, .14, 'bandpass', 7500, 1.4, vol); }
+function sndPluck(c, out, t, f, vol){ sndTone(c, out, t, f, .55, 'triangle', vol); sndTone(c, out, t, f * 1.006, .4, 'sawtooth', vol * .18); sndTone(c, out, t, f * 2, .25, 'sine', vol * .3); }
+function sndDaf(c, out, t, vol){ sndTone(c, out, t, 92, .22, 'sine', vol); sndNoise(c, out, t, .09, 'highpass', 2200, .7, vol * .35); }
 function sndRender(c, kind){
   const out = c.createGain(), comp = c.createDynamicsCompressor();
   out.gain.value = .9; out.connect(comp); comp.connect(c.destination);
@@ -9508,6 +9745,13 @@ function sndRender(c, kind){
     const E = 659.25, G = 783.99, C = 523.25, D = 587.33;
     [[E, 0], [E, .16], [E, .32], [E, .64], [E, .8], [E, .96], [E, 1.28], [G, 1.44], [C, 1.6], [D, 1.76], [E, 1.92]].forEach(([f, dt], i) => sndBell(c, out, t + dt, f * 2, i === 10 ? 1.4 : .45, i === 10 ? .13 : .1));
     for (let k = 0; k < 13; k++) sndJingle(c, out, t + k * .16, .05 + (k % 2) * .03);
+  } else if (kind === 'nv'){
+    const A = 440, Bb = 466.16, C5 = 523.25, D5 = 587.33, E5 = 659.25, G = 392;
+    [[A, 0], [Bb, .14], [C5, .28], [D5, .42], [E5, .56], [D5, .84], [C5, .98], [Bb, 1.12], [A, 1.26], [G, 1.4], [A, 1.68]].forEach(([f, dt], i) => sndPluck(c, out, t + dt, f, i === 10 ? .14 : .1));
+    [0, .28, .56, .7, .84, 1.12, 1.4, 1.54, 1.68].forEach((dt, i) => sndDaf(c, out, t + dt, i % 3 === 0 ? .22 : .12));
+  } else if (kind === 'cr'){
+    [587.33, 783.99, 880].forEach((f, i) => sndPluck(c, out, t + i * .12, f, .09));
+    sndDaf(c, out, t, .12);
   } else {
     const legend = kind === 'legend';
     [1318.5, 1568, 1975.5, 2637].forEach((f, i) => sndBell(c, out, t + i * .075, f, legend ? 1 : .7, legend ? .09 : .08));
@@ -9533,85 +9777,140 @@ function sndItem(cls){
   return cls === 'mrow' ? `<button class="mrow" data-act="toggleSound">${ic('bell')}<span>${sndOn() ? 'Səsləri söndür' : 'Səsləri yandır'}</span>${ic('chev')}</button>`
     : `<button class="mitem" data-act="toggleSound">${ic('bell')}${sndOn() ? 'Səsləri söndür' : 'Səsləri yandır'}</button>`;
 }
-function snowItem(cls){
-  if (!seasonOn()) return '';
-  return cls === 'mrow' ? `<button class="mrow" data-act="toggleSnow">${ic('snow')}<span>${snowOn() ? 'Qarı söndür' : 'Qarı yandır'}</span>${ic('chev')}</button>`
-    : `<button class="mitem" data-act="toggleSnow">${ic('snow')}${snowOn() ? 'Qarı söndür' : 'Qarı yandır'}</button>`;
-}
 
+const LOCK_G = '<g transform="translate(52 52)"><circle r="9" fill="#6B7280" stroke="#fff" stroke-width="2"/><path d="M-3.5-1v-2a3.5 3.5 0 0 1 7 0v2M-4.5-1h9v6h-9z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></g>';
 function nyBadgeSvg(locked){
   const g = 'ny' + (++bdSeq), r = 'nr' + bdSeq;
   return `<svg class="bd-svg r4 bd-ny${locked ? ' bd-locked' : ''}" viewBox="0 0 64 64" aria-hidden="true"><defs>
     <linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#1E3A8A"/></linearGradient>
     <linearGradient id="${r}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDE68A"/><stop offset="1" stop-color="#D99A0B"/></linearGradient></defs>
-    <circle cx="32" cy="32" r="29" fill="url(#${r})"/>
-    <circle cx="32" cy="32" r="24.5" fill="url(#${g})"/>
+    <circle cx="32" cy="32" r="29" fill="url(#${r})"/><circle cx="32" cy="32" r="24.5" fill="url(#${g})"/>
     <circle cx="32" cy="32" r="24.5" fill="none" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="1"/>
     <g fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(17.6 15) scale(1.2)">${TB.snowflake}</g>
     <circle cx="20" cy="18" r="1.3" fill="#fff" opacity=".8"/><circle cx="46" cy="22" r="1" fill="#fff" opacity=".7"/><circle cx="44" cy="44" r="1.2" fill="#fff" opacity=".6"/>
     <path d="M24 53c3-3 7-4 8-1c1-3 5-2 8 1c-3 2-6 3-8 1c-2 2-5 1-8-1z" fill="#16A34A"/>
     <circle cx="30" cy="53" r="2.2" fill="#E11D2E"/><circle cx="34" cy="53" r="2.2" fill="#E11D2E"/>
-    <path d="M32 3.5l1.6 3.4 3.7.4-2.8 2.5.8 3.6-3.3-1.9-3.3 1.9.8-3.6-2.8-2.5 3.7-.4z" fill="#FFF7D1" stroke="#D99A0B" stroke-width=".6"/>
-    ${locked ? '<g transform="translate(52 52)"><circle r="9" fill="#6B7280" stroke="#fff" stroke-width="2"/><path d="M-3.5-1v-2a3.5 3.5 0 0 1 7 0v2M-4.5-1h9v6h-9z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></g>' : ''}</svg>`;
+    <path d="M32 3.5l1.6 3.4 3.7.4-2.8 2.5.8 3.6-3.3-1.9-3.3 1.9.8-3.6-2.8-2.5 3.7-.4z" fill="#FFF7D1" stroke="#D99A0B" stroke-width=".6"/>${locked ? LOCK_G : ''}</svg>`;
 }
-function badgeSvg(id, locked){ return id === 'ny' ? nyBadgeSvg(locked) : badgeSvgBase(id, locked); }
-BADGE_TIER.ny = 4;
-BADGE_LOOK.ny = ['#60A5FA', '#1D4ED8', 'snowflake'];
+function nvBadgeSvg(locked){
+  const g = 'nv' + (++bdSeq), r = 'nvr' + bdSeq;
+  return `<svg class="bd-svg r4 bd-nv${locked ? ' bd-locked' : ''}" viewBox="0 0 64 64" aria-hidden="true"><defs>
+    <linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22C58B"/><stop offset="1" stop-color="#065F46"/></linearGradient>
+    <linearGradient id="${r}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDE68A"/><stop offset="1" stop-color="#C98A06"/></linearGradient></defs>
+    <circle cx="32" cy="32" r="29" fill="url(#${r})"/><circle cx="32" cy="32" r="24.5" fill="url(#${g})"/>
+    <circle cx="32" cy="32" r="21" fill="none" stroke="#FDE68A" stroke-opacity=".45" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
+    <path d="M36 14c-8 0-14 6.5-14 14.5c0 6.3 4.7 11 10.5 11c5.4 0 9.3-3.9 9.3-8.9c0-4.4-3.2-7.4-7-7.4c-3.1 0-5.4 2.3-5.4 5c0 2.3 1.7 4 3.8 4" fill="none" stroke="#FFF7D1" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M36 14c2.4 1.3 3.2 3.6 2 5.8" fill="none" stroke="#FFF7D1" stroke-width="2.6" stroke-linecap="round"/>
+    <circle cx="32.5" cy="28.5" r="1.8" fill="#FCD34D"/>
+    <path d="M22 51c-1-5-3-8-6-10c4 1 7 4 8 10zM28 51c0-6-1-10-3-14c3 3 5 8 5 14zM34 51c0-6 1-10 3-14c-1 5-1 9-1 14zM40 51c1-5 3-8 6-10c-3 2-5 5-5 10z" fill="#86EFAC"/>
+    <rect x="18" y="50" width="28" height="4" rx="2" fill="#DC2626"/>
+    <path d="M32 3.5l1.6 3.4 3.7.4-2.8 2.5.8 3.6-3.3-1.9-3.3 1.9.8-3.6-2.8-2.5 3.7-.4z" fill="#FFF7D1" stroke="#C98A06" stroke-width=".6"/>${locked ? LOCK_G : ''}</svg>`;
+}
+function cr4BadgeSvg(locked){
+  const r = 'cr' + (++bdSeq);
+  return `<svg class="bd-svg r3 bd-cr4${locked ? ' bd-locked' : ''}" viewBox="0 0 64 64" aria-hidden="true"><defs>
+    <linearGradient id="${r}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDE68A"/><stop offset="1" stop-color="#C98A06"/></linearGradient></defs>
+    <circle cx="32" cy="32" r="29" fill="url(#${r})"/>
+    <path d="M32 32V7.5A24.5 24.5 0 0 0 7.5 32z" fill="#2563EB"/><path d="M32 32V7.5A24.5 24.5 0 0 1 56.5 32z" fill="#EA580C"/>
+    <path d="M32 32h24.5A24.5 24.5 0 0 1 32 56.5z" fill="#0891B2"/><path d="M32 32h-24.5A24.5 24.5 0 0 0 32 56.5z" fill="#4D7C0F"/>
+    <g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <g transform="translate(13.5 13.5) scale(.62)">${TB.droplet}</g><g transform="translate(35.5 13.5) scale(.62)">${TB.flame}</g>
+      <g transform="translate(35.5 35) scale(.62)">${TB.wind}</g><g transform="translate(13.5 35) scale(.62)">${TB.seedling}</g></g>
+    <circle cx="32" cy="32" r="5.5" fill="#FFF7D1" stroke="#C98A06" stroke-width="1"/><text x="32" y="35" text-anchor="middle" font-size="7.5" font-weight="800" fill="#7A4A00" font-family="Poppins, Arial">4</text>${locked ? LOCK_G : ''}</svg>`;
+}
+function badgeSvg(id, locked){ return id === 'ny' ? nyBadgeSvg(locked) : id === 'nv' ? nvBadgeSvg(locked) : id === 'cr4' ? cr4BadgeSvg(locked) : badgeSvgBase(id, locked); }
+Object.assign(BADGE_TIER, { ny: 4, nv: 4, cr4: 3 });
+Object.assign(BADGE_LOOK, { ny: ['#60A5FA', '#1D4ED8', 'snowflake'], nv: ['#34D399', '#065F46', 'buta'], cr4: ['#FCD34D', '#C98A06', 'flame'] });
 BADGE_CATS.push(['season', 'Bayram nişanları', 'gift']);
 
-function flakesHtml(n){
-  return `<div class="ny-flakes">${Array.from({ length: n }, (_, k) => `<i style="--x:${(k * 37) % 100}%;--s:${3 + (k % 4)}px;--t:${4 + (k % 5) * .9}s;--d:${-(k * .63) % 5}s"></i>`).join('')}</div>`;
+function flakesHtml(n, cls){
+  return `<div class="ny-flakes${cls ? ' ' + cls : ''}">${Array.from({ length: n }, (_, k) => `<i style="--x:${(k * 37) % 100}%;--s:${3 + (k % 4)}px;--t:${4 + (k % 5) * .9}s;--d:${-(k * .63) % 5}s"></i>`).join('')}</div>`;
 }
-function nyAchBody(b){
+const SEASON_ACH = {
+  ny: { title: 'Yeni iliniz mübarək!', snd: 'ny', cls: 'ach-ny', eb: 'Yeni il hədiyyəsi', fx: '',
+    msg: (f) => `Əziz ${f}! ${nyYearNow()} Yeni ili münasibətilə səni ürəkdən təbrik edirik! Bu il sən çox çalışdın və çox şey öyrəndin. Bu xüsusi nişan yalnız Yeni il gecəsi verilir — qoy yeni il sənə yeni zirvələr, sevinc və böyük uğurlar gətirsin!` },
+  nv: { title: 'Novruz bayramınız mübarək!', snd: 'nv', cls: 'ach-nv', eb: 'Novruz hədiyyəsi', fx: 'petal',
+    msg: (f) => `Əziz ${f}! Novruz bayramı münasibətilə səni ürəkdən təbrik edirik! Qoy bahar sənə yeni güc, yeni ilham və yeni uğurlar gətirsin. Bu xüsusi nişan yalnız Novruz günü verilir — bayramın mübarək!` },
+  cr4: { title: 'Dörd Çərşənbə!', snd: 'nv', cls: 'ach-nv', eb: 'Novruz nişanı', fx: 'petal',
+    msg: (f) => `Afərin, ${f}! Su, Od, Yel və Torpaq çərşənbələrinin hamısında bizimlə oldun. Sən Novruz ənənələrini də, öyrənməyi də sevirsən — bu nişan səninkidir!` }
+};
+function seasonAchBody(b){
+  const A = SEASON_ACH[b.id] || SEASON_ACH.ny;
   const first = String((S.cab && S.cab.me && S.cab.me.name) || '').trim().split(/\s+/)[0] || 'dostum';
-  return `<div class="ach ach-ny"><div class="ach-stage"><div class="ach-rays"></div>${flakesHtml(16)}<div class="ach-art">${badgeSvg('ny')}</div></div>
-    <span class="ach-eb">Yeni il hədiyyəsi</span><h3>«${esc(b.name)}»</h3>${rarChip(4)}
-    <p class="ny-msg">Əziz ${esc(first)}! ${nyYearNow()} Yeni ili münasibətilə səni ürəkdən təbrik edirik! Bu il sən çox çalışdın və çox şey öyrəndin. Bu xüsusi nişan yalnız Yeni il gecəsi verilir — qoy yeni il sənə yeni zirvələr, sevinc və böyük uğurlar gətirsin!</p></div>`;
+  return `<div class="ach ${A.cls}"><div class="ach-stage"><div class="ach-rays"></div>${flakesHtml(16, A.fx)}<div class="ach-art">${badgeSvg(b.id)}</div></div>
+    <span class="ach-eb">${A.eb}</span><h3>«${esc(b.name)}»</h3>${rarChip(b.tier || BADGE_TIER[b.id] || 4)}
+    <p class="ny-msg">${esc(A.msg(first))}</p></div>`;
 }
 
 let nyGreetT = 0, nyGreetTries = 0;
 function nyGreetSoon(){ clearTimeout(nyGreetT); nyGreetT = setTimeout(nyGreetCheck, 1400); }
 function nyGreetBody(g, name){
   const first = String(name || '').trim().split(/\s+/)[0] || '';
-  return `<div class="nyg">${flakesHtml(22)}<div class="nyg-art"><span class="nyg-lion">${LOGO_SVG('#fff')}</span><b class="nyg-year">${esc(String(g.y))}</b></div>
+  const nv = g.k === 'nv';
+  return `<div class="nyg${nv ? ' nvg' : ''}">${flakesHtml(22, nv ? 'petal' : '')}<div class="nyg-art"><span class="nyg-lion">${LOGO_SVG('#fff')}</span><b class="nyg-year">${nv ? 'Novruz' : esc(String(g.y))}</b></div>
     <h4>${esc(g.title)}</h4>${first ? `<p class="nyg-hi">Əziz ${esc(first)}!</p>` : ''}<p class="nyg-txt">${esc(g.text)}</p><p class="nyg-from">${esc(g.from)}</p></div>`;
 }
 function nyGreetShow(g, name){
-  sndPlay('ny');
+  sndPlay(g.k === 'nv' ? 'nv' : 'ny');
   openModal({ title: g.title, size: 'sm ny-greet-m', body: nyGreetBody(g, name), foot: `<button class="btn btn-primary btn-block" data-close>Bağla</button>` });
 }
+function seasonWho(){ return S.kind === 's' ? (S.cab && S.cab.me) : (S.d && S.d.me); }
 function nyGreetCheck(){
-  const g = S.site && S.site.greet;
-  if (!g || !S.token || S.cabRO) return;
-  const meX = S.kind === 's' ? (S.cab && S.cab.me) : (S.d && S.d.me);
-  if (!meX || !meX.id) return;
-  if (S.kind === 's' ? $('#cab').hidden : $('#shell').hidden) return;
-  const key = 'al_nyg_' + g.y + '_' + meX.id;
-  try { if (localStorage.getItem(key)) return; } catch (e) { return; }
+  if (!S.token || S.cabRO) return;
+  const meX = seasonWho();
+  const g = S.site && S.site.greet, cr = S.site && S.site.cr;
+  if (!g && !cr) return;
+  if (!meX || !meX.id || (S.kind === 's' ? $('#cab').hidden : $('#shell').hidden)){ if (++nyGreetTries < 40) nyGreetSoon(); return; }
+  const gKey = g ? 'al_nyg_' + (g.k || 'ny') + g.y + '_' + meX.id : '';
+  const cKey = cr ? 'al_cr_' + cr.y + '_' + cr.i + '_' + meX.id : '';
+  let need = '';
+  try { if (gKey && !localStorage.getItem(gKey)) need = 'g'; else if (cKey && !localStorage.getItem(cKey)) need = 'c'; } catch (e) { return; }
+  if (!need) return;
   if (modalStack.length || S.achQ){ if (++nyGreetTries < 40) nyGreetSoon(); return; }
-  try { localStorage.setItem(key, '1'); } catch (e) {}
-  nyGreetShow(g, meX.name);
+  try { localStorage.setItem(need === 'g' ? gKey : cKey, '1'); } catch (e) {}
+  if (need === 'g') nyGreetShow(g, meX.name); else crShow(cr.i);
+}
+function crBody(i){
+  const e = CR[i], st = S.kind === 's' && S.cab ? S.cab.cr : null;
+  const n = st ? st.n : 0, done = st ? st.days || [] : [];
+  return `<div class="crp" style="--cc:${e.c}"><div class="crp-art">${flakesHtml(12, 'petal')}<span class="crp-ic">${tb(e.ic)}</span></div>
+    <span class="crp-eb">Novruz qabağı · ${i + 1}-ci çərşənbə</span><h3>${e.n} çərşənbəsi</h3><p>${esc(e.t)}</p>
+    <div class="crp-steps">${CR.map((x, j) => `<span class="${j === i ? 'on' : ''}${done.includes(j) ? ' ok' : ''}" style="--cc:${x.c}">${tb(done.includes(j) && j !== i ? 'check' : x.ic)}<b>${x.n}</b></span>`).join('')}</div>
+    ${st ? `<p class="crp-prog">${n >= 4 ? 'Təbriklər! Dörd çərşənbənin hamısında bizimlə oldun — «Dörd Çərşənbə» nişanı səninkidir!' : `Bu gün də sayta baş çəkdin! «Dörd Çərşənbə» nişanına: <b>${n} / 4</b>`}</p>` : ''}</div>`;
+}
+function crShow(i){
+  sndPlay('cr');
+  openModal({ title: CR[i].n + ' çərşənbəniz mübarək!', size: 'sm cr-m', body: crBody(i), foot: `<button class="btn btn-primary btn-block" data-close>Bağla</button>` });
 }
 
 async function reportPages(r){
-  if (!seasonOn()) return reportPagesBase(r);
+  const k = seasonKey();
+  if (!k) return reportPagesBase(r);
   const keep = Object.assign({}, PC);
-  Object.assign(PC, PC_NY);
+  Object.assign(PC, k === 'nv' ? PC_NV : PC_NY);
   try { return await reportPagesBase(r); }
-  finally { Object.keys(PC).forEach(k => delete PC[k]); Object.assign(PC, keep); }
+  finally { Object.keys(PC).forEach(x => delete PC[x]); Object.assign(PC, keep); }
 }
-function nyReportDecor(ctx, W, M){
+function seasonReportDecor(ctx, W, M){
   ctx.save();
-  const flakes = [[300, 26, 18, .35], [395, 112, 14, .3], [505, 70, 22, .32], [560, 128, 12, .28], [250, 120, 10, .25]];
-  flakes.forEach(([x, y, s, a]) => { ctx.globalAlpha = a; svgPaint(ctx, tbSvg('snowflake'), x, y, s, '#fff'); });
-  ctx.globalAlpha = 1;
-  for (let i = 0; i < 40; i++){ const x = (i * 97) % W, y = 8 + (i * 53) % 140; ctx.fillStyle = 'rgba(255,255,255,' + (.25 + (i % 4) * .1) + ')'; ctx.beginPath(); ctx.arc(x, y, .8 + (i % 3) * .6, 0, 6.283); ctx.fill(); }
-  const cols = ['#FACC15', '#F43F5E', '#22C55E', '#93C5FD', '#F472B6'];
-  ctx.strokeStyle = 'rgba(255,255,255,.55)'; ctx.lineWidth = .8; ctx.beginPath(); ctx.moveTo(0, 1);
-  for (let x = 0; x < W; x += 40) ctx.quadraticCurveTo(x + 20, 10, x + 40, 1);
-  ctx.stroke();
-  for (let x = 0, i = 0; x < W; x += 40, i++){ ctx.fillStyle = cols[i % cols.length]; ctx.beginPath(); ctx.ellipse(x + 20, 10.5, 2.4, 3.3, 0, 0, 6.283); ctx.fill(); }
-  ctx.save(); ctx.translate(M + 30, 30); ctx.rotate(.28); svgPaint(ctx, NY_HAT, -9, -9, 22, '#E11D2E'); ctx.restore();
+  if (PC.nv){
+    [[300, 22, 18, .3, 'buta'], [395, 108, 14, .26, 'seedling'], [505, 66, 22, .3, 'buta'], [560, 124, 12, .24, 'flame'], [250, 116, 12, .22, 'sun']].forEach(([x, y, s, a, n]) => { ctx.globalAlpha = a; svgPaint(ctx, tbSvg(n), x, y, s, '#fff'); });
+    ctx.globalAlpha = 1;
+    for (let i = 0; i < 30; i++){ const x = (i * 97) % W, y = 8 + (i * 53) % 140; ctx.fillStyle = i % 3 ? 'rgba(253,230,138,.45)' : 'rgba(249,168,212,.5)'; ctx.beginPath(); ctx.ellipse(x, y, 1.6 + (i % 3) * .6, 1, i, 0, 6.283); ctx.fill(); }
+    CR.forEach((e, i) => { for (let x = 20 + i * 40; x < W; x += 160){ ctx.globalAlpha = .9; svgPaint(ctx, tbSvg(e.ic), x, 2, 9, '#FDE68A'); } });
+    ctx.globalAlpha = 1;
+    ctx.save(); ctx.translate(M + 27, 28); ctx.rotate(.15); svgPaint(ctx, NV_SPROUT, -10, -10, 22, '#22C55E'); ctx.restore();
+  } else {
+    [[300, 26, 18, .35], [395, 112, 14, .3], [505, 70, 22, .32], [560, 128, 12, .28], [250, 120, 10, .25]].forEach(([x, y, s, a]) => { ctx.globalAlpha = a; svgPaint(ctx, tbSvg('snowflake'), x, y, s, '#fff'); });
+    ctx.globalAlpha = 1;
+    for (let i = 0; i < 40; i++){ const x = (i * 97) % W, y = 8 + (i * 53) % 140; ctx.fillStyle = 'rgba(255,255,255,' + (.25 + (i % 4) * .1) + ')'; ctx.beginPath(); ctx.arc(x, y, .8 + (i % 3) * .6, 0, 6.283); ctx.fill(); }
+    const cols = ['#FACC15', '#F43F5E', '#22C55E', '#93C5FD', '#F472B6'];
+    ctx.strokeStyle = 'rgba(255,255,255,.55)'; ctx.lineWidth = .8; ctx.beginPath(); ctx.moveTo(0, 1);
+    for (let x = 0; x < W; x += 40) ctx.quadraticCurveTo(x + 20, 10, x + 40, 1);
+    ctx.stroke();
+    for (let x = 0, i = 0; x < W; x += 40, i++){ ctx.fillStyle = cols[i % cols.length]; ctx.beginPath(); ctx.ellipse(x + 20, 10.5, 2.4, 3.3, 0, 0, 6.283); ctx.fill(); }
+    ctx.save(); ctx.translate(M + 30, 30); ctx.rotate(.28); svgPaint(ctx, NY_HAT, -9, -9, 22, '#E11D2E'); ctx.restore();
+  }
   ctx.restore();
 }
 
@@ -9620,6 +9919,7 @@ function nyGold(ctx, x0, y0, x1, y1){
   g.addColorStop(0, '#FFF5C2'); g.addColorStop(.45, '#FCD34D'); g.addColorStop(1, '#D99A0B');
   return g;
 }
+function rndSeed(seed){ let s = seed || 11; return () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; }; }
 function nyBackdrop(ctx, W, H, o){
   o = o || {};
   const bg = ctx.createLinearGradient(0, 0, 0, H);
@@ -9628,8 +9928,7 @@ function nyBackdrop(ctx, W, H, o){
   const gl = ctx.createRadialGradient(W / 2, H * .36, 0, W / 2, H * .36, W * .8);
   gl.addColorStop(0, 'rgba(110,160,255,.38)'); gl.addColorStop(1, 'rgba(110,160,255,0)');
   ctx.fillStyle = gl; ctx.fillRect(0, 0, W, H);
-  let seed = o.seed || 11;
-  const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+  const rnd = rndSeed(o.seed);
   for (let i = 0; i < 26; i++){
     const x = rnd() * W, y = rnd() * H * .9, r = 20 + rnd() * 60, gold = rnd() > .55;
     const b = ctx.createRadialGradient(x, y, 0, x, y, r);
@@ -9641,35 +9940,30 @@ function nyBackdrop(ctx, W, H, o){
   for (let i = 0; i < 9; i++){ const s = 26 + rnd() * 40; ctx.globalAlpha = .12 + rnd() * .16; svgPaint(ctx, tbSvg('snowflake'), rnd() * (W - s), rnd() * H * .85, s, '#fff'); }
   ctx.restore();
   for (let i = 0; i < 170; i++){ const r = .8 + rnd() * 3.6; ctx.fillStyle = `rgba(255,255,255,${.35 + rnd() * .55})`; ctx.beginPath(); ctx.arc(rnd() * W, rnd() * H, r, 0, 6.283); ctx.fill(); }
-  if (o.garland !== false){
-    const step = W / 9, cols = ['#FACC15', '#F43F5E', '#22C55E', '#60A5FA', '#F472B6', '#F97316'];
-    ctx.strokeStyle = 'rgba(15,23,42,.65)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-10, 6);
-    for (let x = -10; x < W + step; x += step) ctx.quadraticCurveTo(x + step / 2, 58, x + step, 6);
-    ctx.stroke();
-    for (let x = -10, i = 0; x < W + step; x += step, i++){
-      const cx = x + step / 2, cy = 46, c = cols[i % cols.length];
-      const gw = ctx.createRadialGradient(cx, cy + 10, 0, cx, cy + 10, 42); gw.addColorStop(0, c + '88'); gw.addColorStop(1, c + '00');
-      ctx.fillStyle = gw; ctx.beginPath(); ctx.arc(cx, cy + 10, 42, 0, 6.283); ctx.fill();
-      ctx.fillStyle = '#3F4A5C'; rrFill(ctx, cx - 5, cy - 6, 10, 9, 2, '#3F4A5C');
-      ctx.fillStyle = c; ctx.beginPath(); ctx.ellipse(cx, cy + 12, 10, 14, 0, 0, 6.283); ctx.fill();
-      ctx.fillStyle = 'rgba(255,255,255,.55)'; ctx.beginPath(); ctx.ellipse(cx - 3.5, cy + 6, 2.6, 4.2, 0, 0, 6.283); ctx.fill();
-    }
+  const step = W / 9, cols = ['#FACC15', '#F43F5E', '#22C55E', '#60A5FA', '#F472B6', '#F97316'];
+  ctx.strokeStyle = 'rgba(15,23,42,.65)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-10, 6);
+  for (let x = -10; x < W + step; x += step) ctx.quadraticCurveTo(x + step / 2, 58, x + step, 6);
+  ctx.stroke();
+  for (let x = -10, i = 0; x < W + step; x += step, i++){
+    const cx = x + step / 2, cy = 46, c = cols[i % cols.length];
+    const gw = ctx.createRadialGradient(cx, cy + 10, 0, cx, cy + 10, 42); gw.addColorStop(0, c + '88'); gw.addColorStop(1, c + '00');
+    ctx.fillStyle = gw; ctx.beginPath(); ctx.arc(cx, cy + 10, 42, 0, 6.283); ctx.fill();
+    rrFill(ctx, cx - 5, cy - 6, 10, 9, 2, '#3F4A5C');
+    ctx.fillStyle = c; ctx.beginPath(); ctx.ellipse(cx, cy + 12, 10, 14, 0, 0, 6.283); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,.55)'; ctx.beginPath(); ctx.ellipse(cx - 3.5, cy + 6, 2.6, 4.2, 0, 0, 6.283); ctx.fill();
   }
-  if (o.ornaments){
-    o.ornaments.forEach(([x, len, r, c]) => {
-      ctx.strokeStyle = 'rgba(253,230,138,.8)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, 20); ctx.lineTo(x, len); ctx.stroke();
-      rrFill(ctx, x - r * .28, len - 2, r * .56, r * .32, 4, '#E5B53A');
-      const g = ctx.createRadialGradient(x - r * .35, len + r * .9, r * .1, x, len + r * 1.2, r * 1.2);
-      g.addColorStop(0, '#FFFFFF'); g.addColorStop(.18, c[0]); g.addColorStop(1, c[1]);
-      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, len + r * 1.25, r, 0, 6.283); ctx.fill();
-      ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.ellipse(x, len + r * 1.25, r * .98, r * .3, 0, 0, 6.283); ctx.stroke();
-    });
-  }
+  (o.ornaments || []).forEach(([x, len, r, c]) => {
+    ctx.strokeStyle = 'rgba(253,230,138,.8)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, 20); ctx.lineTo(x, len); ctx.stroke();
+    rrFill(ctx, x - r * .28, len - 2, r * .56, r * .32, 4, '#E5B53A');
+    const g = ctx.createRadialGradient(x - r * .35, len + r * .9, r * .1, x, len + r * 1.2, r * 1.2);
+    g.addColorStop(0, '#FFFFFF'); g.addColorStop(.18, c[0]); g.addColorStop(1, c[1]);
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, len + r * 1.25, r, 0, 6.283); ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.ellipse(x, len + r * 1.25, r * .98, r * .3, 0, 0, 6.283); ctx.stroke();
+  });
   if (o.ground){
     const gy = H - o.ground;
     const tree = (x, y, s) => {
-      const tiers = [[0, 1], [.3, .8], [.56, .6], [.78, .4]];
-      tiers.forEach(([k, w], i) => {
+      [[0, 1], [.3, .8], [.56, .6], [.78, .4]].forEach(([k, w]) => {
         const top = y - s * (k * .78) - s * .34, base = y - s * k * .78, hw = s * .36 * w;
         const g = ctx.createLinearGradient(x - hw, top, x + hw, base); g.addColorStop(0, '#1F7A4A'); g.addColorStop(1, '#0B3D2A');
         ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(x, top);
@@ -9690,24 +9984,105 @@ function nyBackdrop(ctx, W, H, o){
     ctx.bezierCurveTo(W * .25, gy - 18, W * .45, gy + 34, W * .62, gy + 10); ctx.bezierCurveTo(W * .78, gy - 10, W * .9, gy + 18, W, gy); ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill();
   }
 }
-function nyLion(ctx, x, y, s){
+function nvSemeni(ctx, x, y, s){
+  const pw = s, ph = s * .2;
+  ctx.save();
+  const blades = 34;
+  for (let i = 0; i < blades; i++){
+    const t = i / (blades - 1), bx = x - pw * .36 + t * pw * .72, h = s * (.62 + Math.sin(t * Math.PI) * .38) * (.85 + ((i * 37) % 10) / 50), lean = (t - .5) * s * .3;
+    const g = ctx.createLinearGradient(bx, y, bx, y - h); g.addColorStop(0, '#15803D'); g.addColorStop(1, i % 3 ? '#4ADE80' : '#86EFAC');
+    ctx.strokeStyle = g; ctx.lineWidth = Math.max(2, s * .028); ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(bx, y); ctx.quadraticCurveTo(bx + lean * .3, y - h * .6, bx + lean, y - h); ctx.stroke();
+  }
+  ctx.fillStyle = '#DC2626'; ctx.fillRect(x - pw * .36, y - s * .2, pw * .72, s * .07);
+  ctx.fillStyle = '#EF4444'; ctx.beginPath(); ctx.ellipse(x - s * .09, y - s * .165, s * .1, s * .055, -.4, 0, 6.283); ctx.fill(); ctx.beginPath(); ctx.ellipse(x + s * .09, y - s * .165, s * .1, s * .055, .4, 0, 6.283); ctx.fill();
+  ctx.fillStyle = '#B91C1C'; ctx.beginPath(); ctx.arc(x, y - s * .165, s * .035, 0, 6.283); ctx.fill();
+  const pg = ctx.createLinearGradient(0, y - ph * .3, 0, y + ph); pg.addColorStop(0, '#FDE68A'); pg.addColorStop(1, '#B7791F');
+  ctx.fillStyle = pg; ctx.beginPath(); ctx.ellipse(x, y + ph * .25, pw * .5, ph * .55, 0, 0, 6.283); ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(x, y + ph * .1, pw * .44, ph * .32, 0, Math.PI, 2 * Math.PI); ctx.stroke();
+  ctx.restore();
+}
+function nvTreats(ctx, x, y, s){
+  const eggs = [['#EF4444', '#FDE68A'], ['#3B82F6', '#FFFFFF'], ['#F59E0B', '#7C2D12'], ['#A855F7', '#FDE68A']];
+  eggs.forEach(([c, p], i) => {
+    const ex = x + (i - 1.5) * s * .3, ey = y - (i % 2) * s * .05;
+    ctx.fillStyle = c; ctx.beginPath(); ctx.ellipse(ex, ey, s * .1, s * .135, (i - 1.5) * .15, 0, 6.283); ctx.fill();
+    ctx.strokeStyle = p; ctx.lineWidth = Math.max(1.5, s * .012); ctx.lineJoin = 'round'; ctx.beginPath();
+    for (let z = 0; z <= 6; z++){ const zx = ex - s * .085 + z * s * .0283, zy = ey + (z % 2 ? -s * .018 : s * .018); if (z) ctx.lineTo(zx, zy); else ctx.moveTo(zx, zy); }
+    ctx.stroke();
+    ctx.fillStyle = p; [-.05, 0, .05].forEach(dx => { ctx.beginPath(); ctx.arc(ex + dx * s, ey + s * .065, Math.max(1.2, s * .011), 0, 6.283); ctx.fill(); });
+    ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.beginPath(); ctx.ellipse(ex - s * .035, ey - s * .06, s * .02, s * .035, 0, 0, 6.283); ctx.fill();
+  });
+}
+function nvBackdrop(ctx, W, H, o){
+  o = o || {};
+  const bg = ctx.createLinearGradient(0, 0, 0, H);
+  bg.addColorStop(0, '#05261E'); bg.addColorStop(.5, '#0A4A39'); bg.addColorStop(1, '#0F7356');
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+  const gl = ctx.createRadialGradient(W / 2, H * .38, 0, W / 2, H * .38, W * .85);
+  gl.addColorStop(0, 'rgba(253,224,130,.32)'); gl.addColorStop(1, 'rgba(253,224,130,0)');
+  ctx.fillStyle = gl; ctx.fillRect(0, 0, W, H);
+  const rnd = rndSeed(o.seed);
+  ctx.save(); ctx.globalAlpha = .07;
+  for (let r = 0; r < Math.ceil(H / 150); r++) for (let c = 0; c < 8; c++){ const s = 64; ctx.save(); ctx.translate(c * 150 + (r % 2 ? 75 : 0), r * 150 + 30); ctx.rotate(.4); svgPaint(ctx, tbSvg('buta'), -s / 2, -s / 2, s, '#FDE68A'); ctx.restore(); }
+  ctx.restore();
+  for (let i = 0; i < 24; i++){
+    const x = rnd() * W, y = rnd() * H * .9, r = 20 + rnd() * 60;
+    const b = ctx.createRadialGradient(x, y, 0, x, y, r); b.addColorStop(0, 'rgba(253,224,130,.18)'); b.addColorStop(1, 'rgba(253,224,130,0)');
+    ctx.fillStyle = b; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill();
+  }
+  for (let i = 0; i < 110; i++){ ctx.fillStyle = `rgba(253,230,138,${.3 + rnd() * .6})`; ctx.beginPath(); ctx.arc(rnd() * W, rnd() * H * .85, .8 + rnd() * 2, 0, 6.283); ctx.fill(); }
+  for (let i = 0; i < 46; i++){ const x = rnd() * W, y = rnd() * H * .85, r = 6 + rnd() * 9; ctx.save(); ctx.translate(x, y); ctx.rotate(rnd() * 6.28); ctx.fillStyle = rnd() > .5 ? 'rgba(249,168,212,.75)' : 'rgba(255,241,242,.7)'; ctx.beginPath(); ctx.ellipse(0, 0, r, r * .55, 0, 0, 6.283); ctx.fill(); ctx.restore(); }
+  const step = W / 10;
+  ctx.strokeStyle = 'rgba(253,230,138,.55)'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(-10, 6);
+  for (let x = -10; x < W + step; x += step) ctx.quadraticCurveTo(x + step / 2, 40, x + step, 6);
+  ctx.stroke();
+  for (let x = -10, i = 0; x < W + step; x += step, i++){
+    const cx = x + step / 2, cy = 36, e = CR[i % 4];
+    const gw = ctx.createRadialGradient(cx, cy + 10, 0, cx, cy + 10, 40); gw.addColorStop(0, e.c + '77'); gw.addColorStop(1, e.c + '00');
+    ctx.fillStyle = gw; ctx.beginPath(); ctx.arc(cx, cy + 10, 40, 0, 6.283); ctx.fill();
+    ctx.fillStyle = '#FEF3C7'; ctx.beginPath(); ctx.arc(cx, cy + 10, 17, 0, 6.283); ctx.fill();
+    svgPaint(ctx, tbSvg(e.ic), cx - 11, cy - 1, 22, e.c);
+  }
+  if (o.ground){
+    const gy = H - o.ground;
+    const hg = ctx.createLinearGradient(0, gy, 0, H); hg.addColorStop(0, '#065F46'); hg.addColorStop(1, '#043D2E');
+    ctx.fillStyle = hg; ctx.beginPath(); ctx.moveTo(0, gy + 30);
+    ctx.bezierCurveTo(W * .3, gy - 10, W * .6, gy + 40, W, gy + 6); ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill();
+    const s = Math.min(230, o.ground * 1.15);
+    nvSemeni(ctx, 140, gy + o.ground * .55, s); nvSemeni(ctx, W - 140, gy + o.ground * .5, s * 1.05);
+    nvTreats(ctx, W / 2, gy + o.ground * .62, s * .9);
+  }
+}
+function seasonLion(ctx, x, y, s, k){
   ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = s * .3; ctx.shadowOffsetY = s * .1;
-  const g = ctx.createLinearGradient(x, y, x + s, y + s); g.addColorStop(0, '#5B9BFF'); g.addColorStop(1, '#1D5FD1');
+  const g = ctx.createLinearGradient(x, y, x + s, y + s);
+  if (k === 'nv'){ g.addColorStop(0, '#34D399'); g.addColorStop(1, '#0E7A5A'); } else { g.addColorStop(0, '#5B9BFF'); g.addColorStop(1, '#1D5FD1'); }
   rrFill(ctx, x, y, s, s, s * .3, g); ctx.restore();
   svgPaint(ctx, LOGO_SVG('#fff'), x + s * .17, y + s * .17, s * .66, '#fff');
-  ctx.save(); ctx.translate(x + s * .82, y + s * .02); ctx.rotate(.28); svgPaint(ctx, NY_HAT, -s * .3, -s * .27, s * .62, '#E11D2E'); ctx.restore();
+  ctx.save();
+  if (k === 'nv'){ ctx.translate(x + s * .78, y + s * .02); ctx.rotate(.18); svgPaint(ctx, NV_SPROUT, -s * .28, -s * .3, s * .56, '#22C55E'); }
+  else { ctx.translate(x + s * .82, y + s * .02); ctx.rotate(.28); svgPaint(ctx, NY_HAT, -s * .3, -s * .27, s * .62, '#E11D2E'); }
+  ctx.restore();
 }
+function nyLion(ctx, x, y, s){ seasonLion(ctx, x, y, s, 'ny'); }
 
+const STORY_TH = {
+  ny: { bd: nyBackdrop, ground: 150, eb: { ny: 'YENİ İL HƏDİYYƏSİ' }, halo: '190,215,255', rays: '252,211,77', ic: 'gift', icc: '#1D5FD1', ink: '#15223A', sub: 'Yeni ildə Aslan Lessons-a qoşul!', subc: '#1A55C0', handle: '#1E3A8A' },
+  nv: { bd: nvBackdrop, ground: 170, eb: { nv: 'NOVRUZ HƏDİYYƏSİ', cr4: 'DÖRD ÇƏRŞƏNBƏ' }, halo: '253,236,170', rays: '253,224,130', ic: 'seedling', icc: '#0E7A5A', ink: '#14251D', sub: 'Baharda Aslan Lessons-a qoşul!', subc: '#0B6B4E', handle: '#FDE68A' }
+};
 async function storyCanvas(it, who){
-  if (!seasonOn()) return storyCanvasBase(it, who);
+  const k = seasonKey();
+  if (!k) return storyCanvasBase(it, who);
+  const th = STORY_TH[k];
   await pdfFonts();
   const W = 1080, H = 1920, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   const ctx = cv.getContext('2d');
   const F = (w, s) => `${w} ${s}px Poppins, "Segoe UI", Arial, sans-serif`;
   const text = (t, x, y, font, color, align) => { ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align || 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(t, x, y); };
   const spaced = (t, x, y, font, color, sp) => { ctx.font = font; const ch = [...t], w = ch.reduce((s, c) => s + ctx.measureText(c).width, 0) + sp * (ch.length - 1); let cx = x - w / 2; ch.forEach(c => { text(c, cx, y, font, color, 'left'); cx += ctx.measureText(c).width + sp; }); return w; };
-  nyBackdrop(ctx, W, H, { seed: 23, ground: 150 });
-  nyLion(ctx, W / 2 - 60, 200, 120);
+  th.bd(ctx, W, H, { seed: 23, ground: th.ground });
+  seasonLion(ctx, W / 2 - 60, 200, 120, k);
   spaced('ASLAN', W / 2, 382, F(800, 44), '#fff', 12);
   spaced('LESSONS', W / 2, 420, F(500, 22), 'rgba(255,255,255,.85)', 14);
   const isLv = it.kind === 'level', title = isLv ? it.name : it.b.name;
@@ -9717,7 +10092,7 @@ async function storyCanvas(it, who){
   lines = lines.slice(0, 2);
   const lh = ts * 1.12;
   let y = 480 + Math.max(0, (1420 - 480 - (70 + 50 + 380 + 64 + lines.length * lh + 28 + 60 + 66 + 56 + 46)) / 2);
-  const eb = isLv ? 'YENİ SƏVİYYƏ' : (it.b.id === 'ny' ? 'YENİ İL HƏDİYYƏSİ' : 'YENİ NİŞAN');
+  const eb = isLv ? 'YENİ SƏVİYYƏ' : (th.eb[it.b.id] || 'YENİ NİŞAN');
   ctx.font = F(800, 28);
   const ebw = [...eb].reduce((s, c) => s + ctx.measureText(c).width, 0) + 6 * (eb.length - 1) + 72;
   rrFill(ctx, W / 2 - ebw / 2, y, ebw, 70, 35, nyGold(ctx, 0, y, 0, y + 70));
@@ -9725,12 +10100,12 @@ async function storyCanvas(it, who){
   y += 70 + 50;
   const cx = W / 2, cy = y + 190;
   ctx.save(); ctx.translate(cx, cy);
-  for (let k = 0; k < 18; k++){ ctx.rotate(Math.PI * 2 / 18); const rg = ctx.createLinearGradient(0, 0, 0, -420); rg.addColorStop(0, 'rgba(252,211,77,.28)'); rg.addColorStop(1, 'rgba(252,211,77,0)'); ctx.fillStyle = rg; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(-30, -420); ctx.lineTo(30, -420); ctx.closePath(); ctx.fill(); }
+  for (let q = 0; q < 18; q++){ ctx.rotate(Math.PI * 2 / 18); const rg = ctx.createLinearGradient(0, 0, 0, -420); rg.addColorStop(0, `rgba(${th.rays},.28)`); rg.addColorStop(1, `rgba(${th.rays},0)`); ctx.fillStyle = rg; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(-30, -420); ctx.lineTo(30, -420); ctx.closePath(); ctx.fill(); }
   ctx.restore();
-  const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, 300); halo.addColorStop(0, 'rgba(190,215,255,.7)'); halo.addColorStop(.55, 'rgba(190,215,255,.2)'); halo.addColorStop(1, 'rgba(190,215,255,0)');
+  const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, 300); halo.addColorStop(0, `rgba(${th.halo},.7)`); halo.addColorStop(.55, `rgba(${th.halo},.2)`); halo.addColorStop(1, `rgba(${th.halo},0)`);
   ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(cx, cy, 300, 0, 6.283); ctx.fill();
   ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.4)'; ctx.shadowBlur = 50; ctx.shadowOffsetY = 22;
-  svgPaint(ctx, isLv ? levelBadge(it.i) : badgeSvg(it.b.id), cx - 190, cy - 190, 380, '#1D5FD1'); ctx.restore();
+  svgPaint(ctx, isLv ? levelBadge(it.i) : badgeSvg(it.b.id), cx - 190, cy - 190, 380, th.icc); ctx.restore();
   y += 380 + 64;
   ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 6;
   lines.forEach((ln, i) => text(ln, W / 2, y + ts * .82 + i * lh, F(800, ts), '#fff'));
@@ -9744,47 +10119,61 @@ async function storyCanvas(it, who){
   y += 60 + 66;
   text('«Mən bunu qazandım!»', W / 2, y + 10, F(700, 52), '#fff');
   if (who){ y += 60; text(who, W / 2, y, F(500, 36), 'rgba(255,255,255,.92)'); }
-  const by = 1500, bh = 210;
+  const by = k === 'nv' ? 1470 : 1500, bh = 210;
   ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 14;
   rrFill(ctx, 90, by, W - 180, bh, 48, 'rgba(255,255,255,.96)'); ctx.restore();
-  svgPaint(ctx, tbSvg('gift'), 140, by + 58, 96, '#1D5FD1');
+  svgPaint(ctx, tbSvg(th.ic), 140, by + 58, 96, th.icc);
   ctx.font = F(800, 42);
   const cl = wrapLines(ctx, 'Sən də özünü göstərməyə hazırsan?', 640).slice(0, 2);
   const ty = by + (cl.length > 1 ? 80 : 96);
-  cl.forEach((ln, i) => text(ln, 270, ty + i * 50, F(800, 42), '#15223A', 'left'));
-  text('Yeni ildə Aslan Lessons-a qoşul!', 270, ty + cl.length * 50 + 6, F(600, 29), '#1A55C0', 'left');
+  cl.forEach((ln, i) => text(ln, 270, ty + i * 50, F(800, 42), th.ink, 'left'));
+  text(th.sub, 270, ty + cl.length * 50 + 6, F(600, 29), th.subc, 'left');
   const ig = socHandle('instagram') || socHandle('tiktok');
-  if (ig){ ctx.font = F(600, 34); const iw = ctx.measureText(ig).width + 62; svgPaint(ctx, tbSvg(socHandle('instagram') ? 'brand-instagram' : 'brand-tiktok'), W / 2 - iw / 2, 1840, 44, '#1E3A8A'); text(ig, W / 2 - iw / 2 + 62, 1874, F(600, 34), '#1E3A8A', 'left'); }
+  if (ig){ ctx.font = F(600, 34); const iw = ctx.measureText(ig).width + 62; const hy = k === 'nv' ? 1712 : 1840; if (k === 'nv'){ rrFill(ctx, W / 2 - iw / 2 - 24, hy - 12, iw + 48, 68, 34, 'rgba(4,61,46,.85)'); } svgPaint(ctx, tbSvg(socHandle('instagram') ? 'brand-instagram' : 'brand-tiktok'), W / 2 - iw / 2, hy, 44, th.handle); text(ig, W / 2 - iw / 2 + 62, hy + 34, F(600, 34), th.handle, 'left'); }
   return cv;
 }
 
-const NY_WISH_ST = [
-  'Yeni ildə sənə möhkəm can sağlığı, bitməyən həvəs və böyük uğurlar arzulayırıq! Qoy hər dərsin yeni kəşf, hər səyin isə parlaq nəticə olsun.',
-  'Bu il sən çox şey öyrəndin və hamımızı sevindirdin. Qoy yeni il sənə daha çox bilik, sevinc və unudulmaz anlar bəxş etsin!',
-  'Arzuların çin olsun, xəyalların gerçəyə çevrilsin! Yeni ildə yeni zirvələr fəth etməyini səbirsizliklə gözləyirik.',
-  'Qoy yeni il evinizə xoşbəxtlik, sənə isə güc, inam və ilham gətirsin. Biz həmişə yanındayıq — birlikdə daha da irəli!',
-  'Hər yeni gün yeni imkandır. Yeni ildə cəsarətli ol, maraqlı ol və öyrənməkdən heç vaxt yorulma. Sən hər şeyi bacararsan!',
-  'Sənin zəhmətin və səyin bizim üçün böyük qürurdur. Qoy bu il sənin ən uğurlu, ən sevincli ilin olsun!'
-];
-const NY_WISH_TE = [
-  'Göstərdiyiniz zəhmət, səbir və tələbələrinizə olan qayğı üçün təşəkkür edirik! Yeni ildə sizə can sağlığı, ilham və böyük uğurlar arzulayırıq.',
-  'Siz hər gün tələbələrinizin həyatına bilik və işıq gətirirsiniz. Qoy yeni il sizə də sevinc, rahatlıq və xoş sürprizlər bəxş etsin!',
-  'Komandamızın dəyərli üzvü olduğunuz üçün minnətdarıq. Yeni ildə sizə yeni nailiyyətlər, ailənizə isə xoşbəxtlik və bərəkət arzulayırıq!',
-  'Qoy yeni il sizə tükənməz enerji, ürəyinizcə tələbələr və hər gün gülümsəmək üçün yeni bir səbəb bəxş etsin!'
-];
+const WISH = {
+  ny: {
+    st: ['Yeni ildə sənə möhkəm can sağlığı, bitməyən həvəs və böyük uğurlar arzulayırıq! Qoy hər dərsin yeni kəşf, hər səyin isə parlaq nəticə olsun.',
+      'Bu il sən çox şey öyrəndin və hamımızı sevindirdin. Qoy yeni il sənə daha çox bilik, sevinc və unudulmaz anlar bəxş etsin!',
+      'Arzuların çin olsun, xəyalların gerçəyə çevrilsin! Yeni ildə yeni zirvələr fəth etməyini səbirsizliklə gözləyirik.',
+      'Qoy yeni il evinizə xoşbəxtlik, sənə isə güc, inam və ilham gətirsin. Biz həmişə yanındayıq — birlikdə daha da irəli!',
+      'Hər yeni gün yeni imkandır. Yeni ildə cəsarətli ol, maraqlı ol və öyrənməkdən heç vaxt yorulma. Sən hər şeyi bacararsan!',
+      'Sənin zəhmətin və səyin bizim üçün böyük qürurdur. Qoy bu il sənin ən uğurlu, ən sevincli ilin olsun!'],
+    te: ['Göstərdiyiniz zəhmət, səbir və tələbələrinizə olan qayğı üçün təşəkkür edirik! Yeni ildə sizə can sağlığı, ilham və böyük uğurlar arzulayırıq.',
+      'Siz hər gün tələbələrinizin həyatına bilik və işıq gətirirsiniz. Qoy yeni il sizə də sevinc, rahatlıq və xoş sürprizlər bəxş etsin!',
+      'Komandamızın dəyərli üzvü olduğunuz üçün minnətdarıq. Yeni ildə sizə yeni nailiyyətlər, ailənizə isə xoşbəxtlik və bərəkət arzulayırıq!',
+      'Qoy yeni il sizə tükənməz enerji, ürəyinizcə tələbələr və hər gün gülümsəmək üçün yeni bir səbəb bəxş etsin!']
+  },
+  nv: {
+    st: ['Bahar kimi təravətli, səməni kimi yaşıl, tonqal kimi işıqlı ol! Novruz sənə yeni güc, yeni bilik və böyük uğurlar gətirsin.',
+      'Təbiət oyanır, sən də hər gün bir az da böyüyürsən. Qoy bu bahar sənin ən uğurlu baharın olsun — bayramın mübarək!',
+      'Səməni necə yaşıllaşırsa, biliklərin də elə çoxalsın. Novruz süfrən bərəkətli, arzuların çin olsun!',
+      'Tonqalın üstündən tullanıb bütün çətinlikləri geridə qoy! Yeni baharda yeni zirvələr səni gözləyir.',
+      'Qoy Novruz evinizə sevinc, süfrənizə bərəkət, sənə isə ilham və cəsarət gətirsin. Biz həmişə yanındayıq!',
+      'Hər Novruz yeni başlanğıcdır. Bu baharda maraqlı ol, cəsarətli ol və öyrənməkdən zövq al — sən bacararsan!'],
+    te: ['Novruz bayramınız mübarək! Tələbələrinizə verdiyiniz bilik və qayğı üçün təşəkkür edirik. Baharın bütün gözəllikləri sizinlə olsun!',
+      'Qoy Novruz süfrəniz bərəkətli, eviniz sevincli, hər gününüz bahar kimi təravətli olsun. Bayramınız mübarək!',
+      'Siz hər gün tələbələrinizin qəlbində bilik toxumu əkirsiniz. Qoy bu bahar o toxumlar səməni kimi yaşıllaşsın!',
+      'Komandamızın dəyərli üzvü olduğunuz üçün minnətdarıq. Novruz sizə can sağlığı, ilham və xoş günlər gətirsin!']
+  }
+};
 function nyHash(s){ let h = 7; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h; }
 
 async function nyCard(o){
   await pdfFonts();
-  const story = o.fmt === 'story', W = 1080, H = story ? 1920 : 1350;
+  const nv = o.k === 'nv', story = o.fmt === 'story', W = 1080, H = story ? 1920 : 1350;
   const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
   const ctx = cv.getContext('2d');
   const F = (w, s) => `${w} ${s}px Poppins, "Segoe UI", Arial, sans-serif`;
-  const ground = story ? 190 : 130;
-  nyBackdrop(ctx, W, H, { seed: 5 + (nyHash(o.name) % 50), ground,
+  const ground = nv ? (story ? 230 : 170) : (story ? 190 : 130);
+  if (nv) nvBackdrop(ctx, W, H, { seed: 5 + (nyHash(o.name) % 50), ground });
+  else nyBackdrop(ctx, W, H, { seed: 5 + (nyHash(o.name) % 50), ground,
     ornaments: story ? [[150, 150, 46, ['#FB7185', '#BE123C']], [930, 210, 54, ['#93C5FD', '#1D4ED8']], [820, 100, 34, ['#FDE68A', '#D97706']]] : [[110, 80, 32, ['#FB7185', '#BE123C']], [970, 110, 38, ['#FDE68A', '#D97706']]] });
-  const Z = story ? { lion: 132, brand: 30, t1: 98, t2: 108, yr: 236, hi: 40, name: 68, wish: 39, from: 34, g: [64, 92, 22, 64, 64, 30, 54, 40, 52], wmax: 6 }
-    : { lion: 96, brand: 24, t1: 76, t2: 0, yr: 172, hi: 34, name: 56, wish: 33, from: 30, g: [46, 64, 0, 44, 46, 22, 40, 28, 40], wmax: 4 };
+  const Z = story ? { lion: 132, brand: 30, t1: nv ? 112 : 98, t2: nv ? 66 : 108, yr: 236, hi: 40, name: 68, wish: 39, from: 34, g: [64, 92, 22, 64, 64, 30, 54, 40, 52], wmax: 6 }
+    : { lion: 96, brand: 24, t1: nv ? 84 : 76, t2: nv ? 50 : 0, yr: 172, hi: 34, name: 56, wish: 33, from: 30, g: [46, 60, nv ? 14 : 0, 44, 46, 22, 40, 28, 40], wmax: 4 };
+  if (nv && !story) Z.yr = 0;
   ctx.font = F(700, Z.name);
   let ns = Z.name, nl = wrapLines(ctx, o.name, 920);
   while (nl.length > 2 && ns > 40){ ns -= 4; ctx.font = F(700, ns); nl = wrapLines(ctx, o.name, 920); }
@@ -9795,7 +10184,7 @@ async function nyCard(o){
   wl = wl.slice(0, Z.wmax);
   const yr = String(o.year);
   const blocks = [
-    ['lion', Z.lion], ['gap', Z.g[0]], ['brand', Z.brand], ['gap', Z.g[1]], ['t1', Z.t1], ['gap', Z.g[2]], ['t2', Z.t2], ['gap', Z.g[3]],
+    ['lion', Z.lion], ['gap', Z.g[0]], ['brand', Z.brand], ['gap', Z.g[1]], ['t1', Z.t1], ['gap', Z.g[2]], ['t2', Z.t2], ['gap', Z.yr ? Z.g[3] : 0],
     ['yr', Z.yr * .74], ['gap', Z.g[4]], ['hi', Z.hi], ['gap', Z.g[5]], ['name', nl.length * ns * 1.15], ['gap', Z.g[6]],
     ['wish', wl.length * ws * 1.5], ['gap', Z.g[7]], ['rule', 3], ['gap', Z.g[8]], ['from', Z.from]
   ];
@@ -9804,14 +10193,18 @@ async function nyCard(o){
   let y = top + Math.max(0, (bottom - top - total) / 2);
   const center = (t, yy, font, fill) => { ctx.font = font; ctx.fillStyle = fill; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic'; ctx.fillText(t, W / 2, yy); };
   const spaced = (t, yy, font, color, sp) => { ctx.font = font; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; const ch = [...t], w = ch.reduce((s, c) => s + ctx.measureText(c).width, 0) + sp * (ch.length - 1); let cx = W / 2 - w / 2; ctx.fillStyle = color; ch.forEach(c => { ctx.fillText(c, cx, yy); cx += ctx.measureText(c).width + sp; }); };
+  const shadow = (fn) => { ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 20; ctx.shadowOffsetY = 6; fn(); ctx.restore(); };
   blocks.forEach(([k, h]) => {
-    if (k === 'lion') nyLion(ctx, W / 2 - Z.lion / 2, y, Z.lion);
+    if (k === 'lion') seasonLion(ctx, W / 2 - Z.lion / 2, y, Z.lion, nv ? 'nv' : 'ny');
     else if (k === 'brand') spaced('ASLAN LESSONS', y + h * .8, F(700, Z.brand), 'rgba(255,255,255,.85)', 10);
-    else if (k === 't1'){ ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 20; ctx.shadowOffsetY = 6; center(story ? 'Yeni iliniz' : 'Yeni iliniz mübarək!', y + h * .8, F(800, Z.t1), '#fff'); ctx.restore(); }
-    else if (k === 't2' && h){ ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 20; ctx.shadowOffsetY = 6; center('mübarək!', y + h * .8, F(800, Z.t2), nyGold(ctx, 0, y, 0, y + h)); ctx.restore(); }
-    else if (k === 'yr'){
-      const by = y + h; ctx.save(); ctx.font = F(800, Z.yr); ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(252,211,77,.55)'; ctx.shadowBlur = 40;
-      ctx.fillStyle = nyGold(ctx, 0, y, 0, by); ctx.fillText(yr, W / 2, by); ctx.shadowBlur = 0; ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.strokeText(yr, W / 2, by); ctx.restore();
+    else if (k === 't1') shadow(() => nv ? center('Novruz', y + h * .8, F(800, Z.t1), nyGold(ctx, 0, y, 0, y + h)) : center(story ? 'Yeni iliniz' : 'Yeni iliniz mübarək!', y + h * .8, F(800, Z.t1), '#fff'));
+    else if (k === 't2' && h) shadow(() => nv ? center('bayramınız mübarək!', y + h * .8, F(700, Z.t2), '#fff') : center('mübarək!', y + h * .8, F(800, Z.t2), nyGold(ctx, 0, y, 0, y + h)));
+    else if (k === 'yr' && h){
+      if (nv){ nvSemeni(ctx, W / 2, y + h * .82, h * 1.05); }
+      else {
+        const by = y + h; ctx.save(); ctx.font = F(800, Z.yr); ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(252,211,77,.55)'; ctx.shadowBlur = 40;
+        ctx.fillStyle = nyGold(ctx, 0, y, 0, by); ctx.fillText(yr, W / 2, by); ctx.shadowBlur = 0; ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.strokeText(yr, W / 2, by); ctx.restore();
+      }
     }
     else if (k === 'hi') center('Əziz', y + h * .8, F(500, Z.hi), 'rgba(255,255,255,.85)');
     else if (k === 'name') nl.forEach((ln, i) => center(ln, y + ns * .85 + i * ns * 1.15, F(700, ns), nyGold(ctx, 0, y + i * ns * 1.15, 0, y + (i + 1) * ns * 1.15)));
@@ -9823,26 +10216,61 @@ async function nyCard(o){
   return cv;
 }
 
+function mdToDate(md, y){ return `${y}-${md}`; }
+function seasonCardHtml(key, s){
+  const nv = key === 'nv', id = (x) => (nv ? 'nv' : 'ny') + x;
+  const yFrom = nv ? s.year : s.year - (s.from >= '07-01' ? 1 : 0), yTo = nv ? s.year : s.year - (s.to >= '07-01' ? 1 : 0);
+  const crd = (s.crDays || []).map((d, i) => `<span class="cr-chip" style="--cc:${CR[i].c}">${tb(CR[i].ic)}${CR[i].n} · ${dmy(d)}</span>`).join('');
+  return `<section class="site-card" id="${id('Card')}"><h3>${tb(nv ? 'flame' : 'christmas-tree')}${nv ? 'Novruz rejimi' : 'Yeni il rejimi'}<span class="tag ${s.active ? 'solid' : ''}">${s.active ? 'Aktivdir' : 'Söndürülüb'}</span></h3>
+    <p class="hint">${nv ? 'Sayt Novruz ab-havasına bürünür: yaşıl-qızılı rənglər, buta naxışları, uçuşan ləçəklər, aslanın başında səməni. Hər çərşənbə günü öz bəzəyi və kiçik məlumat pəncərəsi olur. Sertifikat dəyişmir.' : 'Sayt Yeni il ab-havasına bürünür: qış rəngləri, qar, işıqlar, aslanın başında Şaxta baba papağı. Sertifikat dəyişmir.'} Söndürəndə hər şey əvvəlki kimi olur.</p>
+    <div class="sseg" role="tablist" id="${id('Mode')}">${[['off', 'Söndürülüb'], ['auto', 'Avtomatik'], ['on', 'Yandırılıb']].map(([k, l]) => `<button type="button" data-m="${k}" class="${s.mode === k ? 'on' : ''}">${l}</button>`).join('')}</div>
+    <div class="site-row" id="${id('Dates')}"${s.mode === 'auto' ? '' : ' hidden'}>
+      <label class="field"><span>Başlayır</span><input class="input" type="date" id="${id('From')}" value="${mdToDate(s.from, yFrom)}"></label>
+      <label class="field"><span>Bitir</span><input class="input" type="date" id="${id('To')}" value="${mdToDate(s.to, yTo)}"></label></div>
+    ${nv ? `<div class="site-row"><label class="field"><span>Novruz bayramı günü</span><input class="input" type="date" id="nvDay" value="${mdToDate(s.day, s.year)}"></label></div>` : ''}
+    <div class="site-info">
+      ${nv ? `<div>${tb('calendar2')}<span><b>Çərşənbələr ${s.year}:</b></span></div><div class="cr-chips">${crd}</div>
+      <div>${tb('award')}<span>Dörd çərşənbənin hamısında sayta girən tələbə <b>«Dörd Çərşənbə»</b> nişanı alır.</span></div>
+      <div>${tb('gift')}<span><b>${dmy(s.year + '-' + s.day)}, saat 10:00</b> — «Novruz sevinci» nişanı ${s.students} aktiv tələbəyə veriləcək (bal vermir).${s.given ? ` <b>Verildi: ${fmtDT(s.given)}</b>` : ''}</span></div>
+      <div>${tb('sparkles')}<span><b>Bayram günü və sonrakı 4 gün</b> — hamı sayta girəndə aşağıdakı təbriki bir dəfə görəcək.</span></div>`
+      : `<div>${tb('gift')}<span><b>31 dekabr, saat 10:00</b> — «Yeni il sehri» nişanı ${s.students} aktiv tələbəyə veriləcək (bal vermir).${s.given ? ` <b>Verildi: ${fmtDT(s.given)}</b>` : ''}</span></div>
+      <div>${tb('sparkles')}<span><b>1–7 yanvar</b> — hamı sayta girəndə aşağıdakı təbriki bir dəfə görəcək.</span></div>`}
+      <div>${tb('clock')}<span>Vaxt Bakı vaxtı ilə hesablanır. «Söndürülüb» olsa, nişan və təbrik də olmayacaq.</span></div></div>
+    <label class="field"><span>Təbrikin başlığı</span><input class="input" id="${id('Title')}" maxlength="80" value="${esc(s.greetTitle)}"></label>
+    <label class="field" style="margin-top:12px"><span>Təbrikin mətni</span><textarea class="textarea" id="${id('Text')}" rows="5" maxlength="900">${esc(s.greetText)}</textarea></label>
+    <label class="field" style="margin-top:12px"><span>İmza</span><textarea class="textarea sign-ta" id="${id('Sign')}" rows="2" maxlength="120">${esc(s.greetFrom)}</textarea></label>
+    <div class="site-acts"><button class="btn btn-soft" data-act="seasonPreview" data-key="${key}" data-k="greet">${ic('eyeview')}Təbrikə bax</button><button class="btn btn-soft" data-act="seasonPreview" data-key="${key}" data-k="badge">${ic('eyeview')}Nişana bax</button>${nv ? `<button class="btn btn-soft" data-act="seasonPreview" data-key="nv" data-k="cr">${ic('eyeview')}Çərşənbəyə bax</button>` : ''}<button class="btn btn-primary" data-act="seasonSave" data-key="${key}">${ic('check')}Yadda saxla</button></div>
+  </section>`;
+}
+function cdCardHtml(c){
+  return `<section class="site-card" id="cdCard"><h3>${tb('hourglass')}Geri sayım banneri<span class="tag ${c.on ? 'solid' : ''}">${c.on ? 'Göstərilir' : 'Söndürülüb'}</span></h3>
+    <p class="hint">Bütün səhifələrin yuxarısında gözəl geri sayım: 2 gündən çox qalanda yalnız günlər, son 2 gündə isə saat, dəqiqə və saniyələr işləyir. Vaxt çatanda konfetti və səs. Hər kəs banneri bağlaya bilər — ertəsi gün yenidən görünür.</p>
+    <label class="chk"><input type="checkbox" id="cdOn" ${c.on ? 'checked' : ''}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span>Banneri göstər</span></label>
+    <div class="sseg" id="cdKind" style="margin-top:14px">${[['ny', 'Yeni il'], ['nv', 'Novruz'], ['x', 'Başqa tarix']].map(([k, l]) => `<button type="button" data-k="${k}" class="${c.kind === k ? 'on' : ''}">${l}</button>`).join('')}</div>
+    <div id="cdX"${c.kind === 'x' ? '' : ' hidden'}>
+      <div class="site-row"><label class="field"><span>Başlıq (kimə/nəyə)</span><input class="input" id="cdTitle" maxlength="60" placeholder="Yay məktəbinə" value="${esc(c.title)}"></label>
+        <label class="field"><span>Tarix və saat</span><input class="input" type="datetime-local" id="cdAt" value="${esc(String(c.at || '').replace(' ', 'T'))}"></label></div>
+      <label class="field" style="margin-top:12px"><span>Vaxt çatanda yazı</span><input class="input" id="cdDone" maxlength="80" placeholder="Yay məktəbi başladı!" value="${esc(c.done)}"></label></div>
+    <div class="site-acts"><button class="btn btn-soft" data-act="cdPreview">${ic('eyeview')}Konfettiyə bax</button><button class="btn btn-primary" data-act="cdSave">${ic('check')}Yadda saxla</button></div>
+  </section>`;
+}
+function simCardHtml(sim){
+  return `<section class="site-card sim-card"><h3>${tb('flask2')}Sınaq tarixi<span class="tag">Yalnız test saytı</span></h3>
+    <p class="hint">Saytın «indiki vaxtını» dəyişin və bayram günlərini əvvəlcədən yoxlayın: nişanlar, təbriklər, çərşənbələr, geri sayım. Bu bölmə yalnız developer üçündür və işçi saytda görünmür. Bu test saytındakı hamı üçün işləyir.</p>
+    <div class="site-info"><div>${tb('clock')}<span>Saytın hazırkı vaxtı: <b>${fmtDT(sim.now)}</b>${sim.off ? ' <span class="tag warn">sınaq</span>' : ' (real)'}</span></div></div>
+    <div class="site-row"><label class="field"><span>Yeni sınaq vaxtı</span><input class="input" type="datetime-local" id="simAt"></label>
+      <div class="sim-quick">${[['31.12 10:05', '-12-31T10:05', 0], ['1 yanvar', '-01-01T09:00', 1], ['Su çərşənbəsi', 'cr0'], ['Novruz 10:05', 'nv']].map(([l, v, add]) => `<button type="button" class="btn btn-sm btn-soft" data-sim="${v}" data-add="${add || 0}">${l}</button>`).join('')}</div></div>
+    <div class="site-acts"><button class="btn btn-soft" data-act="simReset">${ic('trash')}Bayram nişanlarını sıfırla</button><button class="btn btn-soft" data-act="simSet" data-real="1">${ic('clock')}Real vaxta qayıt</button><button class="btn btn-primary" data-act="simSet">${ic('check')}Tətbiq et</button></div>
+  </section>`;
+}
 function siteHtml(r){
-  const s = r.season, so = r.site.social, sh = r.shares || { shares: 0, opens: 0, clicks: 0, m30: { shares: 0, opens: 0, clicks: 0 } };
-  const toDate = (md) => { const y = nyYearNow() - (md >= '07-01' ? 1 : 0); return `${y}-${md}`; };
+  const so = r.site.social, sh = r.shares || { shares: 0, opens: 0, clicks: 0, m30: { shares: 0, opens: 0, clicks: 0 } };
   const pct = sh.opens ? Math.round(sh.clicks / sh.opens * 100) + '%' : '—';
   return `<div class="site-grid">
-    <section class="site-card" id="seasonCard"><h3>${tb('christmas-tree')}Yeni il rejimi<span class="tag ${s.active ? 'solid' : ''}">${s.active ? 'Hazırda aktivdir' : 'Hazırda söndürülüb'}</span></h3>
-      <p class="hint">Bütün saytın dizaynı (giriş, kabinet, idarə paneli, valideyn linki, hesabatlar) Yeni ilə uyğun dəyişir: qış rəngləri, qar, işıqlar, aslanın başında Şaxta baba papağı. Sertifikat dəyişmir. Söndürəndə hər şey əvvəlki kimi olur.</p>
-      <div class="sseg" role="tablist" id="seasonMode">${[['off', 'Söndürülüb'], ['auto', 'Avtomatik'], ['on', 'Yandırılıb']].map(([k, l]) => `<button type="button" data-m="${k}" class="${s.mode === k ? 'on' : ''}">${l}</button>`).join('')}</div>
-      <div class="site-row" id="seasonDates"${s.mode === 'auto' ? '' : ' hidden'}>
-        <label class="field"><span>Başlayır</span><input class="input" type="date" id="seFrom" value="${toDate(s.from)}"></label>
-        <label class="field"><span>Bitir</span><input class="input" type="date" id="seTo" value="${toDate(s.to)}"></label></div>
-      <div class="site-info">
-        <div>${tb('gift')}<span><b>31 dekabr, saat 10:00</b> — «Yeni il sehri» nişanı ${s.students} aktiv tələbəyə avtomatik veriləcək (bal vermir). Tələbə sayta girəndə təbrik pəncərəsi görəcək.${s.given ? ` <b>Verildi: ${fmtDT(s.given)}</b>` : ''}</span></div>
-        <div>${tb('sparkles')}<span><b>1–7 yanvar</b> — bütün tələbə və müəllimlər sayta girəndə aşağıdakı təbriki bir dəfə görəcək.</span></div>
-        <div>${tb('clock')}<span>Vaxt Bakı vaxtı ilə hesablanır. Rejim «Söndürülüb» olsa, nişan və təbrik də olmayacaq.</span></div></div>
-      <label class="field"><span>Təbrikin başlığı</span><input class="input" id="seTitle" maxlength="80" value="${esc(s.greetTitle)}"></label>
-      <label class="field" style="margin-top:12px"><span>Təbrikin mətni</span><textarea class="textarea" id="seText" rows="5" maxlength="900">${esc(s.greetText)}</textarea></label>
-      <label class="field" style="margin-top:12px"><span>İmza</span><textarea class="textarea" id="seFrom2" rows="2" maxlength="120">${esc(s.greetFrom)}</textarea></label>
-      <div class="site-acts"><button class="btn btn-soft" data-act="seasonPreview" data-k="greet">${ic('eyeview')}Təbrikə bax</button><button class="btn btn-soft" data-act="seasonPreview" data-k="badge">${ic('eyeview')}Nişana bax</button><button class="btn btn-primary" data-act="seasonSave">${ic('check')}Yadda saxla</button></div>
-    </section>
+    ${r.sim ? simCardHtml(r.sim) : ''}
+    ${seasonCardHtml('ny', r.season)}
+    ${seasonCardHtml('nv', r.novruz)}
+    ${cdCardHtml(r.countdown || { on: false, kind: 'ny' })}
     <section class="site-card"><h3>${tb('brand-instagram')}Sosial şəbəkələr</h3>
       <p class="hint">Nömrə, istifadəçi adı və ya tam link yazın. Linklər giriş səhifəsində, kabinetdə, valideyn və nailiyyət səhifələrində görünür. Boş qalan düymə yerində qalır, amma heç yerə aparmır.</p>
       <div class="site-grid">${[['whatsapp', 'WhatsApp', 'brand-whatsapp', '994501234567'], ['instagram', 'Instagram', 'brand-instagram', 'aslanlessons'], ['tiktok', 'TikTok', 'brand-tiktok', 'aslanlessons']].map(([k, l, i, ph]) => `<div class="soc-field"><span class="soc-ic2">${tb(i)}</span><label class="field"><span>${l}</span><input class="input" id="so_${k}" maxlength="200" placeholder="${ph}" value="${esc(so[k] || '')}"></label></div>`).join('')}</div>
@@ -9862,25 +10290,73 @@ async function drawSite(){
   if (!box.isConnected) return;
   box.innerHTML = siteHtml(r);
   hydrateIcons(box);
-  $$('#seasonMode button', box).forEach(b => b.addEventListener('click', () => {
-    $$('#seasonMode button', box).forEach(x => x.classList.toggle('on', x === b));
-    $('#seasonDates', box).hidden = b.dataset.m !== 'auto';
+  ['ny', 'nv'].forEach(k => $$(`#${k}Mode button`, box).forEach(b => b.addEventListener('click', () => {
+    $$(`#${k}Mode button`, box).forEach(x => x.classList.toggle('on', x === b));
+    $(`#${k}Dates`, box).hidden = b.dataset.m !== 'auto';
+  })));
+  $$('#cdKind button', box).forEach(b => b.addEventListener('click', () => {
+    $$('#cdKind button', box).forEach(x => x.classList.toggle('on', x === b));
+    $('#cdX', box).hidden = b.dataset.k !== 'x';
+  }));
+  $$('[data-sim]', box).forEach(b => b.addEventListener('click', () => {
+    const v = b.dataset.sim, r2 = S.ui.siteR, y = r2.season.year, vy = r2.novruz.year;
+    let val = '';
+    if (v === 'nv') val = `${vy}-${r2.novruz.day}T10:05`;
+    else if (v === 'cr0') val = `${(r2.novruz.crDays || [])[0] || vy + '-02-20'}T15:00`;
+    else val = `${y - 1 + Number(b.dataset.add)}${v}`;
+    $('#simAt', box).value = val;
   }));
 }
 ACT.seasonSave = (b) => {
-  const mode = ($('#seasonMode .on') || {}).dataset.m || 'auto';
+  const key = b.dataset.key || 'ny', id = (x) => $('#' + key + x);
+  const mode = ($(`#${key}Mode .on`) || {}).dataset.m || 'auto';
   const md = (v) => String(v || '').slice(5, 10);
+  const p = { key, mode, from: md(id('From').value), to: md(id('To').value), greetTitle: id('Title').value, greetText: id('Text').value, greetFrom: id('Sign').value };
+  if (key === 'nv') p.day = md($('#nvDay').value);
   run(b, async () => {
-    await api('seasonSave', { mode, from: md($('#seFrom').value), to: md($('#seTo').value), greetTitle: $('#seTitle').value, greetText: $('#seText').value, greetFrom: $('#seFrom2').value }, { noRender: true });
-    toast('Yeni il rejimi yadda saxlanıldı.', 'ok');
+    await api('seasonSave', p, { noRender: true });
+    toast((key === 'nv' ? 'Novruz' : 'Yeni il') + ' rejimi yadda saxlanıldı.', 'ok');
     await api('maintenanceStatus', {}, { noRender: true, silent: true }).catch(() => {});
     drawSite();
   });
 };
 ACT.seasonPreview = (b) => {
-  if (b.dataset.k === 'greet') nyGreetShow({ y: nyYearNow(), title: $('#seTitle').value || 'Yeni iliniz mübarək!', text: $('#seText').value, from: $('#seFrom2').value }, S.d.me.name);
-  else openModal({ title: 'Yeni nailiyyət!', size: 'sm ach-m ach-ny', body: nyAchBody({ name: 'Yeni il sehri' }).replace(/Əziz [^!]+!/, 'Əziz Nərmin!'), foot: `<button class="btn btn-primary" data-close>Bağla</button>` });
+  const key = b.dataset.key || 'ny';
+  if (b.dataset.k === 'greet') nyGreetShow({ k: key, y: key === 'nv' ? nvYearNow() : nyYearNow(), title: $('#' + key + 'Title').value, text: $('#' + key + 'Text').value, from: $('#' + key + 'Sign').value }, S.d.me.name);
+  else if (b.dataset.k === 'cr') crShow(0);
+  else {
+    const A = SEASON_ACH[key];
+    sndPlay(A.snd);
+    openModal({ title: A.title, size: 'sm ach-m ' + A.cls, body: seasonAchBody({ id: key, name: key === 'nv' ? 'Novruz sevinci' : 'Yeni il sehri', tier: 4 }).replace(/(Əziz|Afərin,) [^!]+!/, '$1 Nərmin!'), foot: `<button class="btn btn-primary" data-close>Bağla</button>` });
+  }
 };
+ACT.cdSave = (b) => {
+  const kind = ($('#cdKind .on') || {}).dataset.k || 'ny';
+  run(b, async () => {
+    await api('cdSave', { on: $('#cdOn').checked, kind, title: $('#cdTitle').value, done: $('#cdDone').value, at: $('#cdAt').value }, { noRender: true });
+    toast('Geri sayım yadda saxlanıldı.', 'ok');
+    await api('maintenanceStatus', {}, { noRender: true, silent: true }).catch(() => {});
+    drawSite();
+  });
+};
+ACT.cdPreview = () => { const k = ($('#cdKind .on') || {}).dataset.k || 'ny'; confettiBurst(k); sndPlay(k === 'x' ? 'level' : k); };
+ACT.simSet = (b) => {
+  const at = b.dataset.real ? '' : $('#simAt').value;
+  if (!b.dataset.real && !at){ toast('Tarix və saatı seçin.', 'err'); return; }
+  run(b, async () => {
+    await api('simSet', { at }, { noRender: true });
+    toast(at ? 'Sınaq tarixi tətbiq edildi.' : 'Real vaxta qayıdıldı.', 'ok');
+    try { Object.keys(localStorage).filter(k => /^al_(nyg_|cr_|cdfire_|cdx_|seen_)/.test(k)).forEach(k => localStorage.removeItem(k)); } catch (e) {}
+    await api('maintenanceStatus', {}, { noRender: true, silent: true }).catch(() => {});
+    drawSite();
+  });
+};
+ACT.simReset = (b) => run(b, async () => {
+  const r = await api('simReset', {}, { noRender: true });
+  try { Object.keys(localStorage).filter(k => /^al_(nyg_|cr_|cdfire_|cdx_|seen_)/.test(k)).forEach(k => localStorage.removeItem(k)); } catch (e) {}
+  toast(`${r.removed} bayram nişanı silindi — yenidən sınaya bilərsiniz.`, 'ok');
+  drawSite();
+});
 ACT.siteSave = (b) => {
   const social = {}; ['whatsapp', 'instagram', 'tiktok'].forEach(k => social[k] = $('#so_' + k).value);
   run(b, async () => {
@@ -9891,14 +10367,109 @@ ACT.siteSave = (b) => {
   });
 };
 
+function simChip(){
+  let c = $('#simChip');
+  const on = S.site && S.site.test && S.site.sim;
+  if (!on){ if (c) c.remove(); return; }
+  if (!c){ c = document.createElement('div'); c.id = 'simChip'; document.body.appendChild(c); }
+  c.innerHTML = `${tb('flask2')}<span>Sınaq vaxtı: <b>${fmtDT(new Date(srvNow() + 4 * 3600000).toISOString().slice(0, 16).replace('T', ' '))}</b></span>`;
+}
+
+const CD = { t: 0, sig: '' };
+function cdHosts(){
+  const lg = $('#login .lg-card');
+  if (lg && !$('#cdLogin')){ const h = document.createElement('div'); h.id = 'cdLogin'; h.className = 'cd-host'; lg.parentNode.insertBefore(h, $('#nyHello') || lg); }
+  const top = $('#shell header.top');
+  if (top && !$('#cdApp')){ const h = document.createElement('div'); h.id = 'cdApp'; h.className = 'cd-host'; top.insertAdjacentElement('afterend', h); }
+  const ct = $('#cabTop');
+  if (ct && !$('#cdCab')){ const h = document.createElement('div'); h.id = 'cdCab'; h.className = 'cd-host'; ct.insertAdjacentElement('afterend', h); }
+}
+function cdState(){
+  const c = S.site && S.site.cd;
+  if (!c) return null;
+  const left = c.at - srvNow();
+  if (left < -86400000) return null;
+  let hidden = false;
+  try { hidden = localStorage.getItem('al_cdx_' + c.at) === new Date().toDateString(); } catch (e) {}
+  return { c, left, hidden };
+}
+function cdHtml(st){
+  const { c, left } = st, k = c.k === 'x' ? 'x' : c.k;
+  const icn = k === 'ny' ? 'christmas-tree' : k === 'nv' ? 'flame' : 'hourglass';
+  const x = `<button type="button" class="cd-x" data-cdx aria-label="Bağla">${ic('x')}</button>`;
+  if (left <= 0) return `<div class="cd cd-${k} cd-done">${flakesHtml(14, k === 'nv' ? 'petal' : k === 'x' ? 'conf' : '')}<span class="cd-ic">${tb(icn)}</span><div class="cd-t"><b>${esc(c.done)}</b><small>Aslan Lessons ailəsi olaraq sizi təbrik edirik!</small></div>${x}</div>`;
+  const D = Math.floor(left / 86400000);
+  if (left > 2 * 86400000) return `<div class="cd cd-${k}"><span class="cd-ic">${tb(icn)}</span><div class="cd-t"><small>Geri sayım</small><b>${esc(c.title)} <span class="cd-big" data-cdd>${D}</span> gün qalıb</b></div>${x}</div>`;
+  const u = (n, l, a) => `<span class="cd-u"><b data-cd="${a}">${String(n).padStart(2, '0')}</b><small>${l}</small></span>`;
+  const H = Math.floor(left / 3600000) % 24, M = Math.floor(left / 60000) % 60, Sx = Math.floor(left / 1000) % 60;
+  return `<div class="cd cd-${k} cd-live"><span class="cd-ic">${tb(icn)}</span><div class="cd-t"><small>Geri sayım</small><b>${esc(c.title)} qalıb</b></div>
+    <div class="cd-units">${u(D, 'gün', 'd')}${u(H, 'saat', 'h')}${u(M, 'dəqiqə', 'm')}${u(Sx, 'saniyə', 's')}</div>${x}</div>`;
+}
+function cdTick(){
+  const st = cdState();
+  const sig = !st || st.hidden ? 'none' : st.left <= 0 ? 'done' + st.c.at : st.left > 2 * 86400000 ? 'days' + Math.floor(st.left / 86400000) + st.c.title : 'live' + st.c.at + st.c.title;
+  if (st && st.left <= 0){
+    let fired = true;
+    try { fired = !!localStorage.getItem('al_cdfire_' + st.c.at); if (!fired) localStorage.setItem('al_cdfire_' + st.c.at, '1'); } catch (e) {}
+    if (!fired && st.left > -600000){ confettiBurst(st.c.k); sndPlay(st.c.k === 'x' ? 'level' : st.c.k); }
+  }
+  if (sig !== CD.sig) cdHosts();
+  CD.sig = sig;
+  let fresh = false;
+  $$('.cd-host').forEach(h => { if (h.dataset.sig !== sig){ h.dataset.sig = sig; h.innerHTML = sig === 'none' ? '' : cdHtml(st); hydrateIcons(h); fresh = true; } });
+  if (!fresh && st && sig.startsWith('live')){
+    const l = st.left, v = { d: Math.floor(l / 86400000), h: Math.floor(l / 3600000) % 24, m: Math.floor(l / 60000) % 60, s: Math.floor(l / 1000) % 60 };
+    $$('[data-cd]').forEach(e => { const n = String(v[e.dataset.cd]).padStart(2, '0'); if (e.textContent !== n){ e.textContent = n; e.classList.remove('tk'); void e.offsetWidth; e.classList.add('tk'); } });
+  }
+  if (S.site && S.site.sim) simChip();
+}
+function cdSync(){
+  if (!CD.t) CD.t = setInterval(cdTick, 1000);
+  CD.sig = '';
+  $$('.cd-host').forEach(h => delete h.dataset.sig);
+  cdTick();
+}
+document.addEventListener('click', (e) => {
+  const b = e.target.closest && e.target.closest('[data-cdx]'); if (!b) return;
+  const st = cdState(); if (!st) return;
+  try { localStorage.setItem('al_cdx_' + st.c.at, new Date().toDateString()); } catch (er) {}
+  cdSync();
+});
+
+function confettiBurst(k){
+  let rm = false;
+  try { rm = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  const cols = k === 'ny' ? ['#FCD34D', '#60A5FA', '#FFFFFF', '#F43F5E', '#22C55E', '#A78BFA'] : k === 'nv' ? ['#FCD34D', '#22C55E', '#F97316', '#EF4444', '#F9A8D4', '#38BDF8'] : ['#FF7A00', '#FCD34D', '#22C55E', '#3B82F6', '#EC4899', '#A78BFA'];
+  const c = document.createElement('canvas'); c.className = 'cfx'; c.setAttribute('aria-hidden', 'true'); document.body.appendChild(c);
+  const d = Math.min(2, devicePixelRatio || 1), W = innerWidth, H = innerHeight;
+  c.width = W * d; c.height = H * d;
+  const x = c.getContext('2d'); x.scale(d, d);
+  const n = rm ? 40 : W < 700 ? 120 : 190;
+  const P = Array.from({ length: n }, (_, i) => { const left = i % 2 === 0; return { x: left ? -10 : W + 10, y: H * (.55 + Math.random() * .3), vx: (left ? 1 : -1) * (4 + Math.random() * 8), vy: -(9 + Math.random() * 9), r: 4 + Math.random() * 5, c: cols[i % cols.length], a: Math.random() * 6.28, va: (Math.random() - .5) * .3, sh: i % 3 }; });
+  const t0 = performance.now();
+  const step = (t) => {
+    const e = t - t0;
+    x.clearRect(0, 0, W, H);
+    P.forEach(p => {
+      p.vy += .32; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.a += p.va;
+      x.globalAlpha = Math.max(0, 1 - e / 4200); x.fillStyle = p.c;
+      x.save(); x.translate(p.x, p.y); x.rotate(p.a);
+      if (p.sh === 0) x.fillRect(-p.r, -p.r * .4, p.r * 2, p.r * .8); else if (p.sh === 1){ x.beginPath(); x.arc(0, 0, p.r * .6, 0, 6.283); x.fill(); } else { x.beginPath(); x.moveTo(0, -p.r); x.lineTo(p.r * .8, p.r * .6); x.lineTo(-p.r * .8, p.r * .6); x.closePath(); x.fill(); }
+      x.restore();
+    });
+    if (e < 4300) requestAnimationFrame(step); else c.remove();
+  };
+  requestAnimationFrame(step);
+}
+
 PAGES.cards = { title: 'Təbrik kartı', icon: 'gift', nav: true, allow: () => !ro() && (me().isSuper || can('cards.make')) && (seasonOn() || me().isSuper) };
 ['news', 'dev', 'none'].forEach(k => { const v = PAGES[k]; delete PAGES[k]; PAGES[k] = v; });
-RENDER.cards = () => `<div class="page-head"><div><h2>Təbrik kartı</h2><p>Tələbəni və ya müəllimi seçin — Yeni il təbrik kartı adı ilə birlikdə avtomatik hazırlanacaq.${seasonOn() ? '' : ' <b>Yeni il rejimi hazırda söndürülüb — bu bölmə yalnız rəhbərliyə görünür.</b>'}</p></div></div><div id="nycBox">${loadingBox()}</div>`;
+RENDER.cards = () => `<div class="page-head"><div><h2>Təbrik kartı</h2><p>Bayramı, tələbəni və ya müəllimi seçin — təbrik kartı adı ilə birlikdə avtomatik hazırlanacaq.${seasonOn() ? '' : ' <b>Bayram rejimi hazırda söndürülüb — bu bölmə yalnız rəhbərliyə görünür.</b>'}</p></div></div><div id="nycBox">${loadingBox()}</div>`;
 AFTER.cards = async () => {
   const box = $('#nycBox'); if (!box) return;
   try {
     const r = await api('cardPeople', {}, { noRender: true });
-    S.ui.nyc = Object.assign({ who: 'st', id: '', from: 0, wish: null, fmt: 'story' }, S.ui.nyc || {}, { p: r.people });
+    S.ui.nyc = Object.assign({ who: 'st', id: '', from: 0, wish: null, fmt: 'story', k: seasonKey() || 'ny' }, S.ui.nyc || {}, { p: r.people });
     nycDraw();
   } catch (e) {
     if (e.code === 'AUTH' || e.code === 'MAINT') return;
@@ -9907,10 +10478,12 @@ AFTER.cards = async () => {
 };
 function nycState(){
   const u = S.ui.nyc, p = u.p, list = u.who === 'st' ? p.students : p.staff;
+  if (!WISH[u.k]) u.k = 'ny';
   if (!list.some(x => x.id === u.id)) { u.id = list[0] ? list[0].id : ''; u.wish = null; }
   const person = list.find(x => x.id === u.id);
-  const wishes = u.who === 'st' ? NY_WISH_ST : NY_WISH_TE;
+  const wishes = WISH[u.k][u.who === 'st' ? 'st' : 'te'];
   if (u.wish == null && person) u.wish = nyHash(person.id) % wishes.length;
+  if (u.wish >= wishes.length) u.wish = 0;
   const froms = [`Hörmətlə, kurs rəhbəri ${p.signer}`];
   if (p.me && p.me !== p.signer) froms.push(`Hörmətlə, ${p.me}`);
   froms.push('Hörmətlə, Aslan Lessons komandası');
@@ -9921,16 +10494,18 @@ function nycDraw(){
   const box = $('#nycBox'); if (!box) return;
   const { u, list, wishes, froms } = nycState();
   box.innerHTML = `<div class="nyc"><div class="nyc-side">
+      <div class="sseg" id="nycK"><button type="button" data-k="ny" class="${u.k === 'ny' ? 'on' : ''}">${tb('christmas-tree')}Yeni il</button><button type="button" data-k="nv" class="${u.k === 'nv' ? 'on' : ''}">${tb('flame')}Novruz</button></div>
       <div class="sseg" id="nycWho"><button type="button" data-w="st" class="${u.who === 'st' ? 'on' : ''}">Tələbə</button><button type="button" data-w="te" class="${u.who === 'te' ? 'on' : ''}">Müəllim</button></div>
       <label class="field"><span>Kimə</span><select class="select" id="nycId">${list.length ? list.map(x => `<option value="${x.id}" ${x.id === u.id ? 'selected' : ''}>${esc(x.name)}</option>`).join('') : '<option value="">Siyahı boşdur</option>'}</select></label>
       <label class="field"><span>Kimdən</span><select class="select" id="nycFrom">${froms.map((f, i) => `<option value="${i}" ${i === u.from ? 'selected' : ''}>${esc(capFirst(f.replace('Hörmətlə, ', '')))}</option>`).join('')}</select></label>
       <div class="nyc-wish"><span>Arzu mətni</span><div class="row" style="gap:4px"><button class="ibtn sm" type="button" data-wd="-1" aria-label="Əvvəlki">${tb('chevron-left')}</button><b>${(u.wish || 0) + 1} / ${wishes.length}</b><button class="ibtn sm" type="button" data-wd="1" aria-label="Növbəti">${tb('chevron-right')}</button></div></div>
       <div class="sseg" id="nycFmt"><button type="button" data-f="story" class="${u.fmt === 'story' ? 'on' : ''}">Story (9:16)</button><button type="button" data-f="post" class="${u.fmt === 'post' ? 'on' : ''}">Post (4:5)</button></div>
     </div>
-    <div class="nyc-prev"><div class="nyc-img ${u.fmt === 'story' ? 'story' : ''}" id="nycImg">${list.length ? '<span class="spin"></span>' : ''}</div>
+    <div class="nyc-prev"><div class="nyc-img ${u.fmt === 'story' ? 'story' : ''} ${u.k}" id="nycImg">${list.length ? '<span class="spin"></span>' : ''}</div>
       <div class="nyc-acts"><button class="btn btn-primary" data-act="nycSave" ${list.length ? '' : 'disabled'}>${ic('download')}Şəkli yüklə</button>${navigator.share ? `<button class="btn btn-soft" data-act="nycShare" ${list.length ? '' : 'disabled'}>${ic('share')}Paylaş</button>` : ''}</div>
       <p class="nyc-hint">Şəkli yükləyib WhatsApp və ya Instagram vasitəsilə göndərə bilərsiniz. Arzu mətnini oxlarla dəyişin.</p></div></div>`;
   hydrateIcons(box);
+  $$('#nycK button', box).forEach(b => b.addEventListener('click', () => { u.k = b.dataset.k; u.wish = null; nycDraw(); }));
   $$('#nycWho button', box).forEach(b => b.addEventListener('click', () => { u.who = b.dataset.w; u.id = ''; u.wish = null; nycDraw(); }));
   $$('#nycFmt button', box).forEach(b => b.addEventListener('click', () => { u.fmt = b.dataset.f; nycDraw(); }));
   $('#nycId', box).addEventListener('change', e => { u.id = e.target.value; u.wish = null; nycDraw(); });
@@ -9943,12 +10518,12 @@ async function nycRender(){
   const { u, person, wishes, froms } = nycState();
   const el = $('#nycImg'); if (!el || !person) return;
   const my = ++nycSeq;
-  const cv = await nyCard({ name: person.name, wish: wishes[u.wish || 0], from: froms[u.from], year: nyYearNow(), fmt: u.fmt });
+  const cv = await nyCard({ k: u.k, name: person.name, wish: wishes[u.wish || 0], from: froms[u.from], year: u.k === 'nv' ? nvYearNow() : nyYearNow(), fmt: u.fmt });
   if (my !== nycSeq) return;
   const blob = await new Promise(res => cv.toBlob(res, 'image/png'));
   if (my !== nycSeq || !blob) return;
   if (S.ui.nycUrl) URL.revokeObjectURL(S.ui.nycUrl);
-  S.ui.nycUrl = URL.createObjectURL(blob); S.ui.nycBlob = blob; S.ui.nycName = fileName('Yeni il - ' + person.name) + '.png';
+  S.ui.nycUrl = URL.createObjectURL(blob); S.ui.nycBlob = blob; S.ui.nycName = fileName((u.k === 'nv' ? 'Novruz - ' : 'Yeni il - ') + person.name) + '.png';
   const box = $('#nycImg'); if (box) box.innerHTML = `<img src="${S.ui.nycUrl}" alt="Təbrik kartı: ${esc(person.name)}">`;
 }
 ACT.nycSave = () => { if (S.ui.nycBlob){ saveBlob(S.ui.nycBlob, S.ui.nycName); toast('Şəkil yükləndi.', 'ok'); } };
@@ -9962,15 +10537,17 @@ ACT.nycShare = async () => {
 };
 
 (() => {
-  try { const x = JSON.parse(localStorage.getItem('al_site') || 'null'); if (x && typeof x === 'object') S.site = x; } catch (e) {}
+  try { const x = JSON.parse(localStorage.getItem('al_site') || 'null'); if (x && typeof x === 'object'){ S.site = x; if (typeof x.now === 'number') S.tOff = 0; } } catch (e) {}
   const lg = $('#login .lg-card');
   if (lg && !$('#nyHello')){ const h = document.createElement('div'); h.id = 'nyHello'; h.className = 'ny-hello'; lg.parentNode.insertBefore(h, lg); }
   seasonSet();
   footInit();
+  cdSync();
   if (!S.token) setTimeout(() => api('maintenanceStatus', {}, { noRender: true, silent: true }).catch(() => {}), 50);
 })();
 
-document.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.matches && e.target.matches('textarea.qtext, #seFrom2')) e.preventDefault(); });
+document.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.matches && e.target.matches('textarea.qtext, textarea.sign-ta')) e.preventDefault(); });
+
 (function init(){
   hydrateIcons();
   $('[data-act=togglePass]').innerHTML = ic('eye');
