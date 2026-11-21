@@ -2265,60 +2265,60 @@ input::placeholder,textarea::placeholder{text-overflow:ellipsis}
 .ach-nv .ach-eb{color:#065F46;background:#D1FAE5}
 :root[data-theme="dark"] .ach-nv .ach-eb{color:#6EE7B7;background:rgba(52,211,153,.14)}
 .modal.cr-m .mhead h3{color:var(--or-text)}
-.crp{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
-.crp-art{position:relative;width:132px;height:132px;display:grid;place-items:center;margin:4px 0 6px}
-.crp-art .ny-flakes{inset:-14px}
-.crp-ic{position:relative;width:96px;height:96px;border-radius:50%;display:grid;place-items:center;color:#fff;
-  background:radial-gradient(circle at 35% 30%,color-mix(in srgb,var(--cc) 55%,#fff),var(--cc));box-shadow:0 18px 40px -16px var(--cc),inset 0 2px 0 rgba(255,255,255,.35);animation:achPop .7s var(--ease) both}
-.crp-ic .tb{width:50px;height:50px;stroke-width:1.8}
-.crp-eb{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cc);background:color-mix(in srgb,var(--cc) 12%,var(--surface));padding:4px 12px;border-radius:99px}
-.crp h3{font-size:22px;font-weight:800;color:var(--ink)}
-.crp p{font-size:14.5px;line-height:1.6;color:var(--soft);max-width:380px}
-.crp-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;width:100%;margin-top:6px}
-.crp-steps span{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);color:var(--faint)}
-.crp-steps span .tb{width:22px;height:22px}
-.crp-steps span b{font-size:12px;font-weight:600}
-.crp-steps span.ok{color:var(--cc);border-color:color-mix(in srgb,var(--cc) 35%,var(--line))}
-.crp-steps span.on{color:#fff;background:var(--cc);border-color:var(--cc);box-shadow:0 10px 22px -12px var(--cc)}
-.crp-prog{background:var(--tint);border-radius:14px;padding:10px 14px;color:var(--ink)!important;font-size:14px!important;width:100%;max-width:none!important}
 .cd-host:empty{display:none}
 .cd-host{width:100%}
 #cdApp{padding:0 clamp(16px,3vw,36px);margin:14px 0 -6px}
 #cdCab{max-width:1080px;margin:12px auto 0;padding:0 clamp(16px,4vw,32px)}
 #cdLogin{position:relative;z-index:2;max-width:420px;margin:0 auto 14px}
 .pub-wrap .cd-host{margin-bottom:16px}
-.cd{position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;padding:14px 48px 14px 16px;border-radius:20px;color:#fff;
-  background:linear-gradient(120deg,#E86A00,#FF8A1F 50%,#FFB15C);box-shadow:0 18px 40px -24px rgba(0,0,0,.6)}
-.cd-ny{background:linear-gradient(120deg,#0B1A45,#163276 55%,#2F6FE6)}
-.cd-nv{background:linear-gradient(120deg,#052E23,#0A5C44 55%,#12946B)}
-.cd::before{content:"";position:absolute;inset:0;background:radial-gradient(260px 120px at 85% 0,rgba(255,255,255,.18),transparent 70%);pointer-events:none}
-.cd .ny-flakes{inset:0;border-radius:0}
-.cd-ic{position:relative;width:46px;height:46px;flex:none;border-radius:15px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25)}
-.cd-ic .tb{width:26px;height:26px;color:#FDE68A}
-.cd-t{position:relative;min-width:0;flex:1}
-.cd-t small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
-.cd-t b{display:block;font-size:17px;font-weight:700;line-height:1.3}
-.cd-big{display:inline-block;min-width:1.4em;text-align:center;font-size:24px;font-weight:800;color:#FDE68A;margin:0 2px}
-.cd-units{position:relative;display:flex;gap:8px}
-.cd-u{display:flex;flex-direction:column;align-items:center;min-width:58px;padding:6px 6px 5px;border-radius:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22)}
-.cd-u b{font-size:24px;font-weight:800;line-height:1.1;font-variant-numeric:tabular-nums;color:#fff}
+.cd{position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;grid-template-areas:"ic t n x";align-items:center;column-gap:14px;row-gap:12px;padding:14px 12px 14px 16px;border-radius:20px;color:#fff;
+  background:linear-gradient(120deg,var(--brand-deep),var(--brand) 55%,var(--brand-hi));border:1px solid rgba(255,255,255,.16);box-shadow:0 18px 40px -24px rgba(0,0,0,.6)}
+.cd-ny{background:linear-gradient(120deg,#0B1A45,#163276 55%,#2A5BC4);border-color:rgba(147,197,253,.25)}
+.cd-nv{background:linear-gradient(120deg,#052E23,#0A5C44 55%,#12946B);border-color:rgba(110,231,183,.3)}
+.cd::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(280px 140px at 88% 0,rgba(255,255,255,.14),transparent 70%);pointer-events:none}
+.cd .ny-flakes{inset:0;border-radius:0;z-index:-1}
+.cd-ic{grid-area:ic;position:relative;width:46px;height:46px;flex:none;border-radius:15px;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25)}
+.cd-ic .tb{width:26px;height:26px;color:#fff}
+.cd-t{grid-area:t;min-width:0}
+.cd-t small{display:block;font-size:11px;line-height:1.3;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.cd-t b{display:block;font-size:17px;line-height:1.3;font-weight:700;color:#fff;overflow-wrap:anywhere}
+.cd-sub{display:block;margin-top:3px;font-size:13.5px;line-height:1.4;color:rgba(255,255,255,.85)}
+.cd-n{grid-area:n;position:relative}
+.cd-days .cd-n{display:flex;align-items:center;gap:10px;padding:6px 14px 6px 16px;border-radius:16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
+.cd-days .cd-n b{font-size:34px;line-height:1;font-weight:800;font-variant-numeric:tabular-nums;color:#fff;white-space:nowrap}
+.cd-days .cd-n span{font-size:12px;line-height:1.25;font-weight:600;color:rgba(255,255,255,.85);white-space:nowrap}
+.cd-units{display:grid;grid-template-columns:repeat(4,64px);gap:6px}
+.cd-u{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;padding:7px 4px 6px;border-radius:13px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);overflow:hidden}
+.cd-u b{display:block;font-size:24px;line-height:1.1;font-weight:800;font-variant-numeric:tabular-nums;color:#fff;white-space:nowrap}
 .cd-u b.tk{animation:cdTick .35s var(--ease)}
-.cd-u small{font-size:10.5px;opacity:.8;margin-top:1px}
-@keyframes cdTick{0%{transform:translateY(-35%);opacity:.2}100%{transform:none;opacity:1}}
-.cd-x{position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:10px;border:0;background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;cursor:pointer}
+.cd-u small{display:block;max-width:100%;margin-top:2px;font-size:10.5px;line-height:1.2;font-weight:600;color:rgba(255,255,255,.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@keyframes cdTick{0%{transform:translateY(-30%);opacity:.25}100%{transform:none;opacity:1}}
+.cd-x{grid-area:x;align-self:start;width:32px;height:32px;border-radius:10px;border:0;background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;cursor:pointer;margin:-4px -2px 0 0}
 .cd-x .i{width:16px;height:16px}
 .cd-x:hover{background:rgba(255,255,255,.24)}
-.cd-done .cd-t b{font-size:19px;color:#FDE68A}
+.cd-done{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"ic t x"}
+.cd-done .cd-t b{font-size:19px;color:#fff}
 body:has(.xp-run) .cd-host{display:none}
 @media (max-width:760px){
-  .cd{flex-wrap:wrap;padding:12px 44px 12px 12px;gap:10px 12px}
+  .cd{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"ic t x" "n n n";column-gap:12px;row-gap:12px;padding:12px 10px 14px 12px;border-radius:18px}
   .cd-ic{width:40px;height:40px;border-radius:13px}
+  .cd-ic .tb{width:23px;height:23px}
   .cd-t b{font-size:15.5px}
-  .cd-units{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
-  .cd-u{min-width:0}
-  .cd-u b{font-size:22px}
+  .cd-done .cd-t b{font-size:16.5px}
+  .cd-sub{font-size:13px}
+  .cd-units{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cd-u b{font-size:clamp(19px,6vw,24px)}
+  .cd-days .cd-n{justify-content:center;padding:8px 12px}
+  .cd-days .cd-n b{font-size:30px}
+  .cd-days .cd-n span br{display:none}
+  .cd-days .cd-n span{font-size:14px}
   #cdApp{margin-top:10px}
 }
+#cdLogin .cd,.pub-wrap .cd{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"ic t x" "n n n"}
+#cdLogin .cd-units,.pub-wrap .cd-units{grid-template-columns:repeat(4,minmax(0,1fr))}
+#cdLogin .cd-days .cd-n,.pub-wrap .cd-days .cd-n{justify-content:center}
+@media (max-width:900px){#cdLogin:not(:empty){margin-top:46px}}
+@media (max-width:340px){.cd-u small{font-size:9.5px}.cd-u{padding:6px 2px}}
 @media (prefers-reduced-motion:reduce){.cd-u b.tk{animation:none}}
 .cfx{position:fixed;inset:0;width:100vw;height:100vh;z-index:90;pointer-events:none}
 #simChip{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:59;display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#7C3AED;color:#fff;font-size:12.5px;box-shadow:0 10px 24px -12px rgba(0,0,0,.5)}
@@ -2334,6 +2334,170 @@ body:has(.xp-run) .cd-host{display:none}
 #nycK .tb{width:17px;height:17px}
 .nyc-img.nv{background:#052E23}
 .cd-done .cd-t small{text-transform:none;letter-spacing:0;font-size:13px;font-weight:500;opacity:.9;margin-top:2px}
+html.scroll-lock,html.scroll-lock body{overscroll-behavior:none}
+.mback{overscroll-behavior:contain}
+.mbody{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.ny-flakes.petal i{background:#86EFAC;border-radius:60% 40% 60% 40%;width:calc(var(--s) * 1.8);height:var(--s);opacity:.85}
+.ny-flakes.petal i:nth-child(3n){background:#BBF7D0}
+.ny-flakes.petal i:nth-child(4n){background:#4ADE80}
+.nyg.nvg{background:radial-gradient(500px 260px at 50% 0,#1FA374,transparent 70%),linear-gradient(180deg,#04281D,#0A4A39 60%,#0F7356)}
+.nyg.nvg .nyg-lion{background:linear-gradient(135deg,#34D399,#0E7A5A)}
+.nyg.nvg .nyg-year{font-size:50px;letter-spacing:.01em}
+.crg .nyg-lion::after{display:none}
+.crg-ic{color:#fff}
+.crg-ic .tb{width:44px;height:44px;stroke-width:1.8}
+.crg-eb{position:relative;display:inline-block;margin:10px 0 2px;padding:4px 12px;border-radius:99px;background:rgba(255,255,255,.12);color:#D1FAE5;font-size:11.5px;line-height:1.3;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.crg-steps{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:16px 0 4px}
+.crg-steps::before{content:"";position:absolute;left:12.5%;right:12.5%;top:20px;height:2px;background:rgba(255,255,255,.22)}
+.crg-s{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+.crg-s i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#0B4A38;border:2px solid rgba(255,255,255,.3);color:rgba(255,255,255,.75)}
+.crg-s i .tb{width:19px;height:19px}
+.crg-s b{font-size:13px;line-height:1.3;font-weight:700;color:#fff;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crg-s small{font-size:11px;line-height:1.2;color:rgba(255,255,255,.72);white-space:nowrap}
+.crg-s.ok i{background:#86EFAC;border-color:#86EFAC;color:#064E3B}
+.crg-s.on i{background:#fff;border-color:#fff;color:#0E7A5A;box-shadow:0 0 0 4px rgba(255,255,255,.22)}
+.crg-prog{position:relative;margin:12px auto 0;max-width:400px;padding:10px 14px;border-radius:14px;background:rgba(255,255,255,.1);color:#fff;font-size:14px;line-height:1.5}
+.crg-prog b{color:#FDE68A;white-space:nowrap}
+@media (max-width:350px){.crg-s i{width:34px;height:34px}.crg-steps::before{top:17px}.crg-s b{font-size:12px}}
+.modal.ach-nv .mhead h3{color:var(--or-text)}
+.ach-nv .ach-stage{width:220px;height:220px}
+.ach-nv .ach-stage::before{inset:20px;background:radial-gradient(circle,rgba(167,243,208,.6),transparent 70%)}
+.ach-nv .ach-rays{background:repeating-conic-gradient(from 0deg,rgba(52,211,153,.32) 0 8deg,transparent 8deg 22deg)}
+.ach-nv .ach-eb{color:#065F46;background:#D1FAE5}
+:root[data-theme="dark"] .ach-nv .ach-eb{color:#6EE7B7;background:rgba(52,211,153,.14)}
+.ach-nv .ach-art svg{filter:drop-shadow(0 12px 20px rgba(6,95,70,.35))}
+:root[data-season="nv"] #nyGarland .w{stroke:#14532D;opacity:.7}
+:root[data-season="nv"][data-theme="dark"] #nyGarland .w{stroke:#6EE7B7;opacity:.45}
+:root[data-season="nv"] #nyGarland .c{fill:#1F3A30}
+.cr-chip{color:#0B6B4E;background:#ECF7F1;border-color:#B9D9C8}
+:root[data-theme="dark"] .cr-chip{color:#6EE7B7;background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.3)}
+.modal.ny-greet-m{position:relative}
+.crg .nyg-art{display:flex;justify-content:center}
+.crg-eb{display:table;margin:12px auto 2px}
+.fsx{position:fixed;inset:0;z-index:95;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;display:flex;
+  background:radial-gradient(700px 420px at 50% -6%,rgba(var(--brand-rgb),.16),transparent 70%),var(--bg);color:var(--ink);animation:fsxIn .35s var(--ease) both}
+.fsx[hidden]{display:none}
+html.fsx-on,html.fsx-on body{overflow:hidden}
+@keyframes fsxIn{from{opacity:0}to{opacity:1}}
+.fsx-in{margin:auto;width:100%;max-width:520px;padding:calc(40px + env(safe-area-inset-top)) 22px calc(32px + env(safe-area-inset-bottom));text-align:center;display:flex;flex-direction:column;align-items:center}
+.fsx-art{position:relative;width:168px;height:168px;margin-bottom:22px;display:grid;place-items:center}
+.fsx-ring{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(var(--brand-rgb),.18),rgba(var(--brand-rgb),.04) 62%,transparent 70%)}
+.fsx-ring::before,.fsx-ring::after{content:"";position:absolute;inset:14px;border-radius:50%;border:2px dashed rgba(var(--brand-rgb),.28);animation:achSpin 30s linear infinite}
+.fsx-ring::after{inset:-2px;border-style:solid;border-width:1px;border-color:rgba(var(--brand-rgb),.14);animation:none}
+.fsx-ic{position:relative;width:112px;height:112px;border-radius:34px;display:grid;place-items:center;background:linear-gradient(150deg,var(--brand-hi),var(--brand) 55%,var(--brand-deep));box-shadow:0 22px 44px -18px rgba(var(--brand-rgb),.75);animation:fsxBob 4s ease-in-out infinite}
+.fsx-ic svg{width:56px;height:56px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.fsx-lion{position:absolute;right:6px;bottom:8px;width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:var(--surface);border:3px solid var(--bg);box-shadow:0 8px 18px -8px rgba(0,0,0,.35);color:var(--brand)}
+.fsx-lion svg{width:28px;height:28px}
+@keyframes fsxBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.fsx-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;background:rgba(var(--brand-rgb),.12);color:var(--or-text);font-size:12px;line-height:1.3;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.fsx-dot{width:8px;height:8px;border-radius:50%;background:#EF4444;box-shadow:0 0 0 0 rgba(239,68,68,.5);animation:fsxPulse 1.6s infinite}
+@keyframes fsxPulse{0%{box-shadow:0 0 0 0 rgba(239,68,68,.5)}70%{box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
+.fsx h1{margin-top:14px;font-size:28px;line-height:1.2;font-weight:800;letter-spacing:-.02em;color:var(--ink);text-wrap:balance}
+.fsx-p{margin-top:10px;font-size:15.5px;line-height:1.65;color:var(--soft);max-width:440px;text-wrap:pretty}
+.fsx-msg{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--tint);font-size:14px;line-height:1.5;color:var(--ink)}
+.fsx-tips{list-style:none;margin:20px 0 0;padding:14px 16px;width:100%;max-width:420px;display:flex;flex-direction:column;gap:10px;text-align:left;border-radius:18px;background:var(--surface);border:1px solid var(--line)}
+.fsx-tips li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;line-height:1.5;color:var(--ink)}
+.fsx-tips li .i{flex:none;width:20px;height:20px;margin-top:1px;padding:3px;border-radius:7px;color:var(--brand);background:rgba(var(--brand-rgb),.12)}
+.fsx-acts{margin-top:22px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;width:100%}
+.fsx-acts .btn{min-height:48px;padding:0 22px;font-size:15px}
+.fsx-foot{margin-top:26px;font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+@media (max-width:560px){
+  .fsx-in{padding-left:18px;padding-right:18px}
+  .fsx-art{width:144px;height:144px;margin-bottom:18px}
+  .fsx-ic{width:96px;height:96px;border-radius:30px}
+  .fsx-ic svg{width:48px;height:48px}
+  .fsx h1{font-size:24px}
+  .fsx-p{font-size:15px}
+  .fsx-acts{flex-direction:column}
+  .fsx-acts .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.fsx,.fsx-ic,.fsx-ring::before,.fsx-dot{animation:none}}
+.upd-bar{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:92;display:flex;align-items:center;gap:12px;width:max-content;max-width:calc(100vw - 28px);padding:10px 10px 10px 12px;border-radius:18px;background:var(--surface);border:1px solid var(--line);box-shadow:0 18px 44px -16px rgba(0,0,0,.4);animation:updIn .4s var(--ease) both}
+@keyframes updIn{from{opacity:0;transform:translate(-50%,16px)}to{opacity:1;transform:translateX(-50%)}}
+.upd-ic{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(var(--brand-rgb),.12);color:var(--brand)}
+.upd-ic .i{width:20px;height:20px}
+.upd-bar div{min-width:0}
+.upd-bar b{display:block;font-size:14.5px;line-height:1.3;color:var(--ink)}
+.upd-bar small{display:block;font-size:12.5px;line-height:1.35;color:var(--soft)}
+.upd-bar .btn{flex:none;white-space:nowrap}
+@media (max-width:560px){.upd-bar{left:14px;right:14px;width:auto;transform:none;bottom:calc(14px + env(safe-area-inset-bottom))}@keyframes updIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}}
+.bdn{display:inline-flex;align-items:center;gap:5px;padding:1px 8px 1px 9px;margin:-1px 0;border-radius:99px;color:#BE185D;background:rgba(236,72,153,.1);font-weight:700;max-width:100%}
+:root[data-theme="dark"] .bdn{color:#F9A8D4;background:rgba(244,114,182,.14)}
+.bdn-cake{flex:none;width:1.15em;height:1.15em}
+.linkish .bdn,.pod-name .bdn{color:#BE185D}
+:root[data-theme="dark"] .linkish .bdn,:root[data-theme="dark"] .pod-name .bdn{color:#F9A8D4}
+h2 .bdn{padding:2px 12px;font-weight:800}
+.mitem .tb,.mrow .tb{width:18px;height:18px;flex:none}
+.bdset-hero{display:flex;gap:14px;align-items:center;padding:14px;border-radius:16px;background:linear-gradient(135deg,rgba(244,114,182,.14),rgba(167,139,250,.14))}
+.bdset-hero p{font-size:14px;line-height:1.55;color:var(--ink)}
+.bdset-ic{flex:none;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--surface);box-shadow:0 8px 18px -10px rgba(190,24,93,.5)}
+.bdset-ic svg{width:34px;height:34px}
+.bdset-row{display:grid;grid-template-columns:1fr 1.4fr;gap:12px}
+.bdset-note{display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+.bdset-note .i{flex:none;width:18px;height:18px;margin-top:1px;color:var(--brand)}
+.bdset-done{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:8px 0}
+.bdset-done .bdset-ic{width:72px;height:72px;border-radius:22px;margin-bottom:6px}
+.bdset-done .bdset-ic svg{width:48px;height:48px}
+.bdset-done p{color:var(--soft);font-size:14px}
+.bdset-done b{font-size:26px;line-height:1.2;font-weight:800;color:#BE185D}
+:root[data-theme="dark"] .bdset-done b{color:#F9A8D4}
+.bdset-done small{max-width:320px;color:var(--soft);font-size:13.5px;line-height:1.5}
+.bdset-conf{display:flex;flex-direction:column;align-items:center;gap:2px;margin:2px 0 12px;padding:12px;border-radius:14px;background:rgba(236,72,153,.1)}
+.bdset-conf span{font-size:13px;color:var(--soft)}
+.bdset-conf b{font-size:24px;font-weight:800;color:#BE185D}
+:root[data-theme="dark"] .bdset-conf b{color:#F9A8D4}
+.nyg.bdg{overflow:hidden;background:radial-gradient(520px 280px at 50% 0,#C026D3,transparent 70%),linear-gradient(180deg,#2E1065,#5B21B6 55%,#9D174D)}
+.nyg.bdg .nyg-lion{background:linear-gradient(135deg,#F472B6,#7C3AED)}
+.nyg.bdg .nyg-lion::after{background-image:var(--bd-hat);top:-40%;right:-12%;width:56%;aspect-ratio:1;transform:rotate(14deg)}
+.nyg.bdg .bdg-t{font-size:40px;line-height:1.1;letter-spacing:-.01em}
+.nyg.bdg .ny-flakes.conf i:nth-child(2n){background:#F472B6}
+.nyg.bdg .ny-flakes.conf i:nth-child(3n){background:#FDE68A}
+.nyg.bdg .ny-flakes.conf i:nth-child(5n){background:#A5F3FC}
+.bdg-bal{position:absolute;top:52px;width:74px;height:140px;pointer-events:none;animation:bdSway 5s ease-in-out infinite}
+.bdg-bal-l{left:-6px;transform-origin:30% 100%}
+.bdg-bal-r{right:-6px;transform-origin:70% 100%;animation-delay:-2.5s}
+@keyframes bdSway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@media (max-width:380px){.bdg-bal{width:58px;height:110px}.nyg.bdg .bdg-t{font-size:34px}}
+.ach-bd .ach-rays{background:repeating-conic-gradient(from 0deg,rgba(244,114,182,.34) 0 8deg,transparent 8deg 22deg)}
+.ach-bd .ach-stage::before{background:radial-gradient(circle,rgba(249,168,212,.6),transparent 70%)}
+.ach-bd .ach-eb{color:#9D174D;background:#FCE7F3}
+:root[data-theme="dark"] .ach-bd .ach-eb{color:#F9A8D4;background:rgba(244,114,182,.14)}
+.modal.ach-bd .mhead h3{color:#BE185D}
+:root[data-theme="dark"] .modal.ach-bd .mhead h3{color:#F9A8D4}
+.bd-hero{position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:center;gap:14px;margin-bottom:16px;padding:16px 110px 16px 16px;border-radius:22px;color:#fff;background:radial-gradient(360px 160px at 20% 0,#C026D3,transparent 70%),linear-gradient(120deg,#4C1D95,#7C3AED 50%,#DB2777)}
+.bd-hero .ny-flakes{inset:0;border-radius:0;z-index:-1}
+.bd-hero .bdg-bal{top:-4px;right:4px;width:64px;height:120px;z-index:-1;opacity:.95}
+.bd-hero-ic{flex:none;width:54px;height:54px;border-radius:17px;display:grid;place-items:center;background:#fff;box-shadow:0 10px 22px -12px rgba(0,0,0,.5)}
+.bd-hero-ic svg{width:36px;height:36px}
+.bd-hero-tx{min-width:0;flex:1}
+.bd-hero-tx b{display:block;font-size:18px;line-height:1.3;font-weight:800}
+.bd-hero-tx small{display:block;margin-top:2px;font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.88)}
+.bd-hero-btn{flex:none;background:#fff;color:#6D28D9;border:0;font-weight:700}
+.bd-hero-btn:hover{background:#FCE7F3}
+@media (max-width:560px){.bd-hero{flex-wrap:wrap;padding:14px 80px 14px 14px}.bd-hero-btn{width:100%;justify-content:center;margin-right:-66px}}
+.bdl-head{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px}
+.bdl-mon{display:flex;align-items:center;gap:8px;padding:6px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.bdl-mon b{min-width:110px;text-align:center;font-size:17px;font-weight:700;color:var(--ink)}
+.bdl-next .i{transform:scaleX(-1)}
+.bdl-kpi{display:flex;flex-direction:column;justify-content:center;padding:8px 16px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+.bdl-kpi b{font-size:20px;line-height:1.2;font-weight:800;color:#BE185D}
+:root[data-theme="dark"] .bdl-kpi b{color:#F9A8D4}
+.bdl-kpi small{font-size:12.5px;color:var(--soft)}
+.bdl-list{display:flex;flex-direction:column;gap:10px}
+.bdl-day{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;padding:12px;border-radius:18px;background:var(--surface);border:1px solid var(--line)}
+.bdl-day.today{border-color:rgba(236,72,153,.5);box-shadow:0 0 0 3px rgba(236,72,153,.12)}
+.bdl-date{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:8px 4px;border-radius:14px;background:rgba(236,72,153,.08);text-align:center}
+.bdl-date b{font-size:28px;line-height:1;font-weight:800;color:#BE185D}
+:root[data-theme="dark"] .bdl-date b{color:#F9A8D4}
+.bdl-date span{font-size:13px;font-weight:600;color:var(--ink)}
+.bdl-date small{font-size:11.5px;line-height:1.25;color:var(--soft)}
+.bdl-date i{margin-top:4px;font-style:normal;font-size:11px;font-weight:700;color:#fff;background:#DB2777;padding:2px 8px;border-radius:99px}
+.bdl-ppl{display:flex;flex-direction:column;gap:10px;justify-content:center;min-width:0}
+.bdl-p{display:flex;align-items:center;gap:10px;min-width:0}
+.bdl-p>div{min-width:0}
+.bdl-p b{display:block;font-size:14.5px;line-height:1.35}
+.bdl-p small{display:block;font-size:12.5px;line-height:1.4;color:var(--soft);overflow-wrap:anywhere}
+@media (max-width:560px){.bdl-day{grid-template-columns:72px minmax(0,1fr);gap:10px;padding:10px}.bdl-date b{font-size:24px}.bdl-kpi{flex:1}.bdl-mon{width:100%;justify-content:space-between}}
 </style>
 </head>
 <body>
@@ -2423,7 +2587,7 @@ body:has(.xp-run) .cd-host{display:none}
 <div id="modalRoot"></div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
 
-<script>const API_URL = 'https://script.google.com/macros/s/AKfycbzXb4rzEURr_unzEpeOH4lqIVE03RGTgdrnLVegdRCTjl5H0FVFleh0XV5lxjVpvUcf/exec';
+<script>const API_URL = 'https://script.google.com/macros/s/AKfycbylJEfDP28l8IeFWk-WiNbO2aVjOMuhlvs-NA5UcC4S0nnu8_g1pJJH2fOWmBG0vzHM/exec';
 const SOCIAL = { whatsapp: '', instagram: '', tiktok: '' };
 
 const ICONS = {
@@ -2464,6 +2628,8 @@ const ICONS = {
   list:'<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/>',
   bell:'<path d="M18 9a6 6 0 1 0-12 0c0 6-2.5 7.5-2.5 7.5h17S18 15 18 9z"/><path d="M10.5 20a2 2 0 0 0 3 0"/>',
   megaphone:'<path d="M3 11v2a1 1 0 0 0 1 1h2l9 5V5l-9 5H4a1 1 0 0 0-1 1z"/><path d="M18.5 8.5a4 4 0 0 1 0 7"/>',
+  cake:'<path d="M3 20h18"/><path d="M5 20v-7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7"/><path d="M5 15.5c1.2 0 1.8-1 3-1s1.8 1 3 1 1.8-1 3-1 1.8 1 3 1 1.8-1 2-1"/><path d="M12 11V8"/><path d="M12 5.5c.6-.5 1-1.1 1-1.7 0-.8-1-1.8-1-1.8s-1 1-1 1.8c0 .6.4 1.2 1 1.7z"/>',
+  download:'<path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/>',
   tools:'<path d="M14.5 6.5a3.5 3.5 0 0 0 4.6 4.6l-9 9a2.1 2.1 0 0 1-3-3l9-9z"/><path d="M14.5 6.5 18 3M16 9l3.5-3.5"/>',
   poll:'<path d="M5.5 10.5a6.5 6.5 0 1 1 6.5 6.5c-1.2 0-2.3-.3-3.3-.9L4 17.5l1.4-4.2c-.6-1-.9-2.1-.9-2.8z"/><path d="M9 11h.01M12 11h.01M15 11h.01"/>',
   rocket:'<path d="M5 15c-1.5 1-2 4-2 4s3-.5 4-2a2.1 2.1 0 0 0-2-2z"/><path d="M9 13c6-6 9-6 11-6 0 2 0 5-6 11l-3-1-1-1z"/><circle cx="14.5" cy="9.5" r="1.3"/>',
@@ -2587,6 +2753,91 @@ function pips(held, N, cls){
 }
 
 class ApiError extends Error { constructor(m, code){ super(m); this.code = code || ''; } }
+const FSX_IC = {
+  net: '<path d="M2 8.8a15 15 0 0 1 4.2-2.6"/><path d="M10.5 5.1A15 15 0 0 1 22 8.8"/><path d="M5 12.6a10 10 0 0 1 3.4-2"/><path d="M14 10.4a10 10 0 0 1 5 2.2"/><path d="M8.5 16.4a5 5 0 0 1 7 0"/><path d="M12 20h.01"/><path d="M3 3l18 18"/>',
+  404: '<path d="M8 16l2-6 6-2-2 6-6 2z"/><circle cx="12" cy="12" r="9"/>',
+  link: '<path d="M9 15l2-2"/><path d="M13 7l1.5-1.5a3.5 3.5 0 0 1 5 5L18 12"/><path d="M11 17l-1.5 1.5a3.5 3.5 0 0 1-5-5L6 12"/><path d="M3 3l18 18"/>',
+  srv: '<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/><path d="M11 7.5h6M11 16.5h3"/><path d="M17 15l3 3M20 15l-3 3"/>'
+};
+const FSX_DEF = {
+  net: { tag: 'Bağlantı yoxdur', h: 'İnternet bağlantısı yoxdur', p: 'Görünür, cihazınız hazırda internetə qoşulmayıb. Bağlantı bərpa olunan kimi bu səhifə özü bağlanacaq — yazdığınız heç nə itməyəcək.',
+    tips: ['Wi-Fi və ya mobil internetin açıq olduğunu yoxlayın', 'Təyyarə rejimi söndürülmüş olsun', 'Başqa bir sayt açılırmı — yoxlayın'] },
+  404: { tag: 'Xəta 404', h: 'Səhifə tapılmadı', p: 'Axtardığınız səhifə mövcud deyil və ya ünvan səhv yazılıb. Ola bilər ki, link köhnədir və ya səhifə başqa yerə köçürülüb.',
+    tips: ['Ünvanı bir daha yoxlayın', 'Ana səhifədən lazımi bölməyə keçin'] },
+  link: { tag: 'Link işləmir', h: 'Link etibarsızdır', p: 'Bu link artıq işləmir: vaxtı bitib, silinib və ya tam kopyalanmayıb.',
+    tips: ['Linki sizə göndərən şəxsdən yenisini istəyin', 'Linkin sonuna qədər kopyalandığını yoxlayın'] },
+  srv: { tag: 'Server cavab vermir', h: 'Serverə qoşulmaq alınmadı', p: 'İnternet var, amma server hazırda cavab vermir. Adətən bu bir neçə dəqiqə çəkir.',
+    tips: ['Bir az gözləyib «Yenidən yoxla» düyməsini basın', 'Problem davam edərsə, kurs rəhbərliyinə xəbər verin'] }
+};
+const FSX = { k: '', t: null, off: false, fails: 0 };
+function fsxShow(k, o){
+  o = o || {};
+  if (k === 'net' && FSX.off) return;
+  const D = FSX_DEF[k]; if (!D) return;
+  let el = $('#fsx');
+  if (!el){ el = document.createElement('div'); el.id = 'fsx'; el.setAttribute('role', 'alertdialog'); el.setAttribute('aria-modal', 'true'); document.body.appendChild(el); }
+  FSX.k = k;
+  const hasData = !!(S.d && S.token);
+  const home = `<button class="btn btn-primary" data-fsx="home">${ic('home')}${S.token ? 'Ana səhifəyə qayıt' : 'Sayta keç'}</button>`;
+  const retry = `<button class="btn btn-primary" data-fsx="retry">${ic('refresh')}Yenidən yoxla</button>`;
+  const btns = k === 'net' ? retry + (hasData ? `<button class="btn btn-soft" data-fsx="close">${ic('eye')}Saxlanılmış məlumatlara bax</button>` : '')
+    : k === 'srv' ? retry + (hasData ? `<button class="btn btn-soft" data-fsx="close">${ic('x')}Bağla</button>` : '')
+    : home;
+  const msg = o.msg ? `<p class="fsx-msg">${esc(o.msg)}</p>` : '';
+  el.className = 'fsx fsx-' + k;
+  el.innerHTML = `<div class="fsx-in">
+    <div class="fsx-art"><span class="fsx-ring"></span><span class="fsx-ic"><svg viewBox="0 0 24 24" aria-hidden="true">${FSX_IC[k]}</svg></span><span class="fsx-lion">${LOGO_SVG('currentColor')}</span></div>
+    <span class="fsx-tag">${k === 'net' ? '<i class="fsx-dot"></i>' : ''}${D.tag}</span>
+    <h1>${D.h}</h1><p class="fsx-p">${D.p}</p>${msg}
+    <ul class="fsx-tips">${D.tips.map(t => `<li>${ic('check')}<span>${t}</span></li>`).join('')}</ul>
+    <div class="fsx-acts">${btns}</div>
+    <p class="fsx-foot">Aslan Lessons</p></div>`;
+  el.hidden = false;
+  document.documentElement.classList.add('fsx-on');
+  const f = el.querySelector('.btn'); if (f) try { f.focus({ preventScroll: true }); } catch (e) {}
+}
+function fsxHide(){
+  const el = $('#fsx'); if (!el || el.hidden) return;
+  el.hidden = true; FSX.k = '';
+  document.documentElement.classList.remove('fsx-on');
+}
+async function fsxRetry(btn){
+  if (btn){ btn.disabled = true; btn.innerHTML = '<span class="spin"></span><span>Yoxlanılır…</span>'; }
+  const restore = () => { if (btn && btn.isConnected){ btn.disabled = false; btn.innerHTML = ic('refresh') + 'Yenidən yoxla'; } };
+  if (!navigator.onLine){ setTimeout(restore, 700); return; }
+  if (!S.token){ location.reload(); return; }
+  try {
+    await api(S.kind === 's' ? 'sBoot' : 'bootstrap', S.d && S.d.rev ? { since: S.d.rev } : {}, { silent: true, noRender: true });
+    FSX.fails = 0; fsxHide(); toast('Bağlantı bərpa olundu.', 'ok'); syncData(true);
+  } catch (e) { restore(); }
+}
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-fsx]'); if (!b) return;
+  const k = b.dataset.fsx;
+  if (k === 'retry') return fsxRetry(b);
+  if (k === 'close'){ if (FSX.k === 'net') FSX.off = true; fsxHide(); return; }
+  if (k === 'home'){
+    fsxHide();
+    if (S.token && S.d && S.kind !== 's' && !$('#shell').hidden) return go(defaultPage(), null, true);
+    location.href = location.pathname;
+  }
+});
+function fsxNetLater(ms){
+  clearTimeout(FSX.t);
+  FSX.t = setTimeout(() => { if (!navigator.onLine) fsxShow('net'); }, ms);
+}
+window.addEventListener('offline', () => fsxNetLater(4000));
+window.addEventListener('online', () => {
+  clearTimeout(FSX.t); FSX.off = false;
+  if (FSX.k === 'net'){ fsxHide(); if (S.token){ syncData(true); toast('Bağlantı bərpa olundu.', 'ok'); } }
+});
+if (!navigator.onLine) fsxNetLater(1200);
+function fsxApiFail(code){
+  if (code === 'NET' && !navigator.onLine) return fsxNetLater(800);
+  FSX.fails++;
+  if (FSX.fails >= 2 || code === 'SRV') fsxShow('srv');
+}
+
 function setBusy(d){
   S.busy = Math.max(0, S.busy + d);
   $('#loadbar').classList.toggle('on', S.busy > 0);
@@ -2605,11 +2856,13 @@ async function api(action, payload = {}, opts = {}){
         body: JSON.stringify(Object.assign({ action, token: S.token }, payload))
       });
     } catch (e) {
-      throw new ApiError('Serverlə əlaqə yoxdur. İnternet bağlantısını yoxlayıb yenidən cəhd edin.');
+      if (!opts.silent && action !== 'login') fsxApiFail('NET');
+      throw new ApiError('Serverlə əlaqə yoxdur. İnternet bağlantısını yoxlayıb yenidən cəhd edin.', 'NET');
     }
     let json;
     try { json = await res.json(); }
-    catch (e) { throw new ApiError('Serverdən düzgün cavab gəlmədi. API_URL linkini və veb tətbiqin yerləşdirilməsini yoxlayın.'); }
+    catch (e) { if (!opts.silent && action !== 'login') fsxApiFail('SRV'); throw new ApiError('Serverdən düzgün cavab gəlmədi. Bir az sonra yenidən cəhd edin.', 'SRV'); }
+    FSX.fails = 0; if (FSX.k === 'srv') fsxHide();
     if (!json.ok) {
       if (json.code === 'AUTH' && action !== 'login') { if (S.cabX && xpBusy()) throw new ApiError(json.error, 'AUTH'); forceLogout(json.error); throw new ApiError(json.error, 'AUTH'); }
       if (json.code === 'MAINT' && action !== 'login') { showMaintenance({ maintenance: json.maintenance, me: json.me }); throw new ApiError(json.error, 'MAINT'); }
@@ -2625,6 +2878,50 @@ async function api(action, payload = {}, opts = {}){
     if (!opts.silent){ setBusy(-1); slowWatch(false); }
   }
 }
+const PC_KEY = 'al_pc';
+const PCache = { m: null, uid: '' };
+function pcStore(){ try { return S.remember ? localStorage : sessionStorage; } catch (e) { return null; } }
+function pcLoad(){
+  const uid = (S.d && S.d.me && S.d.me.id) || (S.kind || '') + ':' + (S.token || '').slice(0, 8);
+  if (PCache.m && PCache.uid === uid) return PCache.m;
+  PCache.uid = uid; PCache.m = {};
+  try { const st = pcStore(); const x = st && JSON.parse(st.getItem(PC_KEY) || 'null'); if (x && x.uid === uid && x.m) PCache.m = x.m; } catch (e) {}
+  return PCache.m;
+}
+let pcSaveT = null;
+function pcSave(){
+  clearTimeout(pcSaveT);
+  pcSaveT = setTimeout(() => {
+    const st = pcStore(); if (!st || !PCache.m) return;
+    const ks = Object.keys(PCache.m).sort((a, b) => PCache.m[b].at - PCache.m[a].at);
+    const keep = {}; let size = 0;
+    for (const k of ks){ const j = JSON.stringify(PCache.m[k]); if (size + j.length > 1500000) break; keep[k] = PCache.m[k]; size += j.length; }
+    try { st.setItem(PC_KEY, JSON.stringify({ uid: PCache.uid, m: keep })); } catch (e) {}
+  }, 400);
+}
+function pcDrop(){ PCache.m = null; PCache.uid = ''; try { localStorage.removeItem(PC_KEY); } catch (e) {} try { sessionStorage.removeItem(PC_KEY); } catch (e) {} }
+async function swr(action, params, apply, opts = {}){
+  const m = pcLoad(), key = action + '|' + JSON.stringify(opts.key || params || {});
+  const c = m[key];
+  if (c){ try { apply(c.d, true); } catch (e) {} }
+  const fresh = c && Date.now() - c.at < 10 * 60000 && c.rev;
+  let r;
+  try {
+    r = await api(action, Object.assign({}, params || {}, fresh ? { _since: c.rev } : {}), { noRender: true, silent: !!c || !!opts.silent });
+  } catch (e) {
+    if (c && e.code !== 'AUTH' && e.code !== 'MAINT' && e.code !== 'PWD' && e.code !== 'PERM') return c.d;
+    throw e;
+  }
+  if (r.same && c){ c.at = Date.now(); pcSave(); return c.d; }
+  const d = Object.assign({}, r); delete d.ok; delete d.same;
+  const sig = (x) => JSON.stringify(x, (k, v) => k === 'now' || k === 'rev' ? undefined : v);
+  const changed = !c || sig(c.d) !== sig(d);
+  m[key] = { d, rev: r.rev || '', at: Date.now() };
+  pcSave();
+  if (changed) apply(d, false);
+  return d;
+}
+function pcForget(prefix){ const m = pcLoad(); Object.keys(m).forEach(k => { if (!prefix || k.indexOf(prefix + '|') === 0) delete m[k]; }); pcSave(); }
 async function run(btn, fn){
   if (btn && btn.dataset.busy) return;
   let html;
@@ -2844,6 +3141,7 @@ function enterApp(){
   renderChrome();
   renderBell(); renderAnnBar(); maybePopup();
   const h = parseHash();
+  if (h.page && !PAGES[h.page]) setTimeout(() => fsxShow('404'), 300);
   if (h.page && pageAllowed(h.page)) go(h.page, h.param, true); else go(defaultPage(), null, true);
   toast(`Xoş gəldiniz, ${me().name}!`, 'ok');
   setTimeout(maybeInstallHint, 2500);
@@ -2863,7 +3161,9 @@ async function logout(){
   showLogin();
 }
 
-function toolsAllowed(){ const f = S.d && S.d.flags; return !!(f && (f.tools || f.survey || f.announce)); }
+function toolsAllowed(){ return !!(S.d && toolTabs('tools').length); }
+function commsAllowed(){ return !!(S.d && toolTabs('comms').length); }
+function siteAllowed(){ return !!(S.d && toolTabs('site').length); }
 const PAGES = {
   home:     { title: 'İcmal', icon: 'home', nav: true, allow: () => isAdminish() },
   mine:     { title: 'Məşğələlərim', icon: 'book', nav: true, allow: () => isTeacherish() },
@@ -2873,6 +3173,8 @@ const PAGES = {
   staff:    { title: 'Müəllimlər', icon: 'teacher', nav: true, allow: () => can('teachers.view') },
   history:  { title: 'Dərs tarixçəsi', icon: 'calendar', nav: true, allow: () => can('attendance.view') },
   exams:    { title: 'İmtahanlar', icon: 'exam', nav: true, allow: () => !!(S.d.exam && S.d.exam.show) },
+  comms:    { title: 'Elan və sorğular', icon: 'megaphone', nav: true, allow: () => commsAllowed() },
+  site:     { title: 'Sayt və bayramlar', icon: 'sparkle', nav: true, allow: () => siteAllowed() },
   tools:    { title: 'Alətlər', icon: 'tools', nav: true, allow: () => toolsAllowed() },
   logs:     { title: 'Jurnal', icon: 'clock', nav: true, allow: () => can('logs.view') },
   perms:    { title: 'İcazələr', icon: 'shield', nav: true, allow: () => me().isSuper },
@@ -2886,17 +3188,19 @@ function pageAllowed(p){ return !!(p && PAGES[p] && S.d && PAGES[p].allow()); }
 function defaultPage(){
   if (isAdminish()) return 'home';
   if (isTeacherish()) return 'mine';
-  for (const k of ['exams','history','tools','logs','perms','news']) if (pageAllowed(k)) return k;
+  for (const k of ['exams','history','comms','site','tools','logs','perms','news']) if (pageAllowed(k)) return k;
   return 'none';
 }
 function parseHash(){
   const h = location.hash.replace(/^#\/?/, '');
   const [page, param] = h.split('/');
+  if (page === 'cards'){ if (S.ui) S.ui.tab = 'cards'; return { page: 'site', param: null }; }
   return { page: page || null, param: param ? decodeURIComponent(param) : null };
 }
 function go(page, param, replace){
   if (exLeaveGuard(() => go(page, param, replace))) return;
   if (S.token && S.d && !S.viewAs && Date.now() - S.lastSync > 8000) setTimeout(() => syncData(true), 400);
+  if (page && !PAGES[page]){ fsxShow('404'); page = defaultPage(); param = null; replace = true; }
   if (!pageAllowed(page)) page = defaultPage();
   S.page = page; S.param = param || null;
   const hash = '#/' + page + (param ? '/' + encodeURIComponent(param) : '');
@@ -2913,6 +3217,7 @@ window.addEventListener('popstate', () => {
   if (exPopGuard()) return;
   const h = parseHash();
   closeAllModals();
+  if (h.page && !PAGES[h.page] && !/^(v|s|x|r|a)$/.test(h.page)){ fsxShow('404'); history.replaceState(null, '', '#/' + defaultPage()); }
   S.page = pageAllowed(h.page) ? h.page : defaultPage();
   S.param = h.param;
   renderChrome(); renderPage(false);
@@ -2935,9 +3240,9 @@ function renderChrome(){
   {
     const adm = isAdminish();
     const teacherPart = items.filter(([k]) => k === 'mine' || ((k === 'exams' || k === 'rating') && !adm));
-    const adminPart = items.filter(([k]) => ['home','courses','students','staff','history','tools'].includes(k) || ((k === 'exams' || k === 'rating') && adm));
+    const adminPart = items.filter(([k]) => ['home','courses','students','staff','history','comms','site','tools'].includes(k) || ((k === 'exams' || k === 'rating') && adm));
     const superPart = items.filter(([k]) => k === 'perms' || k === 'logs' || k === 'dev');
-    const extra = items.filter(([k]) => k === 'cards' || k === 'news');
+    const extra = items.filter(([k]) => k === 'news');
     if (teacherPart.length && adminPart.length) html += '<div class="nav-sec">Müəllim</div>';
     html += teacherPart.map(link).join('');
     if (teacherPart.length && adminPart.length) html += '<div class="nav-sec">İdarəetmə</div>';
@@ -2947,7 +3252,7 @@ function renderChrome(){
   }
   $('#nav').innerHTML = html;
   const sub = d.me.viewAs ? ('Baxış: ' + esc(d.me.viewAs.name)) : roleLabel(d.me.role);
-  $('#sideUser').innerHTML = `<span class="ava">${esc(initials(d.me.name))}</span><span class="who"><b>${esc(d.me.name)}</b><small>${sub}</small></span>
+  $('#sideUser').innerHTML = `<span class="ava">${esc(initials(d.me.name))}</span><span class="who"><b>${d.me.bdToday ? bdN(d.me.id, d.me.name) : esc(d.me.name)}</b><small>${sub}</small></span>
     <button class="ibtn sm" data-act="logout" title="Çıxış" aria-label="Çıxış">${ic('logout')}</button>`;
   $('#pageTitle').textContent = (PAGES[S.page] || {}).title || '';
   $('.menu-btn').innerHTML = ic('menu') + (d.newsUnread ? '<span class="menu-dot" aria-label="Oxunmamış yeniliklər var"></span>' : '');
@@ -3074,6 +3379,7 @@ ACT.userMenu = () => {
   pop.innerHTML = `<div class="umenu-head"><b>${esc(d.me.name)}</b><small>${roleLabel(d.me.role)}, login: ${esc(d.me.login)}</small></div>
     <button class="mitem" data-act="changePassword">${ic('key')}Şifrəni dəyiş</button>
     ${d.me.isMain ? `<button class="mitem" data-act="editSelf">${ic('user')}Profilim</button>` : ''}
+    ${d.me.readOnly ? '' : `<button class="mitem" data-act="bdOpen">${tb('cake')}${d.me.bday ? 'Ad günüm · ' + bdText(d.me.bday) : 'Ad günümü qeyd et'}</button>`}
     <button class="mitem" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</button>${snowItem('mitem')}${sndItem('mitem')}
     ${isStandalone() ? '' : `<button class="mitem" data-act="installApp">${ic('home')}Ana ekrana əlavə et</button>`}
     ${d.me.readOnly ? '' : `<button class="mitem" data-act="logoutAll">${ic('shield')}Bütün cihazlardan çıx</button>`}
@@ -3513,7 +3819,7 @@ RENDER.home = () => {
     </div>` : ''}`;
 };
 ACT.showNever = () => { S.ui.sf = 'debt'; go('students'); };
-ACT.openResponses = (b) => { S.ui.tab = 'responses'; S.ui.respFilter = { onlyNew: true, low: !!(b && b.dataset && b.dataset.low) }; go('tools'); };
+ACT.openResponses = (b) => { S.ui.tab = 'responses'; S.ui.respFilter = { onlyNew: true, low: !!(b && b.dataset && b.dataset.low) }; go('comms'); };
 
 function openPalette({ title, placeholder, source, empty }){
   let flat = [], active = 0;
@@ -3776,11 +4082,12 @@ AFTER.student = (root, isRefresh) => { if (!isRefresh || !S.ui.card || S.ui.card
 async function loadCard(){
   const id = S.param;
   try {
-    const res = await api('getStudentCard', { id });
-    if (S.page !== 'student' || S.param !== id) return;
-    S.ui.card = res.card;
-    const box = $('#cardBody');
-    if (box){ box.innerHTML = cardHtml(res.card); hydrateIcons(box); }
+    await swr('getStudentCard', { id }, (res) => {
+      if (S.page !== 'student' || S.param !== id) return;
+      S.ui.card = res.card;
+      const box = $('#cardBody');
+      if (box){ box.innerHTML = cardHtml(res.card); hydrateIcons(box); }
+    });
   } catch (e) {
     if (e.code === 'AUTH') return;
     const box = $('#cardBody');
@@ -3815,7 +4122,7 @@ function cardHtml(k){
   return `${statusBanner(s)}
   <div class="profile">
     <span class="ava lg">${esc(initials(s.name))}</span>
-    <div class="profile-main"><h2>${esc(s.name)}</h2>${s.note ? `<p class="muted" style="margin-top:4px">${esc(s.note)}</p>` : ''}${kv ? `<div class="kv">${kv}</div>` : ''}</div>
+    <div class="profile-main"><h2>${bdN(s.id, s.name)}</h2>${s.note ? `<p class="muted" style="margin-top:4px">${esc(s.note)}</p>` : ''}${kv ? `<div class="kv">${kv}</div>` : ''}</div>
     <div class="profile-acts">${acts.join('')}</div>
   </div>
   <div class="summary" style="margin-top:16px">${sum.join('')}</div>
@@ -3896,7 +4203,7 @@ function staffList(){
         : '<span class="faint">Gizli</span>';
       return `<tr class="${sel.has(u.id) ? 'sel-on' : ''}">
         <td class="sel">${CHK(`data-sel="${u.id}" aria-label="${esc(u.name)} seç"`, sel.has(u.id))}</td>
-        <td data-label="Ad Soyad" class="full"><div class="person"><span class="ava">${esc(initials(u.name))}</span><div><b>${esc(u.name)}${isSelf ? ' <span class="faint" style="font-weight:400">(siz)</span>' : ''}</b><span class="tag${u.role === 'superadmin' ? ' solid' : u.role === 'helper' ? ' line' : ''}" style="margin-top:4px">${roleLabel(u.role)}</span>${u.subject ? ` <span class="tag line" style="margin-top:4px">${esc(u.subject)}</span>` : ''}${u.mustChange ? ` <span class="tag line" style="margin-top:4px" title="Bu istifadəçi hələ ilkin şifrə ilə daxil olmayıb və ya şifrəsini dəyişməyib">${ic('key')}Şifrəni dəyişməyib</span>` : ''}</div></div></td>
+        <td data-label="Ad Soyad" class="full"><div class="person"><span class="ava">${esc(initials(u.name))}</span><div><b>${bdN(u.id, u.name)}${isSelf ? ' <span class="faint" style="font-weight:400">(siz)</span>' : ''}</b><span class="tag${u.role === 'superadmin' ? ' solid' : u.role === 'helper' ? ' line' : ''}" style="margin-top:4px">${roleLabel(u.role)}</span>${u.subject ? ` <span class="tag line" style="margin-top:4px">${esc(u.subject)}</span>` : ''}${u.mustChange ? ` <span class="tag line" style="margin-top:4px" title="Bu istifadəçi hələ ilkin şifrə ilə daxil olmayıb və ya şifrəsini dəyişməyib">${ic('key')}Şifrəni dəyişməyib</span>` : ''}</div></div></td>
         <td data-label="Login">${esc(u.login || '—')}</td>
         <td data-label="Şifrə">${pw}</td>
         <td data-label="Məşğələlər">${cs.length ? `<div class="chips">${cs.map(c => `<span class="cchip"><b>${esc(courseTitle(c))}</b><span>${typeLabel(c.type)}, ${c.held}/${c.lessonsPerMonth}</span></span>`).join('')}</div>` : `<span class="faint">${u.role === 'helper' ? 'Dərs keçmir' : 'Məşğələ yoxdur'}</span>`}</td>
@@ -3951,11 +4258,14 @@ async function loadHistory(more){
   const seq = (S.ui.hseq = (S.ui.hseq || 0) + 1);
   const offset = more ? (S.ui.hitems || []).length : 0;
   try {
-    const res = await api('getLessons', { q: f.q, status: f.status, from: f.from, to: f.to, offset, limit: 50 });
-    if (seq !== S.ui.hseq || S.page !== 'history') return;
-    S.ui.hitems = more ? (S.ui.hitems || []).concat(res.lessons) : res.lessons;
-    S.ui.htotal = res.total;
-    drawHistory();
+    const put = (res) => {
+      if (seq !== S.ui.hseq || S.page !== 'history') return;
+      S.ui.hitems = more ? (S.ui.hitems || []).concat(res.lessons) : res.lessons;
+      S.ui.htotal = res.total;
+      drawHistory();
+    };
+    const p = { q: f.q, status: f.status, from: f.from, to: f.to, offset, limit: 50 };
+    if (more) put(await api('getLessons', p)); else await swr('getLessons', p, put);
   } catch (e) {
     if (e.code === 'AUTH' || S.page !== 'history') return;
     const box = $('#hlist'); if (box) box.innerHTML = emptyBox('Yükləmək olmadı', esc(e.message), `<button class="btn btn-primary" data-act="reloadHistory">${ic('refresh')}Yenidən cəhd et</button>`);
@@ -4557,7 +4867,7 @@ function lessonModal({ course, event, preset }){
         const allHeld = ids.every(sid => st[sid].status === 'keçdi');
         box.innerHTML = (isGroup ? `<div class="att-all"><label class="chk"><input type="checkbox" id="attAll" ${allHeld ? 'checked' : ''}><span class="box"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>Hamısı dərsdə iştirak etdi</label><span class="faint" style="font-weight:500;font-size:13px">${ids.filter(s => st[s].status === 'keçdi').length}/${ids.length}</span></div>` : '') +
           ids.map(sid => `<div class="att" data-sid="${sid}">
-            <div class="att-top"><b>${esc(nameOf(sid))}</b>
+            <div class="att-top"><b>${bdN(sid, nameOf(sid))}</b>
               <div class="seg"><label><input type="radio" name="st_${sid}" value="keçdi" ${st[sid].status === 'keçdi' ? 'checked' : ''}><span>${ic('check')}Keçdi</span></label>
               <label><input type="radio" name="st_${sid}" value="qayıb" ${st[sid].status === 'qayıb' ? 'checked' : ''}><span>${ic('x')}Qayıb</span></label></div></div>
             ${st[sid].status === 'qayıb' ? `<div class="reason-box">
@@ -4658,7 +4968,14 @@ AFTER.news = (root, isRefresh) => {
 };
 async function loadNews(){
   try {
-    const res = await api('listChangelog', {}, { noRender: true });
+    await swr('listChangelog', {}, (res) => newsDraw(res));
+  } catch (e) {
+    if (e.code === 'AUTH') return;
+    const box = $('#newsList'); if (box && !box.dataset.ok) box.innerHTML = emptyBox('Yüklənmədi', esc(e.message));
+  }
+}
+function newsDraw(res){
+  {
     if (S.page !== 'news') return;
     S.ui.canEditNews = res.canEdit;
     S.ui.newsItems = res.items;
@@ -4681,7 +4998,7 @@ async function loadNews(){
     }).join('')}</div>`;
     hydrateIcons(box);
     requestAnimationFrame(() => measureClamps(box));
-  } catch (e) { if (e.code !== 'AUTH' && e.code !== 'MAINT'){ const box=$('#newsList'); if (box) box.innerHTML = emptyBox('Yüklənmədi', esc(e.message)); } }
+  }
 }
 S.ui.newsCache = {};
 ACT.newsForm = async (b) => {
@@ -5055,25 +5372,40 @@ ACT.devStats = (b) => run(b, async () => {
     foot: `<button class="btn btn-primary" data-close>Bağla</button>` });
 });
 
-function toolTabs(){
+const TOOL_PAGES = {
+  tools: { h: 'Alətlər', p: 'Toplu əməliyyatlar, toplu idxal, məlumat yoxlaması, zibil qutusu və ehtiyat nüsxə.' },
+  comms: { h: 'Elan və sorğular', p: 'Elanlar, valideyn sorğuları, gələn cavablar və sorğu sualları bir yerdə.' },
+  site: { h: 'Sayt və bayramlar', p: 'Bayram rejimləri, geri sayım, təbrik kartları, ad günləri, sosial şəbəkələr və paylaşım statistikası.' }
+};
+function cardsTabOn(){ return !ro() && (me().isSuper || can('cards.make')) && (seasonOn() || me().isSuper); }
+function toolTabs(page){
+  page = page || S.page;
   const t = [];
-  if (S.d.flags.announce) t.push(['ann', 'Elanlar', 'megaphone']);
-  if (can('survey.send')) t.push(['survey', 'Sorğu göndər', 'send']);
-  if (can('survey.view')) t.push(['responses', 'Sorğu cavabları', 'poll']);
-  if (can('survey.edit')) t.push(['questions', 'Suallar', 'list']);
-  if (can('tools.trash')) t.push(['trash', 'Zibil qutusu', 'trash']);
-  if (can('tools.bulk')) t.push(['bulk', 'Toplu əməliyyatlar', 'swap']);
-  if (can('tools.datacheck')) t.push(['check', 'Yoxlama', 'shield']);
-  if (can('tools.import')) t.push(['import', 'Toplu idxal', 'inbox']);
-  if (me().isSuper && !ro()) t.push(['backup', 'Ehtiyat nüsxə', 'shield']);
-  if (me().isSuper && !ro()) t.push(['site', 'Sayt ayarları', 'settings']);
+  if (!S.d || !S.d.flags || !S.d.me || S.d.role === 'student') return t;
+  if (page === 'comms'){
+    if (S.d.flags.announce) t.push(['ann', 'Elanlar', 'megaphone']);
+    if (can('survey.send')) t.push(['survey', 'Sorğu göndər', 'send']);
+    if (can('survey.view')) t.push(['responses', 'Sorğu cavabları', 'poll']);
+    if (can('survey.edit')) t.push(['questions', 'Suallar', 'list']);
+  } else if (page === 'site'){
+    if (me().isSuper && !ro()) t.push(['fest', 'Bayramlar', 'sparkle']);
+    if (cardsTabOn()) t.push(['cards', 'Təbrik kartı', 'gift']);
+    if (me().isSuper && !ro()) t.push(['bday', 'Ad günləri', 'cake']);
+    if (me().isSuper && !ro()) t.push(['social', 'Sosial və statistika', 'chart']);
+  } else {
+    if (can('tools.bulk')) t.push(['bulk', 'Toplu əməliyyatlar', 'swap']);
+    if (can('tools.import')) t.push(['import', 'Toplu idxal', 'inbox']);
+    if (can('tools.datacheck')) t.push(['check', 'Yoxlama', 'shield']);
+    if (can('tools.trash')) t.push(['trash', 'Zibil qutusu', 'trash']);
+    if (me().isSuper && !ro()) t.push(['backup', 'Ehtiyat nüsxə', 'download']);
+  }
   return t;
 }
 RENDER.tools = () => {
-  const tabs = toolTabs();
-  if (!tabs.length) return emptyBox('Alət yoxdur', 'Sizə hələ heç bir alət icazəsi verilməyib.');
+  const tabs = toolTabs(), tp = TOOL_PAGES[S.page] || TOOL_PAGES.tools;
+  if (!tabs.length) return emptyBox('Bölmə boşdur', 'Sizə bu bölmə üçün hələ icazə verilməyib.');
   if (!S.ui.tab || !tabs.some(t => t[0] === S.ui.tab)) S.ui.tab = tabs[0][0];
-  return `<div class="page-head"><div><h2>Alətlər</h2><p>Elanlar, sorğular, toplu idxal və texniki alətlər bir yerdə.</p></div></div>
+  return `<div class="page-head"><div><h2>${tp.h}</h2><p>${tp.p}</p></div></div>
     <div class="tabs" role="tablist">${tabs.map(([k, l, i]) => `<button role="tab" data-tool="${k}" class="${S.ui.tab === k ? 'on' : ''}">${ic(i)}${l}</button>`).join('')}</div>
     <div id="toolBody">${loadingBox()}</div>`;
 };
@@ -5081,20 +5413,25 @@ AFTER.tools = (root) => {
   $$('[data-tool]', root).forEach(b => b.addEventListener('click', () => { S.ui.tab = b.dataset.tool; renderPage(true); }));
   loadTool(S.ui.tab);
 };
+RENDER.comms = RENDER.site = () => RENDER.tools();
+AFTER.comms = AFTER.site = (root) => AFTER.tools(root);
 function toolBox(){ return $('#toolBody'); }
 async function loadTool(tab){
   const box = toolBox(); if (!box) return;
   try {
-    if (tab === 'ann') return drawAnns(await api('listAnns', {}, { noRender: true }));
-    if (tab === 'survey') return drawSurveyTargets(await api('surveyTargets', {}, { noRender: true }));
-    if (tab === 'responses') return drawResponses(await api('surveyResponses', S.ui.respFilter || {}, { noRender: true }));
-    if (tab === 'questions') return drawQuestions(await api('getSurveyQuestions', {}, { noRender: true }));
-    if (tab === 'trash') return drawTrash(await api('trashList', {}, { noRender: true }));
+    const only = (fn) => (r) => { if (S.ui.tab === tab && toolBox()) fn(r); };
+    if (tab === 'ann') return await swr('listAnns', {}, only(drawAnns));
+    if (tab === 'survey') return await swr('surveyTargets', {}, only(drawSurveyTargets));
+    if (tab === 'responses') return await swr('surveyResponses', S.ui.respFilter || {}, only(drawResponses));
+    if (tab === 'questions') return await swr('getSurveyQuestions', {}, only(drawQuestions));
+    if (tab === 'trash') return await swr('trashList', {}, only(drawTrash));
     if (tab === 'bulk') return drawBulk();
     if (tab === 'check') return drawCheckIntro();
     if (tab === 'import') return drawImport();
     if (tab === 'backup') return drawBackup();
-    if (tab === 'site') return await drawSite();
+    if (tab === 'fest' || tab === 'social') return await drawSite(tab);
+    if (tab === 'cards') return await drawCardsTab();
+    if (tab === 'bday') return await drawBdayTab();
   } catch (e) {
     if (e.code === 'AUTH' || e.code === 'MAINT') return;
     if (box.isConnected) box.innerHTML = emptyBox('Yüklənmədi', esc(e.message), `<button class="btn btn-primary" data-act="reloadTool">${ic('refresh')}Yenidən</button>`);
@@ -5195,7 +5532,7 @@ async function createSurvey(btn, studentId, courseId){
   const r = await run(btn, () => api('sendSurvey', { studentId, courseId }, { noRender: true }));
   if (!r) return;
   showSurveyLink(r);
-  if (S.page === 'tools' && S.ui.tab === 'survey') loadTool('survey');
+  if (S.page === 'comms' && S.ui.tab === 'survey') loadTool('survey');
 }
 function showSurveyLink(r){
   const url = location.origin + location.pathname + '#/s/' + r.token;
@@ -5511,6 +5848,11 @@ function pubShell(inner){
 }
 function pubPaint(html){ const el = $('#public'); el.innerHTML = html; el.querySelectorAll('[data-logo]').length; $$('[data-logo]', el).forEach(x=>{x.innerHTML=LOGO_SVG('#fff');}); el.querySelector('.logo-mark').innerHTML = LOGO_SVG('#fff'); hydrateIcons(el); setTheme(S.theme, false); const tb=$('#public .theme-btn'); if(tb) tb.innerHTML = ic(S.theme==='dark'?'sun':'moon'); }
 function pubLoading(){ pubPaint(pubShell(loadingBox())); }
+function pubFail(e, nf, other){
+  if (e && e.code === 'NOTFOUND') return fsxShow('link', { msg: nf });
+  if (e && e.code === 'NET') return fsxShow(navigator.onLine ? 'srv' : 'net');
+  pubError(other);
+}
 function pubError(msg){ pubPaint(pubShell(`<div class="pub-card" style="text-align:center">${ic('xcircle')}<h3 style="margin-top:8px">${esc(msg)}</h3><p class="muted">Zəhmət olmasa, linki göndərən şəxslə əlaqə saxlayın.</p></div>`)); }
 
 async function renderPublicCard(token){
@@ -5546,7 +5888,7 @@ async function renderPublicCard(token){
         </tbody></table></div>` : ''}
       ${exCardSection(k.exams, true)}
     `));
-  } catch (e) { pubError(e.code === 'NOTFOUND' ? 'Tələbə tapılmadı. Link yanlışdır.' : (e.message || 'Açılmadı.')); }
+  } catch (e) { pubFail(e, 'Tələbə tapılmadı. Link yanlışdır.', e.message || 'Açılmadı.'); }
 }
 
 const PUB_SV = { state: null, token: null, ans: {}, data: null };
@@ -5557,7 +5899,7 @@ async function renderPublicSurvey(token){
     const r = await api('publicSurveyInfo', { token }, { noRender: true, silent: true });
     PUB_SV.data = r; PUB_SV.state = r.state;
     drawPublicSurvey();
-  } catch (e) { pubError(e.code === 'NOTFOUND' ? 'Sorğu tapılmadı. Link yanlışdır.' : (e.message || 'Açılmadı.')); }
+  } catch (e) { pubFail(e, 'Sorğu tapılmadı. Link yanlışdır.', e.message || 'Açılmadı.'); }
 }
 function drawPublicSurvey(){
   const r = PUB_SV.data;
@@ -5601,7 +5943,28 @@ function svField(q){
 function registerSW(){
   if (!('serviceWorker' in navigator)) return;
   if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') return;
-  try { navigator.serviceWorker.register('sw.js').catch(() => {}); } catch (e) {}
+  try {
+    const had = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('message', (e) => { if (e.data && e.data.t === 'fresh') updBar(); });
+    navigator.serviceWorker.addEventListener('controllerchange', () => { if (had) updBar(); });
+    navigator.serviceWorker.register('sw.js').then(() => navigator.serviceWorker.ready).then(reg => {
+      const ask = () => { const c = navigator.serviceWorker.controller || reg.active; if (c) c.postMessage({ t: 'ask' }); };
+      setTimeout(ask, 2500); setTimeout(ask, 8000);
+      setInterval(() => { try { reg.update(); } catch (e) {} }, 30 * 60000);
+    }).catch(() => {});
+  } catch (e) {}
+}
+function updBar(){
+  if ($('#updBar')) return;
+  const el = document.createElement('div');
+  el.id = 'updBar'; el.className = 'upd-bar'; el.setAttribute('role', 'status');
+  el.innerHTML = `<span class="upd-ic">${ic('sparkle')}</span><div><b>Yeni versiya hazırdır</b><small>Yeniləyin — bir saniyə çəkir</small></div><button class="btn btn-sm btn-primary" data-upd="go">${ic('refresh')}Yenilə</button><button class="ibtn sm" data-upd="x" aria-label="Sonra">${ic('x')}</button>`;
+  document.body.appendChild(el);
+  el.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-upd]'); if (!b) return;
+    if (b.dataset.upd === 'go'){ if (typeof exHold === 'function' && exHold()) return toast('İmtahan bitəndən sonra yeniləyin.', 'info'); location.reload(); }
+    else el.remove();
+  });
 }
 let deferredInstall = null, installHiddenNow = false;
 function isStandalone(){ return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true; }
@@ -5996,12 +6359,13 @@ AFTER.exams = (root, isRefresh) => {
 
 async function exLoadList(){
   try {
-    const r = await api('examList', {}, { noRender: true, silent: !!S.ui.exL });
-    S.ui.exL = r; S.ui.exLAt = Date.now();
-    if (S.page === 'exams' && !S.param && !ro()){
-      const had = !!$('#exq');
-      if (!had) renderPage(true); else { const b = $('#exBox'); if (b){ b.innerHTML = exCardsHtml(); hydrateIcons(b); } }
-    }
+    await swr('examList', {}, (r) => {
+      S.ui.exL = r; S.ui.exLAt = Date.now();
+      if (S.page === 'exams' && !S.param && !ro()){
+        const had = !!$('#exq');
+        if (!had) renderPage(true); else { const b = $('#exBox'); if (b){ b.innerHTML = exCardsHtml(); hydrateIcons(b); } }
+      }
+    }, { silent: !!S.ui.exL });
   } catch (e) {
     if (e.code === 'AUTH' || e.code === 'MAINT' || e.code === 'PWD') return;
     const b = $('#exBox'); if (b && !S.ui.exL) b.innerHTML = emptyBox('Yüklənmədi', esc(e.message), `<button class="btn btn-primary" data-act="exReload">${ic('refresh')}Yenidən cəhd et</button>`);
@@ -6082,13 +6446,14 @@ ACT.exDelete = async (b) => {
 
 async function exLoadDetail(id, first){
   try {
-    const r = await api('examGet', { id, first: !!first }, { noRender: true, silent: !!(S.ui.exD && S.ui.exD.exam.id === id) });
-    S.ui.exD = r; S.ui.exDAt = Date.now();
-    if (S.page === 'exams' && S.param === id){
-      if (modalStack.length && !S.ui.exAfterSave) return;
-      renderPage(true);
-      if (S.ui.exAfterSave === id){ S.ui.exAfterSave = null; setTimeout(() => ACT.exLinks({ dataset: { id } }, null, true), 250); }
-    }
+    await swr('examGet', { id, first: !!first }, (r) => {
+      S.ui.exD = r; S.ui.exDAt = Date.now();
+      if (S.page === 'exams' && S.param === id){
+        if (modalStack.length && !S.ui.exAfterSave) return;
+        renderPage(true);
+        if (S.ui.exAfterSave === id){ S.ui.exAfterSave = null; setTimeout(() => ACT.exLinks({ dataset: { id } }, null, true), 250); }
+      }
+    }, { key: { id }, silent: !!(S.ui.exD && S.ui.exD.exam.id === id) });
   } catch (e) {
     if (e.code === 'AUTH' || e.code === 'MAINT' || e.code === 'PWD') return;
     const b = $('#exBox'); if (b) b.innerHTML = emptyBox('İmtahan açılmadı', esc(e.message), `<button class="btn btn-primary" data-go="exams">${ic('back')}Siyahıya qayıt</button>`);
@@ -6516,7 +6881,7 @@ async function xpOpenExam(link){
     XP.info = r;
     if (r.student) XP.sid = r.student.id;
     xpDrawStart();
-  } catch (e) { pubPaint(xpCard('xcircle', e.code === 'NOTFOUND' ? 'İmtahan tapılmadı' : 'Səhifə açılmadı', esc(e.code === 'NOTFOUND' ? 'Link yanlışdır və ya artıq etibarsızdır. Müəlliminizdən yeni link istəyin.' : (e.message || '')),
+  } catch (e) { if (e.code === 'NOTFOUND') return fsxShow('link', { msg: 'İmtahan tapılmadı. Müəlliminizdən yeni link istəyin.' }); if (e.code === 'NET' && !navigator.onLine) return fsxShow('net'); pubPaint(xpCard('xcircle', e.code === 'NOTFOUND' ? 'İmtahan tapılmadı' : 'Səhifə açılmadı', esc(e.code === 'NOTFOUND' ? 'Link yanlışdır və ya artıq etibarsızdır. Müəlliminizdən yeni link istəyin.' : (e.message || '')),
       e.code === 'NOTFOUND' ? '' : `<button class="btn btn-primary" style="margin-top:14px" data-act="xpRetry">${ic('refresh')}Yenidən cəhd et</button>`)); }
 }
 ACT.xpRetry = () => xpOpenExam(XP.link);
@@ -7058,20 +7423,30 @@ ACT.impHelp = () => {
 };
 
 const LS_KEY = 'al6';
+const BD_CAKE = '<svg class="bdn-cake" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6c.9.9 1.3 1.7 1.3 2.4a1.3 1.3 0 0 1-2.6 0c0-.7.4-1.5 1.3-2.4z" fill="#F59E0B"/><rect x="11.2" y="6.6" width="1.6" height="3.6" rx=".8" fill="#60A5FA"/><rect x="4" y="10" width="16" height="5.2" rx="2.2" fill="#F472B6"/><path d="M4 13c1.2 0 1.6 1.2 2.7 1.2S8.3 13 9.3 13s1.6 1.2 2.7 1.2S13.6 13 14.7 13s1.6 1.2 2.6 1.2S19 13 20 13" stroke="#fff" stroke-width="1.2" fill="none" stroke-linecap="round"/><rect x="3" y="14.6" width="18" height="6.4" rx="2.4" fill="#C026D3"/><path d="M2.5 21h19" stroke="#9D174D" stroke-width="1.4" stroke-linecap="round"/></svg>';
+function bdIds(){ const d = S.d || S.cab; return d && Array.isArray(d.bdToday) ? d.bdToday : []; }
+function bdHas(id){ return !!id && bdIds().indexOf(id) !== -1; }
+function bdN(id, name){ return bdHas(id) ? `<span class="bdn" title="Bu gün ad günüdür!">${esc(name)}${BD_CAKE}</span>` : esc(name); }
+const AZ_MONTHS = ['yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avqust', 'sentyabr', 'oktyabr', 'noyabr', 'dekabr'];
+function bdText(md){ const p = String(md || '').split('-'); return p.length === 2 ? `${+p[1]} ${AZ_MONTHS[+p[0] - 1]}` : ''; }
 function lsGet(){ try { return JSON.parse(localStorage.getItem(LS_KEY) || 'null'); } catch (e) { return null; } }
 function lsSet(o){ try { localStorage.setItem(LS_KEY, JSON.stringify(o)); } catch (e) { try { localStorage.setItem(LS_KEY, JSON.stringify(Object.assign({}, o, { d: null }))); } catch (x) {} } }
 function lsDrop(){ try { localStorage.removeItem(LS_KEY); } catch (e) {} }
 let persistTimer = null;
+function ssGet(){ try { return JSON.parse(sessionStorage.getItem(LS_KEY) || 'null'); } catch (e) { return null; } }
+function ssSet(o){ try { sessionStorage.setItem(LS_KEY, JSON.stringify(o)); } catch (e) { try { sessionStorage.setItem(LS_KEY, JSON.stringify(Object.assign({}, o, { d: null }))); } catch (e2) {} } }
+function ssDrop(){ try { sessionStorage.removeItem(LS_KEY); } catch (e) {} }
 function persist(){
-  if (!S.remember || !S.token) return;
+  if (!S.token) return;
   clearTimeout(persistTimer);
   persistTimer = setTimeout(() => {
-    if (!S.remember || !S.token) return;
+    if (!S.token) return;
     const d = S.d && !(S.d.me && (S.d.me.viewAs || S.d.me.readOnly)) ? S.d : null;
-    lsSet({ tok: S.token, kind: S.kind || 'u', rev: d ? d.rev : '', at: Date.now(), d });
+    const o = { tok: S.token, kind: S.kind || 'u', rev: d ? d.rev : '', at: Date.now(), d };
+    if (S.remember) lsSet(o); else ssSet(o);
   }, 250);
 }
-function clearSession(){ clearTimeout(persistTimer); lsDrop(); S.remember = false; S.kind = null; S.cab = null; S.cabRO = false; }
+function clearSession(){ clearTimeout(persistTimer); lsDrop(); ssDrop(); pcDrop(); S.remember = false; S.kind = null; S.cab = null; S.cabRO = false; }
 
 function gameOn(){ return !!(S.d && S.d.game && S.d.game.on); }
 function teachesStudent(sid){ return !!(S.d && S.d.courses && S.d.courses.some(c => c.teacherId === me().id && c.studentIds.includes(sid))); }
@@ -7733,7 +8108,7 @@ function leadersHtml(L, kind, opts = {}){
   if (!list.length) return `<p class="hint">${L ? 'Bu ay üzrə reytinqə düşən olmayıb.' : 'Hələ yekunlaşmış ay yoxdur.'}</p>`;
   const top = list.slice(0, 3), rest = list.slice(3);
   const order = [top[1], top[0], top[2]].filter(Boolean);
-  const nm = (x, cls) => opts.click && kind === 'ind' && x.id ? `<button class="linkish ${cls}" data-act="${opts.click}" data-id="${x.id}">${esc(x.name)}</button>` : `<b class="${cls}">${esc(x.name)}</b>`;
+  const nm = (x, cls) => opts.click && kind === 'ind' && x.id ? `<button class="linkish ${cls}" data-act="${opts.click}" data-id="${x.id}">${bdN(x.id, x.name)}</button>` : `<b class="${cls}">${bdN(x.id, x.name)}</b>`;
   return `<div class="podium">${order.map(x => `<div class="pod pod-${x.place}">
       ${x.place === 1 ? `<span class="pod-crown">${tb('crown')}</span>` : ''}
       <div class="pod-ic">${badgeSvg((kind === 'ind' ? 'm' : 'g') + x.place)}</div>
@@ -7825,11 +8200,12 @@ RENDER.rating = () => `<div class="page-head"><div><h2>Reytinq və nailiyyətlə
 AFTER.rating = () => loadBoard();
 async function loadBoard(){
   try {
-    const r = await api('gameBoard', S.ui.boardMonth ? { month: S.ui.boardMonth } : {}, { noRender: true, silent: !!S.ui.board });
-    S.ui.board = r;
-    const box = $('#boardBox'); if (!box || S.page !== 'rating') return;
-    box.innerHTML = boardHtml(r); hydrateIcons(box); countUp(box);
-    if (S.ui.boardTab === 'audit' && r.canManage && S.ui.auditId) loadAudit(S.ui.auditId);
+    await swr('gameBoard', S.ui.boardMonth ? { month: S.ui.boardMonth } : {}, (r, cached) => {
+      S.ui.board = r;
+      const box = $('#boardBox'); if (!box || S.page !== 'rating') return;
+      box.innerHTML = boardHtml(r); hydrateIcons(box); if (!cached) countUp(box);
+      if (S.ui.boardTab === 'audit' && r.canManage && S.ui.auditId) loadAudit(S.ui.auditId);
+    }, { silent: !!S.ui.board });
   } catch (e) {
     if (e.code === 'AUTH') return;
     const box = $('#boardBox'); if (box) box.innerHTML = emptyBox('Açılmadı', esc(e.message), `<button class="btn btn-primary" data-act="reloadBoard">${ic('refresh')}Yenidən cəhd et</button>`);
@@ -7849,7 +8225,7 @@ function boardHtml(r){
     body = `<p class="hint" style="margin-bottom:12px">${fmtMonthKey(r.month)} ayının cari nəticəsi. ${r.all ? 'Bütün kurs' : 'Yalnız sizin tələbələriniz'}. Ay balı bir neçə məşğələdə oxuyanlar üçün ortalama hesablanır; reytinqə düşmək üçün ayın dərslərinin ən azı ${r.rules.rankPct}%-ində iştirak lazımdır.</p>
       ${r.rows.length ? `<table class="ledger rank-table"><thead><tr><th>Yer</th><th>Tələbə</th><th>Səviyyə</th><th>Ay balı</th><th>Cəmi</th><th>Nişan</th><th></th></tr></thead><tbody>
       ${r.rows.map(x => `<tr class="${x.place && x.place <= 3 ? 'rk rk-' + x.place : ''}"><td data-label="Yer" class="nowrap">${placeMark(x.place)}</td>
-        <td data-label="Tələbə" class="full"><div class="person"><span class="ava">${esc(initials(x.name))}</span><div>${can('students.view') ? `<button class="linkish" data-go="student" data-param="${x.id}">${esc(x.name)}</button>` : `<b>${esc(x.name)}</b>`}
+        <td data-label="Tələbə" class="full"><div class="person"><span class="ava">${esc(initials(x.name))}</span><div>${can('students.view') ? `<button class="linkish" data-go="student" data-param="${x.id}">${bdN(x.id, x.name)}</button>` : `<b>${bdN(x.id, x.name)}</b>`}
           <small>${x.lessons} dərs bu ay${x.courses > 1 ? ` · ${x.courses} məşğələ (orta)` : ''}${x.streak >= 3 ? ` · ${x.streak} ardıcıl` : ''}${x.hidden ? ' · reytinqdə gizli' : ''}${!x.ok && !x.hidden && x.lessons ? ' · şərt ödənməyib' : ''}</small></div></div></td>
         <td data-label="Səviyyə"><span class="lv-tag">${levelBadge(x.levelI)}${esc(x.level)}</span></td>
         <td data-label="Ay balı"><b style="font-weight:700">${x.month}</b></td><td data-label="Cəmi">${x.total}</td><td data-label="Nişan">${x.badges}</td>
@@ -7894,9 +8270,10 @@ async function loadAudit(id){
   const box = $('#auditBox'); if (!box) return;
   box.innerHTML = loadingBox();
   try {
-    const r = await api('gameAudit', { studentId: id }, { noRender: true });
-    if (S.ui.auditId !== id || !$('#auditBox')) return;
-    $('#auditBox').innerHTML = auditHtml(r.audit); hydrateIcons($('#auditBox')); countUp($('#auditBox'));
+    await swr('gameAudit', { studentId: id }, (r) => {
+      if (S.ui.auditId !== id || !$('#auditBox')) return;
+      $('#auditBox').innerHTML = auditHtml(r.audit); hydrateIcons($('#auditBox'));
+    });
   } catch (e) { if (e.code !== 'AUTH' && $('#auditBox')) $('#auditBox').innerHTML = emptyBox('Açılmadı', esc(e.message)); }
 }
 function auditHtml(a){
@@ -7946,7 +8323,8 @@ ACT.badgeOp = (b) => {
 ACT.recalcOne = (b) => run(b, async () => { const r = await api('gameRecalc', { studentId: b.dataset.id }, { noRender: true }); toast(r.added ? `Yeni nişan: ${r.added}` : 'Hər şey qaydasındadır.', 'ok'); loadAudit(b.dataset.id); });
 ACT.recalcAll = (b) => run(b, async () => { const r = await api('gameRecalc', {}, { noRender: true }); toast(`Bütün tələbələr yoxlandı. Yeni nişan: ${r.added}${r.snapshot ? ' · aylıq reytinq yekunlaşdı' : ''}`, 'ok'); loadBoard(); });
 
-CAB_RENDER.home = (d) => {
+CAB_RENDER.home = (d) => bdHeroHtml(d) + cabHomeBase(d);
+function cabHomeBase(d){
   const g = d.game, st = d.stats;
   const hero = g.on ? `<div class="cab-hero"><div class="cab-hero-bg">${HERO_DECO}</div>
       ${cabLevelRing(g)}
@@ -8026,6 +8404,7 @@ CAB_RENDER.profile = (d) => {
     <div class="cab-sec"><div class="profile"><span class="ava lg">${esc(initials(d.me.name))}</span><div class="profile-main"><h2>${esc(d.me.name)}</h2>
       <div class="kv"><div><span>Login</span><b>${esc(d.me.login)}</b></div>${d.me.parentName ? `<div><span>Valideyn</span><b>${esc(d.me.parentName)}</b></div>` : ''}${g.on ? `<div><span>Səviyyə</span><b>${esc(g.level.name)}</b></div>` : ''}</div></div></div></div>
     ${S.cabRO ? '' : `<div class="cab-sec cab-menu-list">
+      <button class="mrow" data-act="bdOpen">${tb('cake')}<span>${d.me.bday ? 'Ad günüm · ' + bdText(d.me.bday) : 'Ad günümü qeyd et'}</span>${ic('chev')}</button>
       <button class="mrow" data-act="cabReport">${ic('printer')}<span>Aylıq hesabat (valideyn üçün)</span>${ic('chev')}</button>
       <button class="mrow" data-act="changePassword">${ic('key')}<span>Şifrəni dəyiş</span>${ic('chev')}</button>
       <button class="mrow" data-act="toggleTheme">${ic(S.theme === 'dark' ? 'sun' : 'moon')}<span>${S.theme === 'dark' ? 'İşıqlı rejim' : 'Qaranlıq rejim'}</span>${ic('chev')}</button>${snowItem('mrow')}${sndItem('mrow')}
@@ -8119,7 +8498,7 @@ function studentsList(){
       const on = sel.has(s.id);
       return `<tr class="${active ? '' : 'muted-row'}${on ? ' sel-on' : ''}">
         <td class="sel">${CHK(`data-sel="${s.id}" aria-label="${esc(s.name)} seç"`, on)}</td>
-        <td data-label="Tələbə" class="full"><div class="person"><span class="ava">${esc(initials(s.name))}</span><div><button class="linkish" data-go="student" data-param="${s.id}">${esc(s.name)}</button>${s.noRank ? '<small>reytinqdə gizli</small>' : ''}${s.parentName ? `<small>Valideyn: ${esc(s.parentName)}</small>` : ''}${s.note ? `<small>${esc(s.note.length > 60 ? s.note.slice(0,60) + '…' : s.note)}</small>` : ''}</div></div></td>
+        <td data-label="Tələbə" class="full"><div class="person"><span class="ava">${esc(initials(s.name))}</span><div><button class="linkish" data-go="student" data-param="${s.id}">${bdN(s.id, s.name)}</button>${s.noRank ? '<small>reytinqdə gizli</small>' : ''}${s.parentName ? `<small>Valideyn: ${esc(s.parentName)}</small>` : ''}${s.note ? `<small>${esc(s.note.length > 60 ? s.note.slice(0,60) + '…' : s.note)}</small>` : ''}</div></div></td>
         <td data-label="Login">${loginCell(s)}</td>
         ${active ? `<td data-label="Məşğələlər">${cs.length ? `<div class="chips">${cs.map(c => `<span class="cchip"><b>${typeLabel(c.type)}${c.type === 'group' ? ': ' + esc(courseTitle(c)) : ''}</b><span>${esc(c.teacherName)}, ${c.held}/${c.lessonsPerMonth}</span></span>`).join('')}</div>` : '<span class="faint">Məşğələ yoxdur</span>'}</td>`
           : `<td data-label="Status"><span class="tag line">${STATUS_LBL[s.status]}</span>${s.statusAt ? ` <small class="muted">${fmtDate(s.statusAt)}</small>` : ''}${s.statusNote ? `<br><small class="muted">${esc(s.statusNote)}</small>` : ''}</td>`}
@@ -8141,7 +8520,7 @@ AFTER.students = (root) => {
   $$('input[name=sf]', root).forEach(r => r.addEventListener('change', e => { S.ui.sf = e.target.value; upd(); }));
   $$('input[name=ss]', root).forEach(r => r.addEventListener('change', e => { S.ui.ss = e.target.value; S.ui.sf = 'all'; selSet('selS').clear(); renderPage(true); }));
 };
-const APP_VER = '8.7';
+const APP_VER = '8.9';
 Object.assign(ICONS, {
   printer: '<path d="M7 9V4h10v5"/><rect x="3.5" y="9" width="17" height="8" rx="2"/><path d="M7 14h10v6H7z"/><circle cx="17" cy="12" r=".6"/>',
   pulse: '<path d="M3 12h4l2.5-6 4 12L16 9l1.5 3H21"/>',
@@ -8361,7 +8740,7 @@ function bulkResult(r, what){
 ACT.bulkBadge = () => run(null, async () => {
   const list = selectedStudents(); if (!list.length) return;
   const cat = await api('gameBoard', {}, { noRender: true, silent: true });
-  const badges = (cat.catalog || []).filter(b => b.id !== 'all');
+  const badges = (cat.catalog || []).filter(b => b.id !== 'all' && b.cat !== 'season');
   let pick = '';
   openModal({ title: 'Nişan ver', sub: `${list.length} tələbə`, size: 'wide',
     body: `<form class="stack" id="bbForm" novalidate><div class="bd-pick">${badges.map(b => `<button type="button" class="bd-pk bdr${b.tier}" data-b="${b.id}">${badgeSvg(b.id)}<span>${esc(b.name)}</span></button>`).join('')}</div>
@@ -9213,6 +9592,7 @@ function achBody(it){
 function achCheck(){
   const d = S.cab;
   if (!d || S.cabRO || !d.game || !d.game.on || !d.me || S.achQ) return;
+  if (d.me.bdToday){ let seen = true; try { seen = !!localStorage.getItem('al_bdg_' + String(d.today || today()).slice(0, 4) + '_' + d.me.id); } catch (e) {} if (!seen){ nyGreetCheck(); setTimeout(achCheck, 1500); return; } }
   const g = d.game, cur = { b: {}, lv: g.level.i }, key = 'al_seen_' + d.me.id;
   g.badges.forEach(x => { if (x.count) cur.b[x.id] = x.count; });
   let prev = null;
@@ -9227,7 +9607,7 @@ function achCheck(){
     g.badges.forEach(x => { if (x.count && x.last && new Date(String(x.last).replace(' ', 'T')).getTime() >= lim) q.push({ kind: 'badge', b: x }); });
   }
   if (!q.length) return;
-  const rk = (x) => x.kind === 'level' ? 'z' : String(x.b.last || '') + x.b.tier;
+  const rk = (x) => x.kind === 'level' ? 'z' : SEASON_ACH[x.b.id] ? 'zz' + x.b.id : String(x.b.last || '') + x.b.tier;
   q.sort((a, b) => rk(b).localeCompare(rk(a)));
   S.achQ = q.slice(0, 3);
   setTimeout(achNext, 900);
@@ -9451,7 +9831,7 @@ async function renderPublicShare(arg){
       if (hit) return; hit = true;
       api('shareHit', { t, kind: 'click', ua: (navigator.userAgent || '').slice(0, 40) }, { noRender: true, silent: true }).catch(() => {});
     }));
-  } catch (e) { pubError(e.code === 'NOTFOUND' ? e.message : 'Səhifəni açmaq alınmadı. Bir az sonra yenidən yoxlayın.'); }
+  } catch (e) { pubFail(e, e.message, 'Səhifəni açmaq alınmadı. Bir az sonra yenidən yoxlayın.'); }
 }
 
 function footInit(){
@@ -9477,7 +9857,13 @@ footInit();
     wind: '<path d="M5 8h8.5a2.5 2.5 0 1 0 -2.34 -3.24"/><path d="M3 12h15.5a2.5 2.5 0 1 1 -2.34 3.24"/><path d="M4 16h5.5a2.5 2.5 0 1 1 -2.34 3.24"/>',
     leaf: '<path d="M5 21c.5 -4.5 2.5 -8 7 -10"/><path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z"/>',
     sun: '<path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"/>',
-    buta: '<path d="M15 3c-5.5 0 -10 4.6 -10 10.2c0 4.4 3.3 7.8 7.4 7.8c3.8 0 6.6 -2.8 6.6 -6.3c0 -3.1 -2.3 -5.2 -5 -5.2c-2.2 0 -3.8 1.6 -3.8 3.5c0 1.6 1.2 2.8 2.7 2.8"/><path d="M15 3c1.6 .9 2.2 2.4 1.4 3.9"/>',
+    buta: '<path d="M11.5 22c5.5 0 8-4 7.6-9c-.3-3.4-2.6-5.2-3.4-7.3c-.4-1.3.4-2.5 1.6-2.3c1.3.2 1.6 1.7.8 2.5"/><path d="M18.2 5.9c1.5-.6 2-2.6.8-3.7c-1.6-1.4-4.7-.9-6.8 1.2c-2.4 2.4-7.2 5.5-8 11c-.6 5 2.4 7.6 7.3 7.6"/><path d="M11.6 18.5c-2 0-3.2-1.5-2.8-3.3c.4-1.8 2-2.8 3.3-4.1c.9 1.4 1.8 2.6 1.8 4.4c0 1.8-1 3-2.3 3z"/>',
+    semeni: '<path d="M4 15h16c0 3.3-3.6 6-8 6s-8-2.7-8-6z"/><path d="M7 15c0-3-1-5-2.5-7"/><path d="M10 15c0-4-.5-7-1.5-10"/><path d="M12 15v-12"/><path d="M14 15c0-4 .5-7 1.5-10"/><path d="M17 15c0-3 1-5 2.5-7"/>',
+    star8: '<path d="M12 2.5L14.78 5.28L18.72 5.28L18.72 9.22L21.5 12L18.72 14.78L18.72 18.72L14.78 18.72L12 21.5L9.22 18.72L5.28 18.72L5.28 14.78L2.5 12L5.28 9.22L5.28 5.28L9.22 5.28Z"/><path d="M12 8.6l3.4 3.4l-3.4 3.4l-3.4-3.4z"/>',
+    paxlava: '<path d="M12 2.5l7.5 9.5l-7.5 9.5l-7.5-9.5z"/><path d="M12 7.5l3.6 4.5l-3.6 4.5l-3.6-4.5z"/><path d="M12 11.2v1.6"/>',
+    shekerbura: '<path d="M2.5 16c0-5 4.3-8.5 9.5-8.5s9.5 3.5 9.5 8.5z"/><path d="M8 12l1.2 1.5M12 11v2M16 12l-1.2 1.5"/><path d="M3.5 19c1 0 1-1 2-1s1 1 2 1s1-1 2-1s1 1 2 1s1-1 2-1s1 1 2 1s1-1 2-1s1 1 2 1"/>',
+    tonqal: '<path d="M4 21l16-4M4 17l16 4"/><path d="M12 15c2.8 0 4.5-1.8 4.5-4.2c0-2.3-1.7-3.6-2.6-5.3c-.6 1.6-1.4 2.3-2.2 2.6c.3-2.2-.6-4.3-2.4-5.6c.2 2.6-1.4 4.2-2.6 5.6c-.8 1-1.2 1.8-1.2 2.8c0 2.4 1.8 4.1 4.5 4.1z"/>',
+    egg2: '<path d="M19 14.083c0 4.154 -2.966 6.74 -7 6.917c-4.2 0 -7 -2.763 -7 -6.917c0 -5.538 3.5 -11.09 7 -11.083c3.5 .007 7 5.545 7 11.083z"/><path d="M5.6 12.6l2.1-1.6l2.1 1.6l2.2-1.6l2.2 1.6l2.1-1.6l2.1 1.6"/>',
     hourglass: '<path d="M6.5 7h11"/><path d="M6.5 17h11"/><path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"/><path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"/>',
     check: '<path d="M5 12l5 5l10 -10"/>',
     calendar2: '<path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"/><path d="M16 3v4"/><path d="M8 3v4"/><path d="M4 11h16"/><path d="M11 15h1"/><path d="M12 15v3"/>',
@@ -9488,17 +9874,17 @@ footInit();
 })();
 
 const NY_HAT = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 56"><path d="M9 42C12 24 25 9 43 7c6-.6 11 2 13 6-6-1-10 2-11 7-1 6 1 13 4 22z" fill="#E11D2E"/><path d="M43 7c6-.6 11 2 13 6-4-.8-7 .2-9 2-2-3-3-6-4-8z" fill="#B3121F"/><path d="M17 40c4-10 10-18 18-23" stroke="#FF6B7A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".55"/><circle cx="56.5" cy="13.5" r="6.5" fill="#fff"/><rect x="3" y="37" width="52" height="14" rx="7" fill="#fff"/><path d="M8 47h42" stroke="#DCE3EE" stroke-width="2" stroke-linecap="round"/></svg>';
-const NV_SPROUT = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 56"><path d="M18 44C16 30 12 20 6 12c9 5 14 15 16 30z" fill="#4ADE80"/><path d="M26 44C25 28 24 16 20 4c6 10 9 24 10 40z" fill="#22C55E"/><path d="M34 44c0-16 2-28 7-40c-2 13-3 26-2 40z" fill="#16A34A"/><path d="M42 44c3-14 8-23 16-30c-6 9-9 18-11 30z" fill="#4ADE80"/><path d="M30 44C31 32 33 22 34 13c1 10 0 21-1 31z" fill="#86EFAC"/><rect x="8" y="40" width="44" height="9" rx="4.5" fill="#DC2626"/><path d="M30 44c-6-6-14-6-14 0s8 6 14 0zm0 0c6-6 14-6 14 0s-8 6-14 0z" fill="#EF4444"/><path d="M30 44l-6 11M30 44l6 11" stroke="#DC2626" stroke-width="3.2" stroke-linecap="round"/><circle cx="30" cy="44" r="3.2" fill="#B91C1C"/></svg>';
+const NV_SPROUT = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 56"><path d="M18 44C16 30 12 20 6 12c9 5 14 15 16 30z" fill="#4ADE80"/><path d="M26 44C25 28 24 16 20 4c6 10 9 24 10 40z" fill="#22C55E"/><path d="M34 44c0-16 2-28 7-40c-2 13-3 26-2 40z" fill="#16A34A"/><path d="M42 44c3-14 8-23 16-30c-6 9-9 18-11 30z" fill="#4ADE80"/><path d="M30 44C31 32 33 22 34 13c1 10 0 21-1 31z" fill="#86EFAC"/><rect x="8" y="40" width="44" height="9" rx="4.5" fill="#D99A0B"/><path d="M30 44c-6-6-14-6-14 0s8 6 14 0zm0 0c6-6 14-6 14 0s-8 6-14 0z" fill="#FCD34D"/><path d="M30 44l-6 11M30 44l6 11" stroke="#D99A0B" stroke-width="3.2" stroke-linecap="round"/><circle cx="30" cy="44" r="3.2" fill="#B7791F"/></svg>';
 document.documentElement.style.setProperty('--ny-hat', `url("data:image/svg+xml,${encodeURIComponent(NY_HAT)}")`);
 document.documentElement.style.setProperty('--nv-hat', `url("data:image/svg+xml,${encodeURIComponent(NV_SPROUT)}")`);
 const PC_NY = { ny: true, or: '#1D5FD1', orText: '#1A4FB8', tint: '#EEF4FF', line: '#DCE6F5', lineS: '#C3D3EE', ink: '#16233A', soft: '#56657D', faint: '#8E9BB0', h1: '#1E3A8A', h2: '#2F6FE6', paper: '#F7FAFF' };
 const PC_NV = { nv: true, or: '#0E7A5A', orText: '#0B6B4E', tint: '#ECF7F1', line: '#D7E9DF', lineS: '#B9D9C8', ink: '#14251D', soft: '#4F6458', faint: '#8AA095', h1: '#064E3B', h2: '#0F8A63', paper: '#F7FCF9' };
 Object.assign(PC, { h1: '#FFA247', h2: '#FF7400', paper: '#FFFBF6' });
 const CR = [
-  { n: 'Su', ic: 'droplet', c: '#2563EB', t: 'Novruz qabağı ilk çərşənbədir. Su — həyatın və təmizliyin rəmzidir. Qədim inanca görə, bu gün sular təzələnir; insanlar bulaq başına gedir, bir-birinə xoş arzular diləyirlər.' },
-  { n: 'Od', ic: 'flame', c: '#EA580C', t: 'İkinci çərşənbə. Od — işığın, istiliyin və həyat enerjisinin rəmzidir. Tonqallar qalanır, insanlar tonqalın üstündən tullanaraq köhnə ilin dərdlərini geridə qoyurlar.' },
-  { n: 'Yel', ic: 'wind', c: '#0891B2', t: 'Üçüncü çərşənbə. Yel — oyanışın rəmzidir. İnanca görə, yel təbiəti yuxudan oyadır, ağacları tumurcuqlandırır və baharın gəldiyini xəbər verir.' },
-  { n: 'Torpaq', ic: 'seedling', c: '#4D7C0F', t: 'Axır çərşənbə — ən sevilən gün! Torpaq oyanır, səməni yaşıllaşır. Axşam tonqallar qalanır, papaq atılır, qapı pusulur, xonçalar bəzədilir — bayram artıq qapıdadır!' }
+  { n: 'Su', ic: 'droplet', c: '#0E7A5A', d: '#064E3B', t: 'Novruz qabağı ilk çərşənbədir. Su — həyatın və təmizliyin rəmzidir. Qədim inanca görə, bu gün sular təzələnir; insanlar bulaq başına gedir, bir-birinə xoş arzular diləyirlər.' },
+  { n: 'Od', ic: 'flame', c: '#0E7A5A', d: '#064E3B', t: 'İkinci çərşənbə. Od — işığın, istiliyin və həyat enerjisinin rəmzidir. Tonqallar qalanır, insanlar tonqalın üstündən tullanaraq köhnə ilin dərdlərini geridə qoyurlar.' },
+  { n: 'Yel', ic: 'wind', c: '#0E7A5A', d: '#064E3B', t: 'Üçüncü çərşənbə. Yel — oyanışın rəmzidir. İnanca görə, yel təbiəti yuxudan oyadır, ağacları tumurcuqlandırır və baharın gəldiyini xəbər verir.' },
+  { n: 'Torpaq', ic: 'seedling', c: '#0E7A5A', d: '#064E3B', t: 'Axır çərşənbə — ən sevilən gün! Torpaq oyanır, səməni yaşıllaşır. Axşam tonqallar qalanır, papaq atılır, qapı pusulur, xonçalar bəzədilir — bayram artıq qapıdadır!' }
 ];
 
 function seasonKey(){ return (S.site && (S.site.k || (S.site.ny ? 'ny' : ''))) || ''; }
@@ -9552,13 +9938,13 @@ function decoApply(){
     const l = ['snowflake', 'gift', 'christmas-tree', 'star', 'book', 'snowflake', 'pencil', 'gift', 'sparkles', 'christmas-tree', 'bulb', 'snowflake', 'star', 'gift', 'school', 'christmas-tree'];
     r.setProperty('--deco-l', seasonDeco('#1D5FD1', l)); r.setProperty('--deco-d', seasonDeco('#8EA2D0', l));
   } else if (k === 'nv'){
-    const l = ['buta', 'flame', 'seedling', 'egg', 'book', 'buta', 'droplet', 'sun', 'pencil', 'wind', 'buta', 'leaf', 'flame', 'seedling', 'school', 'egg'];
+    const l = ['buta', 'semeni', 'star8', 'paxlava', 'tonqal', 'shekerbura', 'buta', 'egg2', 'star8', 'semeni', 'buta', 'paxlava', 'tonqal', 'star8', 'shekerbura', 'egg2'];
     r.setProperty('--deco-l', seasonDeco('#0E7A5A', l)); r.setProperty('--deco-d', seasonDeco('#7FB8A0', l));
   } else initDecoBase();
 }
 function initDeco(){ decoApply(); }
 const LOGIN_ICONS_0 = LOGIN_ICONS.map(x => x[0]);
-const LOGIN_SEASON = { ny: { star: 'snowflake', rocket: 'gift', trophy: 'christmas-tree', calculator: 'snowflake', compass: 'gift' }, nv: { star: 'flame', rocket: 'seedling', trophy: 'buta', calculator: 'egg', compass: 'sun', music: 'droplet' } };
+const LOGIN_SEASON = { ny: { star: 'snowflake', rocket: 'gift', trophy: 'christmas-tree', calculator: 'snowflake', compass: 'gift' }, nv: { star: 'star8', rocket: 'semeni', trophy: 'buta', calculator: 'paxlava', compass: 'tonqal', music: 'egg2' } };
 let loginSeasonState = null;
 function loginArtSeason(k){
   if (loginSeasonState === k) return;
@@ -9574,30 +9960,19 @@ function garlandSync(force){
   const k = seasonKey();
   if (!k){ if (g) g.innerHTML = ''; garlandKey = ''; return; }
   if (!g){ g = document.createElement('div'); g.id = 'nyGarland'; g.setAttribute('aria-hidden', 'true'); document.body.appendChild(g); }
-  const W = Math.round(innerWidth), crI = S.site && S.site.cr ? S.site.cr.i : -1, key = k + W + '_' + crI;
+  const W = Math.round(innerWidth), key = k + W;
   if (!force && key === garlandKey && g.innerHTML) return;
   garlandKey = key;
-  if (k === 'ny'){
-    const step = W < 600 ? 46 : 64, n = Math.ceil(W / step) + 1, cols = ['#FACC15', '#F43F5E', '#22C55E', '#3B82F6', '#F472B6', '#F97316'];
-    let d = 'M0 2', bulbs = '';
-    for (let i = 0; i < n; i++){
-      const x0 = i * step, xm = x0 + step / 2;
-      d += ` Q${xm} 13 ${x0 + step} 2`;
-      const c = cols[i % cols.length];
-      bulbs += `<g class="b" style="color:${c}"><rect class="c" x="${xm - 2}" y="6.5" width="4" height="3.4" rx="1"/><ellipse cx="${xm}" cy="14.2" rx="3.6" ry="5" fill="${c}"/><ellipse cx="${xm - 1.1}" cy="12.6" rx="1" ry="1.6" fill="#fff" opacity=".55"/></g>`;
-    }
-    g.innerHTML = `<svg viewBox="0 0 ${W} 24" preserveAspectRatio="none"><path class="w" d="${d}"/>${bulbs}</svg>`;
-    return;
-  }
-  const step = W < 600 ? 40 : 54, n = Math.ceil(W / step) + 1;
-  const items = crI >= 0 ? [CR[crI]] : CR;
-  let d = 'M0 2', it = '';
+  const step = W < 600 ? 46 : 64, n = Math.ceil(W / step) + 1;
+  const cols = k === 'nv' ? ['#22C55E', '#FCD34D', '#86EFAC', '#16A34A', '#FDE68A', '#4ADE80'] : ['#FACC15', '#F43F5E', '#22C55E', '#3B82F6', '#F472B6', '#F97316'];
+  let d = 'M0 2', bulbs = '';
   for (let i = 0; i < n; i++){
-    const x0 = i * step, xm = x0 + step / 2, e = items[i % items.length];
-    d += ` Q${xm} 9 ${x0 + step} 2`;
-    it += `<g transform="translate(${xm - 6.5} 6.5) scale(.54)"><g class="b nv" style="color:${e.c}"><circle cx="12" cy="12" r="11" fill="#FFFBEB" stroke="none"/><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${TB[e.ic]}</g></g></g>`;
+    const x0 = i * step, xm = x0 + step / 2;
+    d += ` Q${xm} 13 ${x0 + step} 2`;
+    const c = cols[i % cols.length];
+    bulbs += `<g class="b" style="color:${c}"><rect class="c" x="${xm - 2}" y="6.5" width="4" height="3.4" rx="1"/><ellipse cx="${xm}" cy="14.2" rx="3.6" ry="5" fill="${c}"/><ellipse cx="${xm - 1.1}" cy="12.6" rx="1" ry="1.6" fill="#fff" opacity=".55"/></g>`;
   }
-  g.innerHTML = `<svg viewBox="0 0 ${W} 24" preserveAspectRatio="none"><path class="w" d="${d}"/>${it}</svg>`;
+  g.innerHTML = `<svg viewBox="0 0 ${W} 24" preserveAspectRatio="none"><path class="w" d="${d}"/>${bulbs}</svg>`;
 }
 addEventListener('resize', () => { if (seasonOn()) garlandSync(); });
 
@@ -9607,7 +9982,7 @@ function fxMode(){
   if (k === 'ny') return 'snow';
   if (k !== 'nv') return '';
   const i = S.site && S.site.cr ? S.site.cr.i : -1;
-  return ['drops', 'sparks', 'wind', 'petals'][i] || 'petals';
+  return 'petals';
 }
 function snowWanted(){
   let rm = false;
@@ -9625,7 +10000,7 @@ function snowFlake(init){
   if (md === 'sparks') return { x: R() * W, y: init ? R() * H : H + 10, r: 1 + R() * 2.2, s: -(.6 + R() * 1.2) * SNOW.k, w: R() * 6.28, o: .6 + R() * .4, c: R() > .5 ? '#F59E0B' : '#F97316', life: 1 };
   if (md === 'drops') return { x: R() * W, y: init ? R() * H : -20, r: 7 + R() * 9, s: (3 + R() * 2.5) * SNOW.k, w: 0, o: .35 + R() * .35, c: '#3B82F6' };
   if (md === 'wind') return { x: init ? R() * W : -20, y: R() * H, r: (m ? 4 : 3.5) + R() * 3.5, s: (1.6 + R() * 1.6) * SNOW.k, w: R() * 6.28, o: .55 + R() * .4, c: R() > .5 ? '#86EFAC' : '#F9A8D4', rot: R() * 6.28 };
-  if (md === 'petals') return { x: R() * W, y: init ? R() * H : -12, r: (m ? 4 : 3.4) + R() * 3.4, s: (.5 + R() * .7) * SNOW.k, w: R() * 6.28, o: .55 + R() * .4, c: R() > .55 ? '#F9A8D4' : R() > .4 ? '#FDE2E4' : '#86EFAC', rot: R() * 6.28 };
+  if (md === 'petals') return { x: R() * W, y: init ? R() * H : -12, r: (m ? 4 : 3.4) + R() * 3.4, s: (.5 + R() * .7) * SNOW.k, w: R() * 6.28, o: .55 + R() * .4, c: R() > .6 ? '#86EFAC' : R() > .3 ? '#4ADE80' : '#BBF7D0', rot: R() * 6.28 };
   return { x: R() * W, y: init ? R() * H : -8, r: (m ? 1.6 : 1.1) + R() * (m ? 2.8 : 2.5), s: (.4 + R() * .8) * SNOW.k, w: R() * 6.28, o: .5 + R() * .45 };
 }
 function snowSize(){
@@ -9686,6 +10061,7 @@ function snowTick(t){
     x.save(); x.translate(f.x, f.y); x.rotate(f.rot); x.beginPath(); x.ellipse(0, 0, f.r, f.r * .55, 0, 0, 6.283); x.fill(); x.restore();
   });
   x.globalAlpha = 1;
+  $$('.cd').forEach(e => { const r = e.getBoundingClientRect(); if (r.bottom > 0 && r.top < H && r.width) x.clearRect(r.left - 2, r.top - 2, r.width + 4, r.height + 4); });
 }
 function fxLabel(on){ return seasonKey() === 'ny' ? (on ? 'Qarı söndür' : 'Qarı yandır') : (on ? 'Bayram effektini söndür' : 'Bayram effektini yandır'); }
 ACT.toggleSnow = () => {
@@ -9792,33 +10168,33 @@ function nyBadgeSvg(locked){
     <circle cx="30" cy="53" r="2.2" fill="#E11D2E"/><circle cx="34" cy="53" r="2.2" fill="#E11D2E"/>
     <path d="M32 3.5l1.6 3.4 3.7.4-2.8 2.5.8 3.6-3.3-1.9-3.3 1.9.8-3.6-2.8-2.5 3.7-.4z" fill="#FFF7D1" stroke="#D99A0B" stroke-width=".6"/>${locked ? LOCK_G : ''}</svg>`;
 }
+const NV_TUFT = '<path d="M26 54.5c-.6-3-1.6-5-3.2-6.6M29 54.5c-.1-3.6-.6-6.2-1.6-8.3M32 54.5v-9.4M35 54.5c.1-3.6.6-6.2 1.6-8.3M38 54.5c.6-3 1.6-5 3.2-6.6" stroke="#BBF7D0" stroke-width="1.6" stroke-linecap="round" fill="none"/><rect x="23.5" y="53.2" width="17" height="3.4" rx="1.7" fill="#FCD34D"/>';
 function nvBadgeSvg(locked){
   const g = 'nv' + (++bdSeq), r = 'nvr' + bdSeq;
   return `<svg class="bd-svg r4 bd-nv${locked ? ' bd-locked' : ''}" viewBox="0 0 64 64" aria-hidden="true"><defs>
-    <linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22C58B"/><stop offset="1" stop-color="#065F46"/></linearGradient>
-    <linearGradient id="${r}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDE68A"/><stop offset="1" stop-color="#C98A06"/></linearGradient></defs>
+    <linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34D399"/><stop offset="1" stop-color="#065F46"/></linearGradient>
+    <linearGradient id="${r}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDE68A"/><stop offset="1" stop-color="#D99A0B"/></linearGradient></defs>
     <circle cx="32" cy="32" r="29" fill="url(#${r})"/><circle cx="32" cy="32" r="24.5" fill="url(#${g})"/>
-    <circle cx="32" cy="32" r="21" fill="none" stroke="#FDE68A" stroke-opacity=".45" stroke-width=".8" stroke-dasharray="1.5 2.5"/>
-    <path d="M36 14c-8 0-14 6.5-14 14.5c0 6.3 4.7 11 10.5 11c5.4 0 9.3-3.9 9.3-8.9c0-4.4-3.2-7.4-7-7.4c-3.1 0-5.4 2.3-5.4 5c0 2.3 1.7 4 3.8 4" fill="none" stroke="#FFF7D1" stroke-width="2.6" stroke-linecap="round"/>
-    <path d="M36 14c2.4 1.3 3.2 3.6 2 5.8" fill="none" stroke="#FFF7D1" stroke-width="2.6" stroke-linecap="round"/>
-    <circle cx="32.5" cy="28.5" r="1.8" fill="#FCD34D"/>
-    <path d="M22 51c-1-5-3-8-6-10c4 1 7 4 8 10zM28 51c0-6-1-10-3-14c3 3 5 8 5 14zM34 51c0-6 1-10 3-14c-1 5-1 9-1 14zM40 51c1-5 3-8 6-10c-3 2-5 5-5 10z" fill="#86EFAC"/>
-    <rect x="18" y="50" width="28" height="4" rx="2" fill="#DC2626"/>
-    <path d="M32 3.5l1.6 3.4 3.7.4-2.8 2.5.8 3.6-3.3-1.9-3.3 1.9.8-3.6-2.8-2.5 3.7-.4z" fill="#FFF7D1" stroke="#C98A06" stroke-width=".6"/>${locked ? LOCK_G : ''}</svg>`;
+    <circle cx="32" cy="32" r="24.5" fill="none" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="1"/>
+    <g transform="translate(20.6 13.4) scale(.235)"><path d="M48 114C78 114 90 92 88 66C86 46 74 36 70 26C68 19 71 13 77 14C83 15 85 22 81 26C88 24 91 14 85 8C77 1 62 4 52 14C40 26 16 42 12 70C9 96 24 114 48 114Z" fill="#fff"/><path d="M48 101C65 101 76 88 75 69C74 54 64 46 60 37C52 44 31 53 26 72C22 89 32 101 48 101Z" fill="none" stroke="#0E7A5A" stroke-width="4"/><path d="M48 89c-9 0-14-7-12-15c2-8 9-12 15-18c4 7 8 12 8 20c0 8-5 13-11 13z" fill="#0E7A5A"/></g>
+    <circle cx="20" cy="18" r="1.3" fill="#fff" opacity=".8"/><circle cx="46" cy="22" r="1" fill="#fff" opacity=".7"/><circle cx="45" cy="42" r="1.2" fill="#fff" opacity=".6"/>
+    ${NV_TUFT}
+    <path d="M32 3.5l1.6 3.4 3.7.4-2.8 2.5.8 3.6-3.3-1.9-3.3 1.9.8-3.6-2.8-2.5 3.7-.4z" fill="#FFF7D1" stroke="#D99A0B" stroke-width=".6"/>${locked ? LOCK_G : ''}</svg>`;
 }
 function cr4BadgeSvg(locked){
-  const r = 'cr' + (++bdSeq);
+  const g = 'c4' + (++bdSeq), r = 'c4r' + bdSeq;
+  const icn = (k, x, y) => `<g transform="translate(${x} ${y}) scale(.55)">${TB[k]}</g>`;
   return `<svg class="bd-svg r3 bd-cr4${locked ? ' bd-locked' : ''}" viewBox="0 0 64 64" aria-hidden="true"><defs>
-    <linearGradient id="${r}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDE68A"/><stop offset="1" stop-color="#C98A06"/></linearGradient></defs>
-    <circle cx="32" cy="32" r="29" fill="url(#${r})"/>
-    <path d="M32 32V7.5A24.5 24.5 0 0 0 7.5 32z" fill="#2563EB"/><path d="M32 32V7.5A24.5 24.5 0 0 1 56.5 32z" fill="#EA580C"/>
-    <path d="M32 32h24.5A24.5 24.5 0 0 1 32 56.5z" fill="#0891B2"/><path d="M32 32h-24.5A24.5 24.5 0 0 0 32 56.5z" fill="#4D7C0F"/>
-    <g fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <g transform="translate(13.5 13.5) scale(.62)">${TB.droplet}</g><g transform="translate(35.5 13.5) scale(.62)">${TB.flame}</g>
-      <g transform="translate(35.5 35) scale(.62)">${TB.wind}</g><g transform="translate(13.5 35) scale(.62)">${TB.seedling}</g></g>
-    <circle cx="32" cy="32" r="5.5" fill="#FFF7D1" stroke="#C98A06" stroke-width="1"/><text x="32" y="35" text-anchor="middle" font-size="7.5" font-weight="800" fill="#7A4A00" font-family="Poppins, Arial">4</text>${locked ? LOCK_G : ''}</svg>`;
+    <linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34D399"/><stop offset="1" stop-color="#065F46"/></linearGradient>
+    <linearGradient id="${r}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDE68A"/><stop offset="1" stop-color="#D99A0B"/></linearGradient></defs>
+    <circle cx="32" cy="32" r="29" fill="url(#${r})"/><circle cx="32" cy="32" r="24.5" fill="url(#${g})"/>
+    <circle cx="32" cy="32" r="24.5" fill="none" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="1"/>
+    <path d="M32 15.5v29M17.5 30h29" stroke="#fff" stroke-opacity=".28" stroke-width="1"/>
+    <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${icn('droplet', 18.4, 16.4)}${icn('flame', 32.6, 16.4)}${icn('wind', 18.4, 30.6)}${icn('seedling', 32.6, 30.6)}</g>
+    ${NV_TUFT}
+    <path d="M32 3.5l1.6 3.4 3.7.4-2.8 2.5.8 3.6-3.3-1.9-3.3 1.9.8-3.6-2.8-2.5 3.7-.4z" fill="#FFF7D1" stroke="#D99A0B" stroke-width=".6"/>${locked ? LOCK_G : ''}</svg>`;
 }
-function badgeSvg(id, locked){ return id === 'ny' ? nyBadgeSvg(locked) : id === 'nv' ? nvBadgeSvg(locked) : id === 'cr4' ? cr4BadgeSvg(locked) : badgeSvgBase(id, locked); }
+function badgeSvg(id, locked){ return id === 'bd' ? bdBadgeSvg(locked) : id === 'ny' ? nyBadgeSvg(locked) : id === 'nv' ? nvBadgeSvg(locked) : id === 'cr4' ? cr4BadgeSvg(locked) : badgeSvgBase(id, locked); }
 Object.assign(BADGE_TIER, { ny: 4, nv: 4, cr4: 3 });
 Object.assign(BADGE_LOOK, { ny: ['#60A5FA', '#1D4ED8', 'snowflake'], nv: ['#34D399', '#065F46', 'buta'], cr4: ['#FCD34D', '#C98A06', 'flame'] });
 BADGE_CATS.push(['season', 'Bayram nişanları', 'gift']);
@@ -9844,6 +10220,8 @@ function seasonAchBody(b){
 
 let nyGreetT = 0, nyGreetTries = 0;
 function nyGreetSoon(){ clearTimeout(nyGreetT); nyGreetT = setTimeout(nyGreetCheck, 1400); }
+const AZ_MON = ['yan', 'fev', 'mar', 'apr', 'may', 'iyn', 'iyl', 'avq', 'sen', 'okt', 'noy', 'dek'];
+function azShort(ymd){ const p = String(ymd || '').split('-'); return p.length === 3 ? `${+p[2]} ${AZ_MON[+p[1] - 1]}` : ''; }
 function nyGreetBody(g, name){
   const first = String(name || '').trim().split(/\s+/)[0] || '';
   const nv = g.k === 'nv';
@@ -9859,30 +10237,36 @@ function nyGreetCheck(){
   if (!S.token || S.cabRO) return;
   const meX = seasonWho();
   const g = S.site && S.site.greet, cr = S.site && S.site.cr;
-  if (!g && !cr) return;
+  const bdT = !!(meX && meX.bdToday);
+  if (!g && !cr && !bdT) return;
   if (!meX || !meX.id || (S.kind === 's' ? $('#cab').hidden : $('#shell').hidden)){ if (++nyGreetTries < 40) nyGreetSoon(); return; }
   const gKey = g ? 'al_nyg_' + (g.k || 'ny') + g.y + '_' + meX.id : '';
   const cKey = cr ? 'al_cr_' + cr.y + '_' + cr.i + '_' + meX.id : '';
+  const bKey = bdT ? 'al_bdg_' + String((S.d && S.d.today) || (S.cab && S.cab.today) || today()).slice(0, 4) + '_' + meX.id : '';
   let need = '';
-  try { if (gKey && !localStorage.getItem(gKey)) need = 'g'; else if (cKey && !localStorage.getItem(cKey)) need = 'c'; } catch (e) { return; }
+  try { if (bKey && !localStorage.getItem(bKey)) need = 'b'; else if (gKey && !localStorage.getItem(gKey)) need = 'g'; else if (cKey && !localStorage.getItem(cKey)) need = 'c'; } catch (e) { return; }
   if (!need) return;
   if (modalStack.length || S.achQ){ if (++nyGreetTries < 40) nyGreetSoon(); return; }
-  try { localStorage.setItem(need === 'g' ? gKey : cKey, '1'); } catch (e) {}
-  if (need === 'g') nyGreetShow(g, meX.name); else crShow(cr.i);
+  try { localStorage.setItem(need === 'b' ? bKey : need === 'g' ? gKey : cKey, '1'); } catch (e) {}
+  if (need === 'b') bdGreetShow(meX.name); else if (need === 'g') nyGreetShow(g, meX.name); else crShow(cr.i);
 }
 function crBody(i){
   const e = CR[i], st = S.kind === 's' && S.cab ? S.cab.cr : null;
   const n = st ? st.n : 0, done = st ? st.days || [] : [];
-  return `<div class="crp" style="--cc:${e.c}"><div class="crp-art">${flakesHtml(12, 'petal')}<span class="crp-ic">${tb(e.ic)}</span></div>
-    <span class="crp-eb">Novruz qabağı · ${i + 1}-ci çərşənbə</span><h3>${e.n} çərşənbəsi</h3><p>${esc(e.t)}</p>
-    <div class="crp-steps">${CR.map((x, j) => `<span class="${j === i ? 'on' : ''}${done.includes(j) ? ' ok' : ''}" style="--cc:${x.c}">${tb(done.includes(j) && j !== i ? 'check' : x.ic)}<b>${x.n}</b></span>`).join('')}</div>
-    ${st ? `<p class="crp-prog">${n >= 4 ? 'Təbriklər! Dörd çərşənbənin hamısında bizimlə oldun — «Dörd Çərşənbə» nişanı səninkidir!' : `Bu gün də sayta baş çəkdin! «Dörd Çərşənbə» nişanına: <b>${n} / 4</b>`}</p>` : ''}</div>`;
+  const days = (S.site && S.site.crDays) || [];
+  const steps = CR.map((x, j) => {
+    const ok = done.includes(j) || (st && j === i);
+    return `<div class="crg-s${j === i ? ' on' : ''}${ok ? ' ok' : ''}"><i>${tb(ok && j !== i ? 'check' : x.ic)}</i><b>${x.n}</b>${days[j] ? `<small>${azShort(days[j])}</small>` : ''}</div>`;
+  }).join('');
+  const prog = st ? `<p class="crg-prog">${n >= 4 ? 'Təbriklər! Dörd çərşənbənin hamısında bizimlə oldun — «Dörd Çərşənbə» nişanı səninkidir!' : `Bu gün də sayta baş çəkdin! «Dörd Çərşənbə» nişanına: <b>${n} / 4</b>`}</p>` : '';
+  return `<div class="nyg nvg crg">${flakesHtml(18, 'petal')}<div class="nyg-art"><span class="nyg-lion crg-ic">${tb(e.ic)}</span></div>
+    <span class="crg-eb">Novruz qabağı · ${i + 1}-ci çərşənbə</span><h4>${e.n} çərşənbəniz mübarək!</h4><p class="nyg-txt">${esc(e.t)}</p>
+    <div class="crg-steps">${steps}</div>${prog}</div>`;
 }
 function crShow(i){
   sndPlay('cr');
-  openModal({ title: CR[i].n + ' çərşənbəniz mübarək!', size: 'sm cr-m', body: crBody(i), foot: `<button class="btn btn-primary btn-block" data-close>Bağla</button>` });
+  openModal({ title: CR[i].n + ' çərşənbəniz mübarək!', size: 'sm ny-greet-m cr-m', body: crBody(i), foot: `<button class="btn btn-primary btn-block" data-close>Bağla</button>` });
 }
-
 async function reportPages(r){
   const k = seasonKey();
   if (!k) return reportPagesBase(r);
@@ -9894,10 +10278,9 @@ async function reportPages(r){
 function seasonReportDecor(ctx, W, M){
   ctx.save();
   if (PC.nv){
-    [[300, 22, 18, .3, 'buta'], [395, 108, 14, .26, 'seedling'], [505, 66, 22, .3, 'buta'], [560, 124, 12, .24, 'flame'], [250, 116, 12, .22, 'sun']].forEach(([x, y, s, a, n]) => { ctx.globalAlpha = a; svgPaint(ctx, tbSvg(n), x, y, s, '#fff'); });
+    [[300, 22, 18, .3, 'buta'], [395, 108, 14, .26, 'semeni'], [505, 66, 22, .3, 'buta'], [560, 124, 12, .24, 'semeni'], [250, 116, 12, .22, 'buta']].forEach(([x, y, s, a, n]) => { ctx.globalAlpha = a; svgPaint(ctx, tbSvg(n), x, y, s, '#fff'); });
     ctx.globalAlpha = 1;
-    for (let i = 0; i < 30; i++){ const x = (i * 97) % W, y = 8 + (i * 53) % 140; ctx.fillStyle = i % 3 ? 'rgba(253,230,138,.45)' : 'rgba(249,168,212,.5)'; ctx.beginPath(); ctx.ellipse(x, y, 1.6 + (i % 3) * .6, 1, i, 0, 6.283); ctx.fill(); }
-    CR.forEach((e, i) => { for (let x = 20 + i * 40; x < W; x += 160){ ctx.globalAlpha = .9; svgPaint(ctx, tbSvg(e.ic), x, 2, 9, '#FDE68A'); } });
+    for (let i = 0; i < 30; i++){ const x = (i * 97) % W, y = 8 + (i * 53) % 140; ctx.fillStyle = i % 3 ? 'rgba(187,247,208,.55)' : 'rgba(134,239,172,.6)'; ctx.beginPath(); ctx.ellipse(x, y, 1.6 + (i % 3) * .6, 1, i, 0, 6.283); ctx.fill(); }
     ctx.globalAlpha = 1;
     ctx.save(); ctx.translate(M + 27, 28); ctx.rotate(.15); svgPaint(ctx, NV_SPROUT, -10, -10, 22, '#22C55E'); ctx.restore();
   } else {
@@ -9994,64 +10377,55 @@ function nvSemeni(ctx, x, y, s){
     ctx.strokeStyle = g; ctx.lineWidth = Math.max(2, s * .028); ctx.lineCap = 'round';
     ctx.beginPath(); ctx.moveTo(bx, y); ctx.quadraticCurveTo(bx + lean * .3, y - h * .6, bx + lean, y - h); ctx.stroke();
   }
-  ctx.fillStyle = '#DC2626'; ctx.fillRect(x - pw * .36, y - s * .2, pw * .72, s * .07);
-  ctx.fillStyle = '#EF4444'; ctx.beginPath(); ctx.ellipse(x - s * .09, y - s * .165, s * .1, s * .055, -.4, 0, 6.283); ctx.fill(); ctx.beginPath(); ctx.ellipse(x + s * .09, y - s * .165, s * .1, s * .055, .4, 0, 6.283); ctx.fill();
-  ctx.fillStyle = '#B91C1C'; ctx.beginPath(); ctx.arc(x, y - s * .165, s * .035, 0, 6.283); ctx.fill();
+  ctx.fillStyle = '#D99A0B'; ctx.fillRect(x - pw * .36, y - s * .2, pw * .72, s * .07);
+  ctx.fillStyle = '#FCD34D'; ctx.beginPath(); ctx.ellipse(x - s * .09, y - s * .165, s * .1, s * .055, -.4, 0, 6.283); ctx.fill(); ctx.beginPath(); ctx.ellipse(x + s * .09, y - s * .165, s * .1, s * .055, .4, 0, 6.283); ctx.fill();
+  ctx.fillStyle = '#B7791F'; ctx.beginPath(); ctx.arc(x, y - s * .165, s * .035, 0, 6.283); ctx.fill();
   const pg = ctx.createLinearGradient(0, y - ph * .3, 0, y + ph); pg.addColorStop(0, '#FDE68A'); pg.addColorStop(1, '#B7791F');
   ctx.fillStyle = pg; ctx.beginPath(); ctx.ellipse(x, y + ph * .25, pw * .5, ph * .55, 0, 0, 6.283); ctx.fill();
   ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.lineWidth = 2; ctx.beginPath(); ctx.ellipse(x, y + ph * .1, pw * .44, ph * .32, 0, Math.PI, 2 * Math.PI); ctx.stroke();
   ctx.restore();
 }
-function nvTreats(ctx, x, y, s){
-  const eggs = [['#EF4444', '#FDE68A'], ['#3B82F6', '#FFFFFF'], ['#F59E0B', '#7C2D12'], ['#A855F7', '#FDE68A']];
-  eggs.forEach(([c, p], i) => {
-    const ex = x + (i - 1.5) * s * .3, ey = y - (i % 2) * s * .05;
-    ctx.fillStyle = c; ctx.beginPath(); ctx.ellipse(ex, ey, s * .1, s * .135, (i - 1.5) * .15, 0, 6.283); ctx.fill();
-    ctx.strokeStyle = p; ctx.lineWidth = Math.max(1.5, s * .012); ctx.lineJoin = 'round'; ctx.beginPath();
-    for (let z = 0; z <= 6; z++){ const zx = ex - s * .085 + z * s * .0283, zy = ey + (z % 2 ? -s * .018 : s * .018); if (z) ctx.lineTo(zx, zy); else ctx.moveTo(zx, zy); }
-    ctx.stroke();
-    ctx.fillStyle = p; [-.05, 0, .05].forEach(dx => { ctx.beginPath(); ctx.arc(ex + dx * s, ey + s * .065, Math.max(1.2, s * .011), 0, 6.283); ctx.fill(); });
-    ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.beginPath(); ctx.ellipse(ex - s * .035, ey - s * .06, s * .02, s * .035, 0, 0, 6.283); ctx.fill();
-  });
-}
 function nvBackdrop(ctx, W, H, o){
   o = o || {};
   const bg = ctx.createLinearGradient(0, 0, 0, H);
-  bg.addColorStop(0, '#05261E'); bg.addColorStop(.5, '#0A4A39'); bg.addColorStop(1, '#0F7356');
+  bg.addColorStop(0, '#03261B'); bg.addColorStop(.5, '#0A4A39'); bg.addColorStop(1, '#0F7356');
   ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
-  const gl = ctx.createRadialGradient(W / 2, H * .38, 0, W / 2, H * .38, W * .85);
-  gl.addColorStop(0, 'rgba(253,224,130,.32)'); gl.addColorStop(1, 'rgba(253,224,130,0)');
+  const gl = ctx.createRadialGradient(W / 2, H * .36, 0, W / 2, H * .36, W * .8);
+  gl.addColorStop(0, 'rgba(110,231,183,.32)'); gl.addColorStop(1, 'rgba(110,231,183,0)');
   ctx.fillStyle = gl; ctx.fillRect(0, 0, W, H);
   const rnd = rndSeed(o.seed);
-  ctx.save(); ctx.globalAlpha = .07;
-  for (let r = 0; r < Math.ceil(H / 150); r++) for (let c = 0; c < 8; c++){ const s = 64; ctx.save(); ctx.translate(c * 150 + (r % 2 ? 75 : 0), r * 150 + 30); ctx.rotate(.4); svgPaint(ctx, tbSvg('buta'), -s / 2, -s / 2, s, '#FDE68A'); ctx.restore(); }
-  ctx.restore();
-  for (let i = 0; i < 24; i++){
-    const x = rnd() * W, y = rnd() * H * .9, r = 20 + rnd() * 60;
-    const b = ctx.createRadialGradient(x, y, 0, x, y, r); b.addColorStop(0, 'rgba(253,224,130,.18)'); b.addColorStop(1, 'rgba(253,224,130,0)');
+  for (let i = 0; i < 26; i++){
+    const x = rnd() * W, y = rnd() * H * .9, r = 20 + rnd() * 60, gold = rnd() > .6;
+    const b = ctx.createRadialGradient(x, y, 0, x, y, r);
+    b.addColorStop(0, gold ? 'rgba(252,211,77,.16)' : 'rgba(167,243,208,.14)'); b.addColorStop(1, 'rgba(255,255,255,0)');
     ctx.fillStyle = b; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill();
   }
-  for (let i = 0; i < 110; i++){ ctx.fillStyle = `rgba(253,230,138,${.3 + rnd() * .6})`; ctx.beginPath(); ctx.arc(rnd() * W, rnd() * H * .85, .8 + rnd() * 2, 0, 6.283); ctx.fill(); }
-  for (let i = 0; i < 46; i++){ const x = rnd() * W, y = rnd() * H * .85, r = 6 + rnd() * 9; ctx.save(); ctx.translate(x, y); ctx.rotate(rnd() * 6.28); ctx.fillStyle = rnd() > .5 ? 'rgba(249,168,212,.75)' : 'rgba(255,241,242,.7)'; ctx.beginPath(); ctx.ellipse(0, 0, r, r * .55, 0, 0, 6.283); ctx.fill(); ctx.restore(); }
-  const step = W / 10;
-  ctx.strokeStyle = 'rgba(253,230,138,.55)'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(-10, 6);
-  for (let x = -10; x < W + step; x += step) ctx.quadraticCurveTo(x + step / 2, 40, x + step, 6);
+  for (let i = 0; i < 70; i++){ ctx.fillStyle = `rgba(255,255,255,${.25 + rnd() * .55})`; ctx.beginPath(); ctx.arc(rnd() * W, rnd() * H * .7, .8 + rnd() * 1.6, 0, 6.283); ctx.fill(); }
+  ctx.save();
+  for (let i = 0; i < 9; i++){ const s = 30 + rnd() * 40; ctx.globalAlpha = .1 + rnd() * .14; svgPaint(ctx, tbSvg(i % 3 === 2 ? 'semeni' : 'buta'), rnd() * (W - s), rnd() * H * .85, s, '#fff'); }
+  ctx.restore();
+  const lc = ['187,247,208', '134,239,172', '74,222,128'];
+  for (let i = 0; i < 90; i++){ const x = rnd() * W, y = rnd() * H * .9, r = 4 + rnd() * 7; ctx.save(); ctx.translate(x, y); ctx.rotate(rnd() * 6.28); ctx.fillStyle = `rgba(${lc[i % 3]},${.35 + rnd() * .45})`; ctx.beginPath(); ctx.ellipse(0, 0, r, r * .45, 0, 0, 6.283); ctx.fill(); ctx.restore(); }
+  const step = W / 9, cols = ['#22C55E', '#FCD34D', '#86EFAC', '#16A34A', '#FDE68A', '#4ADE80'];
+  ctx.strokeStyle = 'rgba(2,30,22,.7)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-10, 6);
+  for (let x = -10; x < W + step; x += step) ctx.quadraticCurveTo(x + step / 2, 58, x + step, 6);
   ctx.stroke();
   for (let x = -10, i = 0; x < W + step; x += step, i++){
-    const cx = x + step / 2, cy = 36, e = CR[i % 4];
-    const gw = ctx.createRadialGradient(cx, cy + 10, 0, cx, cy + 10, 40); gw.addColorStop(0, e.c + '77'); gw.addColorStop(1, e.c + '00');
-    ctx.fillStyle = gw; ctx.beginPath(); ctx.arc(cx, cy + 10, 40, 0, 6.283); ctx.fill();
-    ctx.fillStyle = '#FEF3C7'; ctx.beginPath(); ctx.arc(cx, cy + 10, 17, 0, 6.283); ctx.fill();
-    svgPaint(ctx, tbSvg(e.ic), cx - 11, cy - 1, 22, e.c);
+    const cx = x + step / 2, cy = 46, c = cols[i % cols.length];
+    const gw = ctx.createRadialGradient(cx, cy + 10, 0, cx, cy + 10, 42); gw.addColorStop(0, c + '88'); gw.addColorStop(1, c + '00');
+    ctx.fillStyle = gw; ctx.beginPath(); ctx.arc(cx, cy + 10, 42, 0, 6.283); ctx.fill();
+    rrFill(ctx, cx - 5, cy - 6, 10, 9, 2, '#1F3A30');
+    ctx.fillStyle = c; ctx.beginPath(); ctx.ellipse(cx, cy + 12, 10, 14, 0, 0, 6.283); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,.55)'; ctx.beginPath(); ctx.ellipse(cx - 3.5, cy + 6, 2.6, 4.2, 0, 0, 6.283); ctx.fill();
   }
   if (o.ground){
     const gy = H - o.ground;
-    const hg = ctx.createLinearGradient(0, gy, 0, H); hg.addColorStop(0, '#065F46'); hg.addColorStop(1, '#043D2E');
-    ctx.fillStyle = hg; ctx.beginPath(); ctx.moveTo(0, gy + 30);
-    ctx.bezierCurveTo(W * .3, gy - 10, W * .6, gy + 40, W, gy + 6); ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill();
+    const sg = ctx.createLinearGradient(0, gy, 0, H); sg.addColorStop(0, '#16A34A'); sg.addColorStop(1, '#065F46');
+    ctx.fillStyle = sg; ctx.beginPath(); ctx.moveTo(0, gy + 20);
+    ctx.bezierCurveTo(W * .25, gy - 18, W * .45, gy + 34, W * .62, gy + 10); ctx.bezierCurveTo(W * .78, gy - 10, W * .9, gy + 18, W, gy); ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.fill();
     const s = Math.min(230, o.ground * 1.15);
-    nvSemeni(ctx, 140, gy + o.ground * .55, s); nvSemeni(ctx, W - 140, gy + o.ground * .5, s * 1.05);
-    nvTreats(ctx, W / 2, gy + o.ground * .62, s * .9);
+    nvSemeni(ctx, 130, gy + o.ground * .55, s); nvSemeni(ctx, W - 130, gy + o.ground * .5, s * 1.05);
+    nvSemeni(ctx, W / 2, gy + o.ground * .66, s * .62);
   }
 }
 function seasonLion(ctx, x, y, s, k){
@@ -10069,7 +10443,7 @@ function nyLion(ctx, x, y, s){ seasonLion(ctx, x, y, s, 'ny'); }
 
 const STORY_TH = {
   ny: { bd: nyBackdrop, ground: 150, eb: { ny: 'YENİ İL HƏDİYYƏSİ' }, halo: '190,215,255', rays: '252,211,77', ic: 'gift', icc: '#1D5FD1', ink: '#15223A', sub: 'Yeni ildə Aslan Lessons-a qoşul!', subc: '#1A55C0', handle: '#1E3A8A' },
-  nv: { bd: nvBackdrop, ground: 170, eb: { nv: 'NOVRUZ HƏDİYYƏSİ', cr4: 'DÖRD ÇƏRŞƏNBƏ' }, halo: '253,236,170', rays: '253,224,130', ic: 'seedling', icc: '#0E7A5A', ink: '#14251D', sub: 'Baharda Aslan Lessons-a qoşul!', subc: '#0B6B4E', handle: '#FDE68A' }
+  nv: { bd: nvBackdrop, ground: 170, eb: { nv: 'NOVRUZ HƏDİYYƏSİ', cr4: 'DÖRD ÇƏRŞƏNBƏ' }, halo: '187,247,208', rays: '134,239,172', ic: 'buta', icc: '#0E7A5A', ink: '#14251D', sub: 'Baharda Aslan Lessons-a qoşul!', subc: '#0B6B4E', handle: '#FDE68A' }
 };
 async function storyCanvas(it, who){
   const k = seasonKey();
@@ -10222,7 +10596,7 @@ function seasonCardHtml(key, s){
   const yFrom = nv ? s.year : s.year - (s.from >= '07-01' ? 1 : 0), yTo = nv ? s.year : s.year - (s.to >= '07-01' ? 1 : 0);
   const crd = (s.crDays || []).map((d, i) => `<span class="cr-chip" style="--cc:${CR[i].c}">${tb(CR[i].ic)}${CR[i].n} · ${dmy(d)}</span>`).join('');
   return `<section class="site-card" id="${id('Card')}"><h3>${tb(nv ? 'flame' : 'christmas-tree')}${nv ? 'Novruz rejimi' : 'Yeni il rejimi'}<span class="tag ${s.active ? 'solid' : ''}">${s.active ? 'Aktivdir' : 'Söndürülüb'}</span></h3>
-    <p class="hint">${nv ? 'Sayt Novruz ab-havasına bürünür: yaşıl-qızılı rənglər, buta naxışları, uçuşan ləçəklər, aslanın başında səməni. Hər çərşənbə günü öz bəzəyi və kiçik məlumat pəncərəsi olur. Sertifikat dəyişmir.' : 'Sayt Yeni il ab-havasına bürünür: qış rəngləri, qar, işıqlar, aslanın başında Şaxta baba papağı. Sertifikat dəyişmir.'} Söndürəndə hər şey əvvəlki kimi olur.</p>
+    <p class="hint">${nv ? 'Sayt Novruz ab-havasına bürünür: yaşıl rənglər, buta naxışları, uçuşan yaşıl yarpaqlar, aslanın başında səməni. Çərşənbə günləri tələbələr kiçik məlumat pəncərəsi görür. Sertifikat dəyişmir.' : 'Sayt Yeni il ab-havasına bürünür: qış rəngləri, qar, işıqlar, aslanın başında Şaxta baba papağı. Sertifikat dəyişmir.'} Söndürəndə hər şey əvvəlki kimi olur.</p>
     <div class="sseg" role="tablist" id="${id('Mode')}">${[['off', 'Söndürülüb'], ['auto', 'Avtomatik'], ['on', 'Yandırılıb']].map(([k, l]) => `<button type="button" data-m="${k}" class="${s.mode === k ? 'on' : ''}">${l}</button>`).join('')}</div>
     <div class="site-row" id="${id('Dates')}"${s.mode === 'auto' ? '' : ' hidden'}>
       <label class="field"><span>Başlayır</span><input class="input" type="date" id="${id('From')}" value="${mdToDate(s.from, yFrom)}"></label>
@@ -10263,14 +10637,15 @@ function simCardHtml(sim){
     <div class="site-acts"><button class="btn btn-soft" data-act="simReset">${ic('trash')}Bayram nişanlarını sıfırla</button><button class="btn btn-soft" data-act="simSet" data-real="1">${ic('clock')}Real vaxta qayıt</button><button class="btn btn-primary" data-act="simSet">${ic('check')}Tətbiq et</button></div>
   </section>`;
 }
-function siteHtml(r){
+function siteHtml(r, tab){
   const so = r.site.social, sh = r.shares || { shares: 0, opens: 0, clicks: 0, m30: { shares: 0, opens: 0, clicks: 0 } };
   const pct = sh.opens ? Math.round(sh.clicks / sh.opens * 100) + '%' : '—';
-  return `<div class="site-grid">
+  if (tab !== 'social') return `<div class="site-grid">
     ${r.sim ? simCardHtml(r.sim) : ''}
     ${seasonCardHtml('ny', r.season)}
     ${seasonCardHtml('nv', r.novruz)}
-    ${cdCardHtml(r.countdown || { on: false, kind: 'ny' })}
+    ${cdCardHtml(r.countdown || { on: false, kind: 'ny' })}</div>`;
+  return `<div class="site-grid">
     <section class="site-card"><h3>${tb('brand-instagram')}Sosial şəbəkələr</h3>
       <p class="hint">Nömrə, istifadəçi adı və ya tam link yazın. Linklər giriş səhifəsində, kabinetdə, valideyn və nailiyyət səhifələrində görünür. Boş qalan düymə yerində qalır, amma heç yerə aparmır.</p>
       <div class="site-grid">${[['whatsapp', 'WhatsApp', 'brand-whatsapp', '994501234567'], ['instagram', 'Instagram', 'brand-instagram', 'aslanlessons'], ['tiktok', 'TikTok', 'brand-tiktok', 'aslanlessons']].map(([k, l, i, ph]) => `<div class="soc-field"><span class="soc-ic2">${tb(i)}</span><label class="field"><span>${l}</span><input class="input" id="so_${k}" maxlength="200" placeholder="${ph}" value="${esc(so[k] || '')}"></label></div>`).join('')}</div>
@@ -10283,12 +10658,13 @@ function siteHtml(r){
       <div class="site-total"><span>Bütün dövr</span><b>${sh.shares} paylaşım · ${sh.opens} baxış · ${sh.clicks} «Bizə yaz»</b>${sh.opens ? `<small>Baxanların ${pct}-i bizə yazıb</small>` : ''}</div>
     </section></div>`;
 }
-async function drawSite(){
-  const box = toolBox(); if (!box) return;
-  const r = await api('siteGet', {}, { noRender: true });
+async function drawSite(tab){
+  await swr('siteGet', {}, (r) => siteMount(r, tab));
+}
+function siteMount(r, tab){
+  const box = toolBox(); if (!box || S.ui.tab !== tab) return;
   S.ui.siteR = r;
-  if (!box.isConnected) return;
-  box.innerHTML = siteHtml(r);
+  box.innerHTML = siteHtml(r, tab);
   hydrateIcons(box);
   ['ny', 'nv'].forEach(k => $$(`#${k}Mode button`, box).forEach(b => b.addEventListener('click', () => {
     $$(`#${k}Mode button`, box).forEach(x => x.classList.toggle('on', x === b));
@@ -10317,7 +10693,7 @@ ACT.seasonSave = (b) => {
     await api('seasonSave', p, { noRender: true });
     toast((key === 'nv' ? 'Novruz' : 'Yeni il') + ' rejimi yadda saxlanıldı.', 'ok');
     await api('maintenanceStatus', {}, { noRender: true, silent: true }).catch(() => {});
-    drawSite();
+    drawSite(S.ui.tab);
   });
 };
 ACT.seasonPreview = (b) => {
@@ -10336,7 +10712,7 @@ ACT.cdSave = (b) => {
     await api('cdSave', { on: $('#cdOn').checked, kind, title: $('#cdTitle').value, done: $('#cdDone').value, at: $('#cdAt').value }, { noRender: true });
     toast('Geri sayım yadda saxlanıldı.', 'ok');
     await api('maintenanceStatus', {}, { noRender: true, silent: true }).catch(() => {});
-    drawSite();
+    drawSite(S.ui.tab);
   });
 };
 ACT.cdPreview = () => { const k = ($('#cdKind .on') || {}).dataset.k || 'ny'; confettiBurst(k); sndPlay(k === 'x' ? 'level' : k); };
@@ -10348,14 +10724,14 @@ ACT.simSet = (b) => {
     toast(at ? 'Sınaq tarixi tətbiq edildi.' : 'Real vaxta qayıdıldı.', 'ok');
     try { Object.keys(localStorage).filter(k => /^al_(nyg_|cr_|cdfire_|cdx_|seen_)/.test(k)).forEach(k => localStorage.removeItem(k)); } catch (e) {}
     await api('maintenanceStatus', {}, { noRender: true, silent: true }).catch(() => {});
-    drawSite();
+    drawSite(S.ui.tab);
   });
 };
 ACT.simReset = (b) => run(b, async () => {
   const r = await api('simReset', {}, { noRender: true });
   try { Object.keys(localStorage).filter(k => /^al_(nyg_|cr_|cdfire_|cdx_|seen_)/.test(k)).forEach(k => localStorage.removeItem(k)); } catch (e) {}
   toast(`${r.removed} bayram nişanı silindi — yenidən sınaya bilərsiniz.`, 'ok');
-  drawSite();
+  drawSite(S.ui.tab);
 });
 ACT.siteSave = (b) => {
   const social = {}; ['whatsapp', 'instagram', 'tiktok'].forEach(k => social[k] = $('#so_' + k).value);
@@ -10363,7 +10739,7 @@ ACT.siteSave = (b) => {
     await api('siteSave', { social, share: $('#soShare').checked }, { noRender: true });
     toast('Sayt ayarları yadda saxlanıldı.', 'ok');
     await api('maintenanceStatus', {}, { noRender: true, silent: true }).catch(() => {});
-    drawSite();
+    drawSite(S.ui.tab);
   });
 };
 
@@ -10394,16 +10770,17 @@ function cdState(){
   return { c, left, hidden };
 }
 function cdHtml(st){
-  const { c, left } = st, k = c.k === 'x' ? 'x' : c.k;
-  const icn = k === 'ny' ? 'christmas-tree' : k === 'nv' ? 'flame' : 'hourglass';
+  const { c, left } = st, k = c.k === 'ny' || c.k === 'nv' ? c.k : 'cu';
+  const icn = k === 'ny' ? 'christmas-tree' : k === 'nv' ? 'semeni' : 'hourglass';
   const x = `<button type="button" class="cd-x" data-cdx aria-label="Bağla">${ic('x')}</button>`;
-  if (left <= 0) return `<div class="cd cd-${k} cd-done">${flakesHtml(14, k === 'nv' ? 'petal' : k === 'x' ? 'conf' : '')}<span class="cd-ic">${tb(icn)}</span><div class="cd-t"><b>${esc(c.done)}</b><small>Aslan Lessons ailəsi olaraq sizi təbrik edirik!</small></div>${x}</div>`;
+  const ico = `<span class="cd-ic">${tb(icn)}</span>`;
+  if (left <= 0) return `<div class="cd cd-${k} cd-done">${flakesHtml(14, k === 'nv' ? 'petal' : k === 'cu' ? 'conf' : '')}${ico}<div class="cd-t"><b>${esc(c.done)}</b><span class="cd-sub">Aslan Lessons ailəsi olaraq sizi təbrik edirik!</span></div>${x}</div>`;
   const D = Math.floor(left / 86400000);
-  if (left > 2 * 86400000) return `<div class="cd cd-${k}"><span class="cd-ic">${tb(icn)}</span><div class="cd-t"><small>Geri sayım</small><b>${esc(c.title)} <span class="cd-big" data-cdd>${D}</span> gün qalıb</b></div>${x}</div>`;
+  const head = `${ico}<div class="cd-t"><small>Geri sayım</small><b>${esc(c.title)}</b></div>`;
+  if (left > 2 * 86400000) return `<div class="cd cd-${k} cd-days">${head}<div class="cd-n"><b data-cdd>${D}</b><span>gün <br>qalıb</span></div>${x}</div>`;
   const u = (n, l, a) => `<span class="cd-u"><b data-cd="${a}">${String(n).padStart(2, '0')}</b><small>${l}</small></span>`;
   const H = Math.floor(left / 3600000) % 24, M = Math.floor(left / 60000) % 60, Sx = Math.floor(left / 1000) % 60;
-  return `<div class="cd cd-${k} cd-live"><span class="cd-ic">${tb(icn)}</span><div class="cd-t"><small>Geri sayım</small><b>${esc(c.title)} qalıb</b></div>
-    <div class="cd-units">${u(D, 'gün', 'd')}${u(H, 'saat', 'h')}${u(M, 'dəqiqə', 'm')}${u(Sx, 'saniyə', 's')}</div>${x}</div>`;
+  return `<div class="cd cd-${k} cd-live">${head}<div class="cd-n cd-units">${u(D, 'gün', 'd')}${u(H, 'saat', 'h')}${u(M, 'dəqiqə', 'm')}${u(Sx, 'saniyə', 's')}</div>${x}</div>`;
 }
 function cdTick(){
   const st = cdState();
@@ -10436,10 +10813,45 @@ document.addEventListener('click', (e) => {
   cdSync();
 });
 
+const SLK = { on: false, y: 0 };
+function scrollLockSync(){
+  const want = !!document.querySelector('#modalRoot .mback:not(.closing)');
+  if (want === SLK.on) return;
+  SLK.on = want;
+  const b = document.body, h = document.documentElement;
+  if (want){
+    SLK.y = window.scrollY || h.scrollTop || 0;
+    h.classList.add('scroll-lock');
+    Object.assign(b.style, { position: 'fixed', top: -SLK.y + 'px', left: '0', right: '0', width: '100%' });
+  } else {
+    h.classList.remove('scroll-lock');
+    Object.assign(b.style, { position: '', top: '', left: '', right: '', width: '' });
+    const sb = h.style.scrollBehavior; h.style.scrollBehavior = 'auto'; window.scrollTo(0, SLK.y); h.style.scrollBehavior = sb;
+  }
+}
+(function(){
+  const go = () => { const r = $('#modalRoot'); if (!r) return setTimeout(go, 200); new MutationObserver(scrollLockSync).observe(r, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] }); scrollLockSync(); };
+  go();
+  document.addEventListener('touchmove', (e) => {
+    if (!SLK.on) return;
+    const t = e.target;
+    if (!t.closest || !t.closest('.mback')) return;
+    let el = t;
+    while (el && el !== document.body){
+      if (el.classList && el.classList.contains('mback')) break;
+      const cs = getComputedStyle(el);
+      if (/(auto|scroll)/.test(cs.overflowY) && el.scrollHeight > el.clientHeight + 1) return;
+      if (/(auto|scroll)/.test(cs.overflowX) && el.scrollWidth > el.clientWidth + 1) return;
+      el = el.parentElement;
+    }
+    e.preventDefault();
+  }, { passive: false });
+})();
+
 function confettiBurst(k){
   let rm = false;
   try { rm = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-  const cols = k === 'ny' ? ['#FCD34D', '#60A5FA', '#FFFFFF', '#F43F5E', '#22C55E', '#A78BFA'] : k === 'nv' ? ['#FCD34D', '#22C55E', '#F97316', '#EF4444', '#F9A8D4', '#38BDF8'] : ['#FF7A00', '#FCD34D', '#22C55E', '#3B82F6', '#EC4899', '#A78BFA'];
+  const cols = k === 'bd' ? ['#F472B6', '#FDE68A', '#FFFFFF', '#A78BFA', '#60A5FA', '#C026D3'] : k === 'ny' ? ['#FCD34D', '#60A5FA', '#FFFFFF', '#F43F5E', '#22C55E', '#A78BFA'] : k === 'nv' ? ['#22C55E', '#86EFAC', '#FFFFFF', '#16A34A', '#FCD34D', '#BBF7D0'] : ['#FF7A00', '#FCD34D', '#22C55E', '#3B82F6', '#EC4899', '#A78BFA'];
   const c = document.createElement('canvas'); c.className = 'cfx'; c.setAttribute('aria-hidden', 'true'); document.body.appendChild(c);
   const d = Math.min(2, devicePixelRatio || 1), W = innerWidth, H = innerHeight;
   c.width = W * d; c.height = H * d;
@@ -10462,20 +10874,25 @@ function confettiBurst(k){
   requestAnimationFrame(step);
 }
 
-PAGES.cards = { title: 'Təbrik kartı', icon: 'gift', nav: true, allow: () => !ro() && (me().isSuper || can('cards.make')) && (seasonOn() || me().isSuper) };
 ['news', 'dev', 'none'].forEach(k => { const v = PAGES[k]; delete PAGES[k]; PAGES[k] = v; });
-RENDER.cards = () => `<div class="page-head"><div><h2>Təbrik kartı</h2><p>Bayramı, tələbəni və ya müəllimi seçin — təbrik kartı adı ilə birlikdə avtomatik hazırlanacaq.${seasonOn() ? '' : ' <b>Bayram rejimi hazırda söndürülüb — bu bölmə yalnız rəhbərliyə görünür.</b>'}</p></div></div><div id="nycBox">${loadingBox()}</div>`;
-AFTER.cards = async () => {
+async function cardsMount(){
   const box = $('#nycBox'); if (!box) return;
   try {
-    const r = await api('cardPeople', {}, { noRender: true });
-    S.ui.nyc = Object.assign({ who: 'st', id: '', from: 0, wish: null, fmt: 'story', k: seasonKey() || 'ny' }, S.ui.nyc || {}, { p: r.people });
-    nycDraw();
+    await swr('cardPeople', {}, (r) => {
+      if (!$('#nycBox')) return;
+      S.ui.nyc = Object.assign({ who: 'st', id: '', from: 0, wish: null, fmt: 'story', k: seasonKey() || 'ny' }, S.ui.nyc || {}, { p: r.people });
+      nycDraw();
+    });
   } catch (e) {
     if (e.code === 'AUTH' || e.code === 'MAINT') return;
     if (box.isConnected) box.innerHTML = emptyBox('Yüklənmədi', esc(e.message));
   }
-};
+}
+async function drawCardsTab(){
+  const box = toolBox(); if (!box) return;
+  box.innerHTML = `<p class="hint" style="margin-bottom:14px">Bayramı, tələbəni və ya müəllimi seçin — təbrik kartı adı ilə birlikdə avtomatik hazırlanacaq.${seasonOn() ? '' : ' <b>Bayram rejimi hazırda söndürülüb — bu bölmə yalnız rəhbərliyə görünür.</b>'}</p><div id="nycBox">${loadingBox()}</div>`;
+  await cardsMount();
+}
 function nycState(){
   const u = S.ui.nyc, p = u.p, list = u.who === 'st' ? p.students : p.staff;
   if (!WISH[u.k]) u.k = 'ny';
@@ -10548,6 +10965,203 @@ ACT.nycShare = async () => {
 
 document.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.matches && e.target.matches('textarea.qtext, textarea.sign-ta')) e.preventDefault(); });
 
+TB.cake = '<path d="M3 20h18"/><path d="M5 20v-7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7"/><path d="M5 15.5c1.2 0 1.8-1 3-1s1.8 1 3 1 1.8-1 3-1 1.8 1 3 1 1.8-1 2-1"/><path d="M12 11V8"/><path d="M12 5.5c.6-.5 1-1.1 1-1.7 0-.8-1-1.8-1-1.8s-1 1-1 1.8c0 .6.4 1.2 1 1.7z"/>';
+TB.balloon = '<path d="M12 15c3.3 0 6-3 6-6.6C18 4.9 15.3 2 12 2S6 4.9 6 8.4C6 12 8.7 15 12 15z"/><path d="M11 15l-.6 1.6h3.2L13 15"/><path d="M12 16.6c0 2 1.6 2.4 1.6 4.4"/>';
+const BD_HAT = `url("data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 4 52 56H12z" fill="#F472B6"/><path d="M32 4l7 18H25zM22 30h20l4 10H18zM15 48h34l3 8H12z" fill="#FDE68A"/><path d="M32 4 52 56H12z" fill="none" stroke="#9D174D" stroke-width="2" stroke-linejoin="round"/><circle cx="32" cy="5" r="5" fill="#60A5FA" stroke="#1D4ED8" stroke-width="1.5"/><rect x="8" y="53" width="48" height="7" rx="3.5" fill="#C026D3"/></svg>')}")`;
+document.documentElement.style.setProperty('--bd-hat', BD_HAT);
+function bdBadgeSvg(locked){
+  const g = 'bd' + (++bdSeq), r = 'bdr' + bdSeq;
+  return `<svg class="bd-svg r3 bd-bd${locked ? ' bd-locked' : ''}" viewBox="0 0 64 64" aria-hidden="true"><defs>
+    <linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F472B6"/><stop offset="1" stop-color="#6D28D9"/></linearGradient>
+    <linearGradient id="${r}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDE68A"/><stop offset="1" stop-color="#D99A0B"/></linearGradient></defs>
+    <circle cx="32" cy="32" r="29" fill="url(#${r})"/><circle cx="32" cy="32" r="24.5" fill="url(#${g})"/>
+    <circle cx="32" cy="32" r="24.5" fill="none" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="1"/>
+    <g fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" transform="translate(17.6 14.6) scale(1.2)">${TB.cake}</g>
+    <rect x="15" y="19" width="2.6" height="2.6" rx=".6" fill="#FDE68A" transform="rotate(20 16 20)"/><circle cx="47" cy="21" r="1.4" fill="#A5F3FC"/><rect x="45" y="41" width="2.4" height="2.4" rx=".5" fill="#FDE68A" transform="rotate(-25 46 42)"/><circle cx="18" cy="43" r="1.3" fill="#fff"/>
+    <path d="M32 3.5l1.6 3.4 3.7.4-2.8 2.5.8 3.6-3.3-1.9-3.3 1.9.8-3.6-2.8-2.5 3.7-.4z" fill="#FFF7D1" stroke="#D99A0B" stroke-width=".6"/>${locked ? LOCK_G : ''}</svg>`;
+}
+Object.assign(BADGE_TIER, { bd: 3 });
+Object.assign(BADGE_LOOK, { bd: ['#F472B6', '#6D28D9', 'cake'] });
+SEASON_ACH.bd = { title: 'Ad günün mübarək!', snd: 'legend', cls: 'ach-bd', eb: 'Ad günü hədiyyəsi', fx: 'conf',
+  msg: (f) => `Əziz ${f}! Bu gün sənin günündür! Aslan Lessons ailəsi səni ürəkdən təbrik edir. Qoy yeni yaşın sənə sağlamlıq, sevinc, yeni biliklər və böyük uğurlar gətirsin. Bu xüsusi nişan hər il ad günündə verilir!` };
+
+function bdMe(){ const m = seasonWho(); return m && m.bday !== undefined ? m : null; }
+function bdIsSt(){ return S.kind === 's'; }
+ACT.bdOpen = () => {
+  const m = bdMe(); if (!m) return;
+  if (m.bday){
+    openModal({ title: 'Ad günüm', size: 'sm', body: `<div class="bdset-done"><span class="bdset-ic">${BD_CAKE}</span><p>Sənin ad günün</p><b>${bdText(m.bday)}</b><small>Bu tarix bir dəfə qeyd olunur və dəyişdirilmir. Ad günündə ${bdIsSt() ? 'səni xüsusi təbrik və nişan' : 'sizi xüsusi təbrik'} gözləyir!</small></div>`.replace('Sənin ad günün', bdIsSt() ? 'Sənin ad günün' : 'Sizin ad gününüz'), foot: `<button class="btn btn-primary btn-block" data-close>Bağla</button>` });
+    return;
+  }
+  const st = bdIsSt();
+  openModal({ title: 'Ad günümü qeyd et', size: 'sm',
+    body: `<form id="bdForm" class="stack" novalidate>
+      <div class="bdset-hero"><span class="bdset-ic">${BD_CAKE}</span><p>${st ? 'Ad gününü qeyd et — həmin gün səni xüsusi təbrik, «Ad günü» nişanı və gözəl story şəkli gözləyəcək!' : 'Ad gününüzü qeyd edin — həmin gün sizi xüsusi təbrik gözləyəcək.'}</p></div>
+      <div class="bdset-row"><label class="field"><span>Gün</span><select class="select" id="bdDay">${Array.from({ length: 31 }, (_, i) => `<option value="${i + 1}">${i + 1}</option>`).join('')}</select></label>
+        <label class="field"><span>Ay</span><select class="select" id="bdMon">${AZ_MONTHS.map((x, i) => `<option value="${i + 1}">${x[0].toUpperCase() + x.slice(1)}</option>`).join('')}</select></label></div>
+      <p class="hint bdset-note">${ic('info')}<span>Yalnız gün və ay saxlanılır, il soruşulmur. Tarix <b>bir dəfə</b> qeyd olunur və sonra <b>dəyişdirilə bilməz</b>. Ad gününü yazmaq məcburi deyil.</span></p>
+    </form>`,
+    foot: `<button class="btn btn-ghost" data-close>Ləğv et</button><button class="btn btn-primary" form="bdForm" type="submit">${ic('check')}Davam et</button>`,
+    onMount: (el, close) => {
+      const d = el.querySelector('#bdDay'), mo = el.querySelector('#bdMon');
+      const fix = () => { const max = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][mo.value - 1]; [...d.options].forEach(o => { o.disabled = +o.value > max; }); if (+d.value > max) d.value = String(max); };
+      mo.addEventListener('change', fix); fix();
+      el.querySelector('#bdForm').addEventListener('submit', async (ev) => {
+        ev.preventDefault();
+        const md = String(mo.value).padStart(2, '0') + '-' + String(d.value).padStart(2, '0');
+        const ok = await confirmBox({ title: 'Tarixi təsdiqlə', text: `<div class="bdset-conf"><span>${st ? 'Ad günün' : 'Ad gününüz'}</span><b>${bdText(md)}</b></div>${st ? 'Əminsən? Sonra dəyişmək mümkün olmayacaq.' : 'Əminsiniz? Sonra dəyişmək mümkün olmayacaq.'}`, ok: 'Bəli, yadda saxla' });
+        if (!ok) return;
+        await run(null, async () => {
+          await api(st ? 'sBdaySet' : 'bdaySet', { md });
+          close();
+          toast(st ? 'Ad günün qeyd olundu!' : 'Ad gününüz qeyd olundu!', 'ok');
+          if (st) cabRender(true); else renderChrome();
+        });
+      });
+    } });
+};
+const BD_TXT = {
+  st: 'Bu gün sənin günündür! Aslan Lessons ailəsi səni ürəkdən təbrik edir. Qoy yeni yaşın sənə sağlamlıq, sevinc, yeni biliklər və böyük uğurlar gətirsin. Arzuların çin olsun!',
+  te: 'Bu gün sizin gününüzdür! Aslan Lessons ailəsi sizi ürəkdən təbrik edir. Tələbələrinizə verdiyiniz bilik və zəhmət üçün təşəkkür edirik. Qoy yeni yaşınız sağlamlıq, sevinc və yeni uğurlarla dolu olsun!'
+};
+function bdBalloons(side){
+  const set = side === 'l' ? [['#F472B6', 0, 0], ['#FDE68A', 22, 14], ['#A78BFA', -6, 30]] : [['#60A5FA', 0, 4], ['#F472B6', -20, 18], ['#FDE68A', 6, 34]];
+  return `<svg class="bdg-bal bdg-bal-${side}" viewBox="0 0 80 150" aria-hidden="true">${set.map(([c, dx, dy], i) => `<g transform="translate(${28 + dx} ${8 + dy})"><path d="M12 40c0 22 ${side === 'l' ? 10 : -10} 30 ${side === 'l' ? 4 : -4} 60" stroke="rgba(255,255,255,.55)" stroke-width="1.4" fill="none"/><ellipse cx="12" cy="18" rx="14" ry="18" fill="${c}"/><ellipse cx="7" cy="11" rx="3.2" ry="5" fill="#fff" opacity=".45"/><path d="M9.5 36h5l-2.5 4z" fill="${c}"/></g>`).join('')}</svg>`;
+}
+function bdGreetBody(name){
+  const st = bdIsSt();
+  const first = String(name || '').trim().split(/\s+/)[0] || '';
+  return `<div class="nyg bdg">${flakesHtml(24, 'conf')}${bdBalloons('l')}${bdBalloons('r')}<div class="nyg-art"><span class="nyg-lion">${LOGO_SVG('#fff')}</span></div>
+    <b class="nyg-year bdg-t">${st ? 'Ad günün' : 'Ad gününüz'}<br>mübarək!</b>${first ? `<p class="nyg-hi">Əziz ${esc(first)}!</p>` : ''}
+    <p class="nyg-txt">${st ? BD_TXT.st : BD_TXT.te}</p><p class="nyg-from">Hörmətlə, Leyla xanım və Aslan Lessons komandası</p></div>`;
+}
+function bdGreetShow(name){
+  sndPlay('legend');
+  const st = bdIsSt();
+  openModal({ title: st ? 'Ad günün mübarək!' : 'Ad gününüz mübarək!', size: 'sm ny-greet-m bd-m', body: bdGreetBody(name),
+    foot: st && !S.cabRO ? `<button class="btn btn-soft" data-close>Bağla</button><button class="btn btn-primary" data-act="bdShare">${ic('share')}Story şəkli</button>` : `<button class="btn btn-primary btn-block" data-close>Bağla</button>`,
+    onMount: () => setTimeout(() => confettiBurst('bd'), 250) });
+}
+async function bdStory(name){
+  await pdfFonts();
+  const W = 1080, H = 1920, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  const ctx = cv.getContext('2d');
+  const F = (w, s) => `${w} ${s}px Poppins, "Segoe UI", Arial, sans-serif`;
+  const bg = ctx.createLinearGradient(0, 0, W * .4, H);
+  bg.addColorStop(0, '#2E1065'); bg.addColorStop(.5, '#6D28D9'); bg.addColorStop(1, '#DB2777');
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+  const glow = (x, y, r, c) => { const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, c); g.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = g; ctx.fillRect(x - r, y - r, r * 2, r * 2); };
+  glow(W / 2, 980, 620, 'rgba(253,230,138,.30)'); glow(120, 300, 380, 'rgba(244,114,182,.35)'); glow(W - 80, 1500, 420, 'rgba(96,165,250,.25)');
+  const rnd = rndSeed('bd' + name), cc = ['#FDE68A', '#F472B6', '#FFFFFF', '#A5F3FC', '#FCD34D', '#C4B5FD'];
+  for (let i = 0; i < 170; i++){
+    const x = rnd() * W, y = rnd() * H, s = 6 + rnd() * 12; ctx.save(); ctx.translate(x, y); ctx.rotate(rnd() * 6.28); ctx.globalAlpha = .45 + rnd() * .5; ctx.fillStyle = cc[i % cc.length];
+    if (i % 3) ctx.fillRect(-s / 2, -s / 4, s, s / 2); else { ctx.beginPath(); ctx.arc(0, 0, s / 2.6, 0, 6.283); ctx.fill(); }
+    ctx.restore();
+  }
+  ctx.globalAlpha = 1;
+  const flags = ['#F472B6', '#FDE68A', '#60A5FA', '#A78BFA', '#34D399'];
+  ctx.strokeStyle = 'rgba(255,255,255,.7)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-20, 40); ctx.quadraticCurveTo(W / 2, 170, W + 20, 40); ctx.stroke();
+  for (let i = 0; i < 12; i++){
+    const t = (i + .5) / 12, x = -20 + t * (W + 40), y = (1 - t) * (1 - t) * 40 + 2 * (1 - t) * t * 170 + t * t * 40;
+    ctx.fillStyle = flags[i % flags.length]; ctx.beginPath(); ctx.moveTo(x - 34, y); ctx.lineTo(x + 34, y); ctx.lineTo(x, y + 70); ctx.closePath(); ctx.fill();
+  }
+  const balloon = (x, y, r, c, sway) => {
+    ctx.strokeStyle = 'rgba(255,255,255,.6)'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(x, y + r * 1.25); ctx.bezierCurveTo(x + sway, y + r * 2, x - sway, y + r * 2.8, x + sway * .5, y + r * 3.6); ctx.stroke();
+    ctx.fillStyle = c; ctx.beginPath(); ctx.ellipse(x, y, r, r * 1.22, 0, 0, 6.283); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(x - 10, y + r * 1.2 + 10); ctx.lineTo(x + 10, y + r * 1.2 + 10); ctx.lineTo(x, y + r * 1.2 - 4); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,.4)'; ctx.beginPath(); ctx.ellipse(x - r * .38, y - r * .45, r * .2, r * .34, -.4, 0, 6.283); ctx.fill();
+  };
+  balloon(130, 640, 78, '#F472B6', 30); balloon(250, 520, 66, '#FDE68A', -24); balloon(90, 420, 56, '#A78BFA', 20);
+  balloon(W - 130, 620, 80, '#60A5FA', -30); balloon(W - 255, 500, 64, '#F472B6', 24); balloon(W - 95, 400, 54, '#FDE68A', -20);
+  const ls = 150, lx = W / 2 - ls / 2, ly = 250;
+  rrFill(ctx, lx, ly, ls, ls, 44, '#FFFFFF');
+  ctx.save(); ctx.translate(lx + 22, ly + 22); ctx.scale((ls - 44) / 100, (ls - 44) / 100); ctx.fillStyle = '#6D28D9'; ctx.fill(new Path2D(LION_D), 'evenodd'); ctx.restore();
+  ctx.font = F(700, 34); ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.textAlign = 'center';
+  const brand = 'ASLAN LESSONS'; let bw = 0; [...brand].forEach(ch => { bw += ctx.measureText(ch).width + 10; }); let bx = W / 2 - (bw - 10) / 2; ctx.textAlign = 'left';
+  [...brand].forEach(ch => { ctx.fillText(ch, bx, ly + ls + 64); bx += ctx.measureText(ch).width + 10; });
+  ctx.textAlign = 'center';
+  const cx = W / 2, base = 1240;
+  ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.beginPath(); ctx.ellipse(cx, base + 22, 300, 30, 0, 0, 6.283); ctx.fill();
+  rrFill(ctx, cx - 300, base, 600, 26, 13, '#FDE68A');
+  rrFill(ctx, cx - 250, base - 170, 500, 176, 30, '#C026D3');
+  rrFill(ctx, cx - 250, base - 170, 500, 58, 30, '#F9A8D4');
+  ctx.fillStyle = '#F9A8D4'; for (let i = 0; i < 6; i++){ const x = cx - 220 + i * 88; ctx.beginPath(); ctx.ellipse(x, base - 112, 26, 34, 0, 0, Math.PI); ctx.fill(); }
+  ctx.fillStyle = '#FDE68A'; for (let i = 0; i < 9; i++){ ctx.beginPath(); ctx.arc(cx - 210 + i * 52, base - 40, 7, 0, 6.283); ctx.fill(); }
+  rrFill(ctx, cx - 170, base - 300, 340, 136, 26, '#F472B6');
+  rrFill(ctx, cx - 170, base - 300, 340, 46, 26, '#FFFFFF');
+  ctx.fillStyle = '#FFFFFF'; for (let i = 0; i < 4; i++){ const x = cx - 128 + i * 85; ctx.beginPath(); ctx.ellipse(x, base - 256, 22, 28, 0, 0, Math.PI); ctx.fill(); }
+  [[-90, '#60A5FA'], [0, '#FDE68A'], [90, '#34D399']].forEach(([dx, c]) => {
+    rrFill(ctx, cx + dx - 11, base - 390, 22, 92, 8, c);
+    ctx.strokeStyle = 'rgba(255,255,255,.7)'; ctx.lineWidth = 4; for (let k = 0; k < 3; k++){ ctx.beginPath(); ctx.moveTo(cx + dx - 11, base - 370 + k * 28); ctx.lineTo(cx + dx + 11, base - 382 + k * 28); ctx.stroke(); }
+    glow(cx + dx, base - 418, 60, 'rgba(253,224,71,.55)');
+    ctx.fillStyle = '#F59E0B'; ctx.beginPath(); ctx.moveTo(cx + dx, base - 452); ctx.bezierCurveTo(cx + dx + 18, base - 428, cx + dx + 14, base - 400, cx + dx, base - 396); ctx.bezierCurveTo(cx + dx - 14, base - 400, cx + dx - 18, base - 428, cx + dx, base - 452); ctx.fill();
+    ctx.fillStyle = '#FEF3C7'; ctx.beginPath(); ctx.ellipse(cx + dx, base - 412, 6, 11, 0, 0, 6.283); ctx.fill();
+  });
+  const sh = (fn) => { ctx.save(); ctx.shadowColor = 'rgba(30,0,60,.45)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 6; fn(); ctx.restore(); };
+  sh(() => { ctx.font = F(600, 64); ctx.fillStyle = '#FFFFFF'; ctx.fillText('Bu gün mənim', W / 2, 1400); });
+  sh(() => { ctx.font = F(800, 112); ctx.fillStyle = '#FDE68A'; ctx.fillText('ad günümdür!', W / 2, 1520); });
+  let ns = 70; ctx.font = F(700, ns); while (ctx.measureText(name).width > W - 160 && ns > 40){ ns -= 4; ctx.font = F(700, ns); }
+  sh(() => { ctx.font = F(700, ns); ctx.fillStyle = '#FFFFFF'; ctx.fillText(name, W / 2, 1620); });
+  rrFill(ctx, 110, 1690, W - 220, 150, 40, 'rgba(255,255,255,.95)');
+  ctx.font = F(700, 40); ctx.fillStyle = '#6D28D9'; ctx.fillText('Aslan Lessons ailəsi ilə', W / 2, 1755);
+  ctx.font = F(500, 34); ctx.fillStyle = '#9D174D'; ctx.fillText('öyrənirəm və böyüyürəm!', W / 2, 1805);
+  return cv;
+}
+ACT.bdShare = (b) => run(b, async () => {
+  const m = bdMe(); if (!m) return;
+  const name = shortNm(m.name) || m.name;
+  const cv = await bdStory(name);
+  const blob = await new Promise(res => { try { cv.toBlob(x => res(x), 'image/png'); } catch (e) { res(null); } });
+  if (!blob) throw new Error('Şəkil hazırlamaq alınmadı.');
+  const fname = fileName('Aslan Lessons - Ad günü') + '.png';
+  let file = null, canFile = false;
+  try { file = new File([blob], fname, { type: 'image/png' }); canFile = !!(navigator.canShare && navigator.canShare({ files: [file] })); } catch (e) {}
+  const url = URL.createObjectURL(blob);
+  const save = () => { const a = document.createElement('a'); a.href = url; a.download = fname; document.body.appendChild(a); a.click(); a.remove(); toast('Şəkil yükləndi — indi story-yə əlavə edə bilərsən.', 'ok'); };
+  openModal({ title: 'Ad günü story-si', sub: 'Şəkli Instagram story-yə əlavə et', size: 'sm shr-m',
+    body: `<div class="shr"><div class="shr-prev"><img src="${url}" alt="Ad günü story şəkli"></div><div class="shr-acts">
+      ${canFile ? `<button type="button" class="btn btn-primary btn-block" data-bds="file">${ic('share')}Şəkli paylaş</button>` : ''}
+      <button type="button" class="btn ${canFile ? 'btn-soft' : 'btn-primary'} btn-block" data-bds="save">${ic('download')}Şəkli yüklə</button></div></div>`,
+    foot: `<button class="btn btn-ghost btn-block" data-close>Bağla</button>`,
+    onClose: () => setTimeout(() => URL.revokeObjectURL(url), 2000),
+    onMount: (el) => el.addEventListener('click', async (e) => {
+      const x = e.target.closest('[data-bds]'); if (!x) return;
+      if (x.dataset.bds === 'save') return save();
+      try { await navigator.share({ files: [file], title: 'Ad günüm', text: 'Bu gün mənim ad günümdür!' }); } catch (er) { if (er && er.name !== 'AbortError') save(); }
+    }) });
+});
+function bdHeroHtml(d){
+  if (!d.me || !d.me.bdToday) return '';
+  const first = String(d.me.name || '').trim().split(/\s+/)[0] || '';
+  return `<div class="bd-hero">${flakesHtml(14, 'conf')}${bdBalloons('r')}<span class="bd-hero-ic">${BD_CAKE}</span><div class="bd-hero-tx"><b>Ad günün mübarək, ${esc(first)}!</b><small>Bu gün sənin günündür — Aslan Lessons ailəsi səni təbrik edir.</small></div>${S.cabRO ? '' : `<button class="btn btn-sm bd-hero-btn" data-act="bdShare">${ic('share')}Story şəkli</button>`}</div>`;
+}
+async function drawBdayTab(){
+  const box = toolBox(); if (!box) return;
+  if (!S.ui.bdMon) S.ui.bdMon = String((S.d && S.d.today) || today()).slice(5, 7);
+  await swr('bdayList', { month: S.ui.bdMon }, (r) => bdListMount(r));
+}
+function bdListMount(r){
+  const box = toolBox(); if (!box || S.ui.tab !== 'bday') return;
+  const y = Number(String(r.today).slice(0, 4)), mo = Number(r.month);
+  const wd = (md) => { const dt = new Date(y, mo - 1, +md.slice(3)); return WEEKDAYS ? WEEKDAYS[dt.getDay()] : ''; };
+  const groups = [];
+  r.items.forEach(x => { const g = groups[groups.length - 1]; if (g && g.md === x.md) g.list.push(x); else groups.push({ md: x.md, list: [x] }); });
+  box.innerHTML = `<div class="bdl-head">
+      <div class="bdl-mon"><button class="ibtn" data-bdm="-1" aria-label="Əvvəlki ay">${ic('back')}</button><b>${AZ_MONTHS[mo - 1][0].toUpperCase() + AZ_MONTHS[mo - 1].slice(1)}</b><button class="ibtn bdl-next" data-bdm="1" aria-label="Növbəti ay">${ic('back')}</button></div>
+      <div class="bdl-kpi"><b>${r.items.length}</b><small>bu ay ad günü</small></div>
+      <div class="bdl-kpi"><b>${r.setCount} / ${r.total}</b><small>ad gününü qeyd edib</small></div></div>
+    <p class="hint" style="margin:12px 0 14px">${ic('info')} Siyahıda yalnız ad gününü özü qeyd edən tələbə və müəllimlər görünür — heç kim məcbur deyil. Tarixlər yalnız sizə görünür.</p>
+    ${groups.length ? `<div class="bdl-list">${groups.map(g => `<section class="bdl-day${g.list.some(x => x.today) ? ' today' : ''}"><div class="bdl-date"><b>${+g.md.slice(3)}</b><span>${AZ_MONTHS[mo - 1]}</span><small>${esc(wd(g.md))}</small>${g.list.some(x => x.today) ? '<i>Bu gün</i>' : ''}</div>
+      <div class="bdl-ppl">${g.list.map(x => `<div class="bdl-p"><span class="ava">${esc(initials(x.name))}</span><div><b>${x.kind === 's' && can('students.view') ? `<button class="linkish" data-go="student" data-param="${x.id}">${bdN(x.id, x.name)}</button>` : bdN(x.id, x.name)}</b>
+        <small>${x.kind === 's' ? `Tələbə${x.courses.length ? ' · ' + esc(x.courses.join(' · ')) : ''}` : `${roleLabel(x.role)}${x.subject ? ' · ' + esc(x.subject) : ''}`}</small></div></div>`).join('')}</div></section>`).join('')}</div>`
+    : emptyBox('Bu ay ad günü yoxdur', 'Ad gününü qeyd edənlərdən heç birinin ad günü bu aya düşmür.')}`;
+  hydrateIcons(box);
+  $$('[data-bdm]', box).forEach(b => b.addEventListener('click', () => {
+    let m = Number(S.ui.bdMon) + Number(b.dataset.bdm); if (m < 1) m = 12; if (m > 12) m = 1;
+    S.ui.bdMon = String(m).padStart(2, '0'); drawBdayTab();
+  }));
+}
+
 (function init(){
   hydrateIcons();
   $('[data-act=togglePass]').innerHTML = ic('eye');
@@ -10556,13 +11170,17 @@ document.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.ma
   initDeco();
   loaderObserver.observe(document.body, { childList: true, subtree: true });
   registerSW();
+  localSet('al_base', location.pathname.replace(/index\.html$/, ''));
   initInstallHint();
   if (publicRoute()) return;
+  { const hp = location.hash.replace(/^#\/?/, '').split('/')[0]; if (hp && !PAGES[hp] && hp !== 'cards' && !(st && st.tok) && !ssGet()) setTimeout(() => fsxShow('404'), 50); }
   if (st && st.tok) return resumeSession(st);
+  const ss = ssGet();
+  if (ss && ss.tok) return resumeSession(ss, true);
   showLogin();
 })();
-async function resumeSession(st){
-  S.token = st.tok; S.kind = st.kind || 'u'; S.remember = true;
+async function resumeSession(st, tabOnly){
+  S.token = st.tok; S.kind = st.kind || 'u'; S.remember = !tabOnly;
   if (st.d){
     try { applyData(st.d, { noRender: true }); S.lastSync = 0; enterApp(); } catch (e) { S.d = null; S.cab = null; }
   }
