@@ -2587,7 +2587,7 @@ h2 .bdn{padding:2px 12px;font-weight:800}
 <div id="modalRoot"></div>
 <div id="toasts" class="toasts" aria-live="polite"></div>
 
-<script>const API_URL = 'https://script.google.com/macros/s/AKfycbw0TaJ_60o9GXdDPmTY9vy9ntwgvZwGl1OOkCBJnycivi-QOKGjdnhMmc50kGqRrxRl/exec';
+<script>const API_URL = 'https://script.google.com/macros/s/AKfycbwCHitr7QMTnEVhVeIHSxvMt0ob0eqf45yhGqNpHJNmXwG7pmRhDLnhiZgh9UMke_x-/exec';
 const SOCIAL = { whatsapp: '', instagram: '', tiktok: '' };
 
 const ICONS = {
@@ -5425,7 +5425,7 @@ async function loadTool(tab){
     if (tab === 'responses') return await swr('surveyResponses', S.ui.respFilter || {}, only(drawResponses));
     if (tab === 'questions') return await swr('getSurveyQuestions', {}, only(drawQuestions));
     if (tab === 'trash') return await swr('trashList', {}, only(drawTrash));
-    if (tab === 'bulk') return drawBulk();
+    if (tab === 'bulk') return drawBulkTools();
     if (tab === 'check') return drawCheckIntro();
     if (tab === 'import') return drawImport();
     if (tab === 'backup') return drawBackup();
@@ -5705,7 +5705,7 @@ ACT.purgeItem = async (b) => {
   run(b, async () => { await api('purgeItem', { kind: b.dataset.kind, id: b.dataset.id }); toast('Həmişəlik silindi.'); loadTool('trash'); });
 };
 
-function drawBulk(){
+function drawBulkTools(){
   const box = toolBox(); if (!box) return;
   box.innerHTML = `<div class="tile-grid">
     <div class="tile">${ic('teacher')}<b>Müəllim dəyişmə</b><p>Bir müəllimin bütün məşğələlərini bir əməliyyatla başqa müəllimə verin (müəllim işdən çıxanda).</p>
