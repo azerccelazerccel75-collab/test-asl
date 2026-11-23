@@ -1,4 +1,4 @@
-const CACHE = 'aslan-v9-0';
+const CACHE = 'aslan-v9-1';
 const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png', 'icon-maskable.png', '404.html'];
 let freshAt = 0;
 
