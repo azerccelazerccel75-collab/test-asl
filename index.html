@@ -266,8 +266,6 @@ html.fs-l body{zoom:1.12;min-height:calc(100dvh / 1.12)}
 html.fs-l .shell,html.fs-l .cab,html.fs-l .login{min-height:calc(100dvh / 1.12)}
 html.fs-l .modal{max-height:calc((100dvh - 40px) / 1.12)}
 html.fs-l .modal.palette{height:calc(100dvh / 1.12)}
-html.fs-l .wb{height:calc((100dvh - 150px) / 1.12)}
-html.fs-l .wb:fullscreen,html.fs-l .wb.wb-max{height:calc(100dvh / 1.12)}
 html.fs-l .perm-users{max-height:calc((100dvh - 110px) / 1.12)}
 html.fs-l .ex-prev{max-height:calc((100dvh - 104px) / 1.12)}
 html.fs-l .net-bar,html.fs-l .ver-bar{max-width:min(560px,calc((100vw - 32px) / 1.12))}
@@ -279,7 +277,7 @@ html.fs-l .notif-list{max-height:min(calc(60vh / 1.12),420px)}
 html.fs-l .pal-list{max-height:min(calc(58vh / 1.12),480px)}
 html.fs-l .bd-pick{max-height:calc(46vh / 1.12)}
 html.fs-l .pdf-prev{max-height:calc(62vh / 1.12)}
-@media (max-width:760px){html.fs-l .wb{height:calc((100dvh - 130px) / 1.12)}html.fs-l .modal{max-height:calc(94dvh / 1.12)}html.fs-l .umenu-pop{max-height:calc((100dvh - 90px) / 1.12)}}
+@media (max-width:760px){html.fs-l .modal{max-height:calc(94dvh / 1.12)}html.fs-l .umenu-pop{max-height:calc((100dvh - 90px) / 1.12)}}
 .pf-card{display:flex;flex-direction:column;gap:16px;padding:20px;border:1.5px solid var(--line);border-radius:var(--r-lg);background:var(--surface)}
 .pf-top{display:flex;align-items:center;gap:16px;min-width:0}
 .pf-top .ava{width:84px;height:84px;font-size:28px}
@@ -372,25 +370,6 @@ html.tour-on .modal,html.tour-on .toast{display:none}
 .cc-kv{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:6px}
 .cc-kv div{display:flex;flex-direction:column}
 .cc-kv span{font-size:12px;color:var(--soft)}
-.wb{display:flex;flex-direction:column;gap:10px;height:calc(100dvh - 150px);min-height:420px;background:var(--bg)}
-.wb:fullscreen{height:100dvh;padding:10px}
-.wb.wb-max{position:fixed;inset:0;z-index:150;height:100dvh;padding:10px}
-.wb-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.wb-grp{display:flex;gap:3px;align-items:center;padding:4px;border:1.5px solid var(--line);border-radius:12px;background:var(--surface)}
-.wb-b{width:36px;height:36px;border:0;border-radius:9px;background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
-.wb-b:hover{background:var(--tint)}
-.wb-b.on{background:var(--or);color:#fff}
-.wb-b .i{width:19px;height:19px}
-.wb-nx .i{transform:rotate(180deg)}
-.wb-c{width:26px;height:26px;border-radius:50%;border:2px solid var(--line-strong);background:var(--c);cursor:pointer;padding:0;margin:0 2px}
-.wb-c.on{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--or)}
-.wb-dot{display:block;width:var(--d);height:var(--d);border-radius:50%;background:currentColor}
-.wb-sel{min-height:36px;padding:4px 34px 4px 10px;width:auto;border:0;font-size:13px}
-.wb-pages span{font-size:13px;font-weight:600;min-width:44px;text-align:center}
-.wb-area{position:relative;flex:1;min-height:0;border:1.5px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
-.wb-area canvas{display:block;touch-action:none;cursor:crosshair}
-.wb-txt{position:absolute;min-width:140px;background:rgba(255,255,255,.9);border:1.5px dashed #2563EB;border-radius:6px;padding:2px 6px;font-family:Poppins,sans-serif;resize:none;outline:none;line-height:1.3}
-@media (max-width:760px){.wb-bar{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}.wb-grp{flex:none}.wb{height:calc(100dvh - 130px)}.wb-b{width:34px;height:34px}.wb-grp{padding:3px}}
 .pod-av{display:flex;justify-content:center;margin:2px 0 4px}
 .pod-av .ava{width:46px;height:46px;font-size:15px}
 .lead-list .ava{width:28px;height:28px;font-size:10.5px}
@@ -2726,7 +2705,6 @@ const ICONS = {
   gear:'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>',
   bug:'<path d="M8 8.5V7a4 4 0 0 1 8 0v1.5"/><rect x="6.5" y="8.5" width="11" height="12" rx="5.5"/><path d="M12 12.5v8M3 13h3.5M17.5 13H21M4 7.5l2.8 2M20 7.5l-2.8 2M4 19l2.8-2M20 19l-2.8-2"/>',
   type:'<path d="M4 7V5h11v2M9.5 5v14M7.5 19h4M14 12v-1.5h6V12M17 10.5V19M15.5 19h3"/>',
-  board:'<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21l4-4 4 4M7 9.5l3 3 3-4 4 4"/>',
   wifioff:'<path d="M3 3l18 18M8.5 16.5a5 5 0 0 1 7 0M5 13a10 10 0 0 1 5.2-2.7M19 13a10 10 0 0 0-2.1-1.5M2 9.5a15 15 0 0 1 4.4-2.7M22 9.5a15 15 0 0 0-11-3.9"/><path d="M12 20h.01"/>',
   home:'<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',
   book:'<path d="M12 6.5C10.5 5 8 4.5 3.5 4.5v14c4.5 0 7 .5 8.5 2 1.5-1.5 4-2 8.5-2v-14c-4.5 0-7 .5-8.5 2z"/><path d="M12 6.5v14"/>',
@@ -3362,7 +3340,6 @@ const PAGES = {
   staff:    { title: 'Müəllimlər', icon: 'teacher', nav: true, allow: () => can('teachers.view') },
   history:  { title: 'Dərs tarixçəsi', icon: 'calendar', nav: true, allow: () => can('attendance.view') },
   exams:    { title: 'İmtahanlar', icon: 'exam', nav: true, allow: () => !!(S.d.exam && S.d.exam.show) },
-  board:    { title: 'Lövhə', icon: 'board', nav: true, allow: () => !me().isDev && (isTeacherish() || isAdminish()) },
   comms:    { title: 'Elan və sorğular', icon: 'megaphone', nav: true, allow: () => commsAllowed() },
   site:     { title: 'Sayt və bayramlar', icon: 'sparkle', nav: true, allow: () => siteAllowed() },
   tools:    { title: 'Alətlər', icon: 'tools', nav: true, allow: () => toolsAllowed() },
@@ -3430,8 +3407,8 @@ function renderChrome(){
   let html = '';
   {
     const adm = isAdminish();
-    const teacherPart = items.filter(([k]) => k === 'mine' || ((k === 'exams' || k === 'rating' || k === 'board') && !adm));
-    const adminPart = items.filter(([k]) => ['home','courses','students','staff','history','comms','site','tools'].includes(k) || ((k === 'exams' || k === 'rating' || k === 'board') && adm));
+    const teacherPart = items.filter(([k]) => k === 'mine' || ((k === 'exams' || k === 'rating') && !adm));
+    const adminPart = items.filter(([k]) => ['home','courses','students','staff','history','comms','site','tools'].includes(k) || ((k === 'exams' || k === 'rating') && adm));
     const superPart = items.filter(([k]) => k === 'perms' || k === 'logs' || k === 'dev');
     const extra = items.filter(([k]) => k === 'news');
     if (teacherPart.length && adminPart.length) html += '<div class="nav-sec">Müəllim</div>';
@@ -10883,17 +10860,17 @@ async function nyCard(o){
   blocks.forEach(([k, h]) => {
     if (k === 'lion') seasonLion(ctx, W / 2 - Z.lion / 2, y, Z.lion, nv ? 'nv' : 'ny');
     else if (k === 'brand') spaced('ASLAN LESSONS', y + h * .8, F(700, Z.brand), 'rgba(255,255,255,.85)', 10);
-    else if (k === 't1') shadow(() => nv ? center('Novruz', y + h * .8, F(800, Z.t1), nyGold(ctx, 0, y, 0, y + h)) : center(story ? 'Yeni iliniz' : 'Yeni iliniz mübarək!', y + h * .8, F(800, Z.t1), '#fff'));
-    else if (k === 't2' && h) shadow(() => nv ? center('bayramınız mübarək!', y + h * .8, F(700, Z.t2), '#fff') : center('mübarək!', y + h * .8, F(800, Z.t2), nyGold(ctx, 0, y, 0, y + h)));
+    else if (k === 't1') shadow(() => nv ? center('Novruz', y + h * .8, F(800, Z.t1), '#FCD34D') : center(story ? 'Yeni iliniz' : 'Yeni iliniz mübarək!', y + h * .8, F(800, Z.t1), '#fff'));
+    else if (k === 't2' && h) shadow(() => nv ? center('bayramınız mübarək!', y + h * .8, F(700, Z.t2), '#fff') : center('mübarək!', y + h * .8, F(800, Z.t2), '#FCD34D'));
     else if (k === 'yr' && h){
       if (nv){ nvSemeni(ctx, W / 2, y + h * .82, h * 1.05); }
       else {
         const by = y + h; ctx.save(); ctx.font = F(800, Z.yr); ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(252,211,77,.55)'; ctx.shadowBlur = 40;
-        ctx.fillStyle = nyGold(ctx, 0, y, 0, by); ctx.fillText(yr, W / 2, by); ctx.shadowBlur = 0; ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.strokeText(yr, W / 2, by); ctx.restore();
+        ctx.fillStyle = '#FCD34D'; ctx.fillText(yr, W / 2, by); ctx.shadowBlur = 0; ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.strokeText(yr, W / 2, by); ctx.restore();
       }
     }
     else if (k === 'hi') center('Əziz', y + h * .8, F(500, Z.hi), 'rgba(255,255,255,.85)');
-    else if (k === 'name') nl.forEach((ln, i) => center(ln, y + ns * .85 + i * ns * 1.15, F(700, ns), nyGold(ctx, 0, y + i * ns * 1.15, 0, y + (i + 1) * ns * 1.15)));
+    else if (k === 'name') nl.forEach((ln, i) => center(ln, y + ns * .85 + i * ns * 1.15, F(700, ns), '#FCD34D'));
     else if (k === 'wish') wl.forEach((ln, i) => center(ln, y + ws * 1.1 + i * ws * 1.5, F(400, ws), 'rgba(255,255,255,.94)'));
     else if (k === 'rule'){ ctx.fillStyle = 'rgba(252,211,77,.75)'; ctx.fillRect(W / 2 - 50, y, 100, 3); }
     else if (k === 'from') center(o.from, y + h * .8, F(600, Z.from), '#FDE68A');
@@ -11565,8 +11542,7 @@ function helpSections(){
     ['calplus', 'Ay bitəndə nə olur', `<p>Kartdakı dairələr ayın neçə dərsinin keçildiyini göstərir. Bütün dərslər keçiləndə kart tamamlanmış kimi işarələnir. Tələbə davam edirsə, yeni ayı Leyla xanım başladır.</p>`],
     ['wifioff', 'İnternet olmayanda', `<p>Dərsi internet olmadan da qeyd edə bilərsiniz. Qeyd telefonda saxlanılır və internet gələn kimi özü göndərilir. Göndərilənə qədər kartda <b>göndərilməyib</b> yazısı görünür. Səhifəni bağlasanız da qeyd itmir.</p>`],
     ['key', 'Tələbələrin login və şifrəsi', `<p>Kartdakı açar işarəsi tələbələrin loginlərini göstərir. Onları WhatsApp ilə göndərmək olar. Şifrəni heç kim görə bilmir. Tələbə şifrəni unudubsa, onu sıfırlayın: tələbə ilkin şifrə ilə daxil olub yenisini təyin edəcək.</p>`],
-    ['exam', 'İmtahanlar', `<p><b>İmtahanlar</b> bölməsində sualları adi mətn kimi yazırsınız, sistem onları imtahana çevirir. Testlər özü yoxlanılır, açıq suallara balı siz verirsiniz. Ətraflı qaydalar həmin bölmədəki <b>Kömək</b> düyməsindədir.</p>`],
-    ['board', 'Lövhə', `<p><b>Lövhə</b> bölməsində məsələləri əl ilə yazıb həll edə bilərsiniz. Ekranı paylaşanda tələbələr lövhəni görür. Bir neçə səhifə açmaq, şəkli PNG kimi yükləmək və tam ekrana keçmək olar.</p>`]
+    ['exam', 'İmtahanlar', `<p><b>İmtahanlar</b> bölməsində sualları adi mətn kimi yazırsınız, sistem onları imtahana çevirir. Testlər özü yoxlanılır, açıq suallara balı siz verirsiniz. Ətraflı qaydalar həmin bölmədəki <b>Kömək</b> düyməsindədir.</p>`]
   );
   if (adm) out.push(
     ['layers', 'Məşğələ yaratmaq', `<p><b>Məşğələlər</b> bölməsində <b>Yeni məşğələ</b> düyməsini basın. Növü (fərdi və ya qrup), müəllimi, tələbələri və ayda neçə dərs olacağını seçin. Bütün dərslər keçiləndə kartda <b>Yeni ay başlat</b> düyməsi çıxır.</p>`],
@@ -11602,7 +11578,7 @@ function tourSteps(){
     { el: () => $('#main .ccard-prog'), t: 'Ayın gedişi', d: 'Dairələr ayın neçə dərsinin keçildiyini göstərir. Ay tamamlananda yeni ayı Leyla xanım başladır. Toxunun.' },
     { el: () => $('#main .lesson-fold summary'), t: 'Səhv qeydi düzəltmək', d: 'Burada bu ayın qeydləri var. Səhv olanı qələm işarəsi ilə düzəldə, səbətlə silə bilərsiniz (24 saat ərzində). Toxunun.' },
     Object.assign(nav('exams'), { t: 'İmtahanlar', d: 'Sualları adi mətn kimi yazırsınız, sistem onları imtahana çevirir və testləri özü yoxlayır. Toxunun.', stay: true }),
-    Object.assign(nav('board'), { t: 'Lövhə', d: 'Dərs zamanı məsələləri burada yazıb həll edə, ekranı paylaşıb tələbələrə göstərə bilərsiniz. Toxunun.', stay: true }),
+    { el: () => $('#main [data-act=courseDetail]'), t: 'Məşğələnin tarixçəsi', d: 'Bu düymə məşğələnin bütün dərslərini, tələbələrini və ay-ay gedişatını göstərir. Toxunun.' },
     { el: () => $('#bell .bell-btn') || $('#bell button'), t: 'Bildirişlər', d: 'Tələbə imtahanı bitirəndə, yeni elan olanda və ya vacib bir şey baş verəndə burada görünür. Toxunun.' },
     { el: () => $('#umenuBtn'), t: 'Profil menyusu', d: 'Parametrlər (avatar, mövzu, yazı ölçüsü, şifrə), Kömək və Problem bildir buradadır. Toxunun.' }
   ];
@@ -11771,132 +11747,6 @@ function ptsChart(list){
   if (!list || list.length < 2) return '';
   const mx = Math.max(1, ...list.map(x => x.pts));
   return `<div class="pts-ch" role="img" aria-label="Aylar üzrə bal">${list.map(x => `<div class="pts-c"><b>${x.pts}</b><i style="height:${Math.max(4, Math.round(x.pts / mx * 100))}%"></i><span>${MONTHS[Number(x.m.slice(5)) - 1].slice(0, 3)}</span></div>`).join('')}</div>`;
-}
-
-const WB = { tool: 'pen', color: '#1F2937', size: 2, bg: 'grid', pages: [[]], pi: 0, redo: [], cur: null };
-const WB_COLORS = ['#1F2937', '#2563EB', '#DC2626', '#16A34A', '#EA580C', '#7C3AED', '#FFFFFF'];
-const WB_TOOLS = [['pen', 'Qələm', '<path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/>'], ['hl', 'Marker', '<path d="M9 15l-4 5h6l2-3"/><path d="M9 15l7-11 5 3-7 11z"/>'], ['er', 'Pozan', '<path d="M7 20h10M5 14l8-8 6 6-8 8H9z"/>'], ['line', 'Xətt', '<path d="M5 19L19 5"/>'], ['arrow', 'Ox', '<path d="M5 19L19 5M10 5h9v9"/>'], ['rect', 'Düzbucaqlı', '<rect x="4" y="6" width="16" height="12" rx="1"/>'], ['ell', 'Dairə', '<ellipse cx="12" cy="12" rx="8" ry="6.5"/>'], ['text', 'Mətn', '<path d="M5 6h14M12 6v13M9 19h6"/>']];
-function wbLoad(){ try { const x = JSON.parse(localGet('al_wb') || 'null'); if (x && Array.isArray(x.pages) && x.pages.length){ WB.pages = x.pages; WB.pi = Math.min(x.pi || 0, x.pages.length - 1); WB.bg = x.bg || 'grid'; } } catch (e) {} }
-let wbSaveT = null;
-function wbSave(){ clearTimeout(wbSaveT); wbSaveT = setTimeout(() => { try { localStorage.setItem('al_wb', JSON.stringify({ pages: WB.pages, pi: WB.pi, bg: WB.bg })); } catch (e) {} }, 500); }
-RENDER.board = () => {
-  if (!WB.loaded){ wbLoad(); WB.loaded = true; }
-  const svg = (p) => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${p}</svg>`;
-  return `<div class="wb" id="wb">
-    <div class="wb-bar">
-      <div class="wb-grp">${WB_TOOLS.map(([k, l, p]) => `<button class="wb-b${WB.tool === k ? ' on' : ''}" data-wbt="${k}" title="${l}" aria-label="${l}">${svg(p)}</button>`).join('')}</div>
-      <div class="wb-grp">${WB_COLORS.map(c => `<button class="wb-c${WB.color === c ? ' on' : ''}" data-wbc="${c}" style="--c:${c}" aria-label="Rəng"></button>`).join('')}</div>
-      <div class="wb-grp">${[1, 2, 3].map(n => `<button class="wb-b${WB.size === n ? ' on' : ''}" data-wbs="${n}" aria-label="Qalınlıq ${n}"><i class="wb-dot" style="--d:${n * 3 + 1}px"></i></button>`).join('')}</div>
-      <div class="wb-grp"><select class="select wb-sel" id="wbBg" aria-label="Fon">${[['grid', 'Damalı'], ['lines', 'Xətli'], ['plain', 'Ağ'], ['dark', 'Qara lövhə']].map(([v, l]) => `<option value="${v}" ${WB.bg === v ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
-      <div class="wb-grp"><button class="wb-b" data-wba="undo" title="Geri al" aria-label="Geri al">${svg('<path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>')}</button><button class="wb-b" data-wba="redo" title="Təkrarla" aria-label="Təkrarla">${svg('<path d="M15 14l5-5-5-5"/><path d="M20 9H10a6 6 0 0 0 0 12h3"/>')}</button><button class="wb-b" data-wba="clear" title="Təmizlə" aria-label="Təmizlə">${ic('trash')}</button></div>
-      <div class="wb-grp wb-pages"><button class="wb-b" data-wba="prev" aria-label="Əvvəlki səhifə">${ic('back')}</button><span id="wbPg">${WB.pi + 1} / ${WB.pages.length}</span><button class="wb-b wb-nx" data-wba="next" aria-label="Növbəti səhifə">${ic('back')}</button><button class="wb-b" data-wba="add" title="Yeni səhifə" aria-label="Yeni səhifə">${ic('plus')}</button></div>
-      <div class="wb-grp"><button class="wb-b" data-wba="png" title="PNG yüklə" aria-label="PNG yüklə">${ic('download')}</button><button class="wb-b" data-wba="full" title="Tam ekran" aria-label="Tam ekran">${svg('<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>')}</button></div>
-    </div>
-    <div class="wb-area" id="wbArea"><canvas id="wbCv"></canvas></div>
-  </div>`;
-};
-AFTER.board = () => wbInit();
-function wbStroke(ctx, s, k){
-  ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-  const w = s.t === 'hl' ? s.w * 6 : s.t === 'er' ? s.w * 9 : s.w * 1.6;
-  ctx.lineWidth = w; ctx.strokeStyle = s.c; ctx.fillStyle = s.c;
-  if (s.t === 'hl') ctx.globalAlpha = .32;
-  if (s.t === 'er'){ ctx.globalCompositeOperation = 'destination-out'; ctx.strokeStyle = '#000'; }
-  if (s.t === 'pen' || s.t === 'hl' || s.t === 'er'){
-    const p = s.p; ctx.beginPath(); ctx.moveTo(p[0], p[1]);
-    if (p.length === 2) ctx.lineTo(p[0] + .1, p[1] + .1);
-    for (let i = 2; i < p.length - 2; i += 2){ const mx = (p[i] + p[i + 2]) / 2, my = (p[i + 1] + p[i + 3]) / 2; ctx.quadraticCurveTo(p[i], p[i + 1], mx, my); }
-    if (p.length > 2) ctx.lineTo(p[p.length - 2], p[p.length - 1]);
-    ctx.stroke();
-  } else if (s.t === 'line' || s.t === 'arrow'){
-    ctx.beginPath(); ctx.moveTo(s.x1, s.y1); ctx.lineTo(s.x2, s.y2); ctx.stroke();
-    if (s.t === 'arrow'){ const a = Math.atan2(s.y2 - s.y1, s.x2 - s.x1), L = 10 + w * 2.5; ctx.beginPath(); ctx.moveTo(s.x2, s.y2); ctx.lineTo(s.x2 - L * Math.cos(a - .45), s.y2 - L * Math.sin(a - .45)); ctx.moveTo(s.x2, s.y2); ctx.lineTo(s.x2 - L * Math.cos(a + .45), s.y2 - L * Math.sin(a + .45)); ctx.stroke(); }
-  } else if (s.t === 'rect'){ ctx.strokeRect(Math.min(s.x1, s.x2), Math.min(s.y1, s.y2), Math.abs(s.x2 - s.x1), Math.abs(s.y2 - s.y1)); }
-  else if (s.t === 'ell'){ ctx.beginPath(); ctx.ellipse((s.x1 + s.x2) / 2, (s.y1 + s.y2) / 2, Math.abs(s.x2 - s.x1) / 2 + .1, Math.abs(s.y2 - s.y1) / 2 + .1, 0, 0, 6.2832); ctx.stroke(); }
-  else if (s.t === 'text'){ ctx.font = `500 ${12 + s.w * 6}px Poppins, sans-serif`; ctx.textBaseline = 'top'; String(s.s).split('\n').forEach((ln, i) => ctx.fillText(ln, s.x1, s.y1 + i * (16 + s.w * 7))); }
-  ctx.restore();
-}
-function wbBgPaint(ctx, w, h, bg){
-  ctx.fillStyle = bg === 'dark' ? '#1E3A2F' : '#FFFFFF'; ctx.fillRect(0, 0, w, h);
-  if (bg === 'grid' || bg === 'lines'){
-    ctx.strokeStyle = 'rgba(37,99,235,.13)'; ctx.lineWidth = 1; ctx.beginPath();
-    for (let y = 28; y < h; y += 28){ ctx.moveTo(0, y + .5); ctx.lineTo(w, y + .5); }
-    if (bg === 'grid') for (let x = 28; x < w; x += 28){ ctx.moveTo(x + .5, 0); ctx.lineTo(x + .5, h); }
-    ctx.stroke();
-  }
-}
-function wbDraw(){
-  const cv = $('#wbCv'); if (!cv) return;
-  const ctx = cv.getContext('2d'), dpr = devicePixelRatio || 1, w = cv.width / dpr, h = cv.height / dpr;
-  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  if (!WB.ink){ WB.ink = document.createElement('canvas'); }
-  const ink = WB.ink; ink.width = cv.width; ink.height = cv.height;
-  const ic2 = ink.getContext('2d'); ic2.setTransform(dpr, 0, 0, dpr, 0, 0);
-  WB.pages[WB.pi].forEach(s => wbStroke(ic2, s));
-  if (WB.cur) wbStroke(ic2, WB.cur);
-  wbBgPaint(ctx, w, h, WB.bg);
-  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(ink, 0, 0);
-  const pg = $('#wbPg'); if (pg) pg.textContent = `${WB.pi + 1} / ${WB.pages.length}`;
-}
-function wbFit(){
-  const a = $('#wbArea'), cv = $('#wbCv'); if (!a || !cv) return;
-  const dpr = devicePixelRatio || 1, r = a.getBoundingClientRect();
-  cv.width = Math.max(1, Math.round(r.width * dpr)); cv.height = Math.max(1, Math.round(r.height * dpr));
-  cv.style.width = r.width + 'px'; cv.style.height = r.height + 'px';
-  wbDraw();
-}
-function wbInit(){
-  const wb = $('#wb'), cv = $('#wbCv'); if (!wb || !cv) return;
-  if (WB.color === '#FFFFFF' && WB.bg !== 'dark') WB.color = '#1F2937';
-  wbFit();
-  if (WB.ro) WB.ro.disconnect();
-  WB.ro = new ResizeObserver(() => wbFit()); WB.ro.observe($('#wbArea'));
-  const pos = (e) => { const r = cv.getBoundingClientRect(), z = r.width / cv.offsetWidth || 1; return [(e.clientX - r.left) / z, (e.clientY - r.top) / z]; };
-  cv.addEventListener('pointerdown', e => {
-    if (e.button > 0) return;
-    e.preventDefault(); const [x, y] = pos(e);
-    if (WB.tool === 'text') return wbText(x, y);
-    cv.setPointerCapture(e.pointerId);
-    WB.cur = ['pen', 'hl', 'er'].includes(WB.tool) ? { t: WB.tool, c: WB.color, w: WB.size, p: [x, y] } : { t: WB.tool, c: WB.color, w: WB.size, x1: x, y1: y, x2: x, y2: y };
-    wbDraw();
-  });
-  cv.addEventListener('pointermove', e => {
-    if (!WB.cur) return; const [x, y] = pos(e);
-    if (WB.cur.p) WB.cur.p.push(Math.round(x * 10) / 10, Math.round(y * 10) / 10); else { WB.cur.x2 = x; WB.cur.y2 = y; }
-    wbDraw();
-  });
-  const end = () => { if (!WB.cur) return; WB.pages[WB.pi].push(WB.cur); WB.cur = null; WB.redo = []; wbDraw(); wbSave(); };
-  cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
-  wb.addEventListener('click', e => {
-    const t = e.target.closest('[data-wbt]'), c = e.target.closest('[data-wbc]'), s = e.target.closest('[data-wbs]'), a = e.target.closest('[data-wba]');
-    if (t){ WB.tool = t.dataset.wbt; $$('[data-wbt]', wb).forEach(b => b.classList.toggle('on', b === t)); }
-    if (c){ WB.color = c.dataset.wbc; $$('[data-wbc]', wb).forEach(b => b.classList.toggle('on', b === c)); if (WB.tool === 'er') { WB.tool = 'pen'; $$('[data-wbt]', wb).forEach(b => b.classList.toggle('on', b.dataset.wbt === 'pen')); } }
-    if (s){ WB.size = +s.dataset.wbs; $$('[data-wbs]', wb).forEach(b => b.classList.toggle('on', b === s)); }
-    if (a) wbAct(a.dataset.wba);
-  });
-  $('#wbBg').addEventListener('change', e => { WB.bg = e.target.value; if (WB.bg === 'dark' && WB.color === '#1F2937') WB.color = '#FFFFFF'; if (WB.bg !== 'dark' && WB.color === '#FFFFFF') WB.color = '#1F2937'; $$('[data-wbc]', wb).forEach(b => b.classList.toggle('on', b.dataset.wbc === WB.color)); wbDraw(); wbSave(); });
-}
-function wbText(x, y){
-  const a = $('#wbArea'); const old = $('.wb-txt', a); if (old) old.remove();
-  const t = document.createElement('textarea'); t.className = 'wb-txt'; t.rows = 1; t.placeholder = 'Yazın, sonra Enter';
-  Object.assign(t.style, { left: x + 'px', top: y + 'px', color: WB.color === '#FFFFFF' && WB.bg !== 'dark' ? '#1F2937' : WB.color, fontSize: (12 + WB.size * 6) + 'px' });
-  a.appendChild(t); setTimeout(() => t.focus(), 20);
-  const done = () => { const v = t.value.trim(); t.remove(); if (v){ WB.pages[WB.pi].push({ t: 'text', c: WB.color, w: WB.size, x1: x, y1: y, s: v.slice(0, 500) }); WB.redo = []; wbDraw(); wbSave(); } };
-  t.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); done(); } if (e.key === 'Escape'){ e.stopPropagation(); t.remove(); } });
-  t.addEventListener('blur', done);
-}
-async function wbAct(k){
-  const pg = WB.pages[WB.pi];
-  if (k === 'undo' && pg.length){ WB.redo.push(pg.pop()); }
-  else if (k === 'redo' && WB.redo.length){ pg.push(WB.redo.pop()); }
-  else if (k === 'clear'){ if (!pg.length) return; if (!await confirmBox({ title: 'Lövhəni təmizlə', text: 'Bu səhifədəki hər şey silinsin?', ok: 'Təmizlə', danger: true })) return; WB.pages[WB.pi] = []; WB.redo = []; }
-  else if (k === 'prev' && WB.pi > 0){ WB.pi--; WB.redo = []; }
-  else if (k === 'next' && WB.pi < WB.pages.length - 1){ WB.pi++; WB.redo = []; }
-  else if (k === 'add'){ if (WB.pages.length >= 30) return toast('Ən çox 30 səhifə olar.', 'err'); WB.pages.splice(WB.pi + 1, 0, []); WB.pi++; WB.redo = []; }
-  else if (k === 'png'){ const cv = $('#wbCv'); cv.toBlob(b => { if (b) saveBlob(b, 'lovhe-' + (WB.pi + 1) + '.png'); }, 'image/png'); return; }
-  else if (k === 'full'){ const el = $('#wb'); try { if (document.fullscreenElement) await document.exitFullscreen(); else if (el.requestFullscreen) await el.requestFullscreen(); else el.classList.toggle('wb-max'); } catch (e) { el.classList.toggle('wb-max'); } setTimeout(wbFit, 200); return; }
-  else return;
-  wbDraw(); wbSave();
 }
 
 async function renderCertCheck(no){
